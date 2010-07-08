@@ -1,0 +1,97 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A0988197-36D4-4BBF-93DB-29E312637036}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Adam.JSGenerator.Tests</RootNamespace>
+    <AssemblyName>Adam.JSGenerator.Tests</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArrayExpressionTests.cs" />
+    <Compile Include="BinaryOperationExpressionTests.cs" />
+    <Compile Include="BooleanExpressionTests.cs" />
+    <Compile Include="BreakStatementTests.cs" />
+    <Compile Include="CallOperationExpressionTests.cs" />
+    <Compile Include="CollectionHelpersTests.cs" />
+    <Compile Include="CompoundStatementTests.cs" />
+    <Compile Include="ConditionalStatementTests.cs" />
+    <Compile Include="ContinueStatementTests.cs" />
+    <Compile Include="DeclarationExpressionTests.cs" />
+    <Compile Include="DoWhileStatementTests.cs" />
+    <Compile Include="EmptyStatementTests.cs" />
+    <Compile Include="ExceptionHandlingStatementTests.cs" />
+    <Compile Include="Expect.cs" />
+    <Compile Include="ExpectTests.cs" />
+    <Compile Include="ExpressionTests.cs" />
+    <Compile Include="FunctionExpressionTests.cs" />
+    <Compile Include="GenerateJavaScriptOptionsTests.cs" />
+    <Compile Include="IdentifierExpressionTests.cs" />
+    <Compile Include="IndexOperationExpressionTests.cs" />
+    <Compile Include="IteratorStatementTests.cs" />
+    <Compile Include="JavaScriptTests.cs" />
+    <Compile Include="LabelStatementTests.cs" />
+    <Compile Include="LoopStatementTests.cs" />
+    <Compile Include="NullExpressionTests.cs" />
+    <Compile Include="NumberExpressionTests.cs" />
+    <Compile Include="ObjectLiteralExpressionTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyOperationExpressionTests.cs" />
+    <Compile Include="RegularExpressionTests.cs" />
+    <Compile Include="ReturnStatementTests.cs" />
+    <Compile Include="ScriptTests.cs" />
+    <Compile Include="SnippetExpressionTests.cs" />
+    <Compile Include="StatementTests.cs" />
+    <Compile Include="StringExpressionTests.cs" />
+    <Compile Include="SwitchStatementTests.cs" />
+    <Compile Include="ThrowStatementTests.cs" />
+    <Compile Include="UnaryOperationExpressionTests.cs" />
+    <Compile Include="WhileStatementTests.cs" />
+    <Compile Include="WithStatementTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Adam.JSGenerator\Adam.JSGenerator.csproj">
+      <Project>{98CF7658-3110-4EB3-9C38-0231C7B64B3F}</Project>
+      <Name>Adam.JSGenerator</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,66 @@
+﻿using System.Text;
+
+namespace Adam.JSGenerator
+{
+    /// <summary>
+    /// Defines a continue statement.
+    /// </summary>
+    public class ContinueStatement : Statement
+    {
+        private IdentifierExpression _Label;
+
+        /// <summary>
+        /// Initializes a new instanec of <see cref="ContinueStatement" />.
+        /// </summary>
+        public ContinueStatement()
+            : this(null)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of <see cref="ContinueStatement" /> that jumps to the specified label.
+        /// </summary>
+        /// <param name="label">The name of the label to jump to.</param>
+        public ContinueStatement(IdentifierExpression label)
+        {
+            this.Label = label;
+        }
+
+        /// <summary>
+        /// Gets or sets the label to jump to. 
+        /// </summary>
+        /// <remarks>
+        /// If the continue statement should not specify a label, set this property to null.
+        /// </remarks>
+        public IdentifierExpression Label
+        {
+            get
+            {
+                return this._Label;
+            }
+            set
+            {
+                this._Label = value;
+            }
+        }
+
+        internal protected override void AppendScript(StringBuilder builder, GenerateJavaScriptOptions options)
+        {
+            builder.Append("continue");
+
+            if (this._Label != null)
+            {
+                builder.Append(" ");
+                this._Label.AppendScript(builder, options);
+            }
+        }
+
+        internal protected override bool RequiresTerminator
+        {
+            get
+            {
+                return true;
+            }
+        }
+    }
+}
