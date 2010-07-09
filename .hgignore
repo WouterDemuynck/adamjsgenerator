@@ -7,3 +7,4 @@ glob:*.suo
 glob:TestResults
 glob:_ReSharper.*
 glob:*.vsmdi
+glob:*.tmp
