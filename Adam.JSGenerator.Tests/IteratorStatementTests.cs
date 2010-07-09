@@ -4,14 +4,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Summary description for IteratorStatementTests
-    /// </summary>
     [TestClass]
     public class IteratorStatementTests
     {
         [TestMethod]
-        public void Iterator_Requires_Variable()
+        public void IteratorRequiresVariable()
         {
             var iterator = new IteratorStatement();
             iterator.Collection = JS.Id("b");
@@ -22,7 +19,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Iterator_Requires_Collection()
+        public void IteratorRequiresCollection()
         {
             var iterator = new IteratorStatement();
             iterator.Variable = JS.Id("a");
@@ -33,7 +30,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Iterator_Requires_Statement()
+        public void IteratorRequiresStatement()
         {
             var iterator = new IteratorStatement();
             iterator.Variable = JS.Id("a");
@@ -44,7 +41,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Iterator_Produces_For_In()
+        public void IteratorProducesForIn()
         {
             var id = JS.Id("a");
             var collection = JS.Array();
@@ -57,7 +54,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Iterator_Supports_Declaration()
+        public void IteratorSupportsDeclaration()
         {
             var id = JS.Id("a");
             var collection = JS.Array();
@@ -67,7 +64,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Iterator_Has_Helpers()
+        public void IteratorHasHelpers()
         {
             var statement1 = JS.For(JS.Id("a")).In(JS.Array()).With();
             var statement2 = JS.For(JS.Id("b")).In(JS.Id("c")).With(new List<Statement> { JS.Empty() });
@@ -77,7 +74,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Iterator_Helpers_Requires_Iterator()
+        public void IteratorHelpersRequiresIterator()
         {
             IteratorStatement iterator = null;
             Expect.Throw<ArgumentNullException>(() => iterator.With());

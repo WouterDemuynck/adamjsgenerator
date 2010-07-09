@@ -5,9 +5,6 @@ using System;
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Tests for CallOperationExpression
-    /// </summary>
     [TestClass]
     public class CallOperationExpressionTests
     {
@@ -16,7 +13,7 @@ namespace Adam.JSGenerator.Tests
         // ReSharper restore InconsistentNaming
 
         [TestMethod]
-        public void CallOperationExpression_Produces_Call()
+        public void CallOperationExpressionProducesCall()
         {
             var c = fn.Call();
 
@@ -24,7 +21,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void CallOperationExpression_Produces_Call_With_Parameters()
+        public void CallOperationExpressionProducesCallWithParameters()
         {
             var c1 = fn.Call(1, 2, "Hello!");
             var p = new List<Expression> { 1, 2, 3 };
@@ -39,14 +36,14 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void CallOperationExpressionHelpers_Requires_Expression1()
+        public void CallOperationExpressionHelpersRequiresExpression1()
         {
             Expression expression = null;
             Expect.Throw <ArgumentNullException>(() => expression.Call());
         }
 
         [TestMethod]
-        public void CallOperationExpressionHelpers_Requires_Expression2()
+        public void CallOperationExpressionHelpersRequiresExpression2()
         {
             Expression expression = null;
             IEnumerable<Expression> arguments = null;

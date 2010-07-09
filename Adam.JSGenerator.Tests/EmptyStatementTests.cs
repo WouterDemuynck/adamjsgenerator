@@ -2,14 +2,11 @@
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Tests for EmptyStatement
-    /// </summary>
     [TestClass]
     public class EmptyStatementTests
     {
         [TestMethod]
-        public void EmptyStatement_Produces_Empty_Statement()
+        public void EmptyStatementProducesEmptyStatement()
         {
             var e = JS.Empty();
 
@@ -17,7 +14,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void EmptyStatement_Produces_Block()
+        public void EmptyStatementProducesBlock()
         {
             var b = JS.BlockOrStatement(JS.Empty(), JS.Empty());
 

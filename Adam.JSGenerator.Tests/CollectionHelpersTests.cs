@@ -5,28 +5,25 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Summary description for CollectionHelpersTests
-    /// </summary>
     [TestClass]
     public class CollectionHelpersTests
     {
         [TestMethod]
-        public void WithConvertedNulls_Requires_Expressions()
+        public void WithConvertedNullsRequiresExpressions()
         {
             IEnumerable<Expression> enumerable = null;
             Expect.Throw<ArgumentNullException>(() => enumerable.WithConvertedNulls());
         }
 
         [TestMethod]
-        public void WithConvertedNulls_Requires_Statements()
+        public void WithConvertedNullsRequiresStatements()
         {
             IEnumerable<Statement> enumerable = null;
             Expect.Throw<ArgumentNullException>(() => enumerable.WithConvertedNulls());
         }
 
         [TestMethod]
-        public void WithConvertedNulls_Converts_Into_EmptyStatements()
+        public void WithConvertedNullsConvertsIntoEmptyStatements()
         {
             IEnumerable<Statement> enumerable = new Statement[] { JS.Null(), null, JS.Return() };
             var converted = enumerable.WithConvertedNulls().ToArray();
@@ -38,7 +35,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void WithConvertedNulls_Converts_Into_NullExpressions()
+        public void WithConvertedNullsConvertsIntoNullExpressions()
         {
             IEnumerable<Expression> enumerable = new Expression[] { JS.Id("a"), null, JS.Number(5) };
             var converted = enumerable.WithConvertedNulls().ToArray();

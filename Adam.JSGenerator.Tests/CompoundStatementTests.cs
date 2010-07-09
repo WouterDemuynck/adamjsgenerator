@@ -2,14 +2,11 @@
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Tests for CompoundStatement
-    /// </summary>
     [TestClass]
     public class CompoundStatementTests
     {
         [TestMethod]
-        public void CompoundStatement_Produces_Empty_Block()
+        public void CompoundStatementProducesEmptyBlock()
         {
             var c = new CompoundStatement();
 
@@ -17,7 +14,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void CompoundStatement_Produces_Block_With_Statements()
+        public void CompoundStatementProducesBlockWithStatements()
         {
             var c = new CompoundStatement(new NullExpression(), new NullExpression(), new ReturnStatement());
 
@@ -25,7 +22,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void CompoundStatement_Has_Helpers()
+        public void CompoundStatementHasHelpers()
         {
             var c = JS.Return();
 

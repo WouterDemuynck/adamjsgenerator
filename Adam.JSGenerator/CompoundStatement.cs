@@ -10,7 +10,7 @@ namespace Adam.JSGenerator
     /// </summary>
     public class CompoundStatement : Statement
     {
-        private List<Statement> _Statements = new List<Statement>();
+        private readonly List<Statement> _Statements = new List<Statement>();
 
         /// <summary>
         /// Creates a new empty instance of <see cref="CompoundStatement" />.
@@ -42,11 +42,6 @@ namespace Adam.JSGenerator
 
         internal protected override void AppendScript(StringBuilder builder, GenerateJavaScriptOptions options)
         {
-            if (this._Statements == null)
-            {
-                throw new InvalidOperationException("Statements cannot be null.");
-            }
-
             builder.Append("{");
 
             foreach (Statement statement in this._Statements.WithConvertedNulls())

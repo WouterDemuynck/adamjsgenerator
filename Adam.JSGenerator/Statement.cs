@@ -88,18 +88,14 @@ namespace Adam.JSGenerator
             {
                 return false;
             }
-            else if(ReferenceEquals(this, obj))
+            
+            if(ReferenceEquals(this, obj))
             {
                 return true;
             }
-            else if (!obj.GetType().Equals(this.GetType()))
-            {
-                return false;
-            }
-            else
-            {
-                return string.Equals(this.ToString(), obj.ToString());
-            }
+            
+            return obj.GetType().Equals(this.GetType()) && 
+                string.Equals(this.ToString(), obj.ToString());
         }
 
         public override int GetHashCode()

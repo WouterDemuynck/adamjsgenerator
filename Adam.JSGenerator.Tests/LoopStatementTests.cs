@@ -4,14 +4,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Summary description for LoopStatementTests
-    /// </summary>
     [TestClass]
     public class LoopStatementTests
     {
         [TestMethod]
-        public void LoopStatement_Requires_Statement()
+        public void LoopStatementRequiresStatement()
         {
             var statement = new LoopStatement();
 
@@ -19,7 +16,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void LoopStatement_Produces_Infinite_Loop()
+        public void LoopStatementProducesInfiniteLoop()
         {
             var statement = new LoopStatement(null, null, null, JS.Empty());
 
@@ -27,7 +24,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void LoopStatement_Produces_Loop_With_All_The_Bells_And_Whistles()
+        public void LoopStatementProducesLoopWithAllTheBellsAndWhistles()
         {
             var a = JS.Id("a");
             var initialization = JS.Var(a.AssignWith(0));
@@ -44,7 +41,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void LoopStatement_Produces_Loop_With_All_The_Bells_And_Whistles_Through_Properties()
+        public void LoopStatementProducesLoopWithAllTheBellsAndWhistlesThroughProperties()
         {
             var a = JS.Id("a");
             var initialization = JS.Var(a.AssignWith(0));
@@ -61,7 +58,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void LoopStatement_Has_With_Helpers()
+        public void LoopStatementHasWithHelpers()
         {
             LoopStatement statement1 = JS.For().With(JS.Return());
             LoopStatement statement2 = JS.For().With(new List<Statement> { JS.Return() });
@@ -71,7 +68,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void LoopStatement_With_Requires_Statement()
+        public void LoopStatementWithRequiresStatement()
         {
             LoopStatement statement = null;
 

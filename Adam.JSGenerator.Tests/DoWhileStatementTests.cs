@@ -3,14 +3,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Tests for DoWhileStatementTest
-    /// </summary>
     [TestClass]
     public class DoWhileStatementTests
     {
         [TestMethod]
-        public void DoWhileStatement_Requires_Condition()
+        public void DoWhileStatementRequiresCondition()
         {
             var d = new DoWhileStatement();
 
@@ -18,7 +15,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void DoWhileStatement_Requires_Statement()
+        public void DoWhileStatementRequiresStatement()
         {
             var d = new DoWhileStatement(JS.Null(), null);
 
@@ -26,7 +23,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void DoWhileStatement_Produces_Do_While()
+        public void DoWhileStatementProducesDoWhile()
         {
             var d = JS.Do(JS.Null(), JS.Null()).While(true);
 
@@ -36,7 +33,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void DoWhileStatementHelper_Requires_Statement()
+        public void DoWhileStatementHelperRequiresStatement()
         {
             DoWhileStatement statement = null;
             Expect.Throw<ArgumentNullException>(() => statement.While(true));

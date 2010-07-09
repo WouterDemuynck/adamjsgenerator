@@ -10,7 +10,7 @@ namespace Adam.JSGenerator
     public class CaseStatement
     {
         private Expression _Value;
-        private List<Statement> _Statements;
+        private readonly List<Statement> _Statements = new List<Statement>();
 
         /// <summary>
         /// Initializes a new instance of <see cref="CaseStatement" />.
@@ -30,7 +30,6 @@ namespace Adam.JSGenerator
         public CaseStatement(Expression value, IEnumerable<Statement> statements)
         {
             this._Value = value;
-            this._Statements = new List<Statement>();
 
             if (statements != null)
             {
@@ -42,6 +41,7 @@ namespace Adam.JSGenerator
         /// Produces the Javascript and appends it to the StringBuilder passed in the builder argument.
         /// </summary>
         /// <param name="builder">The StringBuilder instance to append the Javascript to.</param>
+        /// <param name="options">Specifies options to use while producing Javascript.</param>
         public void AppendScript(StringBuilder builder, GenerateJavaScriptOptions options)
         {
             if (this._Value != null)

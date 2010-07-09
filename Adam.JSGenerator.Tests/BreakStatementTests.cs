@@ -2,14 +2,11 @@
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Tests for BreakStatement
-    /// </summary>
     [TestClass]
     public class BreakStatementTests
     {
         [TestMethod]
-        public void BreakStatement_Produces_Break()
+        public void BreakStatementProducesBreak()
         {
             var b = new BreakStatement();
 
@@ -17,7 +14,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BreakStatement_Produces_Break_With_Label()
+        public void BreakStatementProducesBreakWithLabel()
         {
             var b = new BreakStatement("a");
 

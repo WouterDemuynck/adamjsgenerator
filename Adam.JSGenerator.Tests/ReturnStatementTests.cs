@@ -6,7 +6,7 @@ namespace Adam.JSGenerator.Tests
     public class ReturnStatementTests
     {
         [TestMethod]
-        public void ReturnStatement_Produces_Return_Without_Value()
+        public void ReturnStatementProducesReturnWithoutValue()
         {
             var statement = new ReturnStatement();
 
@@ -14,7 +14,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ReturnStatement_Produces_Return_With_Value()
+        public void ReturnStatementProducesReturnWithValue()
         {
             var statement = new ReturnStatement(3);
 

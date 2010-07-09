@@ -4,14 +4,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Tests for Expression.
-    /// </summary>
     [TestClass]
     public class ExpressionTests
     {
         [TestMethod]
-        public void Expression_Produces_Literals()
+        public void ExpressionProducesLiterals()
         {
             var l = new List<Expression> { 1, 2, 3.14, "Test", true, null };
             var s = new Script(l.Cast<Statement>());
@@ -20,7 +17,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Expression_Allows_Null_In_Various_Places()
+        public void ExpressionAllowsNullInVariousPlaces()
         {
             var v = JS.Id("v").AssignWith(null);
             var d = JS.Var(v);

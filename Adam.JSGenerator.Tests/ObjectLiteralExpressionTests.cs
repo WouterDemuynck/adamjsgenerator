@@ -8,7 +8,7 @@ namespace Adam.JSGenerator.Tests
     public class ObjectLiteralExpressionTests
     {
         [TestMethod]
-        public void ObjectLiteralExpression_Produces_Empty_Object()
+        public void ObjectLiteralExpressionProducesEmptyObject()
         {
             var expression = new ObjectLiteralExpression();
 
@@ -16,7 +16,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ObjectLiteralExpression_Produces_ObjectLiterals()
+        public void ObjectLiteralExpressionProducesObjectLiterals()
         {
             var expression = new ObjectLiteralExpression(new Dictionary<Expression, Expression>
             {
@@ -30,7 +30,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ObjectLiteralExpression_Has_Helpers()
+        public void ObjectLiteralExpressionHasHelpers()
         {
             var expression = new ObjectLiteralExpression();
 
@@ -57,7 +57,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ObjectLiteralExpression_Helpers_Require_Expression()
+        public void ObjectLiteralExpressionHelpersRequireExpression()
         {
             ObjectLiteralExpression expression = null;
             Expect.Throw<ArgumentNullException>(() => expression.WithProperty("name", "value"));

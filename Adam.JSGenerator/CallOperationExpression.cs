@@ -10,7 +10,7 @@ namespace Adam.JSGenerator
     public class CallOperationExpression : Expression
     {
         private Expression _Operand;
-        private List<Expression> _Arguments;
+        private readonly List<Expression> _Arguments = new List<Expression>();
 
         /// <summary>
         /// Creates a new instance of the CallOperationExpression class, 
@@ -21,7 +21,6 @@ namespace Adam.JSGenerator
         public CallOperationExpression(Expression operand, IEnumerable<Expression> arguments)
         {            
             this._Operand = operand;
-            this._Arguments = new List<Expression>();
 
             if (arguments != null)
             {

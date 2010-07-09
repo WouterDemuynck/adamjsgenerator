@@ -7,7 +7,7 @@ namespace Adam.JSGenerator.Tests
     public class RegularExpressionTests
     {
         [TestMethod]
-        public void RegularExpression_Produces_Regular_Expression()
+        public void RegularExpressionProducesRegularExpression()
         {
             var expression = new RegularExpression("/regularexpression/i");
 
@@ -20,7 +20,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void RegularExpression_Requires_Expression()
+        public void RegularExpressionRequiresExpression()
         {
             var expression = new RegularExpression(null);
 

@@ -4,14 +4,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Summary description for WithStatementTests
-    /// </summary>
     [TestClass]
     public class WithStatementTests
     {
         [TestMethod]
-        public void WithStatement_Requires_Expression_And_Statement()
+        public void WithStatementRequiresExpressionAndStatement()
         {
             var statement = new WithStatement();
 
@@ -31,7 +28,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void WithStatement_Has_Helpers()
+        public void WithStatementHasHelpers()
         {
             var statement1 = JS.With(JS.Id("a")).Do(JS.Empty());
             var statement2 = JS.With(JS.Id("a")).Do(new List<Statement> {JS.Empty()});
@@ -41,7 +38,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void WithStatement_Helpers_Requires_Statement()
+        public void WithStatementHelpersRequiresStatement()
         {
             WithStatement statement = null;
 

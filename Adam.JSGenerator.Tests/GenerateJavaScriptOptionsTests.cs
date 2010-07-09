@@ -3,14 +3,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Summary description for GenerateJavaScriptOptionsTests
-    /// </summary>
     [TestClass]
     public class GenerateJavaScriptOptionsTests
     {
         [TestMethod]
-        public void GenerateJavaScriptOptions_Has_Defaults()
+        public void GenerateJavaScriptOptionsHasDefaults()
         {
             GenerateJavaScriptOptions options = new GenerateJavaScriptOptions();
 
@@ -18,7 +15,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void GenerateJavaScriptOptions_Can_Be_Set()
+        public void GenerateJavaScriptOptionsCanBeSet()
         {
             GenerateJavaScriptOptions options = new GenerateJavaScriptOptions();
 

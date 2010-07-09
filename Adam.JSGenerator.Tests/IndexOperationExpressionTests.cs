@@ -3,14 +3,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Summary description for IndexOperationExpressionTests
-    /// </summary>
     [TestClass]
     public class IndexOperationExpressionTests
     {
         [TestMethod]
-        public void IndexOperationExpression_Produces_Index_Operation()
+        public void IndexOperationExpressionProducesIndexOperation()
         {
             var identifier = new IndexOperationExpression("a", 3);
 
@@ -18,7 +15,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void IndexOperationExpression_Produces_Index_Operation_2()
+        public void IndexOperationExpressionProducesIndexOperation2()
         {
             var identifier = new IndexOperationExpression(null, null);
             identifier.OperandLeft = "a";
@@ -28,14 +25,14 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void IndexOperationExpression_Refuses_Any_Nulls_1()
+        public void IndexOperationExpressionRefusesAnyNulls1()
         {
             Expect.Throw<InvalidOperationException>(() => JS.Id("a").Index(null).ToString());
             Expect.Throw<InvalidOperationException>(() => new IndexOperationExpression(null, 3).ToString());
         }
 
         [TestMethod]
-        public void IndexOperationExpression_Helpers_Index_Needs_Expression()
+        public void IndexOperationExpressionHelpersIndexNeedsExpression()
         {
             Expression expression = null;
 

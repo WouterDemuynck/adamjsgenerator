@@ -10,7 +10,7 @@ namespace Adam.JSGenerator
     public class SwitchStatement : Statement
     {
         private Expression _Expression;
-        private List<CaseStatement> _Cases = new List<CaseStatement>();
+        private readonly List<CaseStatement> _Cases = new List<CaseStatement>();
 
         /// <summary>
         /// Initializes a new instance of <see cref="SwitchStatement" /> for the specified expression.

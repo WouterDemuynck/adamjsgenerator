@@ -3,14 +3,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Summary description for LabelStatementTests
-    /// </summary>
     [TestClass]
     public class LabelStatementTests
     {
         [TestMethod]
-        public void Label_Produces_Label()
+        public void LabelProducesLabel()
         {
             var label = new LabelStatement("exit", JS.Return());
 
@@ -27,7 +24,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Label_Has_Helpers()
+        public void LabelHasHelpers()
         {
             Statement statement = JS.Return();
             var label = statement.Labeled("exit");
@@ -38,7 +35,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Label_Helper_Requires_Statement()
+        public void LabelHelperRequiresStatement()
         {
             Statement statement = null;
             Expect.Throw<ArgumentNullException>(() => statement.Labeled(null));

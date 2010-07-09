@@ -6,7 +6,7 @@ namespace Adam.JSGenerator.Tests
     public class SnippetExpressionTests
     {
         [TestMethod]
-        public void SnippetExpression_Produces_Snippet()
+        public void SnippetExpressionProducesSnippet()
         {
             SnippetExpression expression = new SnippetExpression("yay!");
 
@@ -14,7 +14,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void SnippetExpresson_Has_Property()
+        public void SnippetExpressonHasProperty()
         {
             SnippetExpression expression = new SnippetExpression("");
 

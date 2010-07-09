@@ -3,14 +3,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Tests for ArrayExpression
-    /// </summary>
     [TestClass]
     public class ArrayExpressionTests
     {
         [TestMethod]
-        public void ArrayExpression_Creates_Empty_ArrayExpression()
+        public void ArrayExpressionCreatesEmptyArrayExpression()
         {
             var a = new ArrayExpression();
 
@@ -21,7 +18,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Can_Create_ArrayExpression_With_Params()
+        public void CanCreateArrayExpressionWithParams()
         {
             var a = new ArrayExpression(1, 2, 3);
 
@@ -32,7 +29,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Can_Create_ArrayExpression_With_IEnumerable()
+        public void CanCreateArrayExpressionWithIEnumerable()
         {
             var list = new List<Expression> { 1, 2, 3 };
             var a = new ArrayExpression(list);
@@ -44,7 +41,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Can_Add_Expressions_To_ArrayExpression()
+        public void CanAddExpressionsToArrayExpression()
         {
             var a = new ArrayExpression();
             a.Elements.Add(1);
@@ -58,7 +55,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Can_Set_ExpressionsList_Of_ArrayExpression()
+        public void CanSetExpressionsListOfArrayExpression()
         {
             var list = new List<Expression> { 1, 2, 3 };
             var a = new ArrayExpression(list);
@@ -70,7 +67,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ArrayExpression_Handles_Nulls()
+        public void ArrayExpressionHandlesNulls()
         {
             var a = JS.Array(1, 2, 3, null);
 
@@ -78,7 +75,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Can_Compare_ArrayExpressions()
+        public void CanCompareArrayExpressions()
         {
             var a = new ArrayExpression(1, 2, 3);
             var b = new ArrayExpression(1, 2, 3);
@@ -92,7 +89,7 @@ namespace Adam.JSGenerator.Tests
         }
         
         [TestMethod]
-        public void ArrayExpression_Has_HashCode()
+        public void ArrayExpressionHasHashCode()
         {
             var a = new ArrayExpression(1, 2, 3);
             var b = new ArrayExpression(1, 2, 3);
