@@ -8,7 +8,7 @@ namespace Adam.JSGenerator.Tests
     public class WhileStatementTests
     {
         [TestMethod]
-        public void WhileStatement_Produces_Empty_While()
+        public void WhileStatementProducesEmptyWhile()
         {
             var statement = new WhileStatement();
             statement.Condition = true;
@@ -20,7 +20,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void WhileStatement_Requires_Condition_And_Statement()
+        public void WhileStatementRequiresConditionAndStatement()
         {
             var statement = new WhileStatement();
 
@@ -38,7 +38,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void WhileStatement_Has_Helpers()
+        public void WhileStatementHasHelpers()
         {
             var statement1 = JS.While(true).Do(JS.Empty());
 
@@ -54,7 +54,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void WhileStatement_Helpers_Require_Statement()
+        public void WhileStatementHelpersRequireStatement()
         {
             WhileStatement statement = null;
 

@@ -9,7 +9,7 @@ namespace Adam.JSGenerator
     public class FunctionExpression : Expression
     {
         private IdentifierExpression _Name;
-        private List<IdentifierExpression> _Parameters = new List<IdentifierExpression>();
+        private readonly List<IdentifierExpression> _Parameters = new List<IdentifierExpression>();
         private CompoundStatement _Body;
 
         /// <summary>

@@ -2,9 +2,6 @@
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Summary description for BooleanExpressionTests
-    /// </summary>
     [TestClass]
     public class BooleanExpressionTests
     {
@@ -31,7 +28,7 @@ namespace Adam.JSGenerator.Tests
         #endregion
 
         [TestMethod]
-        public void BooleanExpression_Produces_True_And_False()
+        public void BooleanExpressionProducesTrueAndFalse()
         {
             var boolean = JS.Boolean(false);
 

@@ -4,9 +4,6 @@ using System.Collections.Generic;
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Tests for ConditionalStatement
-    /// </summary>
     [TestClass]
     public class ConditionalStatementTests
     {
@@ -15,7 +12,7 @@ namespace Adam.JSGenerator.Tests
         // ReSharper restore InconsistentNaming
 
         [TestMethod]
-        public void ConditionalStatement_Produces_Error_With_Missing_Condition()
+        public void ConditionalStatementProducesErrorWithMissingCondition()
         {
             var c = new ConditionalStatement();
 
@@ -23,7 +20,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ConditionalStatement_Produces_If_With_Empty_Then()
+        public void ConditionalStatementProducesIfWithEmptyThen()
         {
             var c = new ConditionalStatement();
             c.Condition = JS.Id("a");
@@ -32,7 +29,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ConditionalStatement_Produces_If_With_Then_And_Else()
+        public void ConditionalStatementProducesIfWithThenAndElse()
         {
             var c = JS.If(a).Then(JS.Return(a)).Else(JS.Return());
 
@@ -40,7 +37,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ConditionalStatement_Produces_If_Then_ElseIf_Then_Else()
+        public void ConditionalStatementProducesIfThenElseIfThenElse()
         {
             var c1 = JS.If(a).Then(JS.Return(a));
             var c2 = new ConditionalStatement(JS.Not(a), null, null);
@@ -52,7 +49,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ConditionalStatement_Has_Helpers()
+        public void ConditionalStatementHasHelpers()
         {
             var statement = JS.If(JS.Null());
             var then = statement.Then(new List<Statement> { JS.Return() });
@@ -69,7 +66,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ConditionalStatement_Helpers_Require_Statement()
+        public void ConditionalStatementHelpersRequireStatement()
         {
             ConditionalStatement statement = null;
             Expect.Throw<ArgumentNullException>(() => statement.Then());

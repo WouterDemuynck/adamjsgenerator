@@ -10,7 +10,7 @@ namespace Adam.JSGenerator
     /// </summary>
     public class ArrayExpression : Expression
     {
-        private List<Expression> _Elements = new List<Expression>();
+        private readonly List<Expression> _Elements = new List<Expression>();
 
         /// <summary>
         /// Initializes a new empty instance of the <see cref="ArrayExpression" /> class.
@@ -42,11 +42,6 @@ namespace Adam.JSGenerator
 
         internal protected override void AppendScript(StringBuilder builder, GenerateJavaScriptOptions options)
         {
-            if (this._Elements == null)
-            {
-                throw new InvalidOperationException("Statements cannot be null.");
-            }
-
             builder.Append("[");
 
             bool isFirst = true;

@@ -2,14 +2,11 @@
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Summary description for NumberExpressionTests
-    /// </summary>
     [TestClass]
     public class NumberExpressionTests
     {
         [TestMethod]
-        public void NumberExpression_Produces_Numbers()
+        public void NumberExpressionProducesNumbers()
         {
             NumberExpression n1 = new NumberExpression(1.0);
             NumberExpression n2 = new NumberExpression(12);

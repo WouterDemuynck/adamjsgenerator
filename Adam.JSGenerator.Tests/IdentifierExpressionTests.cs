@@ -3,14 +3,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Summary description for IdentifierExpressionTests
-    /// </summary>
     [TestClass]
     public class IdentifierExpressionTests
     {
         [TestMethod]
-        public void IdentifierExpression_Produces_Identifier()
+        public void IdentifierExpressionProducesIdentifier()
         {
             var id = new IdentifierExpression("test");
 
@@ -19,13 +16,13 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void IdentifierExpression_Refuses_Reserved_Words()
+        public void IdentifierExpressionRefusesReservedWords()
         {
             Expect.Throw<ArgumentException>(() => new IdentifierExpression("var"));
         }
 
         [TestMethod]
-        public void IdentifierExpression_Refuses_Invalid_Identifiers()
+        public void IdentifierExpressionRefusesInvalidIdentifiers()
         {
             var id = new IdentifierExpression("Classname");
             Assert.AreEqual("Classname", id.Name);

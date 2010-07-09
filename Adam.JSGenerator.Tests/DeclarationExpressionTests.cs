@@ -4,15 +4,12 @@ using System;
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Tests for DeclarationExpression
-    /// </summary>
     [TestClass]
     public class DeclarationExpressionTests
     {
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException), "Expressions cannot be empty.")]
-        public void DeclarationExpression_Requires_Expressions()
+        public void DeclarationExpressionRequiresExpressions()
         {
             var d = new DeclarationExpression();
 
@@ -20,7 +17,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void DeclarationExpression_Produces_Declaration_From_Array()
+        public void DeclarationExpressionProducesDeclarationFromArray()
         {
             var d = new DeclarationExpression(JS.Id("a"), JS.Id("b"), JS.Id("c").AssignWith(10));
 
@@ -28,7 +25,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void DeclarationExpression_Produces_Declaration_From_IEnumerable()
+        public void DeclarationExpressionProducesDeclarationFromIEnumerable()
         {
             var l = new List<Expression> { JS.Id("a"), JS.Id("b"), JS.Id("c").AssignWith(10) };
             var d = new DeclarationExpression(l);
@@ -37,7 +34,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void DeclarationExpression_Produces_Declaration_From_PropertySetter()
+        public void DeclarationExpressionProducesDeclarationFromPropertySetter()
         {
             var l = new List<Expression> { JS.Id("a"), JS.Id("b"), JS.Id("c").AssignWith(10) };
             var d = new DeclarationExpression(l);

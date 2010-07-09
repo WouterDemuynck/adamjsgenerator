@@ -3,9 +3,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Tests for BinaryOperationExpression
-    /// </summary>
     [TestClass]
     public class BinaryOperationExpressionTests
     {
@@ -13,7 +10,7 @@ namespace Adam.JSGenerator.Tests
         private static readonly Expression B = JS.Id("b");
         
         [TestMethod]
-        public void BinaryOperationExpression_Supports_Assign()
+        public void BinaryOperationExpressionSupportsAssign()
         {
             var b = A.AssignWith(B);
 
@@ -21,7 +18,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Assign_And_Assign_Is_Still_Assign()
+        public void BinaryOperationExpressionAssignAndAssignIsStillAssign()
         {
             var b = A.AssignWith(B).AndAssign();
 
@@ -29,7 +26,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_Add()
+        public void BinaryOperationExpressionSupportsAdd()
         {
             var b = A.AddWith(B);
 
@@ -37,7 +34,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_AddAndAssign()
+        public void BinaryOperationExpressionSupportsAddAndAssign()
         {
             var b = A.AddWith(B).AndAssign();
 
@@ -45,7 +42,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_Subtract()
+        public void BinaryOperationExpressionSupportsSubtract()
         {
             var b = A.SubtractWith(B);
 
@@ -53,7 +50,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_SubtractAndAssign()
+        public void BinaryOperationExpressionSupportsSubtractAndAssign()
         {
             var b = A.SubtractWith(B).AndAssign();
 
@@ -61,7 +58,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_Multiply()
+        public void BinaryOperationExpressionSupportsMultiply()
         {
             var b = A.MultiplyBy(B);
 
@@ -69,7 +66,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_MultiplyAndAssign()
+        public void BinaryOperationExpressionSupportsMultiplyAndAssign()
         {
             var b = A.MultiplyBy(B).AndAssign();
 
@@ -77,7 +74,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_Divide()
+        public void BinaryOperationExpressionSupportsDivide()
         {
             var b = A.DivideBy(B);
 
@@ -85,7 +82,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_DivideAndAssign()
+        public void BinaryOperationExpressionSupportsDivideAndAssign()
         {
             var b = A.DivideBy(B).AndAssign();
 
@@ -93,7 +90,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_Remain()
+        public void BinaryOperationExpressionSupportsRemain()
         {
             var b = A.RemainderBy(B);
 
@@ -101,7 +98,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_RemainAndAssign()
+        public void BinaryOperationExpressionSupportsRemainAndAssign()
         {
             var b = A.RemainderBy(B).AndAssign();
 
@@ -109,7 +106,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_BitwiseAnd()
+        public void BinaryOperationExpressionSupportsBitwiseAnd()
         {
             var b = A.BitwiseAndWith(B);
 
@@ -117,7 +114,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_BitwiseAndAndAssign()
+        public void BinaryOperationExpressionSupportsBitwiseAndAndAssign()
         {
             var b = A.BitwiseAndWith(B).AndAssign();
 
@@ -125,7 +122,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_BitwiseOr()
+        public void BinaryOperationExpressionSupportsBitwiseOr()
         {
             var b = A.BitwiseOrWith(B);
 
@@ -133,7 +130,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_BitwiseOrAndAssign()
+        public void BinaryOperationExpressionSupportsBitwiseOrAndAssign()
         {
             var b = A.BitwiseOrWith(B).AndAssign();
 
@@ -141,7 +138,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_BitwiseXor()
+        public void BinaryOperationExpressionSupportsBitwiseXor()
         {
             var b = A.BitwiseXorWith(B);
 
@@ -149,7 +146,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_BitwiseXorAndAssign()
+        public void BinaryOperationExpressionSupportsBitwiseXorAndAssign()
         {
             var b = A.BitwiseXorWith(B).AndAssign();
 
@@ -157,7 +154,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_ShiftLeft()
+        public void BinaryOperationExpressionSupportsShiftLeft()
         {
             var b = A.ShiftLeftWith(B);
 
@@ -165,7 +162,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_ShiftLeftAndAssign()
+        public void BinaryOperationExpressionSupportsShiftLeftAndAssign()
         {
             var b = A.ShiftLeftWith(B).AndAssign();
 
@@ -173,7 +170,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_ShiftRight()
+        public void BinaryOperationExpressionSupportsShiftRight()
         {
             var b = A.ShiftRightWith(B);
 
@@ -181,7 +178,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_ShiftRightAndAssign()
+        public void BinaryOperationExpressionSupportsShiftRightAndAssign()
         {
             var b = A.ShiftRightWith(B).AndAssign();
 
@@ -189,7 +186,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_Equals()
+        public void BinaryOperationExpressionSupportsEquals()
         {
             var b = A.IsEqualTo(B);
 
@@ -197,7 +194,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_Identical()
+        public void BinaryOperationExpressionSupportsIdentical()
         {
             var b = A.IsIdenticalTo(B);
 
@@ -205,7 +202,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_NotEqual()
+        public void BinaryOperationExpressionSupportsNotEqual()
         {
             var b = A.IsNotEqualTo(B);
 
@@ -213,7 +210,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_NotIdentical()
+        public void BinaryOperationExpressionSupportsNotIdentical()
         {
             var b = A.IsNotIdenticalTo(B);
 
@@ -221,7 +218,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_GreaterThan()
+        public void BinaryOperationExpressionSupportsGreaterThan()
         {
             var b = A.IsGreaterThan(B);
 
@@ -229,7 +226,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_GreaterThanOrEqualTo()
+        public void BinaryOperationExpressionSupportsGreaterThanOrEqualTo()
         {
             var b = A.IsGreaterThanOrEqualTo(B);
 
@@ -237,7 +234,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_LessThan()
+        public void BinaryOperationExpressionSupportsLessThan()
         {
             var b = A.IsLessThan(B);
 
@@ -245,7 +242,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_LessThanOrEqualTo()
+        public void BinaryOperationExpressionSupportsLessThanOrEqualTo()
         {
             var b = A.IsLessThanOrEqualTo(B);
 
@@ -253,7 +250,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_LogicalAnd()
+        public void BinaryOperationExpressionSupportsLogicalAnd()
         {
             var b = A.LogicalAndWith(B);
 
@@ -261,7 +258,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_LogicalOr()
+        public void BinaryOperationExpressionSupportsLogicalOr()
         {
             var b = A.LogicalOrWith(B);
 
@@ -269,7 +266,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_InstanceOf()
+        public void BinaryOperationExpressionSupportsInstanceOf()
         {
             var b = A.IsInstanceOf(B);
 
@@ -277,7 +274,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_In()
+        public void BinaryOperationExpressionSupportsIn()
         {
             var b = A.IsIn(B);
 
@@ -285,7 +282,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_MultipleEvaluation()
+        public void BinaryOperationExpressionSupportsMultipleEvaluation()
         {
             var b = new BinaryOperationExpression(A, B, BinaryOperator.MultipleEvaluation);
 
@@ -293,7 +290,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_Precedence()
+        public void BinaryOperationExpressionSupportsPrecedence()
         {
             var t1 = A.MultiplyBy(3).AddWith(B.MultiplyBy(2));
             var t2 = A.AddWith(3).MultiplyBy(B.AddWith(2));
@@ -305,7 +302,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Supports_Compare()
+        public void BinaryOperationExpressionSupportsCompare()
         {
             var t1 = A.MultiplyBy(B.MultiplyBy(3));
             var t2 = A.MultiplyBy(B.MultiplyBy(3));
@@ -314,7 +311,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Handles_Nulls()
+        public void BinaryOperationExpressionHandlesNulls()
         {
             var b1 = JS.Id("a").AssignWith(null);
             var b2 = JS.Id("b").IsNotEqualTo(null);
@@ -324,7 +321,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Combines_Sequences()
+        public void BinaryOperationExpressionCombinesSequences()
         {
             var a = new Expression[] { 1, 2, null, "Hello", JS.Function().Call() };
             var c = a.Combined(BinaryOperator.Add);
@@ -333,7 +330,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Can_Add_Two_Nulls()
+        public void CanAddTwoNulls()
         {
             var a = new BinaryOperationExpression(null, null, BinaryOperator.Add);
 
@@ -341,7 +338,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Can_Use_Property_Accessors()
+        public void CanUsePropertyAccessors()
         {
             var a = new BinaryOperationExpression();
 
@@ -353,14 +350,14 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void AssignWith_Throws_On_Null()
+        public void AssignWithThrowsOnNull()
         {
             BinaryOperationExpression none = null;
             Expect.Throw<ArgumentNullException>(() => none.AndAssign());
         }
 
         [TestMethod]
-        public void BinaryOperationExpression_Refuses_Unknown_Enum()
+        public void BinaryOperationExpressionRefusesUnknownEnum()
         {
             var a = new BinaryOperationExpression(null, null, (BinaryOperator)int.MaxValue);
 

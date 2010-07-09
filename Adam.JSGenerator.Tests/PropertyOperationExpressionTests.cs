@@ -7,7 +7,7 @@ namespace Adam.JSGenerator.Tests
     public class PropertyOperationExpressionTests
     {
         [TestMethod]
-        public void PropertyOperationExpression_Produces_A_Dot()
+        public void PropertyOperationExpressionProducesADot()
         {
             var expression = new PropertyOperationExpression(JS.Id("a"), JS.Id("b"));
 
@@ -17,7 +17,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void PropertyOperationExpression_Requires_Left_And_Right_Operands()
+        public void PropertyOperationExpressionRequiresLeftAndRightOperands()
         {
             var expression1 = new PropertyOperationExpression(JS.Id("a"), JS.Id("b"));
             expression1.OperandLeft = null;
@@ -31,7 +31,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void PropertyOperationExpression_Has_Helpers()
+        public void PropertyOperationExpressionHasHelpers()
         {
             var expression = JS.Id("a").Dot("b");
 
@@ -41,7 +41,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void PropertyOperationExpression_Helpers_Require_Expression()
+        public void PropertyOperationExpressionHelpersRequireExpression()
         {
             Expression expression = null;
 

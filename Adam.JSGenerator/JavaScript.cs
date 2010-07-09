@@ -42,11 +42,11 @@ namespace Adam.JSGenerator
         /// If <see cref="o" /> is null, an instance of <see cref="NullExpression" /> is returned.
         /// If <see cref="o" /> is a string, an instance of <see cref="StringExpression" /> is returned representing the string.
         /// If <see cref="o" /> is an instance of a class derived from <see cref="Expression" />, it is returned unchanged.
-        /// If <see cref="o" /> is an instance of a class that implements <see cref="T:System.Collections.IEnumerable" />, <see cref="JS.Array" /> is called to return an instance of <see cref="ArrayExpression" />.
-        /// If <see cref="o" /> is a reference type, <see cref="JS.Object" /> is called to return an instance of <see cref="ObjectLiteralExpression" />.
+        /// If <see cref="o" /> is an instance of a class that implements <see cref="T:System.Collections.IEnumerable" />, <see cref="Array(IEnumerable)" /> is called to return an instance of <see cref="ArrayExpression" />.
+        /// If <see cref="o" /> is a reference type, <see cref="Object()" /> is called to return an instance of <see cref="ObjectLiteralExpression" />.
         /// If <see cref="o" /> is a boolean, an instance of <see cref="BooleanExpression" /> is returned.
         /// If <see cref="o" /> can be converted into a double, an instance of <see cref="NumberExpression" /> is returned.
-        /// In all other cases, <see cref="M:System.Object.ToString" /> is called, and the result is wrapped in an instance of <see cref="LiteralExpression" /> and returned.
+        /// In all other cases, <see cref="M:System.Object.ToString" /> is called, and the result is wrapped in an instance of <see cref="StringExpression" /> and returned.
         /// </remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
         private static Expression ObjectToExpression(object o)
@@ -139,7 +139,7 @@ namespace Adam.JSGenerator
                 {
                     string name = property.Name;
 
-                    Expression key = IsValidIdentifier(name) ? (Expression)Id(name) : (Expression)name;
+                    Expression key = IsValidIdentifier(name) ? (Expression)Id(name) : Expression.FromString(name);
 
                     result.Add(key, ObjectToExpression(property.GetValue(value)));
                 }   

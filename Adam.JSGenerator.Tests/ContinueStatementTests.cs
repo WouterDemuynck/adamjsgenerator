@@ -2,14 +2,11 @@
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Tests for ContinueStatement
-    /// </summary>
     [TestClass]
     public class ContinueStatementTests
     {
         [TestMethod]
-        public void ContinueStatement_Produces_Continue_Without_Label()
+        public void ContinueStatementProducesContinueWithoutLabel()
         {
             var c = new ContinueStatement();
 
@@ -17,7 +14,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ContinueStatement_Produces_Continue_With_Label()
+        public void ContinueStatementProducesContinueWithLabel()
         {
             var c = new ContinueStatement("here");
 

@@ -4,14 +4,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Tests for FunctionExpression
-    /// </summary>
     [TestClass]
     public class FunctionExpressionTests
     {
         [TestMethod]
-        public void FunctionExpression_Produces_Anonymous_Function()
+        public void FunctionExpressionProducesAnonymousFunction()
         {
             var f = new FunctionExpression();
 
@@ -19,7 +16,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void FunctionExpression_Produces_Anonymous_Function_With_Parameters()
+        public void FunctionExpressionProducesAnonymousFunctionWithParameters()
         {
             var f = new FunctionExpression(null, new IdentifierExpression[] { "a", "b", "c" }, null);
 
@@ -27,7 +24,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void FunctionExpression_Produces_Named_Function()
+        public void FunctionExpressionProducesNamedFunction()
         {
             var f = new FunctionExpression("alert", null, null);
 
@@ -35,7 +32,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void FunctionExpression_Produces_Function_With_Body()
+        public void FunctionExpressionProducesFunctionWithBody()
         {
             var f = new FunctionExpression()
                 .Parameters(new List<IdentifierExpression>())
@@ -46,7 +43,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void FunctionExpression_Produces_Function_With_Name_Parameters_And_Body_Using_Properties()
+        public void FunctionExpressionProducesFunctionWithNameParametersAndBodyUsingProperties()
         {
             var f = new FunctionExpression();
             f.Name = JS.Id("a");
@@ -58,7 +55,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void FunctionExpression_Helpers_Needs_Expression()
+        public void FunctionExpressionHelpersNeedsExpression()
         {
             FunctionExpression expression = null;
             Expect.Throw<ArgumentNullException>(() => expression.Parameters());

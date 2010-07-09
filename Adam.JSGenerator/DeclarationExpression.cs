@@ -10,7 +10,7 @@ namespace Adam.JSGenerator
     /// </summary>
     public class DeclarationExpression : Expression
     {
-        private List<Expression> _Expressions = new List<Expression>();
+        private readonly List<Expression> _Expressions = new List<Expression>();
 
         /// <summary>
         /// Initializes a new instance of <see cref="DeclarationExpression" />.
@@ -56,11 +56,6 @@ namespace Adam.JSGenerator
 
         internal protected override void AppendScript(StringBuilder builder, GenerateJavaScriptOptions options)
         {
-            if (this._Expressions == null)
-            {
-                throw new InvalidOperationException("Expressions cannot be null.");
-            }
-
             if (!this._Expressions.Any())
             {
                 throw new InvalidOperationException("Expressions cannot be empty.");

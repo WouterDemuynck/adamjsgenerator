@@ -8,7 +8,7 @@ namespace Adam.JSGenerator
     /// </summary>
     public class ObjectLiteralExpression : Expression
     {
-        private Dictionary<Expression, Expression> _Properties;
+        private readonly Dictionary<Expression, Expression> _Properties;
 
         /// <summary>
         /// Initializes a new instance of <see cref="ObjectLiteralExpression" />.

@@ -5,8 +5,9 @@ namespace Adam.JSGenerator.Tests
     [TestClass]
     public class StatementTests
     {
+        // ReSharper disable EqualExpressionComparison
         [TestMethod]
-        public void Statement_Supports_Equals()
+        public void StatementSupportsEquals()
         {
             var a = JS.Id("a");
             var b = JS.Id("a");
@@ -17,9 +18,10 @@ namespace Adam.JSGenerator.Tests
             Assert.IsFalse(a.Equals(null));
             Assert.IsTrue(a.Equals(a));
         }
+        // ReSharper restore EqualExpressionComparison
 
         [TestMethod]
-        public void Statement_Supports_Hashing()
+        public void StatementSupportsHashing()
         {
             var a = JS.Id("a");
             var b = JS.Snippet("a");

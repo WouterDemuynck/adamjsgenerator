@@ -6,7 +6,7 @@ namespace Adam.JSGenerator.Tests
     public class StringExpressionTests
     {
         [TestMethod]
-        public void StringExpression_Produces_Empty_String()
+        public void StringExpressionProducesEmptyString()
         {
             var s = new StringExpression();
 
@@ -14,7 +14,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void StringExpression_Produces_String_Through_Constructor()
+        public void StringExpressionProducesStringThroughConstructor()
         {
             string[] strings = new [] { "one", "two", "three" };
 

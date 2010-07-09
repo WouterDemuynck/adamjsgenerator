@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections;
 
@@ -9,7 +8,7 @@ namespace Adam.JSGenerator.Tests
     public class ScriptTests
     {
         [TestMethod]
-        public void Script_Produces_Statements()
+        public void ScriptProducesStatements()
         {
             var a = JS.Id("a");
             Script script1 = new Script
@@ -34,7 +33,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Script_Implements_IEnumerable()
+        public void ScriptImplementsIEnumerable()
         {
             Script script = new Script();
 

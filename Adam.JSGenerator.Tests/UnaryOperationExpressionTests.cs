@@ -7,7 +7,7 @@ namespace Adam.JSGenerator.Tests
     public class UnaryOperationExpressionTests
     {
         [TestMethod]
-        public void UnaryOperationExpression_Produces_Unary_Operations()
+        public void UnaryOperationExpressionProducesUnaryOperations()
         {
             var a = JS.Id("a");
 
@@ -39,7 +39,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void UnaryOperationExpression_Has_Properties()
+        public void UnaryOperationExpressionHasProperties()
         {
             var a = JS.Id("a");
 
@@ -59,7 +59,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void UnaryOperationExpressions_Support_Precedence()
+        public void UnaryOperationExpressionsSupportPrecedence()
         {
             var expression = JS.Number(3).Group().AddWith(JS.Id("a").TypeOf().New());
 
@@ -67,7 +67,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void UnaryOperationExpression_Detects_Unknown_Enumeration()
+        public void UnaryOperationExpressionDetectsUnknownEnumeration()
         {
             var expression = new UnaryOperationExpression(1, (UnaryOperator) int.MaxValue);
 
@@ -75,7 +75,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void UnaryOperationExpression_Helpers_Require_Expression()
+        public void UnaryOperationExpressionHelpersRequireExpression()
         {
             Expression expression = null;
 

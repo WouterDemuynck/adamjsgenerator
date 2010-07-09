@@ -3,12 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Tests different aspects of the JavaScript utility class.
-    /// </summary>
     [TestClass]
     public class JavaScriptTests
     {
@@ -30,11 +26,11 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void FindsMostSuitableQuoteChar_Finds_Most_Suitable_Character()
+        public void FindsMostSuitableQuoteCharFindsMostSuitableCharacter()
         {
-            var s = '\'';
-            var d = '"';
-            var def = s;
+            const char s = '\'';
+            const char d = '"';
+            const char def = s;
 
             Assert.IsTrue(JS.FindMostSuitableQuoteChar("abcde") == def);        // No quotes means default.
             Assert.IsTrue(JS.FindMostSuitableQuoteChar("a'bcde") == d);         // Single quote means double.
@@ -46,13 +42,13 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void FindsMostSuitableQuoteChar_Requires_Sequence()
+        public void FindsMostSuitableQuoteCharRequiresSequence()
         {
             Expect.Throw<ArgumentNullException>(() => JS.FindMostSuitableQuoteChar(null));
         }
 
         [TestMethod]
-        public void QuoteString_Returns_QuotedStrings()
+        public void QuoteStringReturnsQuotedStrings()
         {
             Assert.AreEqual("'hey there!'", JS.QuoteString("hey there!"));
             Assert.AreEqual("\"'It's \\\"time\\\"!', she said.\"", JS.QuoteString("'It's \"time\"!', she said."));
@@ -62,7 +58,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void QuoteString_Requires_Source()
+        public void QuoteStringRequiresSource()
         {
             Expect.Throw<ArgumentNullException>(() => JS.QuoteString(null, '"'));
         }
@@ -84,7 +80,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void GetValues_Gets_Values_From_Null()
+        public void GetValuesGetsValuesFromNull()
         {
             var result = JS.GetValues(null);
 
@@ -93,7 +89,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void GetValues_Gets_Values_From_Empty_Object()
+        public void GetValuesGetsValuesFromEmptyObject()
         {
             var result = JS.GetValues(new object());
 
@@ -102,7 +98,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void GetValues_Gets_Values_From_Anonymous_Object()
+        public void GetValuesGetsValuesFromAnonymousObject()
         {
             object o = new { value = 1, @var = "One" };
 
@@ -118,9 +114,9 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void GetValues_Gets_Values_From_Normal_Object()
+        public void GetValuesGetsValuesFromNormalObject()
         {
-            TestObject o = new TestObject() { Value = 1, Display = "One", Test = null };
+            TestObject o = new TestObject { Value = 1, Display = "One", Test = null };
 
             var result = JS.GetValues(o);
 
@@ -128,15 +124,15 @@ namespace Adam.JSGenerator.Tests
             Assert.IsInstanceOfType(result, typeof(IDictionary<Expression, Expression>));
 
             Assert.IsTrue(result.ContainsKey(JS.Id("Value")));
-            Assert.AreEqual(result[JS.Id("Value")], JS.Number(1));
+            Assert.AreEqual(result[JS.Id("Value")], Expression.FromInteger(o.Value));
             Assert.IsTrue(result.ContainsKey(JS.Id("Display")));
-            Assert.AreEqual(result[JS.Id("Display")], JS.String("One"));
+            Assert.AreEqual(result[JS.Id("Display")], Expression.FromString(o.Display));
             Assert.IsTrue(result.ContainsKey(JS.Id("Test")));
             Assert.AreEqual(result[JS.Id("Test")], JS.Null());
         }
 
         [TestMethod]
-        public void Object_Gets_Complicated_Object()
+        public void ObjectGetsComplicatedObject()
         {
             var obj = new
             {
@@ -153,7 +149,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Multiple_Gets_Null()
+        public void MultipleGetsNull()
         {
             var o = JS.Multiple();
 
@@ -161,7 +157,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Multiple_Gets_Single()
+        public void MultipleGetsSingle()
         {
             var a = JS.Id("a");
             var o = JS.Multiple(a);
@@ -170,7 +166,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Multiple_Gets_Multiple()
+        public void MultipleGetsMultiple()
         {
             var a = JS.Id("a");
             var b = JS.Id("b");
@@ -182,7 +178,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BlockOrStatement_Returns_Empty()
+        public void BlockOrStatementReturnsEmpty()
         {
             var block = JS.BlockOrStatement();
 
@@ -190,7 +186,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BlockOrStatement_Returns_Statement()
+        public void BlockOrStatementReturnsStatement()
         {            
             var block = JS.BlockOrStatement(JS.Return());
 
@@ -198,7 +194,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void BlockOrStatement_Returns_Block()
+        public void BlockOrStatementReturnsBlock()
         {
             var block = JS.BlockOrStatement(JS.Null(), JS.Return());
 
@@ -206,7 +202,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ParseId_Parses_Simple_Id()
+        public void ParseIdParsesSimpleId()
         {
             var id = JS.ParseId("Adam");
 
@@ -214,7 +210,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ParseId_Parses_Multiple_Ids()
+        public void ParseIdParsesMultipleIds()
         {
             var id = JS.ParseId("Adam.Controls");
 
@@ -222,13 +218,13 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ParseId_Rejects_Wrong_Ids()
+        public void ParseIdRejectsWrongIds()
         {
             Expect.Throw<ArgumentException>(() => JS.ParseId("Adam.Controls@"));
         }
 
         [TestMethod]
-        public void Array_Returns_Empty_Array()
+        public void ArrayReturnsEmptyArray()
         {
             var arr = JS.Array();
 
@@ -236,7 +232,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Array_Returns_Array_With_Ints()
+        public void ArrayReturnsArrayWithInts()
         {
             var arr = JS.Array(1, 2, 3);
 
@@ -244,7 +240,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Array_Returns_Array_With_Strings()
+        public void ArrayReturnsArrayWithStrings()
         {
             var arr = JS.Array(new List<Expression> { "One", "Two", "Three" } );
 
@@ -252,7 +248,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Array_Returns_Array_With_Nested_Arrays()
+        public void ArrayReturnsArrayWithNestedArrays()
         {
             var arr = JS.Array(1, 2, JS.Array(3, 4));
 
@@ -260,7 +256,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Block_Returns_Empty_Block()
+        public void BlockReturnsEmptyBlock()
         {
             var block = JS.Block();
 
@@ -268,7 +264,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Block_Returns_Block_1()
+        public void BlockReturnsBlock1()
         {
             var a = JS.Id("a");
             var b = JS.Id("b");
@@ -279,7 +275,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Block_Returns_Block_2()
+        public void BlockReturnsBlock2()
         {
             var a = JS.Id("a");
             var b = JS.Id("b");
@@ -290,7 +286,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Break_Returns_Break()
+        public void BreakReturnsBreak()
         {
             var b = JS.Break();
 
@@ -298,7 +294,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Break_Returns_Break_With_Label()
+        public void BreakReturnsBreakWithLabel()
         {
             var b = JS.Break("a");
 
@@ -306,7 +302,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Continue_Returns_Continue()
+        public void ContinueReturnsContinue()
         {
             var c = JS.Continue();
 
@@ -314,7 +310,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Continue_Returns_Continue_With_Label()
+        public void ContinueReturnsContinueWithLabel()
         {
             var c = JS.Continue("c");
 
@@ -322,7 +318,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Delete_Returns_Delete()
+        public void DeleteReturnsDelete()
         {
             var d = JS.Delete(JS.Id("a"));
 
@@ -330,7 +326,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Do_Returns_Do_While_With_Single_Statement()
+        public void DoReturnsDoWhileWithSingleStatement()
         {
             var dw = JS.Do(JS.Null()).While(JS.Null());
 
@@ -338,7 +334,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Do_Returns_Do_While_With_Multiple_Statement()
+        public void DoReturnsDoWhileWithMultipleStatement()
         {
             var dw = JS.Do(new List<Statement> { JS.Null(), JS.Null() }).While(JS.Null());
 
@@ -346,7 +342,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Empty_Returns_Empty_Statement()
+        public void EmptyReturnsEmptyStatement()
         {
             var e = JS.Empty();
 
@@ -354,7 +350,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Find_Returns_Find()
+        public void FindReturnsFind()
         {
             var f = JS.Find("a");
 
@@ -362,7 +358,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void For_Returns_For_In()
+        public void ForReturnsForIn()
         {
             var f = JS.For(JS.Var(JS.Id("a"))).In(JS.Array());
 
@@ -370,7 +366,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void For_Returns_Eternal_Loop()
+        public void ForReturnsEternalLoop()
         {
             var f = JS.For();
 
@@ -378,7 +374,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void For_Returns_For_With_Iteration()
+        public void ForReturnsForWithIteration()
         {
             var f = JS.For(JS.Id("a").PreIncrement());
 
@@ -386,7 +382,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void For_Returns_For_With_Condition_And_Iteration()
+        public void ForReturnsForWithConditionAndIteration()
         {
             var a = JS.Id("a");
             var f = JS.For(a.IsGreaterThan(0), a.PreDecrement());
@@ -395,7 +391,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void For_Returns_For_With_Initialization_Condition_And_Iteration()
+        public void ForReturnsForWithInitializationConditionAndIteration()
         {
             var a = JS.Id("a");
             var f = JS.For(JS.Var(a.AssignWith(10)), a.IsGreaterThan(0), a.PreDecrement());
@@ -404,7 +400,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Function_Returns_Empty_Anonymous_Function()
+        public void FunctionReturnsEmptyAnonymousFunction()
         {
             var f = JS.Function();
 
@@ -412,7 +408,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Function_Returns_Function_With_Name()
+        public void FunctionReturnsFunctionWithName()
         {
             var f = JS.Function("a");
 
@@ -420,7 +416,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Function_Returns_Function_With_Body()
+        public void FunctionReturnsFunctionWithBody()
         {
             var f = JS.Function().Do(JS.Null());
 
@@ -428,7 +424,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Function_Returns_Function_With_Parameters()
+        public void FunctionReturnsFunctionWithParameters()
         {
             var a = JS.Id("a");
             var f = JS.Function().Parameters(a).Do(a.Call());
@@ -437,7 +433,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Get_Returns_Get()
+        public void GetReturnsGet()
         {
             var g = JS.Get("a");
 
@@ -445,7 +441,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Group_Returns_Group()
+        public void GroupReturnsGroup()
         {
             var g = JS.Group("a");
 
@@ -453,7 +449,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Id_Returns_Identifier()
+        public void IdReturnsIdentifier()
         {
             var i = JS.Id("a");
 
@@ -461,13 +457,13 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Id_Rejects_Bad_Identifiers()
+        public void IdRejectsBadIdentifiers()
         {
             Expect.Throw<ArgumentException>(() => JS.Id("nO!"));
         }
 
         [TestMethod]
-        public void If_Returns_If()
+        public void IfReturnsIf()
         {
             var i = JS.If(JS.Null());
 
@@ -475,7 +471,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void If_Returns_If_Then()
+        public void IfReturnsIfThen()
         {
             var i = JS.If(JS.Null()).Then(JS.Null());
 
@@ -483,7 +479,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void If_Returns_If_Else()
+        public void IfReturnsIfElse()
         {
             var i = JS.If(JS.Null()).Else(JS.Null());
 
@@ -491,7 +487,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void If_Returns_If_Then_Else()
+        public void IfReturnsIfThenElse()
         {
             var i = JS.If(JS.Null()).Then(JS.Null()).Else(JS.Null());
 
@@ -499,7 +495,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Label_Returns_Label()
+        public void LabelReturnsLabel()
         {
             var l = JS.Label("l", JS.Empty());
 
@@ -507,7 +503,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Number_Returns_Integer()
+        public void NumberReturnsInteger()
         {
             var i = JS.Number(10);
 
@@ -515,7 +511,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Number_Returns_Double()
+        public void NumberReturnsDouble()
         {
             var d = JS.Number(3.14);
 
@@ -523,7 +519,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void String_Returns_String()
+        public void StringReturnsString()
         {
             var s = JS.String("test");
 
@@ -531,7 +527,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Boolean_Returns_Boolean()
+        public void BooleanReturnsBoolean()
         {
             var t = JS.Boolean(true);
             var f = JS.Boolean(false);
@@ -541,7 +537,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Multiple_Returns_Multiple_Evaluation()
+        public void MultipleReturnsMultipleEvaluation()
         {
             var a = JS.Id("a");
             var b = JS.Id("b");
@@ -553,7 +549,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void New_Returns_New_Object()
+        public void NewReturnsNewObject()
         {
             var n = JS.New(JS.Id("Class"));
 
@@ -561,7 +557,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void New_Returns_New_Object_With_Parameters()
+        public void NewReturnsNewObjectWithParameters()
         {
             var n1 = JS.New(JS.Id("Class"), new List<Expression> { "div", "p", 2 });
             var n2 = JS.New(JS.Id("Class"), "div", "p", 2);
@@ -571,7 +567,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Not_Returns_Logical_Not()
+        public void NotReturnsLogicalNot()
         {
             var n = JS.Not(true);
 
@@ -579,7 +575,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Null_Returns_Null()
+        public void NullReturnsNull()
         {
             var n = JS.Null();
 
@@ -587,7 +583,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Object_Returns_Empty_Object()
+        public void ObjectReturnsEmptyObject()
         {
             var o = JS.Object();
 
@@ -595,7 +591,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Object_Returns_Object_From_Anonymous_Object()
+        public void ObjectReturnsObjectFromAnonymousObject()
         {
             var o = JS.Object(new { mother = 1, judge = "mother", speed = JS.Array(1, 2, 3) });
 
@@ -603,7 +599,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Object_Returns_Object_From_Dictionary()
+        public void ObjectReturnsObjectFromDictionary()
         {
             var dictionary = new Dictionary<Expression, Expression>();
             dictionary["a"] = "b";
@@ -614,7 +610,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Object_Returns_Object_From_Anonymous_Object_With_Nested_Anonymous_Object()
+        public void ObjectReturnsObjectFromAnonymousObjectWithNestedAnonymousObject()
         {
             var o = JS.Object(new
             {
@@ -632,7 +628,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Object_Returns_Object_From_Anonymous_Object_With_Nested_Anonymous_Object_Array()
+        public void ObjectReturnsObjectFromAnonymousObjectWithNestedAnonymousObjectArray()
         {
             var o = JS.Object(new
             {
@@ -647,7 +643,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Object_Returns_Object_From_Anonymous_Object_With_Nested_Array()
+        public void ObjectReturnsObjectFromAnonymousObjectWithNestedArray()
         {
             var o = JS.Object(new
             {
@@ -658,7 +654,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Regex_Returns_LiteralExpression()
+        public void RegexReturnsLiteralExpression()
         {
             var r = JS.Regex(@"/\d+/g");
 
@@ -666,7 +662,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Return_Returns_ReturnStatement()
+        public void ReturnReturnsReturnStatement()
         {
             var r = JS.Return();
 
@@ -674,7 +670,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Return_Returns_ReturnStatement_With_Value()
+        public void ReturnReturnsReturnStatementWithValue()
         {
             var r = JS.Return("a");
 
@@ -682,7 +678,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Script_Returns_Empty_Script()
+        public void ScriptReturnsEmptyScript()
         {
             var s = JS.Script();
 
@@ -690,7 +686,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Script_Returns_Script_With_Statements()
+        public void ScriptReturnsScriptWithStatements()
         {
             var s = JS.Script(new List<Statement> { JS.Empty(), JS.Return(JS.Null()) });
 
@@ -698,7 +694,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Snippet_Returns_Literal()
+        public void SnippetReturnsLiteral()
         {
             var s = JS.Snippet("blah blah blah");
 
@@ -706,7 +702,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Switch_Returns_Empty_Switch()
+        public void SwitchReturnsEmptySwitch()
         {
             var s = JS.Switch(JS.Id("a"));
 
@@ -714,7 +710,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Switch_Returns_Switch_With_Default()
+        public void SwitchReturnsSwitchWithDefault()
         {
             var s = JS.Switch(JS.Id("a"))
                 .Default().Do(JS.Return());
@@ -723,7 +719,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Switch_Returns_Switch_With_Cases()
+        public void SwitchReturnsSwitchWithCases()
         {
             var s = JS.Switch(JS.Id("a"))
                 .Case(1).Do(JS.Id("alert").Call("moo!")).Break()
@@ -733,7 +729,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Throw_Returns_ThrowStatement()
+        public void ThrowReturnsThrowStatement()
         {
             var t = JS.Throw("error");
 
@@ -741,7 +737,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Try_Returns_ExceptionHandlingStatement()
+        public void TryReturnsExceptionHandlingStatement()
         {
             var a = JS.Id("a");
             var alert = JS.Id("alert");
@@ -752,7 +748,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Try_Returns_ExceptionHandlingStatement2()
+        public void TryReturnsExceptionHandlingStatement2()
         {
             var a = JS.Id("a");
             var alert = JS.Id("alert");
@@ -763,7 +759,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Var_Returns_DeclarationExpression()
+        public void VarReturnsDeclarationExpression()
         {
             var a = JS.Id("a");
             var v = JS.Var(a);
@@ -772,7 +768,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void Var_Returns_DeclarationExpression_With_Multiple_Expressions()
+        public void VarReturnsDeclarationExpressionWithMultipleExpressions()
         {
             var a = JS.Id("a");
             var b = JS.Id("b");
@@ -783,7 +779,7 @@ namespace Adam.JSGenerator.Tests
 
 
         [TestMethod]
-        public void Var_Returns_DeclarationExpression_With_Initialization()
+        public void VarReturnsDeclarationExpressionWithInitialization()
         {
             var a = JS.Id("a");
             var v = JS.Var(a.AssignWith(10));
@@ -792,7 +788,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void While_Returns_WhileStatement()
+        public void WhileReturnsWhileStatement()
         {
             var a = JS.Id("a");
             var w = JS.While(a.IsGreaterThan(0)).Do(a.PostDecrement());
@@ -801,7 +797,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void With_Returns_WithStatement()
+        public void WithReturnsWithStatement()
         {
             var a = JS.Id("a");
             var w = JS.With(a).Do(a.Call(), JS.Return());

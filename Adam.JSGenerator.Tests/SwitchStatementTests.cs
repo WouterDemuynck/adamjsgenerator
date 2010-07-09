@@ -5,14 +5,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Summary description for SwitchStatementTests
-    /// </summary>
     [TestClass]
     public class SwitchStatementTests
     {
         [TestMethod]
-        public void SwitchStatement_Produces_Empty_Switch()
+        public void SwitchStatementProducesEmptySwitch()
         {
             var statement = JS.Switch(JS.Id("a"));
     
@@ -20,7 +17,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void SwitchStatement_Requires_Expression()
+        public void SwitchStatementRequiresExpression()
         {
             var statement = JS.Switch(null);
 
@@ -28,7 +25,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void SwitchStatement_Produces_Switch()
+        public void SwitchStatementProducesSwitch()
         {
             var statement1 = JS.Switch(JS.Id("a"))
                 .Case("a").Do(JS.Return("a"));
@@ -74,7 +71,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void SwitchStatement_Default_Must_Come_Last()
+        public void SwitchStatementDefaultMustComeLast()
         {
             var statement = JS.Switch(JS.Id("a"))
                 .Default()
@@ -87,7 +84,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void SwitchStatement_Helpers_Require_Statement()
+        public void SwitchStatementHelpersRequireStatement()
         {
             SwitchStatement statement = null;
 

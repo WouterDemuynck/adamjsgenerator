@@ -4,9 +4,6 @@ using System.Collections.Generic;
 
 namespace Adam.JSGenerator.Tests
 {
-    /// <summary>
-    /// Tests for ExceptionHandlingStatement
-    /// </summary>
     [TestClass]
     public class ExceptionHandlingStatementTests
     {
@@ -14,7 +11,7 @@ namespace Adam.JSGenerator.Tests
         private static readonly IdentifierExpression Alert = JS.Id("alert");
 
         [TestMethod]
-        public void ExceptionHandlingStatement_Requires_TryBlock()
+        public void ExceptionHandlingStatementRequiresTryBlock()
         {
             var e = new ExceptionHandlingStatement();
 
@@ -24,7 +21,7 @@ namespace Adam.JSGenerator.Tests
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException), "CatchVariable cannot be null.")]
-        public void ExceptionHandlingStatement_Requires_CatchVariable()
+        public void ExceptionHandlingStatementRequiresCatchVariable()
         {
             var e = new ExceptionHandlingStatement
             {
@@ -36,7 +33,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ExceptionHandlingStatement_Produces_Try_Catch()
+        public void ExceptionHandlingStatementProducesTryCatch()
         {
             var t1 = JS.Try(JS.Return()).Catch(E, Alert.Call(E));
 
@@ -44,7 +41,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ExceptionHandlingStatement_Produces_Try_Finally()
+        public void ExceptionHandlingStatementProducesTryFinally()
         {
             var t1 = JS.Try(JS.Return()).Finally(Alert.Call(E));
 
@@ -52,7 +49,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ExceptionHandlingStatement_Produces_Try_Catch_Finally()
+        public void ExceptionHandlingStatementProducesTryCatchFinally()
         {
             var t1 = JS
                 .Try(JS.Return())
@@ -72,7 +69,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ExceptionHandlingStatementHelpers_Require_Statement()
+        public void ExceptionHandlingStatementHelpersRequireStatement()
         {
             ExceptionHandlingStatement e = null;
             Expect.Throw<ArgumentNullException>(() => e.Catch(E));

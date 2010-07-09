@@ -7,7 +7,7 @@ namespace Adam.JSGenerator.Tests
     public class ThrowStatementTests
     {
         [TestMethod]
-        public void ThrowStatement_Requires_Expression()
+        public void ThrowStatementRequiresExpression()
         {
             var statement = new ThrowStatement(null);
 
@@ -15,7 +15,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ThrowStatement_Has_Properties()
+        public void ThrowStatementHasProperties()
         {
             var statement = new ThrowStatement(null);
 
@@ -26,7 +26,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ThowStatement_Produces_Throw()
+        public void ThowStatementProducesThrow()
         {
             var statement = new ThrowStatement(1);
 
