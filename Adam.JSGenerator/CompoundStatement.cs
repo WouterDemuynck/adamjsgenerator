@@ -61,15 +61,11 @@ namespace Adam.JSGenerator
         /// <summary>
         /// Gets or sets the list of statements contained in this instance.
         /// </summary>
-        public List<Statement> Statements
+        public IList<Statement> Statements
         {
             get
             {
                 return this._Statements;
-            }
-            set
-            {
-                this._Statements = value;
             }
         }
     }

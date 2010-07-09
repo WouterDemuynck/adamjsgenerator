@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Text;
 using System.Collections.Generic;
-using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Adam.JSGenerator;
 
 namespace Adam.JSGenerator.Tests
 {
@@ -53,7 +50,8 @@ namespace Adam.JSGenerator.Tests
         {
             var f = new FunctionExpression();
             f.Name = JS.Id("a");
-            f.Parameters = new List<IdentifierExpression> { "b", "c" };
+            f.Parameters.Add("b");
+            f.Parameters.Add("c");
             f.Body = new CompoundStatement(JS.Return());
 
             Assert.AreEqual("function a(b,c){return;};", f.ToString());

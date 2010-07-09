@@ -14,7 +14,6 @@ namespace Adam.JSGenerator
         /// </summary>
         public ReturnStatement()
         {
-            this._Value = null;
         }
 
         /// <summary>

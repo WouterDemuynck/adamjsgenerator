@@ -54,15 +54,11 @@ namespace Adam.JSGenerator
         /// <summary>
         /// Gets or sets the list of parameters for the function.
         /// </summary>
-        public List<IdentifierExpression> Parameters
+        public IList<IdentifierExpression> Parameters
         {
             get
             {
                 return _Parameters;
-            }
-            set
-            {
-                _Parameters = value;
             }
         }
 

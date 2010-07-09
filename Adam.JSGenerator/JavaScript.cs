@@ -18,7 +18,8 @@ namespace Adam.JSGenerator
         /// <summary>
         /// Contains the list of characters allowed for quoting.
         /// </summary>
-        public static readonly char[] QuoteChars = new[] { '\'', '"' };
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2104:DoNotDeclareReadOnlyMutableReferenceTypes")]
+        public static readonly IEnumerable<char> QuoteChars = new [] { '\'', '"' };
 
         /// <summary>
         /// Contains the list of reserved keywords as defined by Javascript.
@@ -47,6 +48,7 @@ namespace Adam.JSGenerator
         /// If <see cref="o" /> can be converted into a double, an instance of <see cref="NumberExpression" /> is returned.
         /// In all other cases, <see cref="M:System.Object.ToString" /> is called, and the result is wrapped in an instance of <see cref="LiteralExpression" /> and returned.
         /// </remarks>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
         private static Expression ObjectToExpression(object o)
         {
             string s = o as string;
@@ -92,11 +94,11 @@ namespace Adam.JSGenerator
         /// <summary>
         /// Converts a single <see cref="T:System.Char" /> into a corresponding representation in JavaScript.
         /// </summary>
-        /// <param name="c">The character to convert.</param>
+        /// <param name="character">The character to convert.</param>
         /// <returns>A string representing the character in JavaScript.</returns>
-        public static string CharToUnicode(char c)
+        public static string CharToUnicode(char character)
         {
-            return string.Format(@"\u{0:x4}", (int)c);
+            return string.Format(CultureInfo.InvariantCulture, @"\u{0:x4}", (int)character);
         }
 
         /// <summary>
@@ -121,25 +123,25 @@ namespace Adam.JSGenerator
         /// <summary>
         /// Uses reflection to create a dictionary of expressions to expressions for each property of the passed object.
         /// </summary>
-        /// <param name="o">The <see cref="T:System.Object" /> to convert.</param>
+        /// <param name="value">The <see cref="T:System.Object" /> to convert.</param>
         /// <returns>A dictionary of expressions to expressions representing the values of the properties of the passed object.</returns>
         /// <remarks>
         /// This method uses reflection to retrieve all the properties of an object, so you can use anonymous objects to be converted into
         /// JavaScript object literals. These objects can be nested, as well as contain arrays.
         /// </remarks>     
-        public static IDictionary<Expression, Expression> GetValues(object o)
+        public static IDictionary<Expression, Expression> GetValues(object value)
         {
             Dictionary<Expression, Expression> result = new Dictionary<Expression, Expression>(); 
    
-            if (o != null)
+            if (value != null)
             {
-                foreach (PropertyDescriptor property in TypeDescriptor.GetProperties(o))
+                foreach (PropertyDescriptor property in TypeDescriptor.GetProperties(value))
                 {
                     string name = property.Name;
 
                     Expression key = IsValidIdentifier(name) ? (Expression)Id(name) : (Expression)name;
 
-                    result.Add(key, ObjectToExpression(property.GetValue(o)));
+                    result.Add(key, ObjectToExpression(property.GetValue(value)));
                 }   
             }
 
@@ -179,13 +181,13 @@ namespace Adam.JSGenerator
         /// Quotes the string for use in Javascript, using the quote character supplied.
         /// </summary>
         /// <param name="source">The string to quote.</param>
-        /// <param name="quoteChar">The quote character to use.</param>
+        /// <param name="quoteCharacter">The character to use to quote.</param>
         /// <returns>The quoted string.</returns>
         /// <remarks>
         ///     All the characters that need to be present in the string are escaped, including the control characters.
         ///     The escape character '\' is not escaped itself, for example to preserve regex patterns.
         /// </remarks>
-        public static string QuoteString(IEnumerable<char> source, char quoteChar)
+        public static string QuoteString(IEnumerable<char> source, char quoteCharacter)
         {
             if (source == null)
             {
@@ -194,7 +196,7 @@ namespace Adam.JSGenerator
 
             StringBuilder builder = new StringBuilder();
 
-            builder.Append(quoteChar);
+            builder.Append(quoteCharacter);
 
             foreach (char c in source)
             {
@@ -206,7 +208,7 @@ namespace Adam.JSGenerator
 
                     case '\'':
                     case '"':
-                        if (c == quoteChar)
+                        if (c == quoteCharacter)
                         {
                             builder.Append('\\');
                         }
@@ -251,7 +253,7 @@ namespace Adam.JSGenerator
                 }
             }
 
-            builder.Append(quoteChar);
+            builder.Append(quoteCharacter);
 
             return builder.ToString();
         }
@@ -767,14 +769,14 @@ namespace Adam.JSGenerator
         /// <summary>
         /// Creates a new instance of <see cref="ObjectLiteralExpression" />.
         /// </summary>
-        /// <param name="o">The object whose properties will be represented by the object literal.</param>
+        /// <param name="value">The object whose properties will be represented by the object literal.</param>
         /// <returns>a new instance of <see cref="ObjectLiteralExpression" />.</returns>
         /// <remarks>
         /// This method calls <see cref="GetValues" /> to retrieve all the properties of the specified object.
         /// </remarks>
-        public static ObjectLiteralExpression Object(object o)
+        public static ObjectLiteralExpression Object(object value)
         {
-            return new ObjectLiteralExpression(GetValues(o));
+            return new ObjectLiteralExpression(GetValues(value));
         }
 
         /// <summary>
@@ -931,9 +933,9 @@ namespace Adam.JSGenerator
 
         #endregion
 
-        public static CallOperationExpression Alert(Expression a)
+        public static CallOperationExpression Alert(Expression message)
         {
-            return new CallOperationExpression(Id("alert"), a);
+            return new CallOperationExpression(Id("alert"), message);
         }
     }
 }

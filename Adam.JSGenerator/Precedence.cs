@@ -27,7 +27,7 @@
         /// <param name="against">The precedence to test against.</param>
         /// <param name="expected">The expected association.</param>
         /// <returns>True if parens are needed, otherwise false.</returns>
-        public bool RequiresParens(Precedence against, Association expected)
+        public bool RequiresGrouping(Precedence against, Association expected)
         {
             return ((this.Level == against.Level) && (this.Association != expected)) ||
                 (this.Level < against.Level);
@@ -46,6 +46,36 @@
                     Association = Association.LeftToRight
                 };
             }
+        }
+
+        public static bool Equals(Precedence left, Precedence right)
+        {
+            return left.Level.Equals(right.Level) && left.Association.Equals(right.Association);
+        }
+
+        public bool Equals(Precedence other)
+        {
+            return Equals(this, other);
+        }
+
+        public override bool Equals(object obj)
+        {
+            return (obj is Precedence) && Equals(this, (Precedence) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Level.GetHashCode();
+        }
+
+        public static bool operator ==(Precedence left, Precedence right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(Precedence left, Precedence right)
+        {
+            return !left.Equals(right);
         }
     }
 }

@@ -12,31 +12,31 @@ namespace Adam.JSGenerator
         /// <summary>
         /// Returns an <see cref="IEnumerable{Statement}" /> that replaces null elements in the specified sequence with instances of <see cref="EmptyStatement" />.
         /// </summary>
-        /// <param name="qry">The sequence to filter.</param>
+        /// <param name="query">The sequence to filter.</param>
         /// <returns>A sequence of statements.</returns>
-        public static IEnumerable<Statement> WithConvertedNulls(this IEnumerable<Statement> qry)
+        public static IEnumerable<Statement> WithConvertedNulls(this IEnumerable<Statement> query)
         {
-            if (qry == null)
+            if (query == null)
             {
-                throw new ArgumentNullException("qry");
+                throw new ArgumentNullException("query");
             }
 
-            return qry.Select(obj => obj ?? new EmptyStatement());
+            return query.Select(obj => obj ?? new EmptyStatement());
         }
 
         /// <summary>
         /// Return an <see cref="IEnumerable{Expression}" /> that replaces null elements in the specified sequence with instances of <see cref="NullExpression" />. 
         /// </summary>
-        /// <param name="qry">The sequence to filter.</param>
+        /// <param name="query">The sequence to filter.</param>
         /// <returns>A sequence of expressions.</returns>
-        public static IEnumerable<Expression> WithConvertedNulls(this IEnumerable<Expression> qry)
+        public static IEnumerable<Expression> WithConvertedNulls(this IEnumerable<Expression> query)
         {
-            if (qry == null)
+            if (query == null)
             {
-                throw new ArgumentNullException("qry");
+                throw new ArgumentNullException("query");
             }
 
-            return qry.Select(obj => obj ?? new NullExpression());
+            return query.Select(obj => obj ?? new NullExpression());
         }
     }
 }

@@ -70,15 +70,11 @@ namespace Adam.JSGenerator
         /// <summary>
         /// Gets or sets the dictionary of properties.
         /// </summary>
-        public Dictionary<Expression, Expression> Properties
+        public IDictionary<Expression, Expression> Properties
         {
             get
             {
                 return this._Properties;
-            }
-            set
-            {
-                this._Properties = value;
             }
         }
 

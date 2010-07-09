@@ -191,7 +191,7 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("expression");
             }
 
-            return new UnaryOperationExpression(expression, UnaryOperator.Typeof);
+            return new UnaryOperationExpression(expression, UnaryOperator.TypeOf);
         }
     }
 }

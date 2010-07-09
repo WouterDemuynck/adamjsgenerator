@@ -44,6 +44,16 @@ namespace Adam.JSGenerator
         }
 
         /// <summary>
+        /// Implicitly converts a string into an identifier.
+        /// </summary>
+        /// <param name="name">The name to convert.</param>
+        /// <returns>The IdentifierExpression instance that represents the identifier passed in the name argument.</returns>
+        public static new IdentifierExpression FromString(string name)
+        {
+            return new IdentifierExpression(name);
+        }
+
+        /// <summary>
         /// Gets or sets the name of the identifier.
         /// </summary>
         public string Name

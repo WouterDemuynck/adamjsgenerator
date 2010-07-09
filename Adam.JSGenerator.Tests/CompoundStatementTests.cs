@@ -1,6 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Adam.JSGenerator;
-using System;
 
 namespace Adam.JSGenerator.Tests
 {
@@ -24,25 +22,6 @@ namespace Adam.JSGenerator.Tests
             var c = new CompoundStatement(new NullExpression(), new NullExpression(), new ReturnStatement());
 
             Assert.AreEqual("{null;null;return;}", c.ToString());
-        }
-
-        [TestMethod]
-        public void CompoundStatement_Produces_Another_Block_With_Statements()
-        {
-            var c = new CompoundStatement();
-            c.Statements.AddRange(new Statement[] { new NullExpression(), new NullExpression(), new ReturnStatement() });
-
-            Assert.AreEqual("{null;null;return;}", c.ToString());
-        }
-
-
-        [TestMethod]
-        public void CompoundStatement_Requires_Statements()
-        {
-            var c = new CompoundStatement();
-            c.Statements = null;
-
-            Expect.Throw<InvalidOperationException>(() => c.ToString());
         }
 
         [TestMethod]

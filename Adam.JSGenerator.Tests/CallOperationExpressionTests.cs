@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Adam.JSGenerator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -31,9 +30,8 @@ namespace Adam.JSGenerator.Tests
             var p = new List<Expression> { 1, 2, 3 };
             var c2 = fn.Call(p);
             var p2 = c2.Arguments.AsEnumerable().Reverse().ToList();
-            var c3 = new CallOperationExpression(null);
+            var c3 = new CallOperationExpression(null, p2);
             c3.Operand = c2.Operand;
-            c3.Arguments = p2;
 
             Assert.AreEqual("fn(1,2,\"Hello!\");", c1.ToString());
             Assert.AreEqual("fn(1,2,3);", c2.ToString());

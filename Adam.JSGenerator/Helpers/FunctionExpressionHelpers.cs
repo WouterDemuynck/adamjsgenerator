@@ -12,32 +12,32 @@ namespace Adam.JSGenerator
         /// Creates a new instance of <see cref="FunctionExpression" /> based on an existing one, and adds parameters to it.
         /// </summary>
         /// <param name="expression">The instance of <see cref="FunctionExpression" /> to copy the <see cref="FunctionExpression.Name" /> and <see cref="FunctionExpression.Body" /> from.</param>
-        /// <param name="parameters">An array of parameters to add to the new instance.</param>
+        /// <param name="identifiers">An array of parameters to add to the new instance.</param>
         /// <returns>a new instance of <see cref="FunctionExpression" />.</returns>
-        public static FunctionExpression Parameters(this FunctionExpression expression, params IdentifierExpression[] parameters)
+        public static FunctionExpression Parameters(this FunctionExpression expression, params IdentifierExpression[] identifiers)
         {
             if (expression == null)
             {
                 throw new ArgumentNullException("expression");
             }
 
-            return new FunctionExpression(expression.Name, parameters, expression.Body);
+            return new FunctionExpression(expression.Name, identifiers, expression.Body);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="FunctionExpression" /> based on an existing one, and adds parameters to it.
         /// </summary>
         /// <param name="expression">The instance of <see cref="FunctionExpression" /> to copy the <see cref="FunctionExpression.Name" /> and <see cref="FunctionExpression.Body" /> from.</param>
-        /// <param name="parameters">A sequence of parameters to add to the new instance.</param>
+        /// <param name="identifiers">A sequence of parameters to add to the new instance.</param>
         /// <returns>a new instance of <see cref="FunctionExpression" />.</returns>
-        public static FunctionExpression Parameters(this FunctionExpression expression, IEnumerable<IdentifierExpression> parameters)
+        public static FunctionExpression Parameters(this FunctionExpression expression, IEnumerable<IdentifierExpression> identifiers)
         {
             if (expression == null)
             {
                 throw new ArgumentNullException("expression");
             }
 
-            return new FunctionExpression(expression.Name, parameters, expression.Body);
+            return new FunctionExpression(expression.Name, identifiers, expression.Body);
         }
 
         /// <summary>
