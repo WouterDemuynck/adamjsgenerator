@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Adam.JSGenerator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 

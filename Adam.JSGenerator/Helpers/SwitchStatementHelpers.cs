@@ -55,9 +55,9 @@ namespace Adam.JSGenerator
 
             if (values != null)
             {
-                SwitchStatement @switch = new SwitchStatement(statement.Expression, statement.Cases);
-
-                @switch.Cases.AddRange(values.Select(value => new CaseStatement(value)));
+                SwitchStatement @switch = new SwitchStatement(
+                    statement.Expression, 
+                    statement.Cases.Union(values.Select(value => new CaseStatement(value))));
 
                 return @switch;
             }
@@ -124,8 +124,7 @@ namespace Adam.JSGenerator
             {
                 int lastIndex = @switch.Cases.Count - 1;
                 CaseStatement lastCase = @switch.Cases[lastIndex];
-                CaseStatement newLast = new CaseStatement(lastCase.Value, lastCase.Statements);
-                newLast.Statements.AddRange(statements);
+                CaseStatement newLast = new CaseStatement(lastCase.Value, lastCase.Statements.Union(statements));
                 @switch.Cases[lastIndex] = newLast;
             }
 

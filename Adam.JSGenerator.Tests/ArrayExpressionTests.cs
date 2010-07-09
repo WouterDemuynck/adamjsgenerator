@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Adam.JSGenerator;
+﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Adam.JSGenerator.Tests
@@ -63,9 +61,7 @@ namespace Adam.JSGenerator.Tests
         public void Can_Set_ExpressionsList_Of_ArrayExpression()
         {
             var list = new List<Expression> { 1, 2, 3 };
-            var a = new ArrayExpression();
-
-            a.Elements = list;
+            var a = new ArrayExpression(list);
 
             Assert.IsNotNull(a);
             Assert.IsNotNull(a.Elements);
@@ -107,15 +103,6 @@ namespace Adam.JSGenerator.Tests
             Assert.IsNotNull(c);
             Assert.IsTrue(Equals(a.GetHashCode(), b.GetHashCode()));
             Assert.IsFalse(Equals(a.GetHashCode(), c.GetHashCode()));
-        }
-
-        [TestMethod]
-        public void ArrayExpression_Without_Elements_Throws_Exception()
-        {
-            var a = new ArrayExpression();
-            a.Elements = null;
-
-            Expect.Throw<InvalidOperationException>(() => a.ToString());
         }
     }
 }

@@ -88,15 +88,11 @@ namespace Adam.JSGenerator
         /// <summary>
         /// Gets or sets the list of cases.
         /// </summary>
-        public List<CaseStatement> Cases
+        public IList<CaseStatement> Cases
         {
             get
             {
                 return _Cases;
-            }
-            set
-            {
-                _Cases = value;
             }
         }
 

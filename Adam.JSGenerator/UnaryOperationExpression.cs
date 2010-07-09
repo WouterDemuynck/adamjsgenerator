@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace Adam.JSGenerator
@@ -85,7 +83,7 @@ namespace Adam.JSGenerator
                     builder.Append("--");
                     break;
 
-                case UnaryOperator.Typeof:
+                case UnaryOperator.TypeOf:
                     builder.Append("typeof ");
                     break;
 

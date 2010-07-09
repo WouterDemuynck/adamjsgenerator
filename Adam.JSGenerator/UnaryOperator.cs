@@ -48,7 +48,7 @@
         /// <summary>
         /// Represents the typeof operator.
         /// </summary>
-        Typeof,
+        TypeOf,
 
         /// <summary>
         /// Represents the new operator.

@@ -85,15 +85,11 @@ namespace Adam.JSGenerator
         /// <summary>
         /// Gets or sets a list of statements that is run in this case.
         /// </summary>
-        public List<Statement> Statements
+        public IList<Statement> Statements
         {
             get
             {
                 return _Statements;
-            }
-            set
-            {
-                _Statements = value;
             }
         }
 

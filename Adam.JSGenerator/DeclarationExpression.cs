@@ -46,15 +46,11 @@ namespace Adam.JSGenerator
         /// <summary>
         /// Gets or sets a list of expressions to declare.
         /// </summary>
-        public List<Expression> Expressions
+        public IList<Expression> Expressions
         {
             get
             {
                 return this._Expressions;
-            }
-            set
-            {
-                this._Expressions = value;
             }
         }
 

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Text;
 using System.Collections.Generic;
-using System.Linq;
-using Adam.JSGenerator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections;
 
@@ -34,16 +31,6 @@ namespace Adam.JSGenerator.Tests
             script2.Add(script1);   
 
             Assert.AreEqual("var a;for(a=3;a>0;--a)alert(a);return a;", script2.ToString());
-        }
-
-
-        [TestMethod]
-        public void Script_Requires_Statements()
-        {
-            Script script = new Script();
-            script.Statements = null;
-
-            Expect.Throw<InvalidOperationException>(() => script.ToString());
         }
 
         [TestMethod]

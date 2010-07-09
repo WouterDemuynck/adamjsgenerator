@@ -73,13 +73,14 @@ namespace Adam.JSGenerator
             this._Operator = op;
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
         internal protected override void AppendScript(StringBuilder builder, GenerateJavaScriptOptions options)
         {
             Expression operandLeft = this._OperandLeft ?? new NullExpression();
             Expression operandRight = this._OperandRight ?? new NullExpression();
 
-            bool leftRequiresParens = operandLeft.PrecedenceLevel.RequiresParens(this.PrecedenceLevel, Association.LeftToRight);
-            bool rightRequiresParens = operandRight.PrecedenceLevel.RequiresParens(this.PrecedenceLevel, Association.RightToLeft);
+            bool leftRequiresParens = operandLeft.PrecedenceLevel.RequiresGrouping(this.PrecedenceLevel, Association.LeftToRight);
+            bool rightRequiresParens = operandRight.PrecedenceLevel.RequiresGrouping(this.PrecedenceLevel, Association.RightToLeft);
 
             if (leftRequiresParens)
             {

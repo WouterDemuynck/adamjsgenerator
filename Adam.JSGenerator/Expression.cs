@@ -1,6 +1,4 @@
-﻿using System.Globalization;
-
-namespace Adam.JSGenerator
+﻿namespace Adam.JSGenerator
 {
     /// <summary>
     /// The base class to all forms of expressions.
@@ -31,43 +29,83 @@ namespace Adam.JSGenerator
         }
 
         /// <summary>
-        /// Converts a Boolean into a LiteralExpression that represents its value.
+        /// Converts a Boolean into a <see cref="BooleanExpression" /> that represents its value.
         /// </summary>
-        /// <param name="b">The Boolean to convert.</param>
-        /// <returns>An instance of LiteralExpression that represents its value.</returns>
-        public static implicit operator Expression(bool b)
+        /// <param name="value">The Boolean to convert.</param>
+        /// <returns>An instance of <see cref="BooleanExpression" /> that represents its value.</returns>
+        public static implicit operator Expression(bool value)
         {
-            return new BooleanExpression(b);
+            return new BooleanExpression(value);
         }
 
         /// <summary>
-        /// Converts an integer into a LiteralExpression that represents its value.
+        /// Converts a Boolean into a <see cref="BooleanExpression" /> that represents its value.
         /// </summary>
-        /// <param name="i">The integer to convert.</param>
-        /// <returns>The LiteralExpression object that represents its value.</returns>
-        public static implicit operator Expression(int i)
+        /// <param name="value">The Boolean to convert.</param>
+        /// <returns>An instance of <see cref="BooleanExpression" /> that represents its value.</returns>
+        public static BooleanExpression FromBoolean(bool value)
         {
-            return new NumberExpression(i);
+            return new BooleanExpression(value);
         }
 
         /// <summary>
-        /// Converts a double into a LiteralExpression that represents its value.
+        /// Converts an integer into a <see cref="NumberExpression" /> that represents its value.
         /// </summary>
-        /// <param name="d">The double to convert.</param>
+        /// <param name="value">The integer to convert.</param>
         /// <returns>The LiteralExpression object that represents its value.</returns>
-        public static implicit operator Expression(double d)
+        public static implicit operator Expression(int value)
         {
-            return new NumberExpression(d);
+            return new NumberExpression(value);
         }
 
         /// <summary>
-        /// Converts a string into a LiteralExpression that represents its value.
+        /// Converts an integer into a <see cref="NumberExpression" /> that represents its value.
         /// </summary>
-        /// <param name="s">The string to convert.</param>
-        /// <returns>The LiteralExpression object that represents its value.</returns>
-        public static implicit operator Expression(string s)
+        /// <param name="value">The integer to convert.</param>
+        /// <returns>The <see cref="NumberExpression" /> object that represents its value.</returns>
+        public static NumberExpression FromInteger(int value)
         {
-            return new StringExpression(s);
+            return new NumberExpression(value);
+        }
+
+        /// <summary>
+        /// Converts a double into a <see cref="NumberExpression" /> that represents its value.
+        /// </summary>
+        /// <param name="value">The double to convert.</param>
+        /// <returns>The <see cref="NumberExpression" /> object that represents its value.</returns>
+        public static implicit operator Expression(double value)
+        {
+            return new NumberExpression(value);
+        }
+
+        /// <summary>
+        /// Converts a double into a <see cref="NumberExpression" /> that represents its value.
+        /// </summary>
+        /// <param name="value">The double to convert.</param>
+        /// <returns>The <see cref="NumberExpression" /> object that represents its value.</returns>
+        public static NumberExpression FromDouble(double value)
+        {
+            return new NumberExpression(value);
+        }
+
+        /// <summary>
+        /// Converts a string into a <see cref="StringExpression" /> that represents its value.
+        /// </summary>
+        /// <param name="value">The string to convert.</param>
+        /// <returns>The <see cref="StringExpression" /> object that represents its value.</returns>
+        public static implicit operator Expression(string value)
+        {
+            return new StringExpression(value);
+        }
+
+        /// <summary>
+        /// Converts a string into a <see cref="StringExpression" /> that represents its value.
+        /// </summary>
+        /// <param name="value">The string to convert.</param>
+        /// <returns>The <see cref="StringExpression" /> object that represents its value.</returns>
+        public static StringExpression FromString(string value)
+        {
+            return new StringExpression(value);
         }
     }
 }

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Text;
 using System.Collections.Generic;
 using System.Linq;
-using Adam.JSGenerator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Adam.JSGenerator.Tests
@@ -58,14 +56,10 @@ namespace Adam.JSGenerator.Tests
                 "case 7:case 8:case 9:case 10:alert(a);break;default:break;}", 
                 statement2.ToString());
 
-            var statement3 = new SwitchStatement(null);
-
-            statement3.Expression = JS.Id("c");
-
             CaseStatement test = new CaseStatement(3);
 
             test.Value = 4;
-            test.Statements = new List<Statement> { JS.Break() };
+            test.Statements.Add(JS.Break());
 
             var cases = new List<CaseStatement>
             {
@@ -74,7 +68,7 @@ namespace Adam.JSGenerator.Tests
                 test
             };
 
-            statement3.Cases = cases;
+            var statement3 = new SwitchStatement(JS.Id("c"), cases);
 
             Assert.AreEqual("switch(c){case 1:break;case 2:break;case 4:break;}", statement3.ToString());
         }

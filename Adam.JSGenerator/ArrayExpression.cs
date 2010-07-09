@@ -69,17 +69,13 @@ namespace Adam.JSGenerator
         }
 
         /// <summary>
-        /// Sets or gets the list of elements that make up the array.
+        /// Gets the list of elements that make up the array.
         /// </summary>
-        public List<Expression> Elements
+        public IList<Expression> Elements
         {
             get
             {
                 return _Elements;
-            }
-            set
-            {
-                _Elements = value;
             }
         }
     }

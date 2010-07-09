@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Adam.JSGenerator;
 using System.Collections.Generic;
 
 namespace Adam.JSGenerator.Tests

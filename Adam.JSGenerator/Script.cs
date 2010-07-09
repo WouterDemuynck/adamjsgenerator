@@ -7,6 +7,7 @@ namespace Adam.JSGenerator
     /// <summary>
     /// Represents a list of statements.
     /// </summary>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
     public class Script : IEnumerable<Statement> // Really, just for initializers.
     {
         private List<Statement> _Statements = new List<Statement>();
@@ -39,15 +40,11 @@ namespace Adam.JSGenerator
         /// <summary>
         /// Gets or sets the list of statements.
         /// </summary>
-        public List<Statement> Statements
+        public IList<Statement> Statements
         {
             get
             {
                 return _Statements;
-            }
-            set
-            {
-                _Statements = value;
             }
         }
 

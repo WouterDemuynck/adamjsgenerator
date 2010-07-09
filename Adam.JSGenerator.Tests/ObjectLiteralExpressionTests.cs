@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Adam.JSGenerator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Adam.JSGenerator.Tests
@@ -28,14 +27,6 @@ namespace Adam.JSGenerator.Tests
 
             Assert.AreEqual(3, expression.Properties.Count);
             Assert.AreEqual("{a:12,b:\"Wrong!\",c:null};", expression.ToString());
-            
-            expression.Properties = new Dictionary<Expression, Expression>
-            {
-                {JS.Id("a"), JS.Number(12)}                
-            };
-
-            Assert.AreEqual(1, expression.Properties.Count);
-            Assert.AreEqual("{a:12};", expression.ToString());            
         }
 
         [TestMethod]

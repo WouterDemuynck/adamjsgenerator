@@ -56,16 +56,16 @@ namespace Adam.JSGenerator
         /// Creates a new instance of <see cref="ObjectLiteralExpression" />, by copying the specified expression's properties, and adding the properties of the specified object.
         /// </summary>
         /// <param name="expression">The expression to copy the properties from.</param>
-        /// <param name="obj">An object of which the properties are added to the new instance.</param>
+        /// <param name="value">An object of which the properties are added to the new instance.</param>
         /// <returns>a new instance of <see cref="ObjectLiteralExpression" /></returns>
-        public static ObjectLiteralExpression WithProperties(this ObjectLiteralExpression expression, object obj)
+        public static ObjectLiteralExpression WithProperties(this ObjectLiteralExpression expression, object value)
         {
             if (expression == null)
             {
                 throw new ArgumentNullException("expression");
             }
 
-            return expression.WithProperties(JS.GetValues(obj));
+            return expression.WithProperties(JS.GetValues(value));
         }
     }
 }

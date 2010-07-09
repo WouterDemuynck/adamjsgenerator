@@ -84,15 +84,11 @@ namespace Adam.JSGenerator
         /// <summary>
         /// Gets or sets the list of arguments to pass.
         /// </summary>
-        public List<Expression> Arguments
+        public IList<Expression> Arguments
         {
             get
             {
                 return this._Arguments;
-            }
-            set
-            {
-                this._Arguments = value;
             }
         }
     }
