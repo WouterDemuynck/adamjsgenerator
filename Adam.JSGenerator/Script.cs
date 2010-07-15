@@ -128,6 +128,9 @@ namespace Adam.JSGenerator
 
         #region IEnumerable<Statement> Members
 
+        /// <summary>
+        /// Returns an enumerator that iterates through the collection of statements. 
+        /// </summary>
         public IEnumerator<Statement> GetEnumerator()
         {
             return Statements.GetEnumerator();

@@ -16,7 +16,7 @@ namespace Adam.JSGenerator.Tests
                 JS.Var(a),
                 {
                     JS.For(a.AssignWith(3), a.IsGreaterThan(0), a.PreDecrement())
-                        .With(JS.Alert(a)), 
+                        .Do(JS.Alert(a)), 
                     JS.Return(a)
                 }
             };

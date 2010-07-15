@@ -44,6 +44,11 @@ namespace Adam.JSGenerator
             }
         }
 
+        /// <summary>
+        /// Appends the script to represent this object to the StringBuilder.
+        /// </summary>
+        /// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
+        /// <param name="options">The options to use when appending JavaScript</param>
         internal protected override void AppendScript(StringBuilder builder, GenerateJavaScriptOptions options)
         {
             builder.Append("continue");
@@ -55,6 +60,9 @@ namespace Adam.JSGenerator
             }
         }
 
+        /// <summary>
+        /// Indicates that this object requires a terminating semicolon when used as a statement.
+        /// </summary>
         internal protected override bool RequiresTerminator
         {
             get

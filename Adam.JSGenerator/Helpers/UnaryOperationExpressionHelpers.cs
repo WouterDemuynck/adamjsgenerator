@@ -184,6 +184,9 @@ namespace Adam.JSGenerator
             return new UnaryOperationExpression(expression, UnaryOperator.PreIncrement);
         }
 
+        /// <summary>
+        /// Creates an instance of <see cref="UnaryOperationExpression" /> that returns the type of the specified expression.
+        /// </summary>
         public static UnaryOperationExpression TypeOf(this Expression expression)
         {
             if (expression == null)

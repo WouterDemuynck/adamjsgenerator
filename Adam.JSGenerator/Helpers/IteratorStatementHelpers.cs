@@ -39,7 +39,7 @@ namespace Adam.JSGenerator
         /// <param name="statement">The statement to copy the properties from.</param>
         /// <param name="statements">An array of statements to add to the body.</param>
         /// <returns>a new instance of <see cref="IteratorStatement" /></returns>
-        public static IteratorStatement With(this IteratorStatement statement, params Statement[] statements)
+        public static IteratorStatement Do(this IteratorStatement statement, params Statement[] statements)
         {
             if (statement == null)
             {
@@ -56,7 +56,7 @@ namespace Adam.JSGenerator
         /// <param name="statement">The statement to copy the properties from.</param>
         /// <param name="statements">A sequence of statements to add to the body.</param>
         /// <returns>a new instance of <see cref="IteratorStatement" /></returns>
-        public static IteratorStatement With(this IteratorStatement statement, IEnumerable<Statement> statements)
+        public static IteratorStatement Do(this IteratorStatement statement, IEnumerable<Statement> statements)
         {
             if (statement == null)
             {

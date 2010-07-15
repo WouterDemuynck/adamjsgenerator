@@ -32,5 +32,21 @@ namespace Adam.JSGenerator.Tests
 
             Expect.Throw<ArgumentException>(() => id.Name = "Namespace.Classname");
         }
+
+        [TestMethod]
+        public void IdentifierExpressionHasImplicitConversion()
+        {
+            IdentifierExpression id = "id";
+
+            Assert.AreEqual("id;", id.ToString());
+        }
+
+        [TestMethod]
+        public void IdentifierExpressionHasExplicitConversion()
+        {
+            IdentifierExpression id = IdentifierExpression.FromString("id");
+
+            Assert.AreEqual("id;", id.ToString());
+        }
     }
 }

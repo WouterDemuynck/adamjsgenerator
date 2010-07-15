@@ -10,6 +10,7 @@ namespace Adam.JSGenerator.Tests
         {
             var c = new CompoundStatement();
 
+            Assert.AreEqual(0, c.Statements.Count);
             Assert.AreEqual("{}", c.ToString());
         }
 
@@ -18,15 +19,8 @@ namespace Adam.JSGenerator.Tests
         {
             var c = new CompoundStatement(new NullExpression(), new NullExpression(), new ReturnStatement());
 
+            Assert.AreEqual(3, c.Statements.Count);
             Assert.AreEqual("{null;null;return;}", c.ToString());
-        }
-
-        [TestMethod]
-        public void CompoundStatementHasHelpers()
-        {
-            var c = JS.Return();
-
-            Assert.AreEqual("return;", c.ToString());
         }
     }
 }

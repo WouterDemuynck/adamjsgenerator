@@ -82,6 +82,9 @@ namespace Adam.JSGenerator
             return this.ToString(true);
         }
 
+        /// <summary>
+        /// Returns a value indicating whether this instance is equal to the specified object.
+        /// </summary>
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj))
@@ -98,6 +101,9 @@ namespace Adam.JSGenerator
                 string.Equals(this.ToString(), obj.ToString());
         }
 
+        /// <summary>
+        /// Returns the hash code for this instance.
+        /// </summary>
         public override int GetHashCode()
         {
             return this.ToString().GetHashCode();

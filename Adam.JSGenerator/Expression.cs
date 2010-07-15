@@ -5,6 +5,9 @@
     /// </summary>
     public abstract class Expression : Statement
     {
+        /// <summary>
+        /// Indicates that this object requires a terminating semicolon when used as a statement.
+        /// </summary>
         internal protected override bool RequiresTerminator
         {
             get
