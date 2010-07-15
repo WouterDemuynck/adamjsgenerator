@@ -40,6 +40,11 @@ namespace Adam.JSGenerator
         }
 
 
+        /// <summary>
+        /// Appends the script to represent this object to the StringBuilder.
+        /// </summary>
+        /// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
+        /// <param name="options">The options to use when appending JavaScript</param>
         internal protected override void AppendScript(StringBuilder builder, GenerateJavaScriptOptions options)
         {
             _Operand.AppendScript(builder, options);

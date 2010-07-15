@@ -14,7 +14,7 @@ namespace Adam.JSGenerator
         /// <param name="statement">The instance of <see cref="LoopStatement" /> to copy the initialization, condition and iteration from.</param>
         /// <param name="statements">An array of statements to be used by the new instance.</param>
         /// <returns>an instance of <see cref="LoopStatement" /></returns>
-        public static LoopStatement With(this LoopStatement statement, params Statement[] statements)
+        public static LoopStatement Do(this LoopStatement statement, params Statement[] statements)
         {
             if (statement == null)
             {
@@ -30,7 +30,7 @@ namespace Adam.JSGenerator
         /// <param name="statement">The instance of <see cref="LoopStatement" /> to copy the initialization, condition and iteration from.</param>
         /// <param name="statements">A sequence of statements to be used by the new instance.</param>
         /// <returns>an instance of <see cref="LoopStatement" /></returns>
-        public static LoopStatement With(this LoopStatement statement, IEnumerable<Statement> statements)
+        public static LoopStatement Do(this LoopStatement statement, IEnumerable<Statement> statements)
         {
             if (statement == null)
             {

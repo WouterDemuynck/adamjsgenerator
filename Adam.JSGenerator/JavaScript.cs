@@ -34,28 +34,28 @@ namespace Adam.JSGenerator
         #region Helper Methods
 
         /// <summary>
-        /// Returns an expression for the object presented.
+        /// Returns an expression for the specified object.
         /// </summary>
-        /// <param name="o">The object to turn into an expression</param>
-        /// <returns>an instance deriving from <see cref="Expression" />.</returns>
+        /// <param name="value">An object to turn into an expression</param>
+        /// <returns>An instance deriving from <see cref="Expression" />.</returns>
         /// <remarks>
-        /// If <see cref="o" /> is null, an instance of <see cref="NullExpression" /> is returned.
-        /// If <see cref="o" /> is a string, an instance of <see cref="StringExpression" /> is returned representing the string.
-        /// If <see cref="o" /> is an instance of a class derived from <see cref="Expression" />, it is returned unchanged.
-        /// If <see cref="o" /> is an instance of a class that implements <see cref="T:System.Collections.IEnumerable" />, <see cref="Array(IEnumerable)" /> is called to return an instance of <see cref="ArrayExpression" />.
-        /// If <see cref="o" /> is a reference type, <see cref="Object()" /> is called to return an instance of <see cref="ObjectLiteralExpression" />.
-        /// If <see cref="o" /> is a boolean, an instance of <see cref="BooleanExpression" /> is returned.
-        /// If <see cref="o" /> can be converted into a double, an instance of <see cref="NumberExpression" /> is returned.
+        /// If the specified object is null, an instance of <see cref="NullExpression" /> is returned.
+        /// If the specified object is a string, an instance of <see cref="StringExpression" /> is returned representing the string.
+        /// If the specified object is an instance of a class derived from <see cref="Expression" />, it is returned unchanged.
+        /// If the specified object is an instance of a class that implements <see cref="T:System.Collections.IEnumerable" />, <see cref="Array(IEnumerable)" /> is called to return an instance of <see cref="ArrayExpression" />.
+        /// If the specified object is a reference type, <see cref="Object()" /> is called to return an instance of <see cref="ObjectLiteralExpression" />.
+        /// If the specified object is a boolean, an instance of <see cref="BooleanExpression" /> is returned.
+        /// If the specified object can be converted into a double, an instance of <see cref="NumberExpression" /> is returned.
         /// In all other cases, <see cref="M:System.Object.ToString" /> is called, and the result is wrapped in an instance of <see cref="StringExpression" /> and returned.
         /// </remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
-        private static Expression ObjectToExpression(object o)
+        private static Expression ObjectToExpression(object value)
         {
-            string s = o as string;
+            string s = value as string;
             Expression expr;
             double d;
 
-            if (o == null)
+            if (value == null)
             {
                 expr = Null();
             }
@@ -63,29 +63,29 @@ namespace Adam.JSGenerator
             {
                 expr = s;
             }
-            else if (o is Expression)
+            else if (value is Expression)
             {
-                expr = (Expression)o;
+                expr = (Expression)value;
             }
-            else if (o is IEnumerable)
+            else if (value is IEnumerable)
             {
-                expr = Array((IEnumerable)o);
+                expr = Array((IEnumerable)value);
             }
-            else if (o.GetType().IsClass)
+            else if (value.GetType().IsClass)
             {
-                expr = Object(o);
+                expr = Object(value);
             }
-            else if (o is Boolean)
+            else if (value is Boolean)
             {
-                return new BooleanExpression((Boolean) o);
+                return new BooleanExpression((Boolean) value);
             }
-            else if (double.TryParse(o.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out d))
+            else if (double.TryParse(value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out d))
             {
                 return new NumberExpression(d);
             }
             else
             {
-                expr = o.ToString();
+                expr = value.ToString();
             }
 
             return expr;
@@ -933,6 +933,9 @@ namespace Adam.JSGenerator
 
         #endregion
 
+        /// <summary>
+        /// Returns an instance of <see cref="CallOperationExpression" /> containing a call to the alert() function with the specified message.
+        /// </summary>
         public static CallOperationExpression Alert(Expression message)
         {
             return new CallOperationExpression(Id("alert"), message);

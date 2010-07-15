@@ -28,5 +28,37 @@ namespace Adam.JSGenerator.Tests
             Assert.AreEqual("if(v!=null)v=null;", c.ToString());
             Assert.AreEqual("!null;", u.ToString());
         }
+
+        [TestMethod]
+        public void ExpressionHasImplicitConversion()
+        {
+            Expression t = true;
+            Expression f = false;
+            Expression i = 5;
+            Expression d = 3.14;
+            Expression s = "Hello, World!";
+
+            Assert.AreEqual("true;", t.ToString());
+            Assert.AreEqual("false;", f.ToString());
+            Assert.AreEqual("5;", i.ToString());
+            Assert.AreEqual("3.14;", d.ToString());
+            Assert.AreEqual("\"Hello, World!\";", s.ToString());
+        }
+
+        [TestMethod]
+        public void ExpressionHasExplicitConversion()
+        {
+            Expression t = Expression.FromBoolean(true);
+            Expression f = Expression.FromBoolean(false);
+            Expression i = Expression.FromInteger(5);
+            Expression d = Expression.FromDouble(3.14);
+            Expression s = Expression.FromString("Hello, World!");
+
+            Assert.AreEqual("true;", t.ToString());
+            Assert.AreEqual("false;", f.ToString());
+            Assert.AreEqual("5;", i.ToString());
+            Assert.AreEqual("3.14;", d.ToString());
+            Assert.AreEqual("\"Hello, World!\";", s.ToString());            
+        }
     }
 }

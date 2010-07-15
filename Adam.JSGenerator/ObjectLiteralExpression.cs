@@ -34,6 +34,11 @@ namespace Adam.JSGenerator
             }
         }
 
+        /// <summary>
+        /// Appends the script to represent this object to the StringBuilder.
+        /// </summary>
+        /// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
+        /// <param name="options">The options to use when appending JavaScript</param>
         internal protected override void AppendScript(StringBuilder builder, GenerateJavaScriptOptions options)
         {
             builder.Append("{");
@@ -51,7 +56,20 @@ namespace Adam.JSGenerator
                     builder.Append(",");
                 }
 
-                element.Key.AppendScript(builder, options);
+                Expression key = element.Key;
+
+                if (options.AlwaysQuoteObjectLiteralKeys)
+                {
+                    IdentifierExpression identifier = key as IdentifierExpression;
+
+                    if (identifier != null)
+                    {
+                        StringExpression quotedIdentifier = new StringExpression(identifier.Name);
+                        key = quotedIdentifier;
+                    }
+                }
+
+                key.AppendScript(builder, options);
                 builder.Append(":");
 
                 if (element.Value != null)

@@ -48,34 +48,52 @@
             }
         }
 
+        /// <summary>
+        /// Determines whether the specified instances of <see cref="Precedence"/> are considered equal.
+        /// </summary>
         public static bool Equals(Precedence left, Precedence right)
         {
-            return left.Level.Equals(right.Level) && left.Association.Equals(right.Association);
+            return int.Equals(left.Level, right.Level) && left.Association.Equals(right.Association);
         }
 
+        /// <summary>
+        /// Returns a value indicating whether this instance is equal to the specified <see cref="Precedence" /> value.
+        /// </summary>
         public bool Equals(Precedence other)
         {
             return Equals(this, other);
         }
 
+        /// <summary>
+        /// Returns a value indicating whether this instance is equal to the specified object.
+        /// </summary>
         public override bool Equals(object obj)
         {
             return (obj is Precedence) && Equals(this, (Precedence) obj);
         }
 
+        /// <summary>
+        /// Returns the hash code for this instance. 
+        /// </summary>
         public override int GetHashCode()
         {
             return this.Level.GetHashCode();
         }
 
+        /// <summary>
+        /// Determines whether the specified instances of <see cref="Precedence"/> are considered equal.
+        /// </summary>
         public static bool operator ==(Precedence left, Precedence right)
         {
-            return left.Equals(right);
+            return Equals(left, right);
         }
 
+        /// <summary>
+        /// Determines whether the specified instances of <see cref="Precedence"/> are considered not equal.
+        /// </summary>
         public static bool operator !=(Precedence left, Precedence right)
         {
-            return !left.Equals(right);
+            return !Equals(left, right);
         }
     }
 }

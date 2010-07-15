@@ -66,8 +66,8 @@ namespace Adam.JSGenerator.Tests
         [TestMethod]
         public void IteratorHasHelpers()
         {
-            var statement1 = JS.For(JS.Id("a")).In(JS.Array()).With();
-            var statement2 = JS.For(JS.Id("b")).In(JS.Id("c")).With(new List<Statement> { JS.Empty() });
+            var statement1 = JS.For(JS.Id("a")).In(JS.Array()).Do();
+            var statement2 = JS.For(JS.Id("b")).In(JS.Id("c")).Do(new List<Statement> { JS.Empty() });
 
             Assert.AreEqual("for(a in []);", statement1.ToString());
             Assert.AreEqual("for(b in c);", statement2.ToString());
@@ -77,8 +77,8 @@ namespace Adam.JSGenerator.Tests
         public void IteratorHelpersRequiresIterator()
         {
             IteratorStatement iterator = null;
-            Expect.Throw<ArgumentNullException>(() => iterator.With());
-            Expect.Throw<ArgumentNullException>(() => iterator.With(new List<Statement>()));
+            Expect.Throw<ArgumentNullException>(() => iterator.Do());
+            Expect.Throw<ArgumentNullException>(() => iterator.Do(new List<Statement>()));
 
             LoopStatement loop = null;
             Expect.Throw<ArgumentNullException>(() => loop.In(null));

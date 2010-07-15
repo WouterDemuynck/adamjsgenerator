@@ -73,6 +73,11 @@ namespace Adam.JSGenerator
             this._Operator = op;
         }
 
+        /// <summary>
+        /// Appends the script to represent this object to the StringBuilder.
+        /// </summary>
+        /// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
+        /// <param name="options">The options to use when appending JavaScript</param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
         internal protected override void AppendScript(StringBuilder builder, GenerateJavaScriptOptions options)
         {

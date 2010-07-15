@@ -60,8 +60,8 @@ namespace Adam.JSGenerator.Tests
         [TestMethod]
         public void LoopStatementHasWithHelpers()
         {
-            LoopStatement statement1 = JS.For().With(JS.Return());
-            LoopStatement statement2 = JS.For().With(new List<Statement> { JS.Return() });
+            LoopStatement statement1 = JS.For().Do(JS.Return());
+            LoopStatement statement2 = JS.For().Do(new List<Statement> { JS.Return() });
 
             Assert.AreEqual(JS.Return(), statement1.Statement);
             Assert.AreEqual(JS.Return(), statement2.Statement);
@@ -72,8 +72,8 @@ namespace Adam.JSGenerator.Tests
         {
             LoopStatement statement = null;
 
-            Expect.Throw<ArgumentNullException>(() => statement.With(new Statement[0]));
-            Expect.Throw<ArgumentNullException>(() => statement.With(new List<Statement>()));
+            Expect.Throw<ArgumentNullException>(() => statement.Do(new Statement[0]));
+            Expect.Throw<ArgumentNullException>(() => statement.Do(new List<Statement>()));
         }
 
     }

@@ -14,6 +14,10 @@ namespace Adam.JSGenerator.Tests
             var statement = JS.Switch(JS.Id("a"));
     
             Assert.AreEqual("switch(a){}", statement.ToString());
+
+            statement.Expression = JS.Id("b");
+
+            Assert.AreEqual("switch(b){}", statement.ToString());
         }
 
         [TestMethod]
