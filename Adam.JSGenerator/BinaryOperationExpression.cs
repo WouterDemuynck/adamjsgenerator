@@ -54,14 +54,14 @@ namespace Adam.JSGenerator
         private BinaryOperator _Operator;
 
         /// <summary>
-        /// Creates a new instance of the BinaryOperationExpression class.
+        /// Initializes a new instance of the <see cref="BinaryOperationExpression" />.
         /// </summary>
         public BinaryOperationExpression()
         {
         }
 
         /// <summary>
-        /// Creates a new instance of the BinaryOperationExpression class.
+        /// Initializes a new instance of the <see cref="BinaryOperationExpression" /> with the specified operator and operands.
         /// </summary>
         /// <param name="operandLeft">The left side of the binary operation.</param>
         /// <param name="operandRight">The right side of the binary operation.</param>
