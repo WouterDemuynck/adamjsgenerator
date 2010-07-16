@@ -58,6 +58,7 @@
     <Compile Include="CallOperationExpression.cs" />
     <Compile Include="CaseStatement.cs" />
     <Compile Include="CompoundStatement.cs" />
+    <Compile Include="ConditionalOperationExpression.cs" />
     <Compile Include="ConditionalStatement.cs" />
     <Compile Include="ContinueStatement.cs" />
     <Compile Include="DeclarationExpression.cs" />

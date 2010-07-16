@@ -76,6 +76,7 @@
     <Compile Include="StatementTests.cs" />
     <Compile Include="StringExpressionTests.cs" />
     <Compile Include="SwitchStatementTests.cs" />
+    <Compile Include="ConditionalOperationExpressionTests.cs" />
     <Compile Include="ThrowStatementTests.cs" />
     <Compile Include="UnaryOperationExpressionTests.cs" />
     <Compile Include="WhileStatementTests.cs" />
