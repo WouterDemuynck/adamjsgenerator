@@ -39,11 +39,19 @@ namespace Adam.JSGenerator
                 throw new InvalidOperationException("OperandRight cannot be null.");
             }
 
-            this._OperandLeft.AppendScript(builder, options);
+            Expression operandLeft = this._OperandLeft;
+            Expression operandRight = this._OperandRight;
+
+            if (operandLeft.PrecedenceLevel.RequiresGrouping(this.PrecedenceLevel, Association.LeftToRight))
+            {
+                operandLeft = JS.Group(operandLeft);
+            }
+
+            operandLeft.AppendScript(builder, options);
 
             builder.Append(".");
 
-            this._OperandRight.AppendScript(builder, options);
+            operandRight.AppendScript(builder, options);
         }
 
         /// <summary>
@@ -76,5 +84,18 @@ namespace Adam.JSGenerator
             }
         }
 
+        /// <summary>
+        /// Indicates the level of precedence valid for this expresison.
+        /// </summary>
+        /// <remarks>
+        /// This is used when combining expressions, to determine where parens are needed.
+        /// </remarks>
+        public override Precedence PrecedenceLevel
+        {
+            get
+            {
+                return new Precedence { Association = Association.LeftToRight, Level = 15 };
+            }
+        }
     }
 }

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Adam.JSGenerator.Tests
@@ -16,7 +13,12 @@ namespace Adam.JSGenerator.Tests
             Expression ifTrue = JS.String("Yes!");
             Expression ifFalse = JS.String("No!");
 
-            var expression = new ConditionalOperationExpression(condition, ifTrue, ifFalse);
+            var expression = new ConditionalOperationExpression
+            {
+                Condition = condition, 
+                Then = ifTrue, 
+                Else = ifFalse
+            };
 
             Assert.AreEqual("a>0?\"Yes!\":\"No!\";", expression.ToString());
         }
@@ -35,6 +37,14 @@ namespace Adam.JSGenerator.Tests
             Expect.Throw<InvalidOperationException>(() => expression1.ToString());
             Expect.Throw<InvalidOperationException>(() => expression2.ToString());
             Expect.Throw<InvalidOperationException>(() => expression3.ToString());
+        }
+
+        [TestMethod]
+        public void ConditionalOperationExpressionHasHelper()
+        {
+            var expression = JS.Boolean(true).Iif(JS.Number(1), JS.Number(-1));
+
+            Assert.AreEqual("true?1:-1;", expression.ToString());
         }
     }
 }

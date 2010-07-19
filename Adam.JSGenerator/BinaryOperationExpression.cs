@@ -84,20 +84,17 @@ namespace Adam.JSGenerator
             Expression operandLeft = this._OperandLeft ?? new NullExpression();
             Expression operandRight = this._OperandRight ?? new NullExpression();
 
-            bool leftRequiresParens = operandLeft.PrecedenceLevel.RequiresGrouping(this.PrecedenceLevel, Association.LeftToRight);
-            bool rightRequiresParens = operandRight.PrecedenceLevel.RequiresGrouping(this.PrecedenceLevel, Association.RightToLeft);
-
-            if (leftRequiresParens)
+            if (operandLeft.PrecedenceLevel.RequiresGrouping(this.PrecedenceLevel, Association.LeftToRight))
             {
-                builder.Append("(");
+                operandLeft = JS.Group(operandLeft);
+            }
+
+            if (operandRight.PrecedenceLevel.RequiresGrouping(this.PrecedenceLevel, Association.RightToLeft))
+            {
+                operandRight = JS.Group(operandRight);
             }
 
             operandLeft.AppendScript(builder, options);
-
-            if (leftRequiresParens)
-            {
-                builder.Append(")");
-            }
 
             switch (_Operator)
             {
@@ -207,17 +204,7 @@ namespace Adam.JSGenerator
                     throw new InvalidOperationException("What is this?");
             }
 
-            if (rightRequiresParens)
-            {
-                builder.Append("(");
-            }
-
             operandRight.AppendScript(builder, options);
-
-            if (rightRequiresParens)
-            {
-                builder.Append(")");
-            }
         }
 
         /// <summary>

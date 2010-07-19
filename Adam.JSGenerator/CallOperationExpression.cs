@@ -47,7 +47,14 @@ namespace Adam.JSGenerator
         /// <param name="options">The options to use when appending JavaScript</param>
         internal protected override void AppendScript(StringBuilder builder, GenerateJavaScriptOptions options)
         {
-            _Operand.AppendScript(builder, options);
+            Expression operand = this._Operand;            
+
+            if (operand.PrecedenceLevel.RequiresGrouping(this.PrecedenceLevel, Association.LeftToRight))
+            {
+                operand = JS.Group(this._Operand);
+            }
+
+            operand.AppendScript(builder, options);
 
             builder.Append("(");
 
@@ -93,6 +100,20 @@ namespace Adam.JSGenerator
             get
             {
                 return this._Arguments;
+            }
+        }
+
+        /// <summary>
+        /// Indicates the level of precedence valid for this expresison.
+        /// </summary>
+        /// <remarks>
+        /// This is used when combining expressions, to determine where parens are needed.
+        /// </remarks>
+        public override Precedence PrecedenceLevel
+        {
+            get
+            {
+                return new Precedence { Association = Association.LeftToRight, Level = 15 };
             }
         }
     }

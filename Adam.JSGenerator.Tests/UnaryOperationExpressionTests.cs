@@ -63,7 +63,7 @@ namespace Adam.JSGenerator.Tests
         {
             var expression = JS.Number(3).Group().AddWith(JS.Id("a").TypeOf().New());
 
-            Assert.AreEqual("(3)+new typeof a();", expression.ToString());
+            Assert.AreEqual("(3)+new (typeof a)();", expression.ToString());
         }
 
         [TestMethod]
