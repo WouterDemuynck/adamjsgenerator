@@ -326,7 +326,7 @@ namespace Adam.JSGenerator.Tests
             var a = new Expression[] { 1, 2, null, "Hello", JS.Function().Call() };
             var c = a.Combined(BinaryOperator.Add);
 
-            Assert.AreEqual("1+2+null+\"Hello\"+function(){}();", c.ToString());
+            Assert.AreEqual("1+2+null+\"Hello\"+(function(){})();", c.ToString());
         }
 
         [TestMethod]

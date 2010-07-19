@@ -10,6 +10,18 @@ namespace Adam.JSGenerator.Tests
     public class PrecedenceTests
     {
         [TestMethod]
+        public void PrecedenceAutomaticallyAppliesGrouping()
+        {
+            IdentifierExpression a = "a";
+
+            Assert.AreEqual("(function(){})();", JS.Function().Call().ToString());
+            Assert.AreEqual("(\"a\"+\"b\").length;", JS.String("a").AddWith("b").Dot("length").ToString());
+            Assert.AreEqual("a[1]();", a.Index(1).Call().ToString());
+            Assert.AreEqual("a==1?true:a==2?false:true;", a.IsEqualTo(1).Iif(true, a.IsEqualTo(2).Iif(false, true)).ToString());
+            Assert.AreEqual("(a==1?1:2)+5;", a.IsEqualTo(1).Iif(1, 2).AddWith(5).ToString());
+        }
+
+        [TestMethod]
         public void PrecedenceSupportsEquals()
         {
             Precedence first = new Precedence { Association = Association.LeftToRight, Level = 1 };

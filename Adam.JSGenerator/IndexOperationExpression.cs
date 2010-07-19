@@ -75,5 +75,18 @@ namespace Adam.JSGenerator
             }
         }
 
+        /// <summary>
+        /// Indicates the level of precedence valid for this expresison.
+        /// </summary>
+        /// <remarks>
+        /// This is used when combining expressions, to determine where parens are needed.
+        /// </remarks>
+        public override Precedence PrecedenceLevel
+        {
+            get
+            {
+                return new Precedence {Association = Association.LeftToRight, Level = 15};
+            }
+        }
     }
 }

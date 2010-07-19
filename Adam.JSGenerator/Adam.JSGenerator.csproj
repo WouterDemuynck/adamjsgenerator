@@ -72,6 +72,7 @@
     <Compile Include="Helpers\CallOperationHelpers.cs" />
     <Compile Include="Helpers\CollectionHelpers.cs" />
     <Compile Include="Helpers\ConditionalStatementHelpers.cs" />
+    <Compile Include="Helpers\ConditionalOperationExpressionHelpers.cs" />
     <Compile Include="Helpers\DoWhileStatementHelpers.cs" />
     <Compile Include="Helpers\ExceptionHandlingStatementHelpers.cs" />
     <Compile Include="Helpers\FunctionExpressionHelpers.cs" />

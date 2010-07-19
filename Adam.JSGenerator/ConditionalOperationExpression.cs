@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 
 namespace Adam.JSGenerator
@@ -59,6 +56,11 @@ namespace Adam.JSGenerator
             set { _Else = value; }
         }
 
+        /// <summary>
+        /// Appends the script to represent this object to the StringBuilder.
+        /// </summary>
+        /// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
+        /// <param name="options">The options to use when appending JavaScript</param>
         protected internal override void AppendScript(StringBuilder builder, GenerateJavaScriptOptions options)
         {
             if (this.Condition == null)
@@ -84,6 +86,12 @@ namespace Adam.JSGenerator
             this.Else.AppendScript(builder, options);
         }
 
+        /// <summary>
+        /// Indicates the level of precedence valid for this expresison.
+        /// </summary>
+        /// <remarks>
+        /// This is used when combining expressions, to determine where parens are needed.
+        /// </remarks>
         public override Precedence PrecedenceLevel
         {
             get
