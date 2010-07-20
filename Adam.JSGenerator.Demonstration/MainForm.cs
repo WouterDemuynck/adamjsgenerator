@@ -31,11 +31,11 @@ namespace Adam.JSGenerator.Demonstration
 
             this._Demonstrations.AddRange(demonstrations);
 
-            foreach (var demonstration in this._Demonstrations.OrderBy(demo => demo .Order))
+            foreach (var demonstration in this._Demonstrations.OrderBy(demo => demo.Order))
             {
                 var item = demonstrationList.Items.Add(demonstration.Description);
                 item.Tag = demonstration;
-                item.Group = demonstrationList.Groups[demonstration.Group];
+                item.Group = demonstrationList.Groups[(int)demonstration.Group];
             }
         }
 
@@ -58,7 +58,7 @@ namespace Adam.JSGenerator.Demonstration
         {
             if (this._CurrentDemonstation != null)
             {
-                outputBox.Text = this._CurrentDemonstation.Run();
+                outputBox.Text = this._CurrentDemonstation.Run().ToString();
             }
         }
     }

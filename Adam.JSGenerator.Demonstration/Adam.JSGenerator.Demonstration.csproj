@@ -49,11 +49,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Demonstration.cs" />
+    <Compile Include="Demonstrations\ImplicitConversionsDemonstration.cs" />
+    <Compile Include="Demonstrations\ParsedIdentifierDemonstration.cs" />
+    <Compile Include="Demonstrations\SimpleIdentifierDemonstration.cs" />
     <Compile Include="Explanations.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Explanations.resx</DependentUpon>
     </Compile>
+    <Compile Include="Group.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,10 +99,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Explanations\ImplicitConversions.htm" />
+    <Content Include="Explanations\ParsedIdentifierExplanation.htm" />
+    <Content Include="Explanations\SimpleIdentifierExplanation.htm" />
     <Content Include="Explanations\ExplanationTemplate.htm" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Demonstrations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

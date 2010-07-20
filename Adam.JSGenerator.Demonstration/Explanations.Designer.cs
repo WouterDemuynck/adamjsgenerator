@@ -59,5 +59,72 @@ namespace Adam.JSGenerator.Demonstration {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+        ///&lt;html&gt;
+        ///    &lt;head&gt;
+        ///        &lt;style type=&quot;text/css&quot;&gt;
+        ///            body { color: InactiveCaptionText; }
+        ///            h2 { font-size: 120%; color: CaptionText; }
+        ///        &lt;/style&gt;
+        ///    &lt;/head&gt;
+        ///	&lt;body&gt;
+        ///	    &lt;h2&gt;Implicit Conversions&lt;/h2&gt;
+        ///	    &lt;p&gt;When you need to supply an Expression, you can always use a simple string object, int, double or boolean.&lt;/p&gt;
+        ///	    &lt;p&gt;Also, when an IdentifierExpression is required, you can simply pass a string.&lt;/p&gt;
+        ///   [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ImplicitConversions {
+            get {
+                return ResourceManager.GetString("ImplicitConversions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+        ///&lt;html&gt;
+        ///    &lt;head&gt;
+        ///        &lt;style type=&quot;text/css&quot;&gt;
+        ///            body { color: InactiveCaptionText; }
+        ///            h2 { font-size: 120%; color: CaptionText; }
+        ///            .cf { font-family: Courier New; font-size: 10pt; color: black; background: white; }
+        ///            .cl { margin: 0px; }
+        ///            .cb1 { color: #2b91af; }
+        ///            .cb2 { color: #a31515; }
+        ///        &lt;/style&gt;
+        ///    &lt;/head&gt;
+        ///	&lt;body&gt;
+        ///	    &lt;h2&gt;Parsing Identifiers&lt;/h2&gt;
+        ///	    &lt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ParsedIdentifierExplanation {
+            get {
+                return ResourceManager.GetString("ParsedIdentifierExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+        ///&lt;html&gt;
+        ///    &lt;head&gt;
+        ///        &lt;style type=&quot;text/css&quot;&gt;
+        ///            body { color: InactiveCaptionText; }
+        ///            h2 { font-size: 120%; color: CaptionText; }
+        ///            .cf { font-family: Courier New; font-size: 10pt; color: black; background: white; }
+        ///            .cl { margin: 0px; }
+        ///            .cb1 { color: #2b91af; }
+        ///            .cb2 { color: #a31515; }
+        ///        &lt;/style&gt;
+        ///    &lt;/head&gt;
+        ///	&lt;body&gt;
+        ///	    &lt;h2&gt;Simple Identifiers&lt;/h2&gt;
+        ///	    &lt;p [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SimpleIdentifierExplanation {
+            get {
+                return ResourceManager.GetString("SimpleIdentifierExplanation", resourceCulture);
+            }
+        }
     }
 }

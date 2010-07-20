@@ -9,8 +9,8 @@ namespace Adam.JSGenerator.Demonstration
     {
         public abstract string Description { get; }
         public abstract string Explanation { get; }
-        public abstract int Group { get; }
+        public abstract Group Group { get; }
         public abstract int Order { get; }
-        public abstract string Run();
+        public abstract object Run();
     }
 }

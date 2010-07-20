@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Basics", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("2", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Basics", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("2", System.Windows.Forms.HorizontalAlignment.Left);
             this.listPanel = new System.Windows.Forms.Panel();
             this.demonstrationList = new System.Windows.Forms.ListView();
             this.hostPanel = new System.Windows.Forms.Panel();
             this.browser = new System.Windows.Forms.WebBrowser();
             this.actionPanel = new System.Windows.Forms.Panel();
-            this.runButton = new System.Windows.Forms.Button();
-            this.outputBox = new System.Windows.Forms.TextBox();
             this.outputLabel = new System.Windows.Forms.Label();
+            this.outputBox = new System.Windows.Forms.TextBox();
+            this.runButton = new System.Windows.Forms.Button();
             this.listPanel.SuspendLayout();
             this.hostPanel.SuspendLayout();
             this.actionPanel.SuspendLayout();
@@ -54,19 +54,23 @@
             // 
             // demonstrationList
             // 
+            this.demonstrationList.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.demonstrationList.Dock = System.Windows.Forms.DockStyle.Left;
             this.demonstrationList.FullRowSelect = true;
-            listViewGroup5.Header = "Basics";
-            listViewGroup5.Name = "basicsGroup";
-            listViewGroup6.Header = "2";
-            listViewGroup6.Name = "listViewGroup2";
+            listViewGroup1.Header = "Basics";
+            listViewGroup1.Name = "basicsGroup";
+            listViewGroup2.Header = "2";
+            listViewGroup2.Name = "listViewGroup2";
             this.demonstrationList.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup5,
-            listViewGroup6});
+            listViewGroup1,
+            listViewGroup2});
+            this.demonstrationList.HideSelection = false;
             this.demonstrationList.Location = new System.Drawing.Point(0, 0);
+            this.demonstrationList.MultiSelect = false;
             this.demonstrationList.Name = "demonstrationList";
             this.demonstrationList.Size = new System.Drawing.Size(194, 433);
             this.demonstrationList.TabIndex = 0;
+            this.demonstrationList.TabStop = false;
             this.demonstrationList.UseCompatibleStateImageBehavior = false;
             this.demonstrationList.View = System.Windows.Forms.View.Tile;
             this.demonstrationList.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.DemonstrationListItemSelectionChanged);
@@ -88,7 +92,7 @@
             this.browser.Location = new System.Drawing.Point(0, 0);
             this.browser.MinimumSize = new System.Drawing.Size(20, 20);
             this.browser.Name = "browser";
-            this.browser.Size = new System.Drawing.Size(433, 394);
+            this.browser.Size = new System.Drawing.Size(433, 344);
             this.browser.TabIndex = 0;
             // 
             // actionPanel
@@ -97,10 +101,29 @@
             this.actionPanel.Controls.Add(this.outputBox);
             this.actionPanel.Controls.Add(this.runButton);
             this.actionPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.actionPanel.Location = new System.Drawing.Point(0, 394);
+            this.actionPanel.Location = new System.Drawing.Point(0, 344);
             this.actionPanel.Name = "actionPanel";
-            this.actionPanel.Size = new System.Drawing.Size(433, 37);
+            this.actionPanel.Size = new System.Drawing.Size(433, 87);
             this.actionPanel.TabIndex = 1;
+            // 
+            // outputLabel
+            // 
+            this.outputLabel.AutoSize = true;
+            this.outputLabel.Location = new System.Drawing.Point(87, 11);
+            this.outputLabel.Name = "outputLabel";
+            this.outputLabel.Size = new System.Drawing.Size(42, 13);
+            this.outputLabel.TabIndex = 2;
+            this.outputLabel.Text = "Output:";
+            // 
+            // outputBox
+            // 
+            this.outputBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.outputBox.Location = new System.Drawing.Point(135, 8);
+            this.outputBox.Multiline = true;
+            this.outputBox.Name = "outputBox";
+            this.outputBox.Size = new System.Drawing.Size(295, 76);
+            this.outputBox.TabIndex = 1;
             // 
             // runButton
             // 
@@ -111,22 +134,6 @@
             this.runButton.Text = "Run";
             this.runButton.UseVisualStyleBackColor = true;
             this.runButton.Click += new System.EventHandler(this.RunButtonClick);
-            // 
-            // outputBox
-            // 
-            this.outputBox.Location = new System.Drawing.Point(135, 8);
-            this.outputBox.Name = "outputBox";
-            this.outputBox.Size = new System.Drawing.Size(295, 20);
-            this.outputBox.TabIndex = 1;
-            // 
-            // outputLabel
-            // 
-            this.outputLabel.AutoSize = true;
-            this.outputLabel.Location = new System.Drawing.Point(87, 11);
-            this.outputLabel.Name = "outputLabel";
-            this.outputLabel.Size = new System.Drawing.Size(42, 13);
-            this.outputLabel.TabIndex = 2;
-            this.outputLabel.Text = "Output:";
             // 
             // MainForm
             // 
