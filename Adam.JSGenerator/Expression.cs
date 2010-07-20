@@ -1,4 +1,7 @@
-﻿namespace Adam.JSGenerator
+﻿using System;
+using System.Collections;
+
+namespace Adam.JSGenerator
 {
     /// <summary>
     /// The base class to all forms of expressions.
@@ -109,6 +112,26 @@
         public static StringExpression FromString(string value)
         {
             return new StringExpression(value);
+        }
+
+        /// <summary>
+        /// Converts an array into a <see cref="ArrayExpression" /> that represents its value.
+        /// </summary>
+        /// <param name="value">The array to convert</param>
+        /// <returns>The <see cref="ArrayExpression" /> object that represents its value.</returns>
+        public static implicit operator Expression(Array value)
+        {
+            return JS.Array((IEnumerable)value);
+        }
+
+        /// <summary>
+        /// Converts an array into a <see cref="ArrayExpression" /> that represents its value.
+        /// </summary>
+        /// <param name="value">The array to convert</param>
+        /// <returns>The <see cref="ArrayExpression" /> object that represents its value.</returns>
+        public static ArrayExpression FromArray(Array value)
+        {
+            return JS.Array((IEnumerable)value);
         }
     }
 }
