@@ -19,7 +19,7 @@ namespace Adam.JSGenerator.Demonstration.Demonstrations
         {
             get
             {
-                return Explanations.ImplicitConversions;
+                return Explanations.ImplicitConversionsExplanation;
             }
         }
 

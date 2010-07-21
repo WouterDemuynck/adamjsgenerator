@@ -51,6 +51,7 @@
     <Compile Include="Demonstration.cs" />
     <Compile Include="Demonstrations\ImplicitConversionsDemonstration.cs" />
     <Compile Include="Demonstrations\ParsedIdentifierDemonstration.cs" />
+    <Compile Include="Demonstrations\SimpleArithmeticDemonstration.cs" />
     <Compile Include="Demonstrations\SimpleIdentifierDemonstration.cs" />
     <Compile Include="Explanations.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -99,7 +100,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Explanations\ImplicitConversions.htm" />
+    <Content Include="Explanations\ImplicitConversionsExplanation.htm" />
     <Content Include="Explanations\ParsedIdentifierExplanation.htm" />
     <Content Include="Explanations\SimpleIdentifierExplanation.htm" />
     <Content Include="Explanations\ExplanationTemplate.htm" />
