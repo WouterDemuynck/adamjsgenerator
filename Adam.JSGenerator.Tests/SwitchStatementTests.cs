@@ -44,12 +44,10 @@ namespace Adam.JSGenerator.Tests
                     JS.Alert("Not Done!"),
                     JS.Break()
                 })
-                .Case(Enumerable.Range(7, 4).Select(i => (Expression) JS.Number(i))).Do(
+                .Case(Enumerable.Range(7, 4)).Do(
                     JS.Alert(JS.Id("a")),
                     JS.Break())
-                .Default().Do(JS.Break());
-
-            statement2.Cases.Add(null);
+                .Default().Do(JS.Break());           
 
             Assert.AreEqual(
                 "switch(b){case 1:return 100;case 2:case 3:return 200;" + 

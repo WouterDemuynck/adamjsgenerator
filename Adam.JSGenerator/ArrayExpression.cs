@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,24 @@ namespace Adam.JSGenerator
         /// </summary>
         public ArrayExpression()
         {            
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ArrayExpression" /> class using the specified elements.
+        /// </summary>
+        /// <param name="elements">An array of expressions to add to the Array.</param>
+        public ArrayExpression(params object[] elements)
+            : this((elements.AsEnumerable()))
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ArrayExpression" /> class using the specified elements.
+        /// </summary>
+        /// <param name="elements">A sequence of expressions to add to the Array.</param>
+        public ArrayExpression(IEnumerable elements)
+            : this(elements.Cast<object>().Select(element => FromObject(element)))
+        {
         }
 
         /// <summary>

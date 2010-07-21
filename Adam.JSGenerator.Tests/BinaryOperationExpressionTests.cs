@@ -364,5 +364,13 @@ namespace Adam.JSGenerator.Tests
             Expect.Throw < InvalidOperationException>(() => a.ToString());
         }
 
+        [TestMethod]
+        public void JustACrazyThought()
+        {
+            var a = 3.AddWith(5);
+
+            Assert.AreEqual("3+5;", a.ToString());
+        }
+
     }
 }

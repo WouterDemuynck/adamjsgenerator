@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -24,7 +25,7 @@ namespace Adam.JSGenerator
 
             if (arguments != null)
             {
-                this._Arguments.AddRange(arguments);
+                this._Arguments.AddRange(arguments.Select(argument => FromObject(argument)));
             }
         }
 
@@ -39,6 +40,29 @@ namespace Adam.JSGenerator
         {
         }
 
+        /// <summary>
+        /// Creates a new instance of the CallOperationExpression class, 
+        /// calling on the provided operand with the optionally supplied arguments.
+        /// </summary>
+        /// <param name="operand">The expression on which to apply the call operation.</param>
+        /// <param name="arguments">The arguments to pass in the call.</param>
+        public CallOperationExpression(object operand, IEnumerable arguments)
+            : this(FromObject(operand), arguments.Cast<object>().Select(argument => FromObject(argument)))
+        {
+            
+        }
+
+        /// <summary>
+        /// Creates a new instance of the CallOperationExpression class, 
+        /// calling on the provided operand with the optionally supplied arguments.
+        /// </summary>
+        /// <param name="operand">The expression on which to apply the call operation.</param>
+        /// <param name="arguments">The arguments to pass in the call.</param>
+        public CallOperationExpression(object operand, params object[] arguments)
+            : this(operand, arguments.AsEnumerable())
+        {
+            
+        }
 
         /// <summary>
         /// Appends the script to represent this object to the StringBuilder.

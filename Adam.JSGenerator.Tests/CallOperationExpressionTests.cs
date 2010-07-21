@@ -24,7 +24,7 @@ namespace Adam.JSGenerator.Tests
         public void CallOperationExpressionProducesCallWithParameters()
         {
             var c1 = fn.Call(1, 2, "Hello!");
-            var p = new List<Expression> { 1, 2, 3 };
+            var p = new List<int> { 1, 2, 3 };
             var c2 = fn.Call(p);
             var p2 = c2.Arguments.AsEnumerable().Reverse().ToList();
             var c3 = new CallOperationExpression(null, p2);

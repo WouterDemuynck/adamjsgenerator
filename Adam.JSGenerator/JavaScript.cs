@@ -49,7 +49,7 @@ namespace Adam.JSGenerator
         /// In all other cases, <see cref="M:System.Object.ToString" /> is called, and the result is wrapped in an instance of <see cref="StringExpression" /> and returned.
         /// </remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
-        private static Expression ObjectToExpression(object value)
+        public static Expression ObjectToExpression(object value)
         {
             string s = value as string;
             Expression expr;
