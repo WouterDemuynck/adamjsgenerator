@@ -66,10 +66,10 @@ namespace Adam.JSGenerator
         /// <param name="operandLeft">The left side of the binary operation.</param>
         /// <param name="operandRight">The right side of the binary operation.</param>
         /// <param name="op">The binary operator</param>
-        public BinaryOperationExpression(Expression operandLeft, Expression operandRight, BinaryOperator op)
+        public BinaryOperationExpression(object operandLeft, object operandRight, BinaryOperator op)
         {
-            this._OperandLeft = operandLeft;
-            this._OperandRight = operandRight;
+            this._OperandLeft = FromObject(operandLeft);
+            this._OperandRight = FromObject(operandRight);
             this._Operator = op;
         }
 

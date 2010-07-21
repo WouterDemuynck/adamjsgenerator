@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -16,12 +17,7 @@ namespace Adam.JSGenerator
         /// <returns>a new instance of <see cref="SwitchStatement" />.</returns>
         public static SwitchStatement Default(this SwitchStatement statement)
         {
-            if (statement == null)
-            {
-                throw new ArgumentNullException("statement");
-            }
-
-            return Case(statement, new Expression[] { null });
+            return Case(statement);
         }
 
         /// <summary>
@@ -30,7 +26,7 @@ namespace Adam.JSGenerator
         /// <param name="statement">The statement to copy the cases from.</param>
         /// <param name="values">an array of literals for which to add cases.</param>
         /// <returns>a new instance of <see cref="SwitchStatement" /></returns>
-        public static SwitchStatement Case(this SwitchStatement statement, params Expression[] values)
+        public static SwitchStatement Case(this SwitchStatement statement, params object[] values)
         {
             if (statement == null)
             {
@@ -46,7 +42,7 @@ namespace Adam.JSGenerator
         /// <param name="statement">the statement to copy the cases from.</param>
         /// <param name="values">a sequence of literals for which to add cases.</param>
         /// <returns>a new instance of <see cref="SwitchStatement" />.</returns>
-        public static SwitchStatement Case(this SwitchStatement statement, IEnumerable<Expression> values)
+        public static SwitchStatement Case(this SwitchStatement statement, IEnumerable values)
         {
             if (statement == null)
             {
@@ -55,9 +51,19 @@ namespace Adam.JSGenerator
 
             if (values != null)
             {
-                SwitchStatement @switch = new SwitchStatement(
-                    statement.Expression, 
-                    statement.Cases.Union(values.Select(value => new CaseStatement(value))));
+                SwitchStatement @switch = new SwitchStatement(statement.Expression, statement.Cases);
+
+                if (values.GetEnumerator().MoveNext())
+                {
+                    foreach (object value in values)
+                    {
+                        @switch.Cases.Add(new CaseStatement(value));
+                    }
+                }
+                else
+                {
+                    @switch.Cases.Add(new CaseStatement());
+                }
 
                 return @switch;
             }

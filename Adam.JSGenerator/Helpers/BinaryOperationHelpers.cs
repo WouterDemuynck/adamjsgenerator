@@ -11,254 +11,254 @@ namespace Adam.JSGenerator
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that assigns one expression to another.
         /// </summary>
-        /// <param name="expression">The left side of the assignment.</param>
+        /// <param name="left">The left side of the assignment.</param>
         /// <param name="operand">The right side of the assignment.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression AssignWith(this Expression expression, Expression operand)
+        public static BinaryOperationExpression AssignWith(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.Assign);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.Assign);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that adds one expression to another.
         /// </summary>
-        /// <param name="expression">The left side of the addition.</param>
+        /// <param name="left">The left side of the addition.</param>
         /// <param name="operand">The right side of the addition.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression AddWith(this Expression expression, Expression operand)
+        public static BinaryOperationExpression AddWith(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.Add);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.Add);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that subtracts one expression from another.
         /// </summary>
-        /// <param name="expression">The left side of the subtraction.</param>
+        /// <param name="left">The left side of the subtraction.</param>
         /// <param name="operand">The right side of the subtraction.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression SubtractWith(this Expression expression, Expression operand)
+        public static BinaryOperationExpression SubtractWith(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.Subtract);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.Subtract);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that multiplies one expression by another.
         /// </summary>
-        /// <param name="expression">The left side of the multiplication.</param>
+        /// <param name="left">The left side of the multiplication.</param>
         /// <param name="operand">The right side of the multiplication.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression MultiplyBy(this Expression expression, Expression operand)
+        public static BinaryOperationExpression MultiplyBy(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.Multiply);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.Multiply);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that divides one expression by another.
         /// </summary>
-        /// <param name="expression">The left side of the division.</param>
+        /// <param name="left">The left side of the division.</param>
         /// <param name="operand">The right side of the division.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression DivideBy(this Expression expression, Expression operand)
+        public static BinaryOperationExpression DivideBy(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.Divide);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.Divide);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that computes the remainder of a division.
         /// </summary>
-        /// <param name="expression">The left side of the remainder operation.</param>
+        /// <param name="left">The left side of the remainder operation.</param>
         /// <param name="operand">The right side of the remainder operation.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression RemainderBy(this Expression expression, Expression operand)
+        public static BinaryOperationExpression RemainderBy(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.Remain);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.Remain);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs a bitwise and operation.
         /// </summary>
-        /// <param name="expression">The left side of the bitwise and operation.</param>
+        /// <param name="left">The left side of the bitwise and operation.</param>
         /// <param name="operand">The right side of the bitwise and operation.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression BitwiseAndWith(this Expression expression, Expression operand)
+        public static BinaryOperationExpression BitwiseAndWith(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.BitwiseAnd);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.BitwiseAnd);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs a bitwise or operation.
         /// </summary>
-        /// <param name="expression">The left side of the bitwise or operation.</param>
+        /// <param name="left">The left side of the bitwise or operation.</param>
         /// <param name="operand">The right side of the bitwise or operation.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression BitwiseOrWith(this Expression expression, Expression operand)
+        public static BinaryOperationExpression BitwiseOrWith(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.BitwiseOr);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.BitwiseOr);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs a bitwise exclusive or operation.
         /// </summary>
-        /// <param name="expression">The left side of the bitwise exclusive or operation.</param>
+        /// <param name="left">The left side of the bitwise exclusive or operation.</param>
         /// <param name="operand">The right side of the bitwise exclusive or operation.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression BitwiseXorWith(this Expression expression, Expression operand)
+        public static BinaryOperationExpression BitwiseXorWith(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.BitwiseXor);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.BitwiseXor);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs a left shift operation.
         /// </summary>
-        /// <param name="expression">The left side of the left shift operation.</param>
+        /// <param name="left">The left side of the left shift operation.</param>
         /// <param name="operand">The right side of the left shift operation.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression ShiftLeftWith(this Expression expression, Expression operand)
+        public static BinaryOperationExpression ShiftLeftWith(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.ShiftLeft);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.ShiftLeft);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs a right shift operation.
         /// </summary>
-        /// <param name="expression">The left side of the right shift operation.</param>
+        /// <param name="left">The left side of the right shift operation.</param>
         /// <param name="operand">The right side of the right shift operation.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression ShiftRightWith(this Expression expression, Expression operand)
+        public static BinaryOperationExpression ShiftRightWith(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.ShiftRight);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.ShiftRight);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs an equal comparison.
         /// </summary>
-        /// <param name="expression">The left side of the equal comparison.</param>
+        /// <param name="left">The left side of the equal comparison.</param>
         /// <param name="operand">The right side of the equal comparison.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression IsEqualTo(this Expression expression, Expression operand)
+        public static BinaryOperationExpression IsEqualTo(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.Equals);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.Equals);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs an identical comparison.
         /// </summary>
-        /// <param name="expression">The left side of the identical comparison.</param>
+        /// <param name="left">The left side of the identical comparison.</param>
         /// <param name="operand">The right side of the identical comparison.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression IsIdenticalTo(this Expression expression, Expression operand)
+        public static BinaryOperationExpression IsIdenticalTo(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.Identical);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.Identical);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs a not-equal comparison.
         /// </summary>
-        /// <param name="expression">The left side of the not-equal comparison.</param>
+        /// <param name="left">The left side of the not-equal comparison.</param>
         /// <param name="operand">The right side of the not-equal comparison.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression IsNotEqualTo(this Expression expression, Expression operand)
+        public static BinaryOperationExpression IsNotEqualTo(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.NotEqual);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.NotEqual);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs a not-identical comparison. 
         /// </summary>
-        /// <param name="expression">The left side of the not-identical comparison.</param>
+        /// <param name="left">The left side of the not-identical comparison.</param>
         /// <param name="operand">The right side of the not-identical comparison.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression IsNotIdenticalTo(this Expression expression, Expression operand)
+        public static BinaryOperationExpression IsNotIdenticalTo(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.NotIdentical);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.NotIdentical);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs a greater-than comparison.
         /// </summary>
-        /// <param name="expression">The left side of the greater-than comparison.</param>
+        /// <param name="left">The left side of the greater-than comparison.</param>
         /// <param name="operand">The right side of the greater-than comparison.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression IsGreaterThan(this Expression expression, Expression operand)
+        public static BinaryOperationExpression IsGreaterThan(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.GreaterThan);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.GreaterThan);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs a greater-than-or-equal comparison.
         /// </summary>
-        /// <param name="expression">The left side of the comparison.</param>
+        /// <param name="left">The left side of the comparison.</param>
         /// <param name="operand">The right side of the comparison.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression IsGreaterThanOrEqualTo(this Expression expression, Expression operand)
+        public static BinaryOperationExpression IsGreaterThanOrEqualTo(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.GreaterThanOrEqualTo);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.GreaterThanOrEqualTo);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs a less-than comparison.
         /// </summary>
-        /// <param name="expression">The left side of the less-than comparison.</param>
+        /// <param name="left">The left side of the less-than comparison.</param>
         /// <param name="operand">The right side of the less-than comparison.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression IsLessThan(this Expression expression, Expression operand)
+        public static BinaryOperationExpression IsLessThan(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.LessThan);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.LessThan);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs a less-than-or-equal comparison.
         /// </summary>
-        /// <param name="expression">The left side of the less-than comparison.</param>
+        /// <param name="left">The left side of the less-than comparison.</param>
         /// <param name="operand">The right side of the less-than comparison.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression IsLessThanOrEqualTo(this Expression expression, Expression operand)
+        public static BinaryOperationExpression IsLessThanOrEqualTo(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.LessThanOrEqualTo);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.LessThanOrEqualTo);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs a logical and operation.
         /// </summary>
-        /// <param name="expression">The left side of the logical and operation.</param>
+        /// <param name="left">The left side of the logical and operation.</param>
         /// <param name="operand">The right side of the logical and operation.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression LogicalAndWith(this Expression expression, Expression operand)
+        public static BinaryOperationExpression LogicalAndWith(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.LogicalAnd);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.LogicalAnd);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs a logical or operation.
         /// </summary>
-        /// <param name="expression">The left side of the logical or operation.</param>
+        /// <param name="left">The left side of the logical or operation.</param>
         /// <param name="operand">The right side of the logical or operation.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression LogicalOrWith(this Expression expression, Expression operand)
+        public static BinaryOperationExpression LogicalOrWith(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.LogicalOr);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.LogicalOr);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs an instanceof operation.
         /// </summary>
-        /// <param name="expression">The expression to test with instanceof.</param>
-        /// <param name="operand">The expression to test for.</param>
+        /// <param name="left">The left to test with instanceof.</param>
+        /// <param name="operand">The left to test for.</param>
         /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression IsInstanceOf(this Expression expression, Expression operand)
+        public static BinaryOperationExpression IsInstanceOf(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.InstanceOf);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.InstanceOf);
         }
 
         /// <summary>
         /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs an 'in' operation.
         /// </summary>
-        /// <param name="expression">The expression as the left side of the operation.</param>
+        /// <param name="left">The expression as the left side of the operation.</param>
         /// <param name="operand">The expression as the right side of the operation.</param>
         /// <returns>A new instance of <see cref="BinaryOperationExpression" />.</returns>
-        public static BinaryOperationExpression IsIn(this Expression expression, Expression operand)
+        public static BinaryOperationExpression IsIn(this object left, object operand)
         {
-            return new BinaryOperationExpression(expression, operand, BinaryOperator.In);
+            return new BinaryOperationExpression(left, operand, BinaryOperator.In);
         }
 
         /// <summary>
