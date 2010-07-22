@@ -1,0 +1,483 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <style type="text/css">
+        body
+        {
+            color: InactiveCaptionText;
+        }
+        h2
+        {
+            font-size: 120%;
+            color: CaptionText;
+        }
+        table
+        {
+            font-size: 80%; 
+            width: 100%; 
+            border: 1px solid #ddd;
+        }
+        td
+        {
+            background-color: #eee;
+        }
+        .cf
+        {
+            font-family: Courier New;
+            font-size: 10pt;
+            color: black;
+            background: white;
+        }
+        .cl
+        {
+            margin: 0px;
+        }
+        .cb1
+        {
+            color: #2b91af;
+        }
+        .cb2
+        {
+            color: #a31515;
+        }
+    </style>
+</head>
+<body>
+    <h2>
+        Simple arithmetics</h2>
+    <p>
+        Helper methods and extension methods assist you in writing out arithmetic expressions
+        fluently.</p>
+    <div class="cf">
+        <table>
+            <thead>
+                <tr>
+                    <td>This code...</td>
+                    <td>produces this snippet...</td>
+                </tr>
+            </thead>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.AssignWith(b);</p>
+                </td>
+                <td>
+                    a=b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.AddWith(b);</p>
+                </td>
+                <td>
+                    a+b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.AddWith(b).AndAssign();</p>
+                </td>
+                <td>
+                    a+=b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.SubtractWith(b);</p>
+                </td>
+                <td>
+                    a-b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.SubtractWith(b).AndAssign();</p>
+                </td>
+                <td>
+                    a-=b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.MultiplyBy(b);</p>
+                </td>
+                <td>
+                    a*b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.MultiplyBy(b).AndAssign();</p>
+                </td>
+                <td>
+                    a*=b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.DivideBy(b);</p>
+                </td>
+                <td>
+                    a/b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.DivideBy(b).AndAssign();</p>
+                </td>
+                <td>
+                    a/=b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.RemainderBy(b);</p>
+                </td>
+                <td>
+                    a%b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.RemainderBy(b).AndAssign();</p>
+                </td>
+                <td>
+                    a%=b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.BitwiseAndWith(b);</p>
+                </td>
+                <td>
+                    a&amp;b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.BitwiseAndWith(b).AndAssign();</p>
+                </td>
+                <td>
+                    a&amp;=b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.BitwiseOrWith(b);</p>
+                </td>
+                <td>
+                    a|b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.BitwiseOrWith(b).AndAssign();</p>
+                </td>
+                <td>
+                    a|=b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.BitwiseXorWith(b);</p>
+                </td>
+                <td>
+                    a^b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.BitwiseXorWith(b).AndAssign();</p>
+                </td>
+                <td>
+                    a^=b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.ShiftLeftWith(b);</p>
+                </td>
+                <td>
+                    a&lt;&lt;b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.ShiftLeftWith(b).AndAssign();</p>
+                </td>
+                <td>
+                    a&lt;&lt;=b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.ShiftRightWith(b);</p>
+                </td>
+                <td>
+                    a&gt;&gt;b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.ShiftRightWith(b).AndAssign();</p>
+                </td>
+                <td>
+                    a&gt;&gt;=b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.IsNotEqualTo(b);</p>
+                </td>
+                <td>
+                    a!=b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.IsNotIdenticalTo(b);</p>
+                </td>
+                <td>
+                    a!==b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.IsGreaterThan(b);</p>
+                </td>
+                <td>
+                    a&gt;b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.IsGreaterThanOrEqualTo(b);</p>
+                </td>
+                <td>
+                    a&gt;=b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.IsLessThan(b);</p>
+                </td>
+                <td>
+                    a&lt;b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.IsLessThanOrEqualTo(b);</p>
+                </td>
+                <td>
+                    a&lt;=b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.LogicalAndWith(b);</p>
+                </td>
+                <td>
+                    a&&b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.LogicalAndWith(b).AndAssign();</p>
+                </td>
+                <td>
+                    a&amp;&amp;=b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.LogicalOrWith(b);</p>
+                </td>
+                <td>
+                    a||b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.LogicalOrWith(b).AndAssign();</p>
+                </td>
+                <td>
+                    a||=b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.IsInstanceOf(b);</p>
+                </td>
+                <td>
+                    a instanceOf b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.IsIn(b);</p>
+                </td>
+                <td>
+                    a in b
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.BitwiseNot();</p>
+                </td>
+                <td>
+                    ~a
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.Delete();</p>
+                </td>
+                <td>
+                    delete a
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.Group();</p>
+                </td>
+                <td>
+                    (a)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.LogicalNot();</p>
+                </td>
+                <td>
+                    !a
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.Negative();</p>
+                </td>
+                <td>
+                    -a
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.New();</p>
+                </td>
+                <td>
+                    new a()
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.Number();</p>
+                </td>
+                <td>
+                    +a
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.PostDecrement();</p>
+                </td>
+                <td>
+                    a--
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.PreDecrement();</p>
+                </td>
+                <td>
+                    --a
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.PostIncrement();</p>
+                </td>
+                <td>
+                    a++
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.PreIncrement();</p>
+                </td>
+                <td>
+                    ++a
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.TypeOf();</p>
+                </td>
+                <td>
+                    typeof a
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="cl">
+                        a.Iif(b, c);</p>
+                </td>
+                <td>
+                    a?b:c
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h2>
+        Source:</h2>
+    <div class="cf">
+        <p class="cl">
+            <span class="cb1">JS</span>.Id(<span class="cb2">&quot;a&quot;</span>).IsGreaterThan(0).Iif(20.AddWith(10),
+            40.RemainderBy(5));</p>
+    </div>
+</body>
+</html>

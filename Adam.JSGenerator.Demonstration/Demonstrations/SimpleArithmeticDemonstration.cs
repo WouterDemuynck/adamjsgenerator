@@ -1,30 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Adam.JSGenerator.Demonstration.Demonstrations
+﻿namespace Adam.JSGenerator.Demonstration.Demonstrations
 {
+    [Description("Simple Arithmetic")]
+    [Group(Group.Basics, 3)]
     class SimpleArithmeticDemonstration : Demonstration
     {
-        public override string Description
-        {
-            get { return "Simple Arithmetic"; }
-        }
-
-        public override Group Group
-        {
-            get { return Group.Basics; }
-        }
-
-        public override int Order
-        {
-            get { return 3; }
-        }
-
         public override object Run()
         {
-            return JS.Id("a").IsGreaterThan(JS.Id("b").AddWith(50));
+            return JS.Id("a").IsGreaterThan(0).Iif(20.AddWith(10), 40.RemainderBy(5));
         }
     }
 }
