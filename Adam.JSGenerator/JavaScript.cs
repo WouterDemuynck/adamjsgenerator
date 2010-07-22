@@ -542,7 +542,7 @@ namespace Adam.JSGenerator
         /// <returns>a new instance of <see cref="FunctionExpression" />.</returns>
         public static FunctionExpression Function()
         {
-            return new FunctionExpression(null, null, null);
+            return new FunctionExpression();
         }
 
         /// <summary>
@@ -552,7 +552,7 @@ namespace Adam.JSGenerator
         /// <returns>a new instance of <see cref="FunctionExpression" />.</returns>
         public static FunctionExpression Function(IdentifierExpression name)
         {
-            return new FunctionExpression(name, null, null);
+            return new FunctionExpression(name);
         }
 
         /// <summary>

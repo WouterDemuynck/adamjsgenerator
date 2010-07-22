@@ -16,6 +16,16 @@ namespace Adam.JSGenerator
         /// </summary>
         /// <param name="operandLeft">The operand on which to perform the index operation.</param>
         /// <param name="operandRight">The operand that specifies the index to retrieve.</param>
+        public IndexOperationExpression(object operandLeft, object operandRight)
+            : this(FromObject(operandLeft), FromObject(operandRight))
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of <see cref="IndexOperationExpression" />.
+        /// </summary>
+        /// <param name="operandLeft">The operand on which to perform the index operation.</param>
+        /// <param name="operandRight">The operand that specifies the index to retrieve.</param>
         public IndexOperationExpression(Expression operandLeft, Expression operandRight)
         {
             this._OperandLeft = operandLeft;

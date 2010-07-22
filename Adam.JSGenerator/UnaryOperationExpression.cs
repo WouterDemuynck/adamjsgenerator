@@ -16,6 +16,16 @@ namespace Adam.JSGenerator
         /// </summary>
         /// <param name="operand">The operand.</param>
         /// <param name="op">The operator.</param>
+        public UnaryOperationExpression(object operand, UnaryOperator op)
+            : this(FromObject(operand), op)
+        {
+        }
+
+        /// <summary>
+        /// Creates a new instance of the UnaryOperation class.
+        /// </summary>
+        /// <param name="operand">The operand.</param>
+        /// <param name="op">The operator.</param>
         public UnaryOperationExpression(Expression operand, UnaryOperator op)
         {
             this._Operand = operand;

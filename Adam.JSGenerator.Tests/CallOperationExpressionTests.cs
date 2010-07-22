@@ -26,7 +26,7 @@ namespace Adam.JSGenerator.Tests
             var c1 = fn.Call(1, 2, "Hello!");
             var p = new List<int> { 1, 2, 3 };
             var c2 = fn.Call(p);
-            var p2 = c2.Arguments.AsEnumerable().Reverse().ToList();
+            var p2 = c2.Arguments.Reverse();
             var c3 = new CallOperationExpression(null, p2);
             c3.Operand = c2.Operand;
 
@@ -39,7 +39,7 @@ namespace Adam.JSGenerator.Tests
         public void CallOperationExpressionHelpersRequiresExpression1()
         {
             Expression expression = null;
-            Expect.Throw <ArgumentNullException>(() => expression.Call());
+            Expect.Throw<ArgumentNullException>(() => expression.Call());
         }
 
         [TestMethod]
@@ -49,6 +49,5 @@ namespace Adam.JSGenerator.Tests
             IEnumerable<Expression> arguments = null;
             Expect.Throw<ArgumentNullException>(() => expression.Call(arguments));
         }
-
     }
 }

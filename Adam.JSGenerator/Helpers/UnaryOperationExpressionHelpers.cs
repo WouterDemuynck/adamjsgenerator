@@ -12,6 +12,21 @@ namespace Adam.JSGenerator
         /// </summary>
         /// <param name="expression">The expression on which to perform a bitwise not operation.</param>
         /// <returns>a new instance of <see cref="UnaryOperationExpression" /></returns>
+        public static UnaryOperationExpression BitwiseNot(this object expression)
+        {
+            if (expression == null)
+            {
+                throw new ArgumentNullException("expression");
+            }
+
+            return new UnaryOperationExpression(expression, UnaryOperator.BitwiseNot);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="UnaryOperationExpression" /> that performs a bitwise not operation.
+        /// </summary>
+        /// <param name="expression">The expression on which to perform a bitwise not operation.</param>
+        /// <returns>a new instance of <see cref="UnaryOperationExpression" /></returns>
         public static UnaryOperationExpression BitwiseNot(this Expression expression)
         {
             if (expression == null)
@@ -20,6 +35,21 @@ namespace Adam.JSGenerator
             }
 
             return new UnaryOperationExpression(expression, UnaryOperator.BitwiseNot);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="UnaryOperationExpression" /> that performs a delete operation.
+        /// </summary>
+        /// <param name="expression">The expression to delete.</param>
+        /// <returns>a new instance of <see cref="UnaryOperationExpression" /></returns>
+        public static UnaryOperationExpression Delete(this object expression)
+        {
+            if (expression == null)
+            {
+                throw new ArgumentNullException("expression");
+            }
+
+            return new UnaryOperationExpression(expression, UnaryOperator.Delete);
         }
 
         /// <summary>
@@ -42,6 +72,21 @@ namespace Adam.JSGenerator
         /// </summary>
         /// <param name="expression">The expression to embed in parens.</param>
         /// <returns>a new instance of <see cref="UnaryOperationExpression" /></returns>
+        public static UnaryOperationExpression Group(this object expression)
+        {
+            if (expression == null)
+            {
+                throw new ArgumentNullException("expression");
+            }
+
+            return new UnaryOperationExpression(expression, UnaryOperator.Group);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="UnaryOperationExpression" /> that embeds the specified expression in parens.
+        /// </summary>
+        /// <param name="expression">The expression to embed in parens.</param>
+        /// <returns>a new instance of <see cref="UnaryOperationExpression" /></returns>
         public static UnaryOperationExpression Group(this Expression expression)
         {
             if (expression == null)
@@ -50,6 +95,21 @@ namespace Adam.JSGenerator
             }
 
             return new UnaryOperationExpression(expression, UnaryOperator.Group);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="UnaryOperationExpression" /> that performs a logical not operation.
+        /// </summary>
+        /// <param name="expression">The expression on which to perform a logical not operation.</param>
+        /// <returns>a new instance of <see cref="UnaryOperationExpression" /></returns>
+        public static UnaryOperationExpression LogicalNot(this object expression)
+        {
+            if (expression == null)
+            {
+                throw new ArgumentNullException("expression");
+            }
+
+            return new UnaryOperationExpression(expression, UnaryOperator.LogicalNot);
         }
 
         /// <summary>
@@ -72,6 +132,21 @@ namespace Adam.JSGenerator
         /// </summary>
         /// <param name="expression">The expression to negate.</param>
         /// <returns>a new instance of <see cref="UnaryOperationExpression" /></returns>
+        public static UnaryOperationExpression Negative(this object expression)
+        {
+            if (expression == null)
+            {
+                throw new ArgumentNullException("expression");
+            }
+
+            return new UnaryOperationExpression(expression, UnaryOperator.Negative);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="UnaryOperationExpression" /> that negates the specified expression.
+        /// </summary>
+        /// <param name="expression">The expression to negate.</param>
+        /// <returns>a new instance of <see cref="UnaryOperationExpression" /></returns>
         public static UnaryOperationExpression Negative(this Expression expression)
         {
             if (expression == null)
@@ -80,6 +155,29 @@ namespace Adam.JSGenerator
             }
 
             return new UnaryOperationExpression(expression, UnaryOperator.Negative);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="UnaryOperationExpression" /> that creates a new object from the specified constructor.
+        /// </summary>
+        /// <param name="expression">An expression that returns a constructor.</param>
+        /// <param name="parameters">The parameters to supply to the constructor.</param>
+        /// <returns>a new instance of <see cref="UnaryOperationExpression" /></returns>
+        /// <remarks>
+        /// This method creates a new instance of <see cref="UnaryOperationExpression" /> that creates a new object from the specified constructor. The result looks like this:
+        /// <code>
+        /// new constructor(parameters)
+        /// </code>
+        /// The constructor can be any expression as long as it returns a constructor, a function that initializes a new instance.
+        /// </remarks>
+        public static UnaryOperationExpression New(this object expression, params object[] parameters)
+        {
+            if (expression == null)
+            {
+                throw new ArgumentNullException("expression");
+            }
+
+            return new UnaryOperationExpression(new CallOperationExpression(expression, parameters), UnaryOperator.New);
         }
 
         /// <summary>
@@ -129,6 +227,21 @@ namespace Adam.JSGenerator
         /// </summary>
         /// <param name="expression">The expression to post-decremenet.</param>
         /// <returns>a new instance of <see cref="UnaryOperationExpression" /></returns>
+        public static UnaryOperationExpression PostDecrement(this object expression)
+        {
+            if (expression == null)
+            {
+                throw new ArgumentNullException("expression");
+            }
+
+            return new UnaryOperationExpression(expression, UnaryOperator.PostDecrement);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="UnaryOperationExpression" /> that performs a post-decrement operation.
+        /// </summary>
+        /// <param name="expression">The expression to post-decremenet.</param>
+        /// <returns>a new instance of <see cref="UnaryOperationExpression" /></returns>
         public static UnaryOperationExpression PostDecrement(this Expression expression)
         {
             if (expression == null)
@@ -137,6 +250,21 @@ namespace Adam.JSGenerator
             }
 
             return new UnaryOperationExpression(expression, UnaryOperator.PostDecrement);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="UnaryOperationExpression" /> that performs a post-increment operation.
+        /// </summary>
+        /// <param name="expression">The expression to post-incremenet.</param>
+        /// <returns>a new instance of <see cref="UnaryOperationExpression" /></returns>
+        public static UnaryOperationExpression PostIncrement(this object expression)
+        {
+            if (expression == null)
+            {
+                throw new ArgumentNullException("expression");
+            }
+
+            return new UnaryOperationExpression(expression, UnaryOperator.PostIncrement);
         }
 
         /// <summary>
@@ -159,6 +287,21 @@ namespace Adam.JSGenerator
         /// </summary>
         /// <param name="expression">The expression to pre-decrement.</param>
         /// <returns>a new instance of <see cref="UnaryOperationExpression" /></returns>
+        public static UnaryOperationExpression PreDecrement(this object expression)
+        {
+            if (expression == null)
+            {
+                throw new ArgumentNullException("expression");
+            }
+
+            return new UnaryOperationExpression(expression, UnaryOperator.PreDecrement);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="UnaryOperationExpression" /> that performs a pre-decremenet operation.
+        /// </summary>
+        /// <param name="expression">The expression to pre-decrement.</param>
+        /// <returns>a new instance of <see cref="UnaryOperationExpression" /></returns>
         public static UnaryOperationExpression PreDecrement(this Expression expression)
         {
             if (expression == null)
@@ -174,6 +317,21 @@ namespace Adam.JSGenerator
         /// </summary>
         /// <param name="expression">The expression to pre-increment.</param>
         /// <returns>a new instance of <see cref="UnaryOperationExpression" /></returns>
+        public static UnaryOperationExpression PreIncrement(this object expression)
+        {
+            if (expression == null)
+            {
+                throw new ArgumentNullException("expression");
+            }
+
+            return new UnaryOperationExpression(expression, UnaryOperator.PreIncrement);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="UnaryOperationExpression" /> that performs a pre-increment operation.
+        /// </summary>
+        /// <param name="expression">The expression to pre-increment.</param>
+        /// <returns>a new instance of <see cref="UnaryOperationExpression" /></returns>
         public static UnaryOperationExpression PreIncrement(this Expression expression)
         {
             if (expression == null)
@@ -182,6 +340,19 @@ namespace Adam.JSGenerator
             }
 
             return new UnaryOperationExpression(expression, UnaryOperator.PreIncrement);
+        }
+
+        /// <summary>
+        /// Creates an instance of <see cref="UnaryOperationExpression" /> that returns the type of the specified expression.
+        /// </summary>
+        public static UnaryOperationExpression TypeOf(this object expression)
+        {
+            if (expression == null)
+            {
+                throw new ArgumentNullException("expression");
+            }
+
+            return new UnaryOperationExpression(expression, UnaryOperator.TypeOf);
         }
 
         /// <summary>

@@ -10,8 +10,8 @@ namespace Adam.JSGenerator.Tests
         public void ConditionalOperationExpressionProducesConditionalOperation()
         {
             Expression condition = JS.Id("a").IsGreaterThan(0);
-            Expression ifTrue = JS.String("Yes!");
-            Expression ifFalse = JS.String("No!");
+            const string ifTrue = "Yes!";
+            const string ifFalse = "No!";
 
             var expression = new ConditionalOperationExpression
             {
@@ -42,7 +42,7 @@ namespace Adam.JSGenerator.Tests
         [TestMethod]
         public void ConditionalOperationExpressionHasHelper()
         {
-            var expression = JS.Boolean(true).Iif(JS.Number(1), JS.Number(-1));
+            var expression = true.Iif(1, -1);
 
             Assert.AreEqual("true?1:-1;", expression.ToString());
         }

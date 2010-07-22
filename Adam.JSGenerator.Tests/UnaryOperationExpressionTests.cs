@@ -61,7 +61,7 @@ namespace Adam.JSGenerator.Tests
         [TestMethod]
         public void UnaryOperationExpressionsSupportPrecedence()
         {
-            var expression = JS.Number(3).Group().AddWith(JS.Id("a").TypeOf().New());
+            var expression = 3.Group().AddWith(JS.Id("a").TypeOf().New());
 
             Assert.AreEqual("(3)+new (typeof a)();", expression.ToString());
         }

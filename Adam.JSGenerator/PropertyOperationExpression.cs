@@ -16,6 +16,16 @@ namespace Adam.JSGenerator
         /// </summary>
         /// <param name="operandLeft">The left operand of the operation.</param>
         /// <param name="operandRight">The right operand of the operation.</param>
+        public PropertyOperationExpression(object operandLeft, IdentifierExpression operandRight)
+            : this(FromObject(operandLeft), operandRight)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of <see cref="PropertyOperationExpression" /> for the specified left and right operands.
+        /// </summary>
+        /// <param name="operandLeft">The left operand of the operation.</param>
+        /// <param name="operandRight">The right operand of the operation.</param>
         public PropertyOperationExpression(Expression operandLeft, IdentifierExpression operandRight)
         {
             this._OperandLeft = operandLeft;

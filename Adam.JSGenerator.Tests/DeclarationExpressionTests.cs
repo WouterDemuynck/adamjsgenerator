@@ -8,12 +8,11 @@ namespace Adam.JSGenerator.Tests
     public class DeclarationExpressionTests
     {
         [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException), "Expressions cannot be empty.")]
         public void DeclarationExpressionRequiresExpressions()
         {
             var d = new DeclarationExpression();
 
-            d.ToString();
+            Expect.Throw<InvalidOperationException>(() => d.ToString());
         }
 
         [TestMethod]

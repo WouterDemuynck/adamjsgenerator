@@ -163,6 +163,10 @@ namespace Adam.JSGenerator
             {
                 result = (Expression) value;
             }
+            else if (value is Statement)
+            {
+                throw new InvalidOperationException("A statement cannot be used as an expression.");
+            }
             else if (double.TryParse(value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out d))
             {
                 result = FromDouble(d);

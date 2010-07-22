@@ -13,6 +13,22 @@ namespace Adam.JSGenerator
         /// <param name="expression">An expression to perform an index operation on.</param>
         /// <param name="operand">The index to retrieve.</param>
         /// <returns></returns>
+        public static IndexOperationExpression Index(this object expression, object operand)
+        {
+            if (expression == null)
+            {
+                throw new ArgumentNullException("expression");
+            }
+
+            return new IndexOperationExpression(expression, operand);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="IndexOperationExpression" /> that performs an index operation.
+        /// </summary>
+        /// <param name="expression">An expression to perform an index operation on.</param>
+        /// <param name="operand">The index to retrieve.</param>
+        /// <returns></returns>
         public static IndexOperationExpression Index(this Expression expression, Expression operand)
         {
             if (expression == null)
