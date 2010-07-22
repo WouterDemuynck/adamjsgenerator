@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Adam.JSGenerator
@@ -330,7 +331,7 @@ namespace Adam.JSGenerator
         /// <summary>
         /// Combines the sequence of expressions using the specified binary operator.
         /// </summary>
-        /// <param name="expressions">A sequence of expressions to combine.</param>
+        /// <param name="values">A sequence of expressions to combine.</param>
         /// <param name="op">The <see cref="BinaryOperator" /> to use when combining.</param>
         /// <returns>An instance of <see cref="Expression" /> that represents the combination of all the expressions in the sequence.</returns>
         /// <remarks>
@@ -339,19 +340,19 @@ namespace Adam.JSGenerator
         /// In all other cases, all expressions are combined in a chain of instances of <see cref="BinaryOperationExpression" />.
         /// Null values in the sequence are replaced with instances of <see cref="NullExpression" />.
         /// </remarks>
-        public static Expression Combined(this IEnumerable<Expression> expressions, BinaryOperator op)
+        public static Expression Combined(this IEnumerable values, BinaryOperator op)
         {
             Expression result = null;
 
-            foreach (Expression expression in expressions.WithConvertedNulls())
+            foreach (object value in values)
             {
                 if (result == null)
                 {
-                    result = expression;
+                    result = Expression.FromObject(value);
                 }
                 else
                 {
-                    result = new BinaryOperationExpression(result, expression, op);
+                    result = new BinaryOperationExpression(result, value, op);
                 }
             }
 

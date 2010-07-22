@@ -22,6 +22,14 @@ namespace Adam.JSGenerator
         /// <summary>
         /// Initializes a new instance of <see cref="ConditionalOperationExpression" />.
         /// </summary>
+        public ConditionalOperationExpression(object condition, object then, object @else)
+            : this(FromObject(condition), FromObject(then), FromObject(@else))
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of <see cref="ConditionalOperationExpression" />.
+        /// </summary>
         public ConditionalOperationExpression(Expression condition, Expression then, Expression @else)
         {
             this._Condition = condition;

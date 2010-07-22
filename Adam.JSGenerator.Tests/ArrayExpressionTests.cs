@@ -29,7 +29,19 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void CanCreateArrayExpressionWithIEnumerable()
+        public void CanCreateArrayExpressionWithAnyIEnumerable()
+        {
+            var list = new List<int> { 1, 2, 3 };
+            var a = new ArrayExpression(list);
+
+            Assert.IsNotNull(a);
+            Assert.IsNotNull(a.Elements);
+            Assert.AreEqual(3, a.Elements.Count);
+            Assert.AreEqual("[1,2,3];", a.ToString());
+        }
+
+        [TestMethod]
+        public void CanCreateArrayExpressionWithIEnumerableOfExpression()
         {
             var list = new List<Expression> { 1, 2, 3 };
             var a = new ArrayExpression(list);
@@ -70,8 +82,10 @@ namespace Adam.JSGenerator.Tests
         public void ArrayExpressionHandlesNulls()
         {
             var a = JS.Array(1, 2, 3, null);
+            Expression b = new object[] {3, 2, 1, null};
 
             Assert.AreEqual("[1,2,3,null];", a.ToString());
+            Assert.AreEqual("[3,2,1,null];", b.ToString());
         }
 
         [TestMethod]
