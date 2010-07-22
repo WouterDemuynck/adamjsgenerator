@@ -149,39 +149,37 @@ namespace Adam.JSGenerator
                 return result;
             }
 
+            IEnumerable enumerable;
+            string str;
             double d;
 
             if (value == null)
             {
                 result = JS.Null();
             }
-            else if (value is string)
+            else if ((str = value as string) != null)
             {
-                result = FromString((string) value);
-            }
-            else if (value is Expression)
-            {
-                result = (Expression) value;
+                result = FromString(str);
             }
             else if (value is Statement)
             {
                 throw new InvalidOperationException("A statement cannot be used as an expression.");
             }
-            else if (double.TryParse(value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out d))
+            else if ((enumerable = value as IEnumerable) != null)
             {
-                result = FromDouble(d);
-            }
-            else if (value is IEnumerable)
-            {
-                result = JS.Array((IEnumerable) value);
+                result = JS.Array(enumerable);
             }
             else if (value.GetType().IsClass)
-            {                
-                 result = JS.Object(value);    
+            {
+                result = JS.Object(value);
             }
             else if (value is Boolean)
             {
-                result = FromBoolean((bool) value);
+                result = FromBoolean((bool)value);
+            }
+            else if (double.TryParse(value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out d))
+            {
+                result = FromDouble(d);
             }
             else
             {
