@@ -86,20 +86,29 @@ namespace Adam.JSGenerator.Demonstration {
         /// <summary>
         ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
         ///&lt;html&gt;
-        ///    &lt;head&gt;
-        ///        &lt;style type=&quot;text/css&quot;&gt;
-        ///            body { color: InactiveCaptionText; }
-        ///            h2 { font-size: 120%; color: CaptionText; }
-        ///        &lt;/style&gt;
-        ///    &lt;/head&gt;
-        ///	&lt;body&gt;
-        ///	    &lt;h2&gt;Explanation Template&lt;/h2&gt;
-        ///	    &lt;p&gt;This is a template to demonstrate what an explanation HTML should look like.&lt;/p&gt;
-        ///        &lt;h2&gt;Source:&lt;/h2&gt;
-        ///        &lt;p&gt;Here be source&lt;/p&gt;
-        ///    &lt;/body&gt;
-        ///&lt;/html&gt;
-        ///.
+        ///&lt;head&gt;
+        ///    &lt;style type=&quot;text/css&quot;&gt;
+        ///        body
+        ///        {
+        ///            color: InactiveCaptionText;
+        ///        }
+        ///        h2
+        ///        {
+        ///            font-size: 120%;
+        ///            color: CaptionText;
+        ///        }
+        ///    &lt;/style&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;h2&gt;
+        ///        Operator Precedence&lt;/h2&gt;
+        ///    &lt;p&gt;
+        ///        The library takes care of operator precedence for you.&lt;/p&gt;
+        ///    &lt;h2&gt;
+        ///        Source:&lt;/h2&gt;
+        ///    &lt;style type=&quot;text/css&quot;&gt;
+        ///        .cf
+        ///    [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string OperatorPrecedenceExplanation {
             get {
@@ -146,8 +155,8 @@ namespace Adam.JSGenerator.Demonstration {
         ///        }
         ///        table
         ///        {
-        ///            font-size: 80%; 
-        ///            width: 100%; 
+        ///            font-size: 80%;
+        ///            width: 100%;
         ///            border: 1px solid #ddd;
         ///        }
         ///        td
@@ -156,7 +165,7 @@ namespace Adam.JSGenerator.Demonstration {
         ///        }
         ///        .cf
         ///        {
-        ///    [rest of string was truncated]&quot;;.
+        ///      [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SimpleArithmeticExplanation {
             get {
@@ -184,6 +193,28 @@ namespace Adam.JSGenerator.Demonstration {
         internal static string SimpleIdentifierExplanation {
             get {
                 return ResourceManager.GetString("SimpleIdentifierExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+        ///&lt;html&gt;
+        ///    &lt;head&gt;
+        ///        &lt;style type=&quot;text/css&quot;&gt;
+        ///            body { color: InactiveCaptionText; }
+        ///            h2 { font-size: 120%; color: CaptionText; }
+        ///        &lt;/style&gt;
+        ///    &lt;/head&gt;
+        ///	&lt;body&gt;
+        ///	    &lt;h2&gt;Welcome!&lt;/h2&gt;
+        ///	    &lt;p&gt;Please select a demonstration from the list on the left.&lt;/p&gt;
+        ///    &lt;/body&gt;
+        ///&lt;/html&gt;
+        ///.
+        /// </summary>
+        internal static string Welcome {
+            get {
+                return ResourceManager.GetString("Welcome", resourceCulture);
             }
         }
     }
