@@ -49,7 +49,7 @@
             this.listPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.listPanel.Location = new System.Drawing.Point(5, 5);
             this.listPanel.Name = "listPanel";
-            this.listPanel.Size = new System.Drawing.Size(200, 433);
+            this.listPanel.Size = new System.Drawing.Size(200, 593);
             this.listPanel.TabIndex = 0;
             // 
             // demonstrationList
@@ -68,7 +68,7 @@
             this.demonstrationList.Location = new System.Drawing.Point(0, 0);
             this.demonstrationList.MultiSelect = false;
             this.demonstrationList.Name = "demonstrationList";
-            this.demonstrationList.Size = new System.Drawing.Size(194, 433);
+            this.demonstrationList.Size = new System.Drawing.Size(194, 593);
             this.demonstrationList.TabIndex = 0;
             this.demonstrationList.TabStop = false;
             this.demonstrationList.UseCompatibleStateImageBehavior = false;
@@ -83,7 +83,7 @@
             this.hostPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hostPanel.Location = new System.Drawing.Point(205, 5);
             this.hostPanel.Name = "hostPanel";
-            this.hostPanel.Size = new System.Drawing.Size(435, 433);
+            this.hostPanel.Size = new System.Drawing.Size(579, 593);
             this.hostPanel.TabIndex = 1;
             // 
             // browser
@@ -92,7 +92,7 @@
             this.browser.Location = new System.Drawing.Point(0, 0);
             this.browser.MinimumSize = new System.Drawing.Size(20, 20);
             this.browser.Name = "browser";
-            this.browser.Size = new System.Drawing.Size(433, 344);
+            this.browser.Size = new System.Drawing.Size(577, 504);
             this.browser.TabIndex = 0;
             // 
             // actionPanel
@@ -101,9 +101,9 @@
             this.actionPanel.Controls.Add(this.outputBox);
             this.actionPanel.Controls.Add(this.runButton);
             this.actionPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.actionPanel.Location = new System.Drawing.Point(0, 344);
+            this.actionPanel.Location = new System.Drawing.Point(0, 504);
             this.actionPanel.Name = "actionPanel";
-            this.actionPanel.Size = new System.Drawing.Size(433, 87);
+            this.actionPanel.Size = new System.Drawing.Size(577, 87);
             this.actionPanel.TabIndex = 1;
             // 
             // outputLabel
@@ -122,7 +122,7 @@
             this.outputBox.Location = new System.Drawing.Point(135, 8);
             this.outputBox.Multiline = true;
             this.outputBox.Name = "outputBox";
-            this.outputBox.Size = new System.Drawing.Size(295, 76);
+            this.outputBox.Size = new System.Drawing.Size(439, 76);
             this.outputBox.TabIndex = 1;
             // 
             // runButton
@@ -139,13 +139,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(645, 443);
+            this.ClientSize = new System.Drawing.Size(789, 603);
             this.Controls.Add(this.hostPanel);
             this.Controls.Add(this.listPanel);
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "Adam.JSGenerator Demonstration";
             this.Load += new System.EventHandler(this.MainFormLoad);
+            this.Shown += new System.EventHandler(this.MainFormShown);
             this.listPanel.ResumeLayout(false);
             this.hostPanel.ResumeLayout(false);
             this.actionPanel.ResumeLayout(false);

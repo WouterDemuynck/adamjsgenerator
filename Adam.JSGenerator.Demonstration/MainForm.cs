@@ -19,6 +19,7 @@ namespace Adam.JSGenerator.Demonstration
         private void MainFormLoad(object sender, EventArgs e)
         {
             browser.Navigate("about:blank");
+            
             LoadDemonstrations();
         }
 
@@ -60,6 +61,11 @@ namespace Adam.JSGenerator.Demonstration
             {
                 outputBox.Text = this._CurrentDemonstation.Run().ToString();
             }
+        }
+
+        private void MainFormShown(object sender, EventArgs e)
+        {
+            browser.DocumentText = Explanations.Welcome;
         }
     }
 }

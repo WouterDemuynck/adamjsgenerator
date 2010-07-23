@@ -103,6 +103,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Explanations\Welcome.htm" />
     <Content Include="Explanations\OperatorPrecedenceExplanation.htm" />
     <Content Include="Explanations\SimpleArithmeticExplanation.htm" />
     <Content Include="Explanations\ImplicitConversionsExplanation.htm" />
