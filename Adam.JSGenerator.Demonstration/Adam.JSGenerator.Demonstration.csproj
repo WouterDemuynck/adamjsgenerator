@@ -50,15 +50,18 @@
   <ItemGroup>
     <Compile Include="Demonstration.cs" />
     <Compile Include="Demonstrations\ImplicitConversionsDemonstration.cs" />
+    <Compile Include="Demonstrations\OperatorPrecedenceDemonstration.cs" />
     <Compile Include="Demonstrations\ParsedIdentifierDemonstration.cs" />
     <Compile Include="Demonstrations\SimpleArithmeticDemonstration.cs" />
     <Compile Include="Demonstrations\SimpleIdentifierDemonstration.cs" />
+    <Compile Include="DescriptionAttribute.cs" />
     <Compile Include="Explanations.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Explanations.resx</DependentUpon>
     </Compile>
     <Compile Include="Group.cs" />
+    <Compile Include="GroupAttribute.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +103,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Explanations\OperatorPrecedenceExplanation.htm" />
+    <Content Include="Explanations\SimpleArithmeticExplanation.htm" />
     <Content Include="Explanations\ImplicitConversionsExplanation.htm" />
     <Content Include="Explanations\ParsedIdentifierExplanation.htm" />
     <Content Include="Explanations\SimpleIdentifierExplanation.htm" />

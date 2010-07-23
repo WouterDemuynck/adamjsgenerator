@@ -33,63 +33,6 @@ namespace Adam.JSGenerator
 
         #region Helper Methods
 
-        /// <summary>
-        /// Returns an expression for the specified object.
-        /// </summary>
-        /// <param name="value">An object to turn into an expression</param>
-        /// <returns>An instance deriving from <see cref="Expression" />.</returns>
-        /// <remarks>
-        /// If the specified object is null, an instance of <see cref="NullExpression" /> is returned.
-        /// If the specified object is a string, an instance of <see cref="StringExpression" /> is returned representing the string.
-        /// If the specified object is an instance of a class derived from <see cref="Expression" />, it is returned unchanged.
-        /// If the specified object is an instance of a class that implements <see cref="T:System.Collections.IEnumerable" />, <see cref="Array(IEnumerable)" /> is called to return an instance of <see cref="ArrayExpression" />.
-        /// If the specified object is a reference type, <see cref="Object()" /> is called to return an instance of <see cref="ObjectLiteralExpression" />.
-        /// If the specified object is a boolean, an instance of <see cref="BooleanExpression" /> is returned.
-        /// If the specified object can be converted into a double, an instance of <see cref="NumberExpression" /> is returned.
-        /// In all other cases, <see cref="M:System.Object.ToString" /> is called, and the result is wrapped in an instance of <see cref="StringExpression" /> and returned.
-        /// </remarks>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
-        private static Expression ObjectToExpression(object value)
-        {
-            string s = value as string;
-            Expression expr;
-            double d;
-
-            if (value == null)
-            {
-                expr = Null();
-            }
-            else if (s != null)
-            {
-                expr = s;
-            }
-            else if (value is Expression)
-            {
-                expr = (Expression)value;
-            }
-            else if (value is IEnumerable)
-            {
-                expr = Array((IEnumerable)value);
-            }
-            else if (value.GetType().IsClass)
-            {
-                expr = Object(value);
-            }
-            else if (value is Boolean)
-            {
-                return new BooleanExpression((Boolean) value);
-            }
-            else if (double.TryParse(value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out d))
-            {
-                return new NumberExpression(d);
-            }
-            else
-            {
-                expr = value.ToString();
-            }
-
-            return expr;
-        }
 
         /// <summary>
         /// Converts a single <see cref="T:System.Char" /> into a corresponding representation in JavaScript.
@@ -141,7 +84,7 @@ namespace Adam.JSGenerator
 
                     Expression key = IsValidIdentifier(name) ? (Expression)Id(name) : Expression.FromString(name);
 
-                    result.Add(key, ObjectToExpression(property.GetValue(value)));
+                    result.Add(key, Expression.FromObject(property.GetValue(value)));
                 }   
             }
 
@@ -368,7 +311,7 @@ namespace Adam.JSGenerator
         public static ArrayExpression Array(IEnumerable elements)
         {
             return new ArrayExpression(elements.Cast<object>()
-                .Select(element => ObjectToExpression(element)));
+                .Select(element => Expression.FromObject(element)));
         }
 
         /// <summary>
@@ -542,7 +485,7 @@ namespace Adam.JSGenerator
         /// <returns>a new instance of <see cref="FunctionExpression" />.</returns>
         public static FunctionExpression Function()
         {
-            return new FunctionExpression(null, null, null);
+            return new FunctionExpression();
         }
 
         /// <summary>
@@ -552,7 +495,7 @@ namespace Adam.JSGenerator
         /// <returns>a new instance of <see cref="FunctionExpression" />.</returns>
         public static FunctionExpression Function(IdentifierExpression name)
         {
-            return new FunctionExpression(name, null, null);
+            return new FunctionExpression(name);
         }
 
         /// <summary>

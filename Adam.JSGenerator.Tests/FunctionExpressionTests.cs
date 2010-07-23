@@ -18,7 +18,7 @@ namespace Adam.JSGenerator.Tests
         [TestMethod]
         public void FunctionExpressionProducesAnonymousFunctionWithParameters()
         {
-            var f = new FunctionExpression(null, new IdentifierExpression[] { "a", "b", "c" }, null);
+            var f = new FunctionExpression(null, "a", "b", "c");
 
             Assert.AreEqual("function(a,b,c){};", f.ToString());
         }
@@ -26,7 +26,7 @@ namespace Adam.JSGenerator.Tests
         [TestMethod]
         public void FunctionExpressionProducesNamedFunction()
         {
-            var f = new FunctionExpression("alert", null, null);
+            var f = new FunctionExpression("alert");
 
             Assert.AreEqual("function alert(){};", f.ToString());
         }

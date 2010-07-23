@@ -20,6 +20,21 @@ namespace Adam.JSGenerator
         }
 
         /// <summary>
+        /// Initializes a new instance of <see cref="FunctionExpression" /> with the specified name and parameters.
+        /// </summary>
+        /// <param name="name">The name of the function, if not anonymous.</param>
+        /// <param name="parameters">The parameters that the function expects.</param>
+        public FunctionExpression(IdentifierExpression name, params IdentifierExpression[] parameters)
+        {
+            this._Name = name;
+
+            if (parameters != null)
+            {
+                this._Parameters.AddRange(parameters);
+            }
+        }
+
+        /// <summary>
         /// Initializes a new instance of <see cref="FunctionExpression" /> for the specified name, parameters and body.
         /// </summary>
         /// <param name="name">The name of the function, if not anonymous.</param>
