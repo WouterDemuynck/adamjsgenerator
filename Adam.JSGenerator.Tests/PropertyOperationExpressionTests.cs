@@ -9,7 +9,7 @@ namespace Adam.JSGenerator.Tests
         [TestMethod]
         public void PropertyOperationExpressionProducesADot()
         {
-            var expression = new PropertyOperationExpression(JS.Id("a"), JS.Id("b"));
+            var expression = new PropertyOperationExpression(JS.Id("a"), "b");
 
             Assert.AreEqual("a;", expression.OperandLeft.ToString());
             Assert.AreEqual("b;", expression.OperandRight.ToString());
@@ -19,7 +19,7 @@ namespace Adam.JSGenerator.Tests
         [TestMethod]
         public void PropertyOperationExpressionRequiresLeftAndRightOperands()
         {
-            var expression1 = new PropertyOperationExpression(JS.Id("a"), JS.Id("b"));
+            var expression1 = new PropertyOperationExpression(JS.Id("a"), "b");
             expression1.OperandLeft = null;
 
             Expect.Throw<InvalidOperationException>(() => expression1.ToString());

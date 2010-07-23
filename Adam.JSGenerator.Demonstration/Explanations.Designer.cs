@@ -90,6 +90,30 @@ namespace Adam.JSGenerator.Demonstration {
         ///        &lt;style type=&quot;text/css&quot;&gt;
         ///            body { color: InactiveCaptionText; }
         ///            h2 { font-size: 120%; color: CaptionText; }
+        ///        &lt;/style&gt;
+        ///    &lt;/head&gt;
+        ///	&lt;body&gt;
+        ///	    &lt;h2&gt;Explanation Template&lt;/h2&gt;
+        ///	    &lt;p&gt;This is a template to demonstrate what an explanation HTML should look like.&lt;/p&gt;
+        ///        &lt;h2&gt;Source:&lt;/h2&gt;
+        ///        &lt;p&gt;Here be source&lt;/p&gt;
+        ///    &lt;/body&gt;
+        ///&lt;/html&gt;
+        ///.
+        /// </summary>
+        internal static string OperatorPrecedenceExplanation {
+            get {
+                return ResourceManager.GetString("OperatorPrecedenceExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+        ///&lt;html&gt;
+        ///    &lt;head&gt;
+        ///        &lt;style type=&quot;text/css&quot;&gt;
+        ///            body { color: InactiveCaptionText; }
+        ///            h2 { font-size: 120%; color: CaptionText; }
         ///            .cf { font-family: Courier New; font-size: 10pt; color: black; background: white; }
         ///            .cl { margin: 0px; }
         ///            .cb1 { color: #2b91af; }
@@ -103,6 +127,40 @@ namespace Adam.JSGenerator.Demonstration {
         internal static string ParsedIdentifierExplanation {
             get {
                 return ResourceManager.GetString("ParsedIdentifierExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;style type=&quot;text/css&quot;&gt;
+        ///        body
+        ///        {
+        ///            color: InactiveCaptionText;
+        ///        }
+        ///        h2
+        ///        {
+        ///            font-size: 120%;
+        ///            color: CaptionText;
+        ///        }
+        ///        table
+        ///        {
+        ///            font-size: 80%; 
+        ///            width: 100%; 
+        ///            border: 1px solid #ddd;
+        ///        }
+        ///        td
+        ///        {
+        ///            background-color: #eee;
+        ///        }
+        ///        .cf
+        ///        {
+        ///    [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SimpleArithmeticExplanation {
+            get {
+                return ResourceManager.GetString("SimpleArithmeticExplanation", resourceCulture);
             }
         }
         

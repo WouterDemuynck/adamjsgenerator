@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Globalization;
 
 namespace Adam.JSGenerator
 {
@@ -117,21 +118,75 @@ namespace Adam.JSGenerator
         /// <summary>
         /// Converts an array into a <see cref="ArrayExpression" /> that represents its value.
         /// </summary>
-        /// <param name="value">The array to convert</param>
+        /// <param name="array">The array to convert</param>
         /// <returns>The <see cref="ArrayExpression" /> object that represents its value.</returns>
-        public static implicit operator Expression(Array value)
+        public static implicit operator Expression(Array array)
         {
-            return JS.Array((IEnumerable)value);
+            return JS.Array((IEnumerable)array);
         }
 
         /// <summary>
         /// Converts an array into a <see cref="ArrayExpression" /> that represents its value.
         /// </summary>
-        /// <param name="value">The array to convert</param>
+        /// <param name="array">The array to convert</param>
         /// <returns>The <see cref="ArrayExpression" /> object that represents its value.</returns>
-        public static ArrayExpression FromArray(Array value)
+        public static ArrayExpression FromArray(Array array)
         {
-            return JS.Array((IEnumerable)value);
+            return JS.Array((IEnumerable)array);
+        }
+
+        /// <summary>
+        /// Converts any object into an <see cref="Expression" /> object.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static Expression FromObject(object value)
+        {
+            Expression result = value as Expression;
+
+            if (result != null)
+            {
+                return result;
+            }
+
+            IEnumerable enumerable;
+            string str;
+            double d;
+
+            if (value == null)
+            {
+                result = JS.Null();
+            }
+            else if ((str = value as string) != null)
+            {
+                result = FromString(str);
+            }
+            else if (value is Statement)
+            {
+                throw new InvalidOperationException("A statement cannot be used as an expression.");
+            }
+            else if ((enumerable = value as IEnumerable) != null)
+            {
+                result = JS.Array(enumerable);
+            }
+            else if (value.GetType().IsClass)
+            {
+                result = JS.Object(value);
+            }
+            else if (value is Boolean)
+            {
+                result = FromBoolean((bool)value);
+            }
+            else if (double.TryParse(value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out d))
+            {
+                result = FromDouble(d);
+            }
+            else
+            {
+                result = FromString(value.ToString());
+            }
+
+            return result;
         }
     }
 }

@@ -713,7 +713,8 @@ namespace Adam.JSGenerator.Tests
         public void SwitchReturnsSwitchWithDefault()
         {
             var s = JS.Switch(JS.Id("a"))
-                .Default().Do(JS.Return());
+                .Default().Do(
+                    JS.Return());
 
             Assert.AreEqual("switch(a){default:return;}", s.ToString());
         }
@@ -722,8 +723,12 @@ namespace Adam.JSGenerator.Tests
         public void SwitchReturnsSwitchWithCases()
         {
             var s = JS.Switch(JS.Id("a"))
-                .Case(1).Do(JS.Id("alert").Call("moo!")).Break()
-                .Case(2, 3, 4).Do(JS.Id("alert").Call("cow!")).Break();
+                .Case(1).Do(
+                    JS.Id("alert").Call("moo!"),
+                    JS.Break())
+                .Case(2, 3, 4).Do(
+                    JS.Id("alert").Call("cow!"),
+                    JS.Break());
 
             Assert.AreEqual("switch(a){case 1:alert(\"moo!\");break;case 2:case 3:case 4:alert(\"cow!\");break;}", s.ToString());
         }

@@ -16,12 +16,7 @@ namespace Adam.JSGenerator
         /// <returns>a new instance of <see cref="SwitchStatement" />.</returns>
         public static SwitchStatement Default(this SwitchStatement statement)
         {
-            if (statement == null)
-            {
-                throw new ArgumentNullException("statement");
-            }
-
-            return Case(statement, new Expression[] { null });
+            return Case(statement, new Expression[] {null});
         }
 
         /// <summary>
@@ -116,6 +111,11 @@ namespace Adam.JSGenerator
             if (statement == null)
             {
                 throw new ArgumentNullException("statement");
+            }
+
+            if (!statement.Cases.Any())
+            {
+                throw new InvalidOperationException("Can't invoke Do() on a switch statement without cases.");
             }
 
             SwitchStatement @switch = new SwitchStatement(statement.Expression, statement.Cases);

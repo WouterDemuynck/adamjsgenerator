@@ -11,7 +11,7 @@ namespace Adam.JSGenerator.Tests
         {
             var identifier = new IndexOperationExpression("a", 3);
 
-            Assert.AreEqual("\"a\"[3]", identifier.ToString(false));
+            Assert.AreEqual("\"a\"[3];", identifier.ToString());
         }
 
         [TestMethod]
@@ -21,7 +21,15 @@ namespace Adam.JSGenerator.Tests
             identifier.OperandLeft = "a";
             identifier.OperandRight = 3;
 
-            Assert.AreEqual("\"a\"[3]", identifier.ToString(false));
+            Assert.AreEqual("\"a\"[3];", identifier.ToString());
+        }
+
+        [TestMethod]
+        public void IndexOperationExpressionHasHelpers()
+        {
+            var expression = JS.String("Hello, World!").Index(2);
+
+            Assert.AreEqual("\"Hello, World!\"[2];", expression.ToString());
         }
 
         [TestMethod]

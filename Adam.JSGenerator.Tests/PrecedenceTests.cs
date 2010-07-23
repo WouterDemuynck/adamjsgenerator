@@ -22,6 +22,30 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
+        public void PrecedenceResultsInGrouping()
+        {
+            var a = JS.Number(10).AddWith(10);
+            var b = a.MultiplyBy(5);
+            var c = JS.Number(5).MultiplyBy(a);
+
+            Assert.AreEqual("10+10;", a.ToString());
+            Assert.AreEqual("(10+10)*5;", b.ToString());
+            Assert.AreEqual("5*(10+10);", c.ToString());
+
+            var d = JS.Number(10).AddWith(10).MultiplyBy(5);
+            var e = JS.Number(10).MultiplyBy(5).AddWith(10);
+            
+            Assert.AreEqual("(10+10)*5;", d.ToString());
+            Assert.AreEqual("10*5+10;", e.ToString());
+
+            var f = JS.Number(10).AddWith(JS.Number(5).MultiplyBy(5));
+            var g = JS.Number(10).MultiplyBy(JS.Number(5).AddWith(5));
+
+            Assert.AreEqual("10+5*5;", f.ToString());
+            Assert.AreEqual("10*(5+5);", g.ToString());
+        }
+
+        [TestMethod]
         public void PrecedenceSupportsEquals()
         {
             Precedence first = new Precedence { Association = Association.LeftToRight, Level = 1 };

@@ -15,6 +15,35 @@ namespace Adam.JSGenerator
         /// <summary>
         /// Initializes a new instance of <see cref="CaseStatement" />.
         /// </summary>
+        /// <param name="statements">An array of statemetns that run in this case.</param>
+        /// <remarks>
+        /// The case statement without a value is regarded as the 'default' statement and must come last in a <see cref="SwitchStatement" />.
+        /// </remarks>
+        public CaseStatement(params Statement[] statements)
+        {
+            if (statements != null)
+            {
+                this._Statements.AddRange(statements);
+            }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of <see cref="CaseStatement" />.
+        /// </summary>
+        /// <param name="statements">An array of statemetns that run in this case.</param>
+        /// <remarks>
+        /// The case statement without a value is regarded as the 'default' statement and must come last in a <see cref="SwitchStatement" />.
+        /// </remarks>
+        public CaseStatement(IEnumerable<Statement> statements)
+        {
+            if (statements != null)
+            {
+                this._Statements.AddRange(statements);
+            }
+        }
+        /// <summary>
+        /// Initializes a new instance of <see cref="CaseStatement" />.
+        /// </summary>
         /// <param name="value">The literal for which this case is used.</param>
         /// <param name="statements">An array of statements that run in this case.</param>
         public CaseStatement(Expression value, params Statement[] statements)
