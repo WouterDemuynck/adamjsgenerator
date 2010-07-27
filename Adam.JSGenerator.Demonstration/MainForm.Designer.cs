@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Basics", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("2", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Object Literals", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Statements", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("... and LINQ", System.Windows.Forms.HorizontalAlignment.Left);
             this.listPanel = new System.Windows.Forms.Panel();
             this.demonstrationList = new System.Windows.Forms.ListView();
             this.hostPanel = new System.Windows.Forms.Panel();
@@ -59,11 +61,17 @@
             this.demonstrationList.FullRowSelect = true;
             listViewGroup1.Header = "Basics";
             listViewGroup1.Name = "basicsGroup";
-            listViewGroup2.Header = "2";
-            listViewGroup2.Name = "listViewGroup2";
+            listViewGroup2.Header = "Object Literals";
+            listViewGroup2.Name = "objectLiteralsGroup";
+            listViewGroup3.Header = "Statements";
+            listViewGroup3.Name = "statementsGroup";
+            listViewGroup4.Header = "... and LINQ";
+            listViewGroup4.Name = "linqGroup";
             this.demonstrationList.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
             listViewGroup1,
-            listViewGroup2});
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4});
             this.demonstrationList.HideSelection = false;
             this.demonstrationList.Location = new System.Drawing.Point(0, 0);
             this.demonstrationList.MultiSelect = false;
