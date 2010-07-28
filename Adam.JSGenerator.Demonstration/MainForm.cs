@@ -34,9 +34,14 @@ namespace Adam.JSGenerator.Demonstration
 
             foreach (var demonstration in this._Demonstrations.OrderBy(demo => demo.Order))
             {
-                var item = demonstrationList.Items.Add(demonstration.Description);
-                item.Tag = demonstration;
-                item.Group = demonstrationList.Groups[(int)demonstration.Group];
+                string description = demonstration.Description;
+
+                if (!string.IsNullOrEmpty(description))
+                {
+                    var item = demonstrationList.Items.Add(demonstration.Description);
+                    item.Tag = demonstration;
+                    item.Group = demonstrationList.Groups[(int) demonstration.Group];
+                }
             }
         }
 

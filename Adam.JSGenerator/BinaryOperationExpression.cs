@@ -79,7 +79,7 @@ namespace Adam.JSGenerator
         /// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
         /// <param name="options">The options to use when appending JavaScript</param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
-        internal protected override void AppendScript(StringBuilder builder, GenerateJavaScriptOptions options)
+        internal protected override void AppendScript(StringBuilder builder, ScriptOptions options)
         {
             Expression operandLeft = this._OperandLeft ?? new NullExpression();
             Expression operandRight = this._OperandRight ?? new NullExpression();

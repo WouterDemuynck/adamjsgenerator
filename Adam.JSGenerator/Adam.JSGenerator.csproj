@@ -67,7 +67,7 @@
     <Compile Include="ExceptionHandlingStatement.cs" />
     <Compile Include="Expression.cs" />
     <Compile Include="FunctionExpression.cs" />
-    <Compile Include="GenerateJavaScriptOptions.cs" />
+    <Compile Include="ScriptOptions.cs" />
     <Compile Include="Helpers\BinaryOperationHelpers.cs" />
     <Compile Include="Helpers\CallOperationHelpers.cs" />
     <Compile Include="Helpers\CollectionHelpers.cs" />

@@ -9,7 +9,7 @@ namespace Adam.JSGenerator.Tests
         [TestMethod]
         public void GenerateJavaScriptOptionsHasDefaults()
         {
-            GenerateJavaScriptOptions options = GenerateJavaScriptOptions.Default;
+            ScriptOptions options = ScriptOptions.Default;
 
             Assert.AreEqual('"', options.PreferredQuoteChar);
             Assert.IsFalse(options.AlwaysQuoteObjectLiteralKeys);
@@ -18,7 +18,7 @@ namespace Adam.JSGenerator.Tests
         [TestMethod]
         public void GenerateJavaScriptOptionsCanBeSet()
         {
-            GenerateJavaScriptOptions options = new GenerateJavaScriptOptions();
+            ScriptOptions options = new ScriptOptions();
 
             options.PreferredQuoteChar = '\'';
 
@@ -32,7 +32,7 @@ namespace Adam.JSGenerator.Tests
         [TestMethod]
         public void GenerateJavaScriptOptionsHasJson()
         {
-            GenerateJavaScriptOptions options = GenerateJavaScriptOptions.Json;
+            ScriptOptions options = ScriptOptions.Json;
 
             Assert.AreEqual('"', options.PreferredQuoteChar);
             Assert.IsTrue(options.AlwaysQuoteObjectLiteralKeys);
@@ -43,8 +43,8 @@ namespace Adam.JSGenerator.Tests
         {
             var literal = JS.Object(new {name = "Dave", function = "Developer"});
 
-            var without = new GenerateJavaScriptOptions {AlwaysQuoteObjectLiteralKeys = false, PreferredQuoteChar = '"'};
-            var with = new GenerateJavaScriptOptions {AlwaysQuoteObjectLiteralKeys = true, PreferredQuoteChar = '"'};
+            var without = new ScriptOptions {AlwaysQuoteObjectLiteralKeys = false, PreferredQuoteChar = '"'};
+            var with = new ScriptOptions {AlwaysQuoteObjectLiteralKeys = true, PreferredQuoteChar = '"'};
 
             Assert.AreEqual("{name:\"Dave\",\"function\":\"Developer\"};", literal.ToString(true, without));
             Assert.AreEqual("{\"name\":\"Dave\",\"function\":\"Developer\"};", literal.ToString(true, with));

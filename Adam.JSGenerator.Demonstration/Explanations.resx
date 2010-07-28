@@ -118,20 +118,38 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ImplicitConversionsExplanation" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>explanations\implicitconversionsexplanation.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="AnonymousObjectLiterals" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>explanations\anonymousobjectliterals.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="OperatorPrecedenceExplanation" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>explanations\operatorprecedenceexplanation.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="FluentObjectLiteralsDemonstration" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>explanations\fluentobjectliteralsdemonstration.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="ParsedIdentifierExplanation" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>explanations\parsedidentifierexplanation.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="ImplicitConversionsDemonstration" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>explanations\implicitconversionsdemonstration.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="SimpleArithmeticExplanation" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>explanations\simplearithmeticexplanation.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="JsonDemonstration" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>explanations\jsondemonstration.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="SimpleIdentifierExplanation" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>explanations\simpleidentifierexplanation.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="NestedObjectLiteralsDemonstration" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>explanations\nestedobjectliteralsdemonstration.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ObjectLiteralsDemonstration" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>explanations\objectliteralsdemonstration.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ObjectLiteralsDemonstration1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>explanations\objectliteralsdemonstration.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="OperatorPrecedenceDemonstration" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>explanations\operatorprecedencedemonstration.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ParsedIdentifierDemonstration" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>explanations\parsedidentifierdemonstration.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SimpleArithmeticDemonstration" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>explanations\simplearithmeticdemonstration.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SimpleIdentifierDemonstration" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>explanations\simpleidentifierdemonstration.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Welcome" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>explanations\welcome.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
