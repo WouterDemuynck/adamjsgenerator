@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Adam.JSGenerator.Demonstration.Demonstrations
 {
-    [Description("Nested Types")]
-    [Group(Group.ObjectLiterals, 4)]
-    class NestedObjectLiterals : Demonstration
+    [Description("Adding a block")]
+    [Group(Group.Statements, 1)]
+    class AddingBlockDemonstration : Demonstration
     {
         public override object Run()
         {
