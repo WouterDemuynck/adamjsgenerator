@@ -9,7 +9,7 @@ namespace Adam.JSGenerator
     /// <remarks>
     /// A new instance of this class should have sensible defaults.
     /// </remarks>
-    public class GenerateJavaScriptOptions
+    public class ScriptOptions
     {
         private char _PreferredQuoteChar = '"';
         private bool _AlwaysQuoteObjectLiteralKeys;
@@ -48,22 +48,22 @@ namespace Adam.JSGenerator
         }
 
         /// <summary>
-        /// Returns an instance of <see cref="GenerateJavaScriptOptions" /> with the default options set.
+        /// Returns an instance of <see cref="ScriptOptions" /> with the default options set.
         /// </summary>
-        public static GenerateJavaScriptOptions Default
+        public static ScriptOptions Default
         {
-            get { return new GenerateJavaScriptOptions(); }
+            get { return new ScriptOptions(); }
         }
 
         /// <summary>
-        /// Returns an instance of <see cref="GenerateJavaScriptOptions" /> suitable for return JSON script.
+        /// Returns an instance of <see cref="ScriptOptions" /> suitable for return JSON script.
         /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Json")]
-        public static GenerateJavaScriptOptions Json
+        public static ScriptOptions Json
         {
             get
             {
-                return new GenerateJavaScriptOptions()
+                return new ScriptOptions()
                 {
                     AlwaysQuoteObjectLiteralKeys = true,
                     PreferredQuoteChar = '"'
