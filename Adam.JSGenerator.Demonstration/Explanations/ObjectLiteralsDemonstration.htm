@@ -1,0 +1,64 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <style type="text/css">
+        body
+        {
+            color: InactiveCaptionText;
+        }
+        h2
+        {
+            font-size: 120%;
+            color: CaptionText;
+        }
+    </style>
+</head>
+<body>
+    <h2>
+        Object Literals</h2>
+    <p>
+        ObjectLiteralExpression objects contain an associative array of Expression objects
+        to Expression objects.</p>
+    <p>
+        There are various ways of setting the properties of an object literal, one of them
+        is by passing a dictionary in the constructor.</p>
+    <h2>
+        Source:</h2>
+    <style type="text/css">
+        .cf
+        {
+            font-family: Courier New;
+            font-size: 10pt;
+            color: black;
+            background: white;
+        }
+        .cl
+        {
+            margin: 0px;
+        }
+        .cb1
+        {
+            color: blue;
+        }
+        .cb2
+        {
+            color: #2b91af;
+        }
+        .cb3
+        {
+            color: #a31515;
+        }
+    </style>
+    <div class="cf">
+        <p class="cl">
+            <span class="cb1">var</span> dictionary = <span class="cb1">new</span> <span class="cb2">
+                Dictionary</span>&lt;<span class="cb2">Expression</span>, <span class="cb2">Expression</span>&gt;();</p>
+        <p class="cl">
+            dictionary[<span class="cb3">&quot;name&quot;</span>] = <span class="cb3">&quot;Dave&quot;</span>;</p>
+        <p class="cl">
+            dictionary[<span class="cb3">&quot;function&quot;</span>] = <span class="cb3">&quot;Developer&quot;</span>;</p>
+        <p class="cl">
+            <span class="cb1">return</span> <span class="cb1">new</span> <span class="cb2">ObjectLiteralExpression</span>(dictionary);</p>
+    </div>
+</body>
+</html>
