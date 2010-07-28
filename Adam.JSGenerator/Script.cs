@@ -101,7 +101,7 @@ namespace Adam.JSGenerator
         /// <remarks>
         /// All the statements in the list that are null are converted to instances of <see cref="EmptyStatement" />.
         /// </remarks>
-        public string ToString(GenerateJavaScriptOptions options)
+        public string ToString(ScriptOptions options)
         {
             StringBuilder builder = new StringBuilder();
 
@@ -123,7 +123,7 @@ namespace Adam.JSGenerator
         /// </remarks>
         public override string ToString()
         {
-            return this.ToString(new GenerateJavaScriptOptions());
+            return this.ToString(new ScriptOptions());
         }
 
         #region IEnumerable<Statement> Members

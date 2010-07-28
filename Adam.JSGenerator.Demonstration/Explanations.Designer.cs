@@ -63,6 +63,65 @@ namespace Adam.JSGenerator.Demonstration {
         /// <summary>
         ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
         ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;style type=&quot;text/css&quot;&gt;
+        ///        body
+        ///        {
+        ///            color: InactiveCaptionText;
+        ///        }
+        ///        h2
+        ///        {
+        ///            font-size: 120%;
+        ///            color: CaptionText;
+        ///        }
+        ///    &lt;/style&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;h2&gt;
+        ///        Using anonymous types&lt;/h2&gt;
+        ///    &lt;p&gt;
+        ///        Another way of expressing the properties of an object literal is by passing an object,
+        ///        of which the public properties are foun [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string AnonymousObjectLiterals {
+            get {
+                return ResourceManager.GetString("AnonymousObjectLiterals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;style type=&quot;text/css&quot;&gt;
+        ///        body
+        ///        {
+        ///            color: InactiveCaptionText;
+        ///        }
+        ///        h2
+        ///        {
+        ///            font-size: 120%;
+        ///            color: CaptionText;
+        ///        }
+        ///    &lt;/style&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;h2&gt;
+        ///        Using fluent syntax&lt;/h2&gt;
+        ///    &lt;p&gt;
+        ///        A second way that object literals can be expressed is using a fluent syntax.&lt;/p&gt;
+        ///    &lt;p&gt;
+        ///        Note how both property names are quote [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string FluentObjectLiteralsDemonstration {
+            get {
+                return ResourceManager.GetString("FluentObjectLiteralsDemonstration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+        ///&lt;html&gt;
         ///    &lt;head&gt;
         ///        &lt;style type=&quot;text/css&quot;&gt;
         ///            body { color: InactiveCaptionText; }
@@ -77,9 +136,126 @@ namespace Adam.JSGenerator.Demonstration {
         ///	&lt;body&gt;
         ///	    &lt; [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ImplicitConversionsExplanation {
+        internal static string ImplicitConversionsDemonstration {
             get {
-                return ResourceManager.GetString("ImplicitConversionsExplanation", resourceCulture);
+                return ResourceManager.GetString("ImplicitConversionsDemonstration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+        ///&lt;html&gt;
+        ///    &lt;head&gt;
+        ///        &lt;style type=&quot;text/css&quot;&gt;
+        ///            body { color: InactiveCaptionText; }
+        ///            h2 { font-size: 120%; color: CaptionText; }
+        ///        &lt;/style&gt;
+        ///    &lt;/head&gt;
+        ///	&lt;body&gt;
+        ///	    &lt;h2&gt;Generating Json&lt;/h2&gt;
+        ///	    &lt;p&gt;Combining these techniques with LINQ allows us to generate JSON quite effectively.&lt;/p&gt;
+        ///        &lt;h2&gt;Source:&lt;/h2&gt;
+        ///
+        ///&lt;style type=&quot;text/css&quot;&gt;
+        ///.cf { font-family: Courier New; font-size: 10pt; color: black; backg [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string JsonDemonstration {
+            get {
+                return ResourceManager.GetString("JsonDemonstration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;style type=&quot;text/css&quot;&gt;
+        ///        body
+        ///        {
+        ///            color: InactiveCaptionText;
+        ///        }
+        ///        h2
+        ///        {
+        ///            font-size: 120%;
+        ///            color: CaptionText;
+        ///        }
+        ///    &lt;/style&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;h2&gt;
+        ///        Nested Types&lt;/h2&gt;
+        ///    &lt;p&gt;
+        ///        Passing an object, like an anonymous type, also supports recursion.&lt;/p&gt;
+        ///    &lt;h2&gt;
+        ///        Source:&lt;/h2&gt;
+        ///    &lt;style type=&quot;text/css&quot;&gt;
+        ///        .c [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string NestedObjectLiteralsDemonstration {
+            get {
+                return ResourceManager.GetString("NestedObjectLiteralsDemonstration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;style type=&quot;text/css&quot;&gt;
+        ///        body
+        ///        {
+        ///            color: InactiveCaptionText;
+        ///        }
+        ///        h2
+        ///        {
+        ///            font-size: 120%;
+        ///            color: CaptionText;
+        ///        }
+        ///    &lt;/style&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;h2&gt;
+        ///        Object Literals&lt;/h2&gt;
+        ///    &lt;p&gt;
+        ///        ObjectLiteralExpression objects contain an associative array of Expression objects
+        ///        to Expression objects.&lt;/p&gt;
+        ///    &lt;p&gt;
+        ///        Ther [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ObjectLiteralsDemonstration {
+            get {
+                return ResourceManager.GetString("ObjectLiteralsDemonstration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;style type=&quot;text/css&quot;&gt;
+        ///        body
+        ///        {
+        ///            color: InactiveCaptionText;
+        ///        }
+        ///        h2
+        ///        {
+        ///            font-size: 120%;
+        ///            color: CaptionText;
+        ///        }
+        ///    &lt;/style&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;h2&gt;
+        ///        Object Literals&lt;/h2&gt;
+        ///    &lt;p&gt;
+        ///        ObjectLiteralExpression objects contain an associative array of Expression objects
+        ///        to Expression objects.&lt;/p&gt;
+        ///    &lt;p&gt;
+        ///        Ther [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ObjectLiteralsDemonstration1 {
+            get {
+                return ResourceManager.GetString("ObjectLiteralsDemonstration1", resourceCulture);
             }
         }
         
@@ -110,9 +286,9 @@ namespace Adam.JSGenerator.Demonstration {
         ///        .cf
         ///    [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string OperatorPrecedenceExplanation {
+        internal static string OperatorPrecedenceDemonstration {
             get {
-                return ResourceManager.GetString("OperatorPrecedenceExplanation", resourceCulture);
+                return ResourceManager.GetString("OperatorPrecedenceDemonstration", resourceCulture);
             }
         }
         
@@ -133,9 +309,9 @@ namespace Adam.JSGenerator.Demonstration {
         ///	    &lt;h2&gt;Parsing Identifiers&lt;/h2&gt;
         ///	    &lt; [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ParsedIdentifierExplanation {
+        internal static string ParsedIdentifierDemonstration {
             get {
-                return ResourceManager.GetString("ParsedIdentifierExplanation", resourceCulture);
+                return ResourceManager.GetString("ParsedIdentifierDemonstration", resourceCulture);
             }
         }
         
@@ -167,9 +343,9 @@ namespace Adam.JSGenerator.Demonstration {
         ///        {
         ///      [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string SimpleArithmeticExplanation {
+        internal static string SimpleArithmeticDemonstration {
             get {
-                return ResourceManager.GetString("SimpleArithmeticExplanation", resourceCulture);
+                return ResourceManager.GetString("SimpleArithmeticDemonstration", resourceCulture);
             }
         }
         
@@ -190,9 +366,9 @@ namespace Adam.JSGenerator.Demonstration {
         ///	    &lt;h2&gt;Simple Identifiers&lt;/h2&gt;
         ///	    &lt;p [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string SimpleIdentifierExplanation {
+        internal static string SimpleIdentifierDemonstration {
             get {
-                return ResourceManager.GetString("SimpleIdentifierExplanation", resourceCulture);
+                return ResourceManager.GetString("SimpleIdentifierDemonstration", resourceCulture);
             }
         }
         

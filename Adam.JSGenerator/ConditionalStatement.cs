@@ -47,7 +47,7 @@ namespace Adam.JSGenerator
             this._ElseStatement = elseStatement;
         }
 
-        private void InternalAppendScript(StringBuilder builder, GenerateJavaScriptOptions options)
+        private void InternalAppendScript(StringBuilder builder, ScriptOptions options)
         {
             if (_Parent != null)
             {
@@ -76,7 +76,7 @@ namespace Adam.JSGenerator
         /// </summary>
         /// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
         /// <param name="options">The options to use when appending JavaScript</param>
-        internal protected override void AppendScript(StringBuilder builder, GenerateJavaScriptOptions options)
+        internal protected override void AppendScript(StringBuilder builder, ScriptOptions options)
         {
             this.InternalAppendScript(builder, options);
 

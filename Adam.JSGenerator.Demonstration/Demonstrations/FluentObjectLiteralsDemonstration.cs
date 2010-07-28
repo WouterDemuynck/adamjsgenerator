@@ -11,7 +11,11 @@ namespace Adam.JSGenerator.Demonstration.Demonstrations
     {
         public override object Run()
         {
-            return string.Empty;
+            var obj = JS.Object()
+                .WithProperty("name", "Dave")
+                .WithProperty("function", "Developer");
+
+            return obj.ToString();
         }
     }
 }

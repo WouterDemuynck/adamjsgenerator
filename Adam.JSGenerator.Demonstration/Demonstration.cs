@@ -8,7 +8,7 @@ namespace Adam.JSGenerator.Demonstration
         {
             get
             {
-                string name = this.GetType().Name.Replace("Demonstration", "Explanation");
+                string name = this.GetType().Name;
                 string explanation = Explanations.ResourceManager.GetString(name);
 
                 return !string.IsNullOrEmpty(explanation) ? explanation : string.Empty;

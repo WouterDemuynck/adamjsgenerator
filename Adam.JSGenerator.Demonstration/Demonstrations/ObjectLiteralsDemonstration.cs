@@ -11,7 +11,10 @@ namespace Adam.JSGenerator.Demonstration.Demonstrations
     {
         public override object Run()
         {
-            return string.Empty;
+            var dictionary = new Dictionary<Expression, Expression>();
+            dictionary["name"] = "Dave";
+            dictionary["function"] = "Developer";
+            return new ObjectLiteralExpression(dictionary);
         }
     }
 }

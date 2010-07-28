@@ -49,16 +49,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Demonstration.cs" />
+    <Compile Include="Demonstrations\AddingBlockDemonstration.cs" />
     <Compile Include="Demonstrations\AnonymousObjectLiterals.cs" />
+    <Compile Include="Demonstrations\ExceptionHandlingDemonstration.cs" />
+    <Compile Include="Demonstrations\SwitchDemonstration.cs" />
     <Compile Include="Demonstrations\FluentObjectLiteralsDemonstration.cs" />
     <Compile Include="Demonstrations\ImplicitConversionsDemonstration.cs" />
     <Compile Include="Demonstrations\JsonDemonstration.cs" />
-    <Compile Include="Demonstrations\NestedObjectLiterals.cs" />
+    <Compile Include="Demonstrations\NestedObjectLiteralsDemonstration.cs" />
     <Compile Include="Demonstrations\ObjectLiteralsDemonstration.cs" />
     <Compile Include="Demonstrations\OperatorPrecedenceDemonstration.cs" />
     <Compile Include="Demonstrations\ParsedIdentifierDemonstration.cs" />
     <Compile Include="Demonstrations\SimpleArithmeticDemonstration.cs" />
     <Compile Include="Demonstrations\SimpleIdentifierDemonstration.cs" />
+    <Compile Include="Demonstrations\StatementsBasicsDemonstration.cs" />
     <Compile Include="DescriptionAttribute.cs" />
     <Compile Include="Explanations.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -108,12 +112,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Explanations\AnonymousObjectLiterals.htm" />
+    <Content Include="Explanations\JsonDemonstration.htm" />
+    <Content Include="Explanations\NestedObjectLiteralsDemonstration.htm" />
+    <Content Include="Explanations\FluentObjectLiteralsDemonstration.htm" />
+    <Content Include="Explanations\ObjectLiteralsDemonstration.htm" />
     <Content Include="Explanations\Welcome.htm" />
-    <Content Include="Explanations\OperatorPrecedenceExplanation.htm" />
-    <Content Include="Explanations\SimpleArithmeticExplanation.htm" />
-    <Content Include="Explanations\ImplicitConversionsExplanation.htm" />
-    <Content Include="Explanations\ParsedIdentifierExplanation.htm" />
-    <Content Include="Explanations\SimpleIdentifierExplanation.htm" />
+    <Content Include="Explanations\OperatorPrecedenceDemonstration.htm" />
+    <Content Include="Explanations\SimpleArithmeticDemonstration.htm" />
+    <Content Include="Explanations\ImplicitConversionsDemonstration.htm" />
+    <Content Include="Explanations\ParsedIdentifierDemonstration.htm" />
+    <Content Include="Explanations\SimpleIdentifierDemonstration.htm" />
     <Content Include="Explanations\ExplanationTemplate.htm" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

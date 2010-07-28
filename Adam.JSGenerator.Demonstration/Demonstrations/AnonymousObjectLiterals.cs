@@ -6,12 +6,13 @@ using System.Text;
 namespace Adam.JSGenerator.Demonstration.Demonstrations
 {
     [Description("Using Anonymous Types")]
-    [Group(Group.ObjectLiterals, 3)]
+    [Group(Group.ObjectLiterals, 2)]
     class AnonymousObjectLiterals : Demonstration
     {
         public override object Run()
         {
-            return string.Empty;
+            var obj = JS.Object(new {name = "Dave", function = "Developer"});
+            return obj.ToString();
         }
     }
 }

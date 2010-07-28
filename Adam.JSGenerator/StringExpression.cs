@@ -31,7 +31,7 @@ namespace Adam.JSGenerator
         /// </summary>
         /// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
         /// <param name="options">The options to use when appending JavaScript</param>
-        protected internal override void AppendScript(StringBuilder builder, GenerateJavaScriptOptions options)
+        protected internal override void AppendScript(StringBuilder builder, ScriptOptions options)
         {
             builder.Append(JS.QuoteString(this._Value, options.PreferredQuoteChar));
         }

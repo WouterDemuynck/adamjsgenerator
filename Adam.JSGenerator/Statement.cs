@@ -26,7 +26,7 @@ namespace Adam.JSGenerator
         /// </summary>
         /// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
         /// <param name="options">The options to use when appending JavaScript</param>
-        internal protected abstract void AppendScript(StringBuilder builder, GenerateJavaScriptOptions options);
+        internal protected abstract void AppendScript(StringBuilder builder, ScriptOptions options);
 
         /// <summary>
         /// Indicates that this object requires a terminating semicolon when used as a statement.
@@ -46,7 +46,7 @@ namespace Adam.JSGenerator
         /// <param name="includeTerminator">If true, a statement terminator is appended if required.</param>
         /// <param name="options">The options to use when generating JavaScript.</param>
         /// <returns>A string containing the JavaScript that it represents.</returns>
-        public string ToString(bool includeTerminator, GenerateJavaScriptOptions options)
+        public string ToString(bool includeTerminator, ScriptOptions options)
         {
             StringBuilder builder = new StringBuilder();
 
@@ -67,7 +67,7 @@ namespace Adam.JSGenerator
         /// <returns>A string containing the JavaScript that it represents.</returns>
         public string ToString(bool includeTerminator)
         {
-            return this.ToString(includeTerminator, new GenerateJavaScriptOptions());
+            return this.ToString(includeTerminator, new ScriptOptions());
         }
 
         /// <summary>

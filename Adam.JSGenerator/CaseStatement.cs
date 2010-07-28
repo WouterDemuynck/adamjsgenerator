@@ -71,7 +71,7 @@ namespace Adam.JSGenerator
         /// </summary>
         /// <param name="builder">The StringBuilder instance to append the Javascript to.</param>
         /// <param name="options">Specifies options to use while producing Javascript.</param>
-        public void AppendScript(StringBuilder builder, GenerateJavaScriptOptions options)
+        public void AppendScript(StringBuilder builder, ScriptOptions options)
         {
             if (this._Value != null)
             {
