@@ -1,0 +1,29 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+    <head>
+        <style type="text/css">
+            body { color: InactiveCaptionText; }
+            h2 { font-size: 120%; color: CaptionText; }
+            .cf { font-family: Courier New; font-size: 10pt; color: black; background: white; }
+            .cl { margin: 0px; }
+            .cb1 { color: #2b91af; }
+            .cb2 { color: #a31515; }
+        </style>
+    </head>
+	<body>
+	    <h2>Parsing Identifiers</h2>
+	    <p>
+	    Sometimes one needs an identifier that's in a namespace. The dot ('.') character is not a valid character in identifiers, so we would have to write this:
+	    </p>	   
+        <div class="cf">
+        <p class="cl"><span class="cb1">JS</span>.Id(<span class="cb2">&quot;System&quot;</span>).Dot(<span class="cb2">&quot;UI&quot;</span>).Dot(<span class="cb2">&quot;Control&quot;</span>);</p>
+        </div>
+	    <p>
+	    Which is not bad. As a convenience, we can use JS.ParseId() to parse such a more 'compound' identifier into its constituents, validate them, and return a chain of subscription operations and identifier expression.
+	    </p>
+        <h2>Source:</h2>
+        <div class="cf">
+            <p class="cl"><span class="cb1">JS</span>.ParseId(<span class="cb2">&quot;System.UI.Control&quot;</span>);</p>
+        </div>
+    </body>
+</html>

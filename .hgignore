@@ -1,0 +1,10 @@
+glob:*.user
+glob:bin
+glob:obj
+glob:Debug
+glob:Release
+glob:*.suo
+glob:TestResults
+glob:_ReSharper.*
+glob:*.vsmdi
+glob:*.tmp
