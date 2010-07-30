@@ -1,0 +1,30 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+    <head>
+        <style type="text/css">
+            body { color: InactiveCaptionText; }
+            h2 { font-size: 120%; color: CaptionText; }
+        </style>
+    </head>
+	<body>
+	    <h2>Adding a block</h2>
+	    <p>Most statements invoke other statements. The <strong>if</strong> condition statement has a 'then' part and an 'else' part.</p>
+	    <p>While these parts consist of single statements, we can use a BlockStatement to wrap multiple statements in a 'block', which produce the curly braces that we all know and love.</p>
+	    <p>The extension methods that allow you to specify statements to add, like <strong>Do()</strong>, <strong>Then()</strong> and <strong>Else()</strong> allow you to specify a single statement, multiple statements or and IEnumerable of Statement, and the helper method will decide whether to wrap them in a block or not.</p>
+        <h2>Source:</h2>
+        <style type="text/css">
+        .cf { font-family: Courier New; font-size: 10pt; color: black; background: white; }
+        .cl { margin: 0px; }
+        .cb1 { color: blue; }
+        .cb2 { color: #2b91af; }
+        .cb3 { color: #a31515; }
+        </style>
+        <div class="cf">
+        <p class="cl"><span class="cb1">var</span> a = <span class="cb2">JS</span>.Id(<span class="cb3">&quot;a&quot;</span>);</p>
+        <p class="cl"><span class="cb1">return</span> <span class="cb2">JS</span>.For(<span class="cb1">null</span>, a.IsGreaterThan(0), a.PostDecrement()).Do(</p>
+        <p class="cl">&nbsp;&nbsp;&nbsp; <span class="cb2">JS</span>.Alert(a),</p>
+        <p class="cl">&nbsp;&nbsp;&nbsp; <span class="cb2">JS</span>.If(a.IsEqualTo(5)).Then(</p>
+        <p class="cl">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span class="cb2">JS</span>.Break()));</p>
+        </div>        
+    </body>
+</html>

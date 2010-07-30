@@ -11,7 +11,11 @@ namespace Adam.JSGenerator.Demonstration.Demonstrations
     {
         public override object Run()
         {
-            return string.Empty;
+            var a = JS.Id("a");
+            return JS.For(null, a.IsGreaterThan(0), a.PostDecrement()).Do(
+                JS.Alert(a),
+                JS.If(a.IsEqualTo(5)).Then(
+                    JS.Break()));
         }
     }
 }

@@ -63,6 +63,26 @@ namespace Adam.JSGenerator.Demonstration {
         /// <summary>
         ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
         ///&lt;html&gt;
+        ///    &lt;head&gt;
+        ///        &lt;style type=&quot;text/css&quot;&gt;
+        ///            body { color: InactiveCaptionText; }
+        ///            h2 { font-size: 120%; color: CaptionText; }
+        ///        &lt;/style&gt;
+        ///    &lt;/head&gt;
+        ///	&lt;body&gt;
+        ///	    &lt;h2&gt;Adding a block&lt;/h2&gt;
+        ///	    &lt;p&gt;Most statements invoke other statements. The &lt;strong&gt;if&lt;/strong&gt; condition statement has a &apos;then&apos; part and an &apos;else&apos; part.&lt;/p&gt;
+        ///	    &lt;p&gt;While these parts consist of single statements, we can use a BlockStatemen [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string AddingBlockDemonstration {
+            get {
+                return ResourceManager.GetString("AddingBlockDemonstration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+        ///&lt;html&gt;
         ///&lt;head&gt;
         ///    &lt;style type=&quot;text/css&quot;&gt;
         ///        body
@@ -369,6 +389,26 @@ namespace Adam.JSGenerator.Demonstration {
         internal static string SimpleIdentifierDemonstration {
             get {
                 return ResourceManager.GetString("SimpleIdentifierDemonstration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+        ///&lt;html&gt;
+        ///    &lt;head&gt;
+        ///        &lt;style type=&quot;text/css&quot;&gt;
+        ///            body { color: InactiveCaptionText; }
+        ///            h2 { font-size: 120%; color: CaptionText; }
+        ///        &lt;/style&gt;
+        ///    &lt;/head&gt;
+        ///	&lt;body&gt;
+        ///	    &lt;h2&gt;Statement Basics&lt;/h2&gt;
+        ///	    &lt;p&gt;Statements in JavaScript are represented by descendants of the abstract Statement class. They&apos;re easily created using the &lt;strong&gt;JS&lt;/strong&gt; static class and extension methods.&lt;/p&gt;
+        ///	    &lt;p&gt;Some examples:&lt;/p [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string StatementsBasicsDemonstration {
+            get {
+                return ResourceManager.GetString("StatementsBasicsDemonstration", resourceCulture);
             }
         }
         

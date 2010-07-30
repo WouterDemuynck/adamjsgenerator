@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AddingBlockDemonstration" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>explanations\addingblockdemonstration.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="AnonymousObjectLiterals" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>explanations\anonymousobjectliterals.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
@@ -150,6 +153,9 @@
   </data>
   <data name="SimpleIdentifierDemonstration" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>explanations\simpleidentifierdemonstration.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="StatementsBasicsDemonstration" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>explanations\statementsbasicsdemonstration.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Welcome" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>explanations\welcome.htm;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
