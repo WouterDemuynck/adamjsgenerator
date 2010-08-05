@@ -11,7 +11,9 @@ namespace Adam.JSGenerator.Demonstration.Demonstrations
     {
         public override object Run()
         {
-            return string.Empty;
+            var a = JS.Id("a");
+            return JS.For(JS.Var(a.AssignWith(10)), a.IsGreaterThan(0), a.PostDecrement()).Do(
+                JS.Alert(a));
         }
     }
 }

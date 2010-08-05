@@ -83,9 +83,9 @@ namespace Adam.JSGenerator.Demonstration {
         ///        Another way of expressing the properties of an object literal is by passing an object,
         ///        of which the public properties are foun [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string AnonymousObjectLiterals {
+        internal static string AnonymousObjectLiteralsDemonstration {
             get {
-                return ResourceManager.GetString("AnonymousObjectLiterals", resourceCulture);
+                return ResourceManager.GetString("AnonymousObjectLiteralsDemonstration", resourceCulture);
             }
         }
         
@@ -369,6 +369,27 @@ namespace Adam.JSGenerator.Demonstration {
         internal static string SimpleIdentifierDemonstration {
             get {
                 return ResourceManager.GetString("SimpleIdentifierDemonstration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+        ///&lt;html&gt;
+        ///    &lt;head&gt;
+        ///        &lt;style type=&quot;text/css&quot;&gt;
+        ///            body { color: InactiveCaptionText; }
+        ///            h2 { font-size: 120%; color: CaptionText; }
+        ///        &lt;/style&gt;
+        ///    &lt;/head&gt;
+        ///	&lt;body&gt;
+        ///	    &lt;h2&gt;Basics&lt;/h2&gt;
+        ///	    &lt;p&gt;Any expression can be used as a statement. On top of that, the JS static class contains a lot of helper methods that allow you to quickly produce common JavaScript statements.&lt;/p&gt;
+        ///        &lt;h2&gt;Source:&lt;/h2&gt;
+        ///        &lt;p&gt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string StatementsBasicsDemonstration {
+            get {
+                return ResourceManager.GetString("StatementsBasicsDemonstration", resourceCulture);
             }
         }
         

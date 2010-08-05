@@ -7,7 +7,7 @@ namespace Adam.JSGenerator.Demonstration.Demonstrations
 {
     [Description("Using Anonymous Types")]
     [Group(Group.ObjectLiterals, 2)]
-    class AnonymousObjectLiterals : Demonstration
+    class AnonymousObjectLiteralsDemonstration : Demonstration
     {
         public override object Run()
         {
