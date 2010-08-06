@@ -112,6 +112,30 @@ namespace Adam.JSGenerator.Demonstration {
         /// <summary>
         ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
         ///&lt;html&gt;
+        ///    &lt;head&gt;
+        ///        &lt;style type=&quot;text/css&quot;&gt;
+        ///            body { color: InactiveCaptionText; }
+        ///            h2 { font-size: 120%; color: CaptionText; }
+        ///        &lt;/style&gt;
+        ///    &lt;/head&gt;
+        ///	&lt;body&gt;
+        ///	    &lt;h2&gt;Explanation Template&lt;/h2&gt;
+        ///	    &lt;p&gt;This is a template to demonstrate what an explanation HTML should look like.&lt;/p&gt;
+        ///        &lt;h2&gt;Source:&lt;/h2&gt;
+        ///        &lt;p&gt;Here be source&lt;/p&gt;
+        ///    &lt;/body&gt;
+        ///&lt;/html&gt;
+        ///.
+        /// </summary>
+        internal static string ExceptionHandlingDemonstration {
+            get {
+                return ResourceManager.GetString("ExceptionHandlingDemonstration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+        ///&lt;html&gt;
         ///&lt;head&gt;
         ///    &lt;style type=&quot;text/css&quot;&gt;
         ///        body
@@ -455,6 +479,26 @@ namespace Adam.JSGenerator.Demonstration {
         internal static string StatementsBasicsDemonstration {
             get {
                 return ResourceManager.GetString("StatementsBasicsDemonstration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+        ///&lt;html&gt;
+        ///    &lt;head&gt;
+        ///        &lt;style type=&quot;text/css&quot;&gt;
+        ///            body { color: InactiveCaptionText; }
+        ///            h2 { font-size: 120%; color: CaptionText; }
+        ///        &lt;/style&gt;
+        ///    &lt;/head&gt;
+        ///	&lt;body&gt;
+        ///	    &lt;h2&gt;Switch Statements&lt;/h2&gt;
+        ///	    &lt;p&gt;A &lt;strong&gt;switch&lt;/strong&gt; statement is a bit more complex, but not that much.&lt;/p&gt;
+        ///	    &lt;p&gt;The Case() extension method adds cases, and the Do() extension method adds a statement block to the last added case  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SwitchDemonstration {
+            get {
+                return ResourceManager.GetString("SwitchDemonstration", resourceCulture);
             }
         }
         

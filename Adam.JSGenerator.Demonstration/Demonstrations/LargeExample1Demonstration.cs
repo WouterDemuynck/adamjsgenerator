@@ -2,7 +2,7 @@
 
 namespace Adam.JSGenerator.Demonstration.Demonstrations
 {
-    [Description("Large Example")]
+    [Description("Other Example 1")]
     [Group(Group.Other, 0)]
     class LargeExample1Demonstration : Demonstration
     {

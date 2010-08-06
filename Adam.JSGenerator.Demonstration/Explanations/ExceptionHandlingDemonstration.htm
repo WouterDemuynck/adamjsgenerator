@@ -1,0 +1,27 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+    <head>
+        <style type="text/css">
+            body { color: InactiveCaptionText; }
+            h2 { font-size: 120%; color: CaptionText; }
+        </style>
+    </head>
+	<body>
+	    <h2>Exception Handling</h2>
+	    <p>This is a demonstration to show how to write a try/catch/finally construct.</p>
+        <h2>Source:</h2>
+        <style type="text/css">
+        .cf { font-family: Courier New; font-size: 10pt; color: black; background: white; }
+        .cl { margin: 0px; }
+        .cb1 { color: blue; }
+        .cb2 { color: #2b91af; }
+        .cb3 { color: #a31515; }
+        </style>
+        <div class="cf">
+        <pre class="cl"><span class="cb1">var</span> e = <span class="cb2">JS</span>.Id(<span class="cb3">&quot;e&quot;</span>);</pre>
+        <pre class="cl"><span class="cb1">return</span> <span class="cb2">JS</span>.Try(<span class="cb2">JS</span>.Throw(<span class="cb3">&quot;Raise Hell!&quot;</span>))</pre>
+        <pre class="cl">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; .Catch(e, <span class="cb2">JS</span>.Alert(e))</pre>
+        <pre class="cl">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; .Finally(<span class="cb2">JS</span>.Alert(<span class="cb3">&quot;Finally!&quot;</span>));</pre>
+        </div>
+    </body>
+</html>

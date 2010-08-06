@@ -116,6 +116,8 @@
   <ItemGroup>
     <Content Include="Explanations\AnonymousObjectLiteralsDemonstration.htm" />
     <Content Include="Explanations\AddingBlockDemonstration.htm" />
+    <Content Include="Explanations\ExceptionHandlingDemonstration.htm" />
+    <Content Include="Explanations\SwitchDemonstration.htm" />
     <Content Include="Explanations\LargeExample2Demonstration.htm" />
     <Content Include="Explanations\LargeExample1Demonstration.htm" />
     <Content Include="Explanations\StatementsBasicsDemonstration.htm" />
