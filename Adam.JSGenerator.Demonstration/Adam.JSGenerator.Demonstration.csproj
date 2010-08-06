@@ -53,6 +53,7 @@
     <Compile Include="Demonstrations\AnonymousObjectLiteralsDemonstration.cs" />
     <Compile Include="Demonstrations\ExceptionHandlingDemonstration.cs" />
     <Compile Include="Demonstrations\LargeExample1Demonstration.cs" />
+    <Compile Include="Demonstrations\LargeExample2Demonstration.cs" />
     <Compile Include="Demonstrations\SwitchDemonstration.cs" />
     <Compile Include="Demonstrations\FluentObjectLiteralsDemonstration.cs" />
     <Compile Include="Demonstrations\ImplicitConversionsDemonstration.cs" />
@@ -115,6 +116,8 @@
   <ItemGroup>
     <Content Include="Explanations\AnonymousObjectLiteralsDemonstration.htm" />
     <Content Include="Explanations\AddingBlockDemonstration.htm" />
+    <Content Include="Explanations\LargeExample2Demonstration.htm" />
+    <Content Include="Explanations\LargeExample1Demonstration.htm" />
     <Content Include="Explanations\StatementsBasicsDemonstration.htm" />
     <Content Include="Explanations\JsonDemonstration.htm" />
     <Content Include="Explanations\NestedObjectLiteralsDemonstration.htm" />

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 
 namespace Adam.JSGenerator.Demonstration.Demonstrations
 {
@@ -14,7 +11,7 @@ namespace Adam.JSGenerator.Demonstration.Demonstrations
             var i = from item in Enumerable.Range(1, 10)
                     where item%2 == 0
                     orderby item descending
-                    select new {item = item, name = "Item " + item};
+                    select new {item, name = "Item " + item};
 
             var obj = JS.Object(new {menu = i});
             return obj.ToString(false, ScriptOptions.Json);

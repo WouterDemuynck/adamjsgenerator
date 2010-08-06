@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Adam.JSGenerator.Demonstration.Demonstrations
+﻿namespace Adam.JSGenerator.Demonstration.Demonstrations
 {
     [Description("Operator Precedence")]
     [Group(Group.Basics, 4)]

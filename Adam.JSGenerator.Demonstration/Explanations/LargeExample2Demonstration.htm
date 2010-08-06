@@ -1,0 +1,36 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+    <head>
+        <style type="text/css">
+            body { color: InactiveCaptionText; }
+            h2 { font-size: 120%; color: CaptionText; }
+        </style>
+    </head>
+	<body>
+	    <h2>Large Example 2</h2>
+        <style type="text/css">
+        .cf { font-family: Courier New; font-size: 10pt; color: black; background: white; }
+        .cl { margin: 0px; }
+        .cb1 { color: blue; }
+        .cb2 { color: #a31515; }
+        .cb3 { color: #2b91af; }
+        </style>
+        <div class="cf">
+        <pre class="cl"><span class="cb1">var</span> images = <span class="cb1">new</span>[]</pre>
+        <pre class="cl">{</pre>
+        <pre class="cl">&nbsp;&nbsp;&nbsp; <span class="cb2">&quot;Images/Image1.jpg&quot;</span>, </pre>
+        <pre class="cl">&nbsp;&nbsp;&nbsp; <span class="cb2">&quot;Images/Image2.jpg&quot;</span>, </pre>
+        <pre class="cl">&nbsp;&nbsp;&nbsp; <span class="cb2">&quot;Images/Image3.jpg&quot;</span></pre>
+        <pre class="cl">};</pre>
+        <pre class="cl">&nbsp;</pre>
+        <pre class="cl"><span class="cb1">var</span> properties = <span class="cb1">new</span> {images, duration = 3000};</pre>
+        <pre class="cl">&nbsp;</pre>
+        <pre class="cl"><span class="cb1">return</span> <span class="cb3">JS</span>.Id(<span class="cb2">&quot;$create&quot;</span>).Call(</pre>
+        <pre class="cl">&nbsp;&nbsp;&nbsp; <span class="cb3">JS</span>.ParseId(<span class="cb2">&quot;Adam.Controls.SlideShow&quot;</span>), </pre>
+        <pre class="cl">&nbsp;&nbsp;&nbsp; <span class="cb3">JS</span>.Object(properties), </pre>
+        <pre class="cl">&nbsp;&nbsp;&nbsp; <span class="cb1">null</span>, </pre>
+        <pre class="cl">&nbsp;&nbsp;&nbsp; <span class="cb1">null</span>, </pre>
+        <pre class="cl">&nbsp;&nbsp;&nbsp; <span class="cb3">JS</span>.Get(<span class="cb2">&quot;ClientId&quot;</span>));</pre>
+        </div>
+    </body>
+</html>

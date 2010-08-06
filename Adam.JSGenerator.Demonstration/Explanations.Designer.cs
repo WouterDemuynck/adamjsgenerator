@@ -188,6 +188,52 @@ namespace Adam.JSGenerator.Demonstration {
         /// <summary>
         ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
         ///&lt;html&gt;
+        ///    &lt;head&gt;
+        ///        &lt;style type=&quot;text/css&quot;&gt;
+        ///            body { color: InactiveCaptionText; }
+        ///            h2 { font-size: 120%; color: CaptionText; }
+        ///        &lt;/style&gt;
+        ///    &lt;/head&gt;
+        ///	&lt;body&gt;
+        ///	    &lt;h2&gt;Large Example 1&lt;/h2&gt;
+        ///        &lt;style type=&quot;text/css&quot;&gt;
+        ///        .cf { font-family: Courier New; font-size: 10pt; color: black; background: white; }
+        ///        .cl { margin: 0px; }
+        ///        .cb1 { color: blue; }
+        ///        .cb2 { color: #a31515; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string LargeExample1Demonstration {
+            get {
+                return ResourceManager.GetString("LargeExample1Demonstration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+        ///&lt;html&gt;
+        ///    &lt;head&gt;
+        ///        &lt;style type=&quot;text/css&quot;&gt;
+        ///            body { color: InactiveCaptionText; }
+        ///            h2 { font-size: 120%; color: CaptionText; }
+        ///        &lt;/style&gt;
+        ///    &lt;/head&gt;
+        ///	&lt;body&gt;
+        ///	    &lt;h2&gt;Large Example 2&lt;/h2&gt;
+        ///        &lt;style type=&quot;text/css&quot;&gt;
+        ///        .cf { font-family: Courier New; font-size: 10pt; color: black; background: white; }
+        ///        .cl { margin: 0px; }
+        ///        .cb1 { color: blue; }
+        ///        .cb2 { color: #a31515; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string LargeExample2Demonstration {
+            get {
+                return ResourceManager.GetString("LargeExample2Demonstration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+        ///&lt;html&gt;
         ///&lt;head&gt;
         ///    &lt;style type=&quot;text/css&quot;&gt;
         ///        body
