@@ -1,0 +1,34 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+    <head>
+        <style type="text/css">
+            body { color: InactiveCaptionText; }
+            h2 { font-size: 120%; color: CaptionText; }
+        </style>
+    </head>
+	<body>
+	    <h2>Large Example 1</h2>
+        <style type="text/css">
+        .cf { font-family: Courier New; font-size: 10pt; color: black; background: white; }
+        .cl { margin: 0px; }
+        .cb1 { color: blue; }
+        .cb2 { color: #a31515; }
+        .cb3 { color: #2b91af; }
+        </style>
+        <div class="cf">
+        <pre class="cl"><span class="cb1">var</span> chipsets = <span class="cb1">new</span>[]</pre>
+        <pre class="cl">{</pre>
+        <pre class="cl">&nbsp;&nbsp;&nbsp; <span class="cb1">new</span> {chipset = <span class="cb2">&quot;X58&quot;</span>, codename = <span class="cb2">&quot;Tylersburg&quot;</span>, socket = <span class="cb2">&quot;LGA1366&quot;</span>, fdi = <span class="cb1">false</span>},</pre>
+        <pre class="cl">&nbsp;&nbsp;&nbsp; <span class="cb1">new</span> {chipset = <span class="cb2">&quot;P55&quot;</span>, codename = <span class="cb2">&quot;Ibex Peak&quot;</span>, socket = <span class="cb2">&quot;LGA1156&quot;</span>, fdi = <span class="cb1">false</span>},</pre>
+        <pre class="cl">&nbsp;&nbsp;&nbsp; <span class="cb1">new</span> {chipset = <span class="cb2">&quot;H55&quot;</span>, codename = <span class="cb2">&quot;Ibex Peak&quot;</span>, socket = <span class="cb2">&quot;LGA1156&quot;</span>, fdi = <span class="cb1">true</span>},</pre>
+        <pre class="cl">&nbsp;&nbsp;&nbsp; <span class="cb1">new</span> {chipset = <span class="cb2">&quot;H57&quot;</span>, codename = <span class="cb2">&quot;Ibex Peak&quot;</span>, socket = <span class="cb2">&quot;LGA1156&quot;</span>, fdi = <span class="cb1">true</span>}</pre>
+        <pre class="cl">};</pre>
+        <pre class="cl">&nbsp;</pre>
+        <pre class="cl"><span class="cb1">var</span> result = <span class="cb3">JS</span>.JQuery(<span class="cb3">JS</span>.Function().Do(</pre>
+        <pre class="cl">&nbsp;&nbsp;&nbsp; <span class="cb3">JS</span>.JQuery(<span class="cb2">&quot;#target&quot;</span>).Data(<span class="cb2">&quot;chipsets&quot;</span>, <span class="cb3">Expression</span>.FromObject(chipsets))</pre>
+        <pre class="cl">&nbsp;&nbsp;&nbsp; ));</pre>
+        <pre class="cl">&nbsp;</pre>
+        <pre class="cl"><span class="cb1">return</span> result;</pre>
+        </div>
+    </body>
+</html>

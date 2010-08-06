@@ -4,7 +4,7 @@ namespace Adam.JSGenerator.Demonstration.Demonstrations
 {
     [Description("Large Example")]
     [Group(Group.Other, 0)]
-    public class LargeExample1Demonstration : Demonstration
+    class LargeExample1Demonstration : Demonstration
     {
         public override object Run()
         {
