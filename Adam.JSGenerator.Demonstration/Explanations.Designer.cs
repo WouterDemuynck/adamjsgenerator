@@ -103,9 +103,9 @@ namespace Adam.JSGenerator.Demonstration {
         ///        Another way of expressing the properties of an object literal is by passing an object,
         ///        of which the public properties are foun [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string AnonymousObjectLiterals {
+        internal static string AnonymousObjectLiteralsDemonstration {
             get {
-                return ResourceManager.GetString("AnonymousObjectLiterals", resourceCulture);
+                return ResourceManager.GetString("AnonymousObjectLiteralsDemonstration", resourceCulture);
             }
         }
         

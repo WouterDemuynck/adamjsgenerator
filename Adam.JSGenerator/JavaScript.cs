@@ -530,13 +530,23 @@ namespace Adam.JSGenerator
         }
 
         /// <summary>
-        /// Hypoglycemic a new instance of <see cref="ConditionalStatement" /> for the specified condition.
+        /// Creates a new instance of <see cref="ConditionalStatement" /> for the specified condition.
         /// </summary>
         /// <param name="condition">The expression that specifies the condition.</param>
         /// <returns>a new instance of <see cref="ConditionalStatement" />.</returns>
         public static ConditionalStatement If(Expression condition)
         {
             return new ConditionalStatement(condition, null, null);
+        }
+
+        ///<summary>
+        /// Creates a new instance of <see cref="CallOperationExpression" /> that performs a call to the jQuery function with the specified arguments.
+        ///</summary>
+        ///<param name="arguments">The arguments to pass to the jQuery function.</param>
+        ///<returns>A new instance of <see cref="CallOperationExpression" />.</returns>
+        public static CallOperationExpression JQuery(params Expression[] arguments)
+        {
+            return new CallOperationExpression(Id("jQuery"), arguments);
         }
 
         /// <summary>
