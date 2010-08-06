@@ -8,7 +8,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7162CF91-CF30-46B2-A903-71A133078BA3}"
 	ProjectSection(SolutionItems) = preProject
 		Adam.JSGenerator.vsmdi = Adam.JSGenerator.vsmdi
-		key.snk = key.snk
 		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
 	EndProjectSection
 EndProject
