@@ -50,8 +50,9 @@
   <ItemGroup>
     <Compile Include="Demonstration.cs" />
     <Compile Include="Demonstrations\AddingBlockDemonstration.cs" />
-    <Compile Include="Demonstrations\AnonymousObjectLiterals.cs" />
+    <Compile Include="Demonstrations\AnonymousObjectLiteralsDemonstration.cs" />
     <Compile Include="Demonstrations\ExceptionHandlingDemonstration.cs" />
+    <Compile Include="Demonstrations\LargeExample1Demonstration.cs" />
     <Compile Include="Demonstrations\SwitchDemonstration.cs" />
     <Compile Include="Demonstrations\FluentObjectLiteralsDemonstration.cs" />
     <Compile Include="Demonstrations\ImplicitConversionsDemonstration.cs" />
@@ -112,7 +113,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Explanations\AnonymousObjectLiterals.htm" />
+    <Content Include="Explanations\AnonymousObjectLiteralsDemonstration.htm" />
     <Content Include="Explanations\AddingBlockDemonstration.htm" />
     <Content Include="Explanations\StatementsBasicsDemonstration.htm" />
     <Content Include="Explanations\JsonDemonstration.htm" />
