@@ -1,6 +1,6 @@
 ﻿namespace Adam.JSGenerator.Demonstration.Demonstrations
 {
-    [Description("Large Example 2")]
+    [Description("Other Example 2")]
     [Group(Group.Other, 2)]
     class LargeExample2Demonstration : Demonstration
     {

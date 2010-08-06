@@ -6,7 +6,17 @@
     {
         public override object Run()
         {
-            return string.Empty;
+            return JS.Switch(JS.Id("event"))
+                .Case("click")
+                .Case("contextmenu").Do(
+                    JS.Alert("clicked!"),
+                    JS.Break())
+                .Case("enter").Do(
+                    JS.Alert("entered"),
+                    JS.Break())
+                .Case("leave").Do(
+                    JS.Alert("leave"),
+                    JS.Break());
         }
     }
 }

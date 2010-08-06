@@ -6,7 +6,10 @@
     {
         public override object Run()
         {
-            return string.Empty;
+            var e = JS.Id("e");
+            return JS.Try(JS.Throw("Raise Hell!"))
+                     .Catch(e, JS.Alert(e))
+                     .Finally(JS.Alert("Finally!"));
         }
     }
 }
