@@ -893,5 +893,29 @@ namespace Adam.JSGenerator
         {
             return new CallOperationExpression(Id("alert"), message);
         }
+
+        /// <summary>
+        /// Returns an instance of <see cref="CallOperationExpression" /> containing a call to the confirm() function with the specified message.
+        /// </summary>
+        public static CallOperationExpression Confirm(Expression message)
+        {
+            return new CallOperationExpression(Id("confirm"), message);
+        }
+
+        /// <summary>
+        /// Returns an instance of <see cref="CallOperationExpression" /> containing a call to the prompt() function with the specified message.
+        /// </summary>
+        public static CallOperationExpression Prompt(Expression message)
+        {
+            return new CallOperationExpression(Id("prompt"), message);
+        }
+
+        /// <summary>
+        /// Returns an instance of <see cref="CallOperationExpression" /> containing a call to the eval() function with the specified expression.
+        /// </summary>
+        public static CallOperationExpression Eval(Expression expression)
+        {
+            return new CallOperationExpression(Id("eval"), expression);
+        }
     }
 }

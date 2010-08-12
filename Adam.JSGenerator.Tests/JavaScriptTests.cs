@@ -809,5 +809,29 @@ namespace Adam.JSGenerator.Tests
 
             Assert.AreEqual("with(a){a();return;}", w.ToString());
         }
+
+        [TestMethod]
+        public void EvalReturnsCallStatement()
+        {
+            var s = JS.Eval(JS.Object(new { Id = 1, Name = "Hello" }).ToString());
+
+            Assert.AreEqual("eval(\"{Id:1,Name:\\\"Hello\\\"};\");", s.ToString());
+        }
+
+        [TestMethod]
+        public void ConfirmReturnsCallStatement()
+        {
+            var s = JS.Confirm("Do you want to continue?");
+
+            Assert.AreEqual("confirm(\"Do you want to continue?\");", s.ToString());
+        }
+
+        [TestMethod]
+        public void PromptReturnsCallStatement()
+        {
+            var s = JS.Prompt("Enter your name:");
+
+            Assert.AreEqual("prompt(\"Enter your name:\");", s.ToString());
+        }
     }
 }
