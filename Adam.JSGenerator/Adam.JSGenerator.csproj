@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{98CF7658-3110-4EB3-9C38-0231C7B64B3F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Adam.JSGenerator</RootNamespace>
+    <AssemblyName>Adam.JSGenerator</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRules>-Microsoft.Design#CA2210</CodeAnalysisRules>
+    <DocumentationFile>bin\Debug\Adam.JSGenerator.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Adam.JSGenerator.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArrayExpression.cs" />
+    <Compile Include="Association.cs" />
+    <Compile Include="BinaryOperationExpression.cs" />
+    <Compile Include="BinaryOperator.cs" />
+    <Compile Include="BooleanExpression.cs" />
+    <Compile Include="BreakStatement.cs" />
+    <Compile Include="CallOperationExpression.cs" />
+    <Compile Include="CaseStatement.cs" />
+    <Compile Include="CompoundStatement.cs" />
+    <Compile Include="ConditionalOperationExpression.cs" />
+    <Compile Include="ConditionalStatement.cs" />
+    <Compile Include="ContinueStatement.cs" />
+    <Compile Include="DeclarationExpression.cs" />
+    <Compile Include="DoWhileStatement.cs" />
+    <Compile Include="EmptyStatement.cs" />
+    <Compile Include="ExceptionHandlingStatement.cs" />
+    <Compile Include="Expression.cs" />
+    <Compile Include="FunctionExpression.cs" />
+    <Compile Include="JQuery\Helpers.cs" />
+    <Compile Include="ScriptOptions.cs" />
+    <Compile Include="Helpers\BinaryOperationHelpers.cs" />
+    <Compile Include="Helpers\CallOperationHelpers.cs" />
+    <Compile Include="Helpers\CollectionHelpers.cs" />
+    <Compile Include="Helpers\ConditionalStatementHelpers.cs" />
+    <Compile Include="Helpers\ConditionalOperationExpressionHelpers.cs" />
+    <Compile Include="Helpers\DoWhileStatementHelpers.cs" />
+    <Compile Include="Helpers\ExceptionHandlingStatementHelpers.cs" />
+    <Compile Include="Helpers\FunctionExpressionHelpers.cs" />
+    <Compile Include="Helpers\IndexOperationExpressionHelpers.cs" />
+    <Compile Include="Helpers\IteratorStatementHelpers.cs" />
+    <Compile Include="Helpers\LabelStatementHelpers.cs" />
+    <Compile Include="Helpers\LoopStatementHelpers.cs" />
+    <Compile Include="Helpers\ObjectLiteralExpressionHelpers.cs" />
+    <Compile Include="Helpers\PropertyOperationExpressionHelpers.cs" />
+    <Compile Include="Helpers\SwitchStatementHelpers.cs" />
+    <Compile Include="Helpers\UnaryOperationExpressionHelpers.cs" />
+    <Compile Include="Helpers\WhileStatementHelpers.cs" />
+    <Compile Include="Helpers\WithStatementHelpers.cs" />
+    <Compile Include="IdentifierExpression.cs" />
+    <Compile Include="IndexOperationExpression.cs" />
+    <Compile Include="IteratorStatement.cs" />
+    <Compile Include="JavaScript.cs" />
+    <Compile Include="LabelStatement.cs" />
+    <Compile Include="LoopStatement.cs" />
+    <Compile Include="NullExpression.cs" />
+    <Compile Include="NumberExpression.cs" />
+    <Compile Include="ObjectLiteralExpression.cs" />
+    <Compile Include="Precedence.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyOperationExpression.cs" />
+    <Compile Include="RegularExpression.cs" />
+    <Compile Include="ReturnStatement.cs" />
+    <Compile Include="Script.cs" />
+    <Compile Include="SnippetExpression.cs" />
+    <Compile Include="Statement.cs" />
+    <Compile Include="StringExpression.cs" />
+    <Compile Include="SwitchStatement.cs" />
+    <Compile Include="ThrowStatement.cs" />
+    <Compile Include="UnaryOperationExpression.cs" />
+    <Compile Include="UnaryOperator.cs" />
+    <Compile Include="WhileStatement.cs" />
+    <Compile Include="WithStatement.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="key.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+    <head>
+        <style type="text/css">
+            body { color: InactiveCaptionText; }
+            h2 { font-size: 120%; color: CaptionText; }
+        </style>
+    </head>
+	<body>
+	    <h2>Generating Json</h2>
+	    <p>Combining these techniques with LINQ allows us to generate JSON quite effectively.</p>
+        <h2>Source:</h2>
+
+<style type="text/css">
+.cf { font-family: Courier New; font-size: 10pt; color: black; background: white; }
+.cl { margin: 0px; }
+.cb1 { color: blue; }
+.cb2 { color: #2b91af; }
+.cb3 { color: #a31515; }
+</style>
+<div class="cf">
+<p class="cl"><span class="cb1">var</span> i = <span class="cb1">from</span> item <span class="cb1">in</span> <span class="cb2">Enumerable</span>.Range(1, 10)</p>
+<p class="cl">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span class="cb1">where</span> item%2 == 0</p>
+<p class="cl">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span class="cb1">orderby</span> item <span class="cb1">descending</span></p>
+<p class="cl">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span class="cb1">select</span> <span class="cb1">new</span> {item = item, name = <span class="cb3">&quot;Item &quot;</span> + item};</p>
+<p class="cl">&nbsp;</p>
+<p class="cl"><span class="cb1">var</span> obj = <span class="cb2">JS</span>.Object(<span class="cb1">new</span> {menu = i});</p>
+<p class="cl"><span class="cb1">return</span> obj.ToString(<span class="cb1">false</span>, <span class="cb2">ScriptOptions</span>.Json);</p>
+</div>
+    </body>
+</html>
