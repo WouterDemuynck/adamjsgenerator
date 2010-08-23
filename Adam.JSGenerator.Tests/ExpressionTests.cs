@@ -64,5 +64,23 @@ namespace Adam.JSGenerator.Tests
             Assert.AreEqual("\"Hello, World!\";", s.ToString());
             Assert.AreEqual("[1,2,3];", arr.ToString());
         }
+
+        [TestMethod]
+        public void ExpressionSupportsConversionOfDictionariesIntoObjectLiterals()
+        {
+            var dictionary = new Dictionary<string, int>
+                {{"One", 1}, {"Two", 2}};
+            var expression1 = Expression.FromObject(dictionary);
+
+            Assert.AreEqual("{One:1,Two:2};", expression1.ToString());
+
+            const string text = "The brown for jumps over the lazy dog.";
+            Dictionary<string, int> words = text.Split(' ').ToDictionary(
+                item => item,
+                item => item.Length);
+            var expression2 = Expression.FromObject(words);
+
+            Assert.AreEqual("{The:3,brown:5,\"for\":3,jumps:5,over:4,the:3,lazy:4,\"dog.\":4};", expression2.ToString());
+        }
     }
 }

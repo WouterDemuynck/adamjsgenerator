@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Adam.JSGenerator
@@ -14,8 +15,8 @@ namespace Adam.JSGenerator
         /// Initializes a new instance of <see cref="ObjectLiteralExpression" />.
         /// </summary>
         public ObjectLiteralExpression()
-            : this(null)
         {
+            this._Properties = new Dictionary<Expression, Expression>();
         }
 
         /// <summary>
@@ -30,8 +31,36 @@ namespace Adam.JSGenerator
             }
             else
             {
-                this._Properties = new Dictionary<Expression, Expression>();
+                this._Properties = new Dictionary<Expression, Expression>();    
             }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of <see cref="ObjectLiteralExpression" /> that defines the specified properties.
+        /// </summary>
+        /// <param name="properties"></param>
+        public static ObjectLiteralExpression FromDictionary(IDictionary properties)
+        {
+            var result = new ObjectLiteralExpression();
+
+            if (properties != null)
+            {
+                foreach (DictionaryEntry property in properties)
+                {
+                    Expression key = property.Key as Expression;
+
+                    if (key == null)
+                    {
+                        string keyString = property.Key.ToString();
+
+                        key = JS.IsValidIdentifier(keyString) ? (Expression) JS.Id(keyString) : JS.String(keyString);
+                    }
+
+                    result.Properties.Add(key, FromObject(property.Value));
+                }
+            }
+
+            return result;
         }
 
         /// <summary>
