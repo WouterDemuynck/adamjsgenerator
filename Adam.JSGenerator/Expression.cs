@@ -150,6 +150,7 @@ namespace Adam.JSGenerator
             }
 
             IEnumerable enumerable;
+            IDictionary dictionary;
             string str;
             double d;
 
@@ -164,6 +165,10 @@ namespace Adam.JSGenerator
             else if (value is Statement)
             {
                 throw new InvalidOperationException("A statement cannot be used as an expression.");
+            }
+            else if ((dictionary = value as IDictionary) != null)
+            {
+                result = ObjectLiteralExpression.FromDictionary(dictionary);
             }
             else if ((enumerable = value as IEnumerable) != null)
             {
