@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Adam.JSGenerator.Tests.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Adam.JSGenerator.Tests
@@ -81,6 +82,15 @@ namespace Adam.JSGenerator.Tests
             var expression2 = Expression.FromObject(words);
 
             Assert.AreEqual("{The:3,brown:5,\"for\":3,jumps:5,over:4,the:3,lazy:4,\"dog.\":4};", expression2.ToString());
+
+            FakeDictionary<string, bool> fake = new FakeDictionary<string, bool>
+            {
+                { "yes", true },
+                { "no", false }
+            };
+
+            var expression3 = Expression.FromObject(fake);
+            Assert.AreEqual("{yes:true,no:false};", expression3.ToString());
         }
     }
 }

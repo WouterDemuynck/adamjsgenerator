@@ -63,7 +63,7 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return new ScriptOptions()
+                return new ScriptOptions
                 {
                     AlwaysQuoteObjectLiteralKeys = true,
                     PreferredQuoteChar = '"'

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -33,34 +34,6 @@ namespace Adam.JSGenerator
             {
                 this._Properties = new Dictionary<Expression, Expression>();    
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of <see cref="ObjectLiteralExpression" /> that defines the specified properties.
-        /// </summary>
-        /// <param name="properties"></param>
-        public static ObjectLiteralExpression FromDictionary(IDictionary properties)
-        {
-            var result = new ObjectLiteralExpression();
-
-            if (properties != null)
-            {
-                foreach (DictionaryEntry property in properties)
-                {
-                    Expression key = property.Key as Expression;
-
-                    if (key == null)
-                    {
-                        string keyString = property.Key.ToString();
-
-                        key = JS.IsValidIdentifier(keyString) ? (Expression) JS.Id(keyString) : JS.String(keyString);
-                    }
-
-                    result.Properties.Add(key, FromObject(property.Value));
-                }
-            }
-
-            return result;
         }
 
         /// <summary>
@@ -125,5 +98,59 @@ namespace Adam.JSGenerator
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="ObjectLiteralExpression" /> that defines the specified properties.
+        /// </summary>
+        /// <param name="properties"></param>
+        public static ObjectLiteralExpression FromDictionary(IDictionary properties)
+        {
+            if (properties == null)
+            {
+                throw new ArgumentNullException("properties");
+            }
+
+            var result = new ObjectLiteralExpression();
+            
+            foreach (DictionaryEntry property in properties)
+            {
+                Expression key = property.Key as Expression ?? 
+                    (JS.IsValidIdentifier(property.Key.ToString()) 
+                        ? JS.Id(property.Key.ToString()) 
+                        : FromString(property.Key.ToString()));
+
+                result.Properties.Add(key, FromObject(property.Value));
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="ObjectLiteralExpression" /> representing the keys and values of the specified <see cref="IDictionary{K,V}" />.
+        /// </summary>
+        /// <typeparam name="TKey">The type of Key.</typeparam>
+        /// <typeparam name="TValue">The type of Value.</typeparam>
+        /// <param name="dictionary">The dictionary from which to extract the keys and values to represent.</param>
+        /// <returns>A new instance of <see cref="ObjectLiteralExpression" />.</returns>
+        public static ObjectLiteralExpression FromDictionary<TKey, TValue>(IDictionary<TKey, TValue> dictionary)
+        {
+            if (dictionary == null)
+            {
+                throw new ArgumentNullException("dictionary");
+            }
+
+            ObjectLiteralExpression result = new ObjectLiteralExpression();
+
+            foreach (var pair in dictionary)
+            {
+                Expression key = pair.Key as Expression ?? 
+                    (JS.IsValidIdentifier(pair.Key.ToString()) 
+                        ? JS.Id(pair.Key.ToString()) 
+                        : FromString(pair.Key.ToString()));
+
+                result.Properties.Add(key, FromObject(pair.Value));
+            }
+
+            return result;
+        }
     }
 }
