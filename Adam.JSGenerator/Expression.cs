@@ -50,7 +50,7 @@ namespace Adam.JSGenerator
         /// </summary>
         /// <param name="value">The Boolean to convert.</param>
         /// <returns>An instance of <see cref="BooleanExpression" /> that represents its value.</returns>
-        public static BooleanExpression FromBoolean(bool value)
+        public static Expression FromBoolean(bool value)
         {
             return new BooleanExpression(value);
         }
@@ -70,7 +70,7 @@ namespace Adam.JSGenerator
         /// </summary>
         /// <param name="value">The integer to convert.</param>
         /// <returns>The <see cref="NumberExpression" /> object that represents its value.</returns>
-        public static NumberExpression FromInteger(int value)
+        public static Expression FromInteger(int value)
         {
             return new NumberExpression(value);
         }
@@ -90,7 +90,7 @@ namespace Adam.JSGenerator
         /// </summary>
         /// <param name="value">The double to convert.</param>
         /// <returns>The <see cref="NumberExpression" /> object that represents its value.</returns>
-        public static NumberExpression FromDouble(double value)
+        public static Expression FromDouble(double value)
         {
             return new NumberExpression(value);
         }
@@ -110,7 +110,7 @@ namespace Adam.JSGenerator
         /// </summary>
         /// <param name="value">The string to convert.</param>
         /// <returns>The <see cref="StringExpression" /> object that represents its value.</returns>
-        public static StringExpression FromString(string value)
+        public static Expression FromString(string value)
         {
             return new StringExpression(value);
         }
@@ -130,7 +130,7 @@ namespace Adam.JSGenerator
         /// </summary>
         /// <param name="array">The array to convert</param>
         /// <returns>The <see cref="ArrayExpression" /> object that represents its value.</returns>
-        public static ArrayExpression FromArray(Array array)
+        public static Expression FromArray(Array array)
         {
             return JS.Array((IEnumerable)array);
         }
@@ -172,7 +172,7 @@ namespace Adam.JSGenerator
             }
             else if ((enumerable = value as IEnumerable) != null)
             {
-                result = JS.Array(enumerable);
+                result = JS.ArrayOrObject(enumerable);
             }
             else if (value.GetType().IsClass)
             {

@@ -82,7 +82,7 @@ namespace Adam.JSGenerator
                 {
                     string name = property.Name;
 
-                    Expression key = IsValidIdentifier(name) ? (Expression)Id(name) : Expression.FromString(name);
+                    Expression key = IsValidIdentifier(name) ? Id(name) : Expression.FromObject(name);
 
                     result.Add(key, Expression.FromObject(property.GetValue(value)));
                 }   
@@ -913,9 +913,51 @@ namespace Adam.JSGenerator
         /// <summary>
         /// Returns an instance of <see cref="CallOperationExpression" /> containing a call to the eval() function with the specified expression.
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Eval", 
+            Justification = "eval is the name of the JavaScript function.")]
         public static CallOperationExpression Eval(Expression expression)
         {
             return new CallOperationExpression(Id("eval"), expression);
+        }
+
+        private static IEnumerable<Type> GetTypesKeyValuePairEnumerableInterfaces(Type type)
+        {
+            return type.GetInterfaces().Where(
+                interfaceType => interfaceType.IsGenericType && 
+                interfaceType.GetGenericTypeDefinition() == typeof (IEnumerable<>) &&
+                interfaceType.GetGenericArguments().Any(
+                    argumentType => argumentType.IsGenericType && 
+                    argumentType.GetGenericTypeDefinition() == typeof(KeyValuePair<,>)));
+        }
+
+        private static Type GetObjectsFirstIEnumerableKeyValuePairInterface(object obj)
+        {
+            return GetTypesKeyValuePairEnumerableInterfaces(obj.GetType())
+                .Select(type => type.GetGenericArguments().First())
+                .FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Uses reflection to find out if the specified sequence implements any <see cref="IEnumerable{KeyValuePair}" /> 
+        /// and returns an <see cref="ObjectLiteralExpression" /> in that case, or an <see cref="ArrayExpression" /> if not.
+        /// </summary>
+        /// <param name="enumerable">The sequence to convert.</param>
+        /// <returns>Either an instance of <see cref="ObjectLiteralExpression" /> or <see cref="ArrayExpression" />.</returns>
+        public static Expression ArrayOrObject(IEnumerable enumerable)
+        {
+            Type keyValuePairEnumerableType = GetObjectsFirstIEnumerableKeyValuePairInterface(enumerable);
+
+            if (keyValuePairEnumerableType == null)
+            {
+                return Array(enumerable);
+            }
+            
+            var keyProperty = keyValuePairEnumerableType.GetProperty("Key");
+            var valueProperty = keyValuePairEnumerableType.GetProperty("Value");
+
+            return ObjectLiteralExpression.FromDictionary<object, object>(enumerable.Cast<object>().ToDictionary(
+                pair => keyProperty.GetValue(pair, null),
+                pair => valueProperty.GetValue(pair, null)));
         }
     }
 }
