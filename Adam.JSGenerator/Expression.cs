@@ -176,7 +176,7 @@ namespace Adam.JSGenerator
             }
             else if (value.GetType().IsClass)
             {
-                result = JS.Object(value);
+                result = JS.Object(JS.GetValues(value));
             }
             else if (value is Boolean)
             {
