@@ -26,14 +26,9 @@ namespace Adam.JSGenerator
         /// <param name="properties"></param>
         public ObjectLiteralExpression(IDictionary<Expression, Expression> properties)
         {
-            if (properties != null)
-            {
-                this._Properties = new Dictionary<Expression, Expression>(properties);
-            }
-            else
-            {
-                this._Properties = new Dictionary<Expression, Expression>();    
-            }
+            this._Properties = properties != null 
+                ? new Dictionary<Expression, Expression>(properties) 
+                : new Dictionary<Expression, Expression>();
         }
 
         /// <summary>

@@ -47,13 +47,6 @@ namespace Adam.JSGenerator.Tests
             });
 
             Assert.AreEqual("{name:\"value\",key:\"value\",price:1200};", expression.ToString());
-
-            expression = new ObjectLiteralExpression().WithProperties(new
-            {
-                Key = "Value"
-            });
-
-            Assert.AreEqual("{Key:\"Value\"};", expression.ToString());
         }
 
         [TestMethod]
@@ -62,7 +55,6 @@ namespace Adam.JSGenerator.Tests
             ObjectLiteralExpression expression = null;
             Expect.Throw<ArgumentNullException>(() => expression.WithProperty("name", "value"));
             Expect.Throw<ArgumentNullException>(() => expression.WithProperties(new Dictionary<Expression, Expression>()));
-            Expect.Throw<ArgumentNullException>(() => expression.WithProperties(new object()));
         }
     }
 }
