@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Adam.JSGenerator">
+</Property><Property Name="Solution File" Value="C:\Users\Dave\Documents\Visual Studio 2008\Projects\Adam.JSGenerator\Adam.JSGenerator.sln">
+</Property><Property Name="Date" Value="dinsdag 12 oktober 2010">
+</Property><Property Name="Time" Value="18:59">
+</Property></Properties><Event ErrorLevel="0" Project="Adam.JSGenerator" Source="Adam.JSGenerator\Adam.JSGenerator.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Adam.JSGenerator" Source="Adam.JSGenerator\Adam.JSGenerator.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Adam.JSGenerator.Tests" Source="Adam.JSGenerator.Tests\Adam.JSGenerator.Tests.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Adam.JSGenerator.Tests" Source="Adam.JSGenerator.Tests\Adam.JSGenerator.Tests.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Adam.JSGenerator.Demonstration" Source="Adam.JSGenerator.Demonstration\Adam.JSGenerator.Demonstration.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Adam.JSGenerator.Demonstration" Source="Adam.JSGenerator.Demonstration\Adam.JSGenerator.Demonstration.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Adam.JSGenerator.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="Adam.JSGenerator.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Adam.JSGenerator" Source="Adam.JSGenerator\Adam.JSGenerator.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Adam.JSGenerator" Source="Adam.JSGenerator\Adam.JSGenerator.csproj" Description="Created rule set file &quot;C:\Users\Dave\Documents\Visual Studio 2008\Projects\Adam.JSGenerator\Adam.JSGenerator\Migrated rules for Adam.JSGenerator.ruleset&quot; for the &quot;Debug (Any CPU)&quot; configuration.">
+</Event><Event ErrorLevel="3" Project="" Source="Adam.JSGenerator.vsmdi" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Adam.JSGenerator.vsmdi" Description="The file was converted to the current format.">
+</Event><Event ErrorLevel="3" Project="" Source="LocalTestRun.testrunconfig" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="LocalTestRun.testrunconfig" Description="The file was converted to the current format.">
+</Event><Event ErrorLevel="0" Project="Adam.JSGenerator.Tests" Source="Adam.JSGenerator.Tests\Adam.JSGenerator.Tests.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Adam.JSGenerator.Demonstration" Source="Adam.JSGenerator.Demonstration\Adam.JSGenerator.Demonstration.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
