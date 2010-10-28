@@ -376,7 +376,7 @@ namespace Adam.JSGenerator.Tests
         [TestMethod]
         public void ForReturnsForWithIteration()
         {
-            var f = JS.For(JS.Id("a").PreIncrement());
+            var f = JS.For(iteration: JS.Id("a").PreIncrement());
 
             Assert.AreEqual("for(;;++a);", f.ToString());
         }
@@ -385,7 +385,7 @@ namespace Adam.JSGenerator.Tests
         public void ForReturnsForWithConditionAndIteration()
         {
             var a = JS.Id("a");
-            var f = JS.For(a.IsGreaterThan(0), a.PreDecrement());
+            var f = JS.For(condition: a.IsGreaterThan(0), iteration: a.PreDecrement());
 
             Assert.AreEqual("for(;a>0;--a);", f.ToString());
         }
