@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -73,6 +74,11 @@ namespace Adam.JSGenerator
         /// <param name="options">Specifies options to use while producing Javascript.</param>
         public void AppendScript(StringBuilder builder, ScriptOptions options)
         {
+            if (builder == null)
+            {
+                throw new ArgumentNullException("builder");
+            }
+
             if (this._Value != null)
             {
                 builder.Append("case ");

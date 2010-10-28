@@ -12,7 +12,7 @@ namespace Adam.JSGenerator.Tests
         public void ExpressionProducesLiterals()
         {
             var l = new List<Expression> { 1, 2, 3.14, "Test", true, null };
-            var s = new Script(l.Cast<Statement>());
+            var s = new Script(l);
 
             Assert.AreEqual("1;2;3.14;\"Test\";true;;", s.ToString());
         }

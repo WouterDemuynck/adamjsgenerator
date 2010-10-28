@@ -42,9 +42,14 @@ namespace Adam.JSGenerator
         /// <param name="options">The options to use when appending JavaScript</param>
         internal protected override void AppendScript(StringBuilder builder, ScriptOptions options)
         {
+            if (builder == null)
+            {
+                throw new ArgumentNullException("builder");
+            }
+
             if (this._TryBlock == null)
             {
-                throw new InvalidOperationException("TryBlock cannot be null.");
+                throw new InvalidOperationException();
             }
 
             builder.Append("try");
@@ -53,8 +58,8 @@ namespace Adam.JSGenerator
             if (this.CatchBlock != null)
             {
                 if (this.CatchVariable == null)
-                {
-                    throw new InvalidOperationException("CatchVariable cannot be null.");
+                {                    
+                    throw new InvalidOperationException();
                 }
 
                 builder.Append("catch(");

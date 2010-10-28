@@ -42,6 +42,11 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("expression");
             }
 
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
+
             ObjectLiteralExpression result = new ObjectLiteralExpression(expression.Properties);
 
             foreach (KeyValuePair<Expression, Expression> property in values)
