@@ -74,11 +74,9 @@ namespace Adam.JSGenerator.Tests
         public void IteratorHelpersRequiresIterator()
         {
             IteratorStatement iterator = null;
+            Expect.Throw<ArgumentNullException>(() => iterator.In(null));
             Expect.Throw<ArgumentNullException>(() => iterator.Do());
             Expect.Throw<ArgumentNullException>(() => iterator.Do(new List<Statement>()));
-
-            LoopStatement loop = null;
-            Expect.Throw<ArgumentNullException>(() => loop.In(null));
         }
     }
 }

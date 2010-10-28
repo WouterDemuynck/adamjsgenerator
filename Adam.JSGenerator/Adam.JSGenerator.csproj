@@ -81,6 +81,7 @@
     <Compile Include="ExceptionHandlingStatement.cs" />
     <Compile Include="Expression.cs" />
     <Compile Include="FunctionExpression.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="JQuery\Helpers.cs" />
     <Compile Include="ScriptOptions.cs" />
     <Compile Include="Helpers\BinaryOperationHelpers.cs" />

@@ -340,31 +340,14 @@ namespace Adam.JSGenerator
         }
 
         /// <summary>
-        /// Creates a new instance of <see cref="BreakStatement" />.
-        /// </summary>
-        /// <returns>an instance of <see cref="BreakStatement" />.</returns>
-        public static BreakStatement Break()
-        {
-            return Break(null);
-        }
-
-        /// <summary>
         /// Creates a new instance of <see cref="BreakStatement" /> that breaks to the specified label.
         /// </summary>
         /// <param name="label">The label to break to.</param>
         /// <returns>an instance of <see cref="BreakStatement" /> that breaks to the specified label.</returns>
-        public static BreakStatement Break(IdentifierExpression label)
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed")]
+        public static BreakStatement Break(IdentifierExpression label = null)
         {
             return new BreakStatement(label);
-        }
-
-        /// <summary>
-        /// Creates a new instance of <see cref="ContinueStatement" />.
-        /// </summary>
-        /// <returns>an instance of <see cref="ContinueStatement" />.</returns>
-        public static ContinueStatement Continue()
-        {
-            return Continue(null);
         }
 
         /// <summary>
@@ -372,7 +355,8 @@ namespace Adam.JSGenerator
         /// </summary>
         /// <param name="label">The label to continue at.</param>
         /// <returns>an instance of <see cref="ContinueStatement" /> that continues at the specified label.</returns>
-        public static ContinueStatement Continue(IdentifierExpression label)
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed")]
+        public static ContinueStatement Continue(IdentifierExpression label = null)
         {
             return new ContinueStatement(label);
         }
@@ -426,47 +410,14 @@ namespace Adam.JSGenerator
             return new CallOperationExpression(Id("$find"), expression);
         }
 
-        /// <summary>
-        /// Creates a new instance of <see cref="LoopStatement" /> that represents an eternal loop.
-        /// </summary>
-        /// <returns>an instance of <see cref="LoopStatement" /> that represents an eternal loop.</returns>
-        /// <remarks>
-        /// The result represents the following snippet of JavaScript:
-        /// <code>
-        /// for (;;) ;
-        /// </code>
-        /// This is also known as "an eternal loop". Unless the body contains a break statement, the loop will continue forever.
-        /// </remarks>
-        public static LoopStatement For()
+        ///<summary>
+        /// Creates a new instance of <see cref="IteratorStatement" /> that is incomplete. You'll need to use the helper method <see cref="IteratorStatementHelpers.In" /> to combine it with a collection to iterator though.
+        ///</summary>
+        ///<param name="variable">The expression to use as the variable to loop with.</param>
+        ///<returns>An instance of <see cref="IteratorStatement" />.</returns>
+        public static IteratorStatement For(Expression variable)
         {
-            return For(null, null, null);
-        }
-
-        /// <summary>
-        /// Creates a new instance of <see cref="LoopStatement" /> that represents a JavaScript for-loop with only an iteration expression.
-        /// </summary>
-        /// <param name="iteration">The expression to use as the loop iterator.</param>
-        /// <returns>an instance of <see cref="LoopStatement" />.</returns>
-        /// <remarks>
-        /// The loop iterator expression may be null to indicate that this part is not present in the loop.
-        /// </remarks>
-        public static LoopStatement For(Expression iteration)
-        {
-            return For(null, null, iteration);
-        }
-
-        /// <summary>
-        /// Creates a new instance of <see cref="LoopStatement" /> that represents a JavaScript for-loop with a loop condition and loop iteration expression.
-        /// </summary>
-        /// <param name="condition">The expression to use as the loop condition.</param>
-        /// <param name="iteration">The expression to use as the loop iterator.</param>
-        /// <returns>a new instance of <see cref="LoopStatement" />.</returns>
-        /// <remarks>
-        /// Any of the parameters may be null to indicate that this part is not present in the loop.
-        /// </remarks>
-        public static LoopStatement For(Expression condition, Expression iteration)
-        {
-            return For(null, condition, iteration);
+            return new IteratorStatement(variable, null, Empty());
         }
 
         /// <summary>
@@ -479,18 +430,10 @@ namespace Adam.JSGenerator
         /// <remarks>
         /// Any of the parameters may be null to indicate that this part is not present in the loop.
         /// </remarks>
-        public static LoopStatement For(Expression initialization, Expression condition, Expression iteration)
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed")]
+        public static LoopStatement For(Expression initialization = null, Expression condition = null, Expression iteration = null)
         {
             return new LoopStatement(initialization, condition, iteration, Empty());
-        }
-
-        /// <summary>
-        /// Creates a new instance of <see cref="FunctionExpression" /> that represents an anonymous function.
-        /// </summary>
-        /// <returns>a new instance of <see cref="FunctionExpression" />.</returns>
-        public static FunctionExpression Function()
-        {
-            return new FunctionExpression();
         }
 
         /// <summary>
@@ -498,7 +441,8 @@ namespace Adam.JSGenerator
         /// </summary>
         /// <param name="name">The name of the function.</param>
         /// <returns>a new instance of <see cref="FunctionExpression" />.</returns>
-        public static FunctionExpression Function(IdentifierExpression name)
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed")]
+        public static FunctionExpression Function(IdentifierExpression name = null)
         {
             return new FunctionExpression(name);
         }
@@ -565,15 +509,15 @@ namespace Adam.JSGenerator
             return new LabelStatement(name, statement);
         }
 
-        /// <summary>
-        /// Returns a new instance of <see cref="NumberExpression" /> that represents the passed value.
-        /// </summary>
-        /// <param name="value">The value that must be represented by the instance.</param>
-        /// <returns>a new instance of <see cref="NumberExpression" />.</returns>
-        public static NumberExpression Number(int value)
-        {
-            return new NumberExpression(value);
-        }
+        ///// <summary>
+        ///// Returns a new instance of <see cref="NumberExpression" /> that represents the passed value.
+        ///// </summary>
+        ///// <param name="value">The value that must be represented by the instance.</param>
+        ///// <returns>a new instance of <see cref="NumberExpression" />.</returns>
+        //public static NumberExpression Number(int value)
+        //{
+        //    return new NumberExpression(value);
+        //}
 
         /// <summary>
         /// Creates a new instance of <see cref="NumberExpression" /> that represents the passed value.
@@ -654,15 +598,15 @@ namespace Adam.JSGenerator
             return Multiple(expressions.AsEnumerable());
         }
 
-        /// <summary>
-        /// Creates a new instance of <see cref="UnaryOperationExpression" /> that represents the creation of a new object.
-        /// </summary>
-        /// <param name="expression">An expression that returns a constructor.</param>
-        /// <returns>a new instance of <see cref="UnaryOperationExpression" />.</returns>
-        public static UnaryOperationExpression New(Expression expression)
-        {
-            return new UnaryOperationExpression(new CallOperationExpression(expression), UnaryOperator.New);
-        }
+        ///// <summary>
+        ///// Creates a new instance of <see cref="UnaryOperationExpression" /> that represents the creation of a new object.
+        ///// </summary>
+        ///// <param name="expression">An expression that returns a constructor.</param>
+        ///// <returns>a new instance of <see cref="UnaryOperationExpression" />.</returns>
+        //public static UnaryOperationExpression New(Expression expression)
+        //{
+        //    return new UnaryOperationExpression(new CallOperationExpression(expression), UnaryOperator.New);
+        //}
 
         /// <summary>
         /// Creates a new instance of <see cref="UnaryOperationExpression" /> that represents the creation of a new object, using the specified arguments.
@@ -681,7 +625,8 @@ namespace Adam.JSGenerator
         /// <param name="expression">An expression that returns a constructor.</param>
         /// <param name="arguments">A sequence of arguments to pass to the constructor.</param>
         /// <returns>a new instance of <see cref="UnaryOperationExpression" />.</returns>
-        public static UnaryOperationExpression New(Expression expression, IEnumerable<Expression> arguments)
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed")]
+        public static UnaryOperationExpression New(Expression expression, IEnumerable<Expression> arguments = null)
         {
             return new UnaryOperationExpression(new CallOperationExpression(expression, arguments), UnaryOperator.New);
         }
@@ -748,20 +693,12 @@ namespace Adam.JSGenerator
         }
 
         /// <summary>
-        /// Creates a new instance of <see cref="ReturnStatement" /> that represents a return statement without a return value.
-        /// </summary>
-        /// <returns>a new instance of <see cref="ReturnStatement" /> without return value.</returns>
-        public static ReturnStatement Return()
-        {
-            return new ReturnStatement();
-        }
-
-        /// <summary>
         /// Creates a new instance of <see cref="ReturnStatement" /> that returns the specified value.
         /// </summary>
         /// <param name="value">An expression that represents the value to return.</param>
         /// <returns>a new instance of <see cref="ReturnStatement" />.</returns>
-        public static ReturnStatement Return(Expression value)
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed")]
+        public static ReturnStatement Return(Expression value = null)
         {
             return new ReturnStatement(value);
         }
