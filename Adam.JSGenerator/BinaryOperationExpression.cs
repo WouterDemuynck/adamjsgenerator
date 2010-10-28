@@ -81,6 +81,11 @@ namespace Adam.JSGenerator
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
         internal protected override void AppendScript(StringBuilder builder, ScriptOptions options)
         {
+            if (builder == null)
+            {
+                throw new ArgumentNullException("builder");
+            }
+
             Expression operandLeft = this._OperandLeft ?? new NullExpression();
             Expression operandRight = this._OperandRight ?? new NullExpression();
 

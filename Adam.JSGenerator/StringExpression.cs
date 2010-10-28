@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace Adam.JSGenerator
 {
@@ -33,6 +34,16 @@ namespace Adam.JSGenerator
         /// <param name="options">The options to use when appending JavaScript</param>
         protected internal override void AppendScript(StringBuilder builder, ScriptOptions options)
         {
+            if (builder == null)
+            {
+                throw new ArgumentNullException("builder");
+            }
+
+            if (options == null)
+            {
+                throw new ArgumentNullException("options");
+            }
+            
             builder.Append(JS.QuoteString(this._Value, options.PreferredQuoteChar));
         }
 

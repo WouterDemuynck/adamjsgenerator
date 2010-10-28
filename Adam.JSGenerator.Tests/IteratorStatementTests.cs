@@ -14,8 +14,7 @@ namespace Adam.JSGenerator.Tests
             iterator.Collection = JS.Id("b");
             iterator.Statement = JS.Empty();
 
-            Expect.Throw<InvalidOperationException>("Variable cannot be null.",
-                () => iterator.ToString());
+            Expect.Throw<InvalidOperationException>(() => iterator.ToString());
         }
 
         [TestMethod]
@@ -25,8 +24,7 @@ namespace Adam.JSGenerator.Tests
             iterator.Variable = JS.Id("a");
             iterator.Statement = JS.Empty();
 
-            Expect.Throw<InvalidOperationException>("Collection cannot be null.",
-                () => iterator.ToString());
+            Expect.Throw<InvalidOperationException>(() => iterator.ToString());
         }
 
         [TestMethod]
@@ -36,8 +34,7 @@ namespace Adam.JSGenerator.Tests
             iterator.Variable = JS.Id("a");
             iterator.Collection = JS.Id("b");
 
-            Expect.Throw<InvalidOperationException>("Statement cannot be null",
-                () => iterator.ToString());
+            Expect.Throw<InvalidOperationException>(() => iterator.ToString());
         }
 
         [TestMethod]

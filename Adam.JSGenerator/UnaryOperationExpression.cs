@@ -59,6 +59,11 @@ namespace Adam.JSGenerator
         /// <param name="options">The options to use when appending JavaScript</param>
         internal protected override void AppendScript(StringBuilder builder, ScriptOptions options)
         {
+            if (builder == null)
+            {
+                throw new ArgumentNullException("builder");
+            }
+
             bool noLeftSide = false;
             bool noRightSide = false;
 

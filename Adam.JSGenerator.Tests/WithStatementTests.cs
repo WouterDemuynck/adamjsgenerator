@@ -12,13 +12,11 @@ namespace Adam.JSGenerator.Tests
         {
             var statement = new WithStatement();
 
-            Expect.Throw<InvalidOperationException>("Expression cannot be null.", 
-                () => statement.ToString());
+            Expect.Throw<InvalidOperationException>(() => statement.ToString());
 
             statement.Expression = JS.Id("a");
 
-            Expect.Throw<InvalidOperationException>("Statement cannot be null",
-                () => statement.ToString());
+            Expect.Throw<InvalidOperationException>(() => statement.ToString());
 
             statement.Statement = JS.Block();
 

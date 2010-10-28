@@ -15,12 +15,10 @@ namespace Adam.JSGenerator.Tests
         {
             var e = new ExceptionHandlingStatement();
 
-            Expect.Throw<InvalidOperationException>("TryBlock cannot be null.",
-                () => e.ToString());
+            Expect.Throw<InvalidOperationException>(() => e.ToString());
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException), "CatchVariable cannot be null.")]
+        [TestMethod]        
         public void ExceptionHandlingStatementRequiresCatchVariable()
         {
             var e = new ExceptionHandlingStatement
@@ -29,7 +27,7 @@ namespace Adam.JSGenerator.Tests
                 CatchBlock = new CompoundStatement()
             };
 
-            e.ToString();
+            Expect.Throw<InvalidOperationException>(() => e.ToString());
         }
 
         [TestMethod]

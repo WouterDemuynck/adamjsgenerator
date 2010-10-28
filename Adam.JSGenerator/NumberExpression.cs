@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Text;
 
 namespace Adam.JSGenerator
@@ -26,6 +27,11 @@ namespace Adam.JSGenerator
         /// <param name="options">The options to use when appending JavaScript</param>
         internal protected override void AppendScript(StringBuilder builder, ScriptOptions options)
         {
+            if (builder == null)
+            {
+                throw new ArgumentNullException("builder");
+            }
+
             builder.Append(this._Value.ToString(CultureInfo.InvariantCulture));
         }
 

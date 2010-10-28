@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace Adam.JSGenerator
 {
@@ -15,6 +16,11 @@ namespace Adam.JSGenerator
         /// <param name="builder">The StringBuilder to apply a terminating semicolon to.</param>
         public void AppendRequiredTerminator(StringBuilder builder)
         {
+            if (builder == null)
+            {
+                throw new ArgumentNullException("builder");
+            }
+
             if (RequiresTerminator)
             {
                 builder.Append(Terminator);

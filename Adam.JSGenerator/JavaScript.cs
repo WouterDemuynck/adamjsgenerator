@@ -257,6 +257,11 @@ namespace Adam.JSGenerator
         /// <returns>The parsed identifier as an expression chain.</returns>
         public static Expression ParseId(string name)
         {
+            if (name == null)
+            {
+                throw new ArgumentNullException("name");
+            }
+
             string[] identifiers = name.Split('.');
             Expression result = null;
 
@@ -311,7 +316,7 @@ namespace Adam.JSGenerator
         public static ArrayExpression Array(IEnumerable elements)
         {
             return new ArrayExpression(elements.Cast<object>()
-                .Select(element => Expression.FromObject(element)));
+                .Select(Expression.FromObject));
         }
 
         /// <summary>

@@ -24,13 +24,11 @@ namespace Adam.JSGenerator.Tests
         {
             var statement = new WhileStatement();
 
-            Expect.Throw<InvalidOperationException>("Condition cannot be null.",
-                () => statement.ToString());
+            Expect.Throw<InvalidOperationException>(() => statement.ToString());
 
             statement.Condition = true;
 
-            Expect.Throw<InvalidOperationException>("Statement cannot be null.",
-                () => statement.ToString());
+            Expect.Throw<InvalidOperationException>(() => statement.ToString());
 
             statement.Statement = JS.Empty();
 
