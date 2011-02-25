@@ -56,11 +56,21 @@ namespace Adam.JSGenerator
         {
             StringBuilder builder = new StringBuilder();
 
+            if (options.WrapInScriptBlock)
+            {
+                builder.Append("<script type=\"text/javascript\">");
+            }
+
             AppendScript(builder, options);
             
             if (includeTerminator)
             {
                 AppendRequiredTerminator(builder);
+            }
+
+            if (options.WrapInScriptBlock)
+            {
+                builder.Append("</script>");
             }
             
             return builder.ToString();

@@ -570,14 +570,9 @@ namespace Adam.JSGenerator
             {
                 foreach (Expression expression in expressions)
                 {
-                    if (result == null)
-                    {
-                        result = expression;
-                    }
-                    else
-                    {
-                        result = new BinaryOperationExpression(result, expression, BinaryOperator.MultipleEvaluation);
-                    }
+                    result = result != null 
+                        ? new BinaryOperationExpression(result, expression, BinaryOperator.MultipleEvaluation) 
+                        : expression;
                 }
             }
 
@@ -597,16 +592,6 @@ namespace Adam.JSGenerator
         {
             return Multiple(expressions.AsEnumerable());
         }
-
-        ///// <summary>
-        ///// Creates a new instance of <see cref="UnaryOperationExpression" /> that represents the creation of a new object.
-        ///// </summary>
-        ///// <param name="expression">An expression that returns a constructor.</param>
-        ///// <returns>a new instance of <see cref="UnaryOperationExpression" />.</returns>
-        //public static UnaryOperationExpression New(Expression expression)
-        //{
-        //    return new UnaryOperationExpression(new CallOperationExpression(expression), UnaryOperator.New);
-        //}
 
         /// <summary>
         /// Creates a new instance of <see cref="UnaryOperationExpression" /> that represents the creation of a new object, using the specified arguments.
