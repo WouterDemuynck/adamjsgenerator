@@ -13,6 +13,7 @@ namespace Adam.JSGenerator
     {
         private char _PreferredQuoteChar = '"';
         private bool _AlwaysQuoteObjectLiteralKeys;
+        private bool _WrapInScriptBlock;
 
         /// <summary>
         /// Contains the preferred character to use when quoting strings. Allowed characters are single (') quote and double (") quote.
@@ -45,6 +46,21 @@ namespace Adam.JSGenerator
         {
             get { return _AlwaysQuoteObjectLiteralKeys; }
             set { _AlwaysQuoteObjectLiteralKeys = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets a value that, when true, causes the <see cref="Expression.ToString" /> method to wrap the expression in a script block.
+        /// </summary>
+        public bool WrapInScriptBlock
+        {
+            get
+            {
+                return _WrapInScriptBlock;
+            }
+            set
+            {
+                _WrapInScriptBlock = value;
+            }
         }
 
         /// <summary>

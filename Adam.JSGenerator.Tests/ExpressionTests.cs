@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Adam.JSGenerator.Tests.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -91,6 +92,16 @@ namespace Adam.JSGenerator.Tests
 
             var expression3 = Expression.FromObject(fake);
             Assert.AreEqual("{yes:true,no:false};", expression3.ToString());
+        }
+
+        [TestMethod]
+        public void ExpressionSupportsWrappingInScriptBlock()
+        {
+            var expression = JS.Var(JS.Id("pi").AssignWith(3.1415));
+
+            Assert.AreEqual("var pi=3.1415;", expression.ToString());
+            Assert.AreEqual("<script type=\"text/javascript\">var pi=3.1415;</script>", 
+                expression.ToString(true, new ScriptOptions { WrapInScriptBlock = true }));            
         }
     }
 }
