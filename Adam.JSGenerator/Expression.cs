@@ -182,7 +182,7 @@ namespace Adam.JSGenerator
             {
                 result = FromBoolean((bool)value);
             }
-            else if (double.TryParse(value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out d))
+            else if (double.TryParse(Convert.ToString(value, CultureInfo.InvariantCulture), NumberStyles.Any, CultureInfo.InvariantCulture, out d))
             {
                 result = FromDouble(d);
             }

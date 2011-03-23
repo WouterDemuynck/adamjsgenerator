@@ -52,6 +52,7 @@
     <Compile Include="BinaryOperationExpressionTests.cs" />
     <Compile Include="BooleanExpressionTests.cs" />
     <Compile Include="BreakStatementTests.cs" />
+    <Compile Include="RegressionTests.cs" />
     <Compile Include="CallOperationExpressionTests.cs" />
     <Compile Include="CollectionHelpersTests.cs" />
     <Compile Include="CompoundStatementTests.cs" />
