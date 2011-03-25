@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Adam.JSGenerator</id>
+    <version>1.2.0.0</version>
+    <authors>Dave Van den Eynde, Wouter Demuynck</authors>
+    <owners>ADAM Software NV</owners>
+    <licenseUrl>http://adamjsgenerator.codeplex.com/license</licenseUrl>
+    <projectUrl>http://adamjsgenerator.codeplex.com/</projectUrl>    
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Adam.JSGenerator helps produce snippets of JavaScript code from managed code.</description>
+    <tags>javascript</tags>     
+  </metadata>
+</package>
