@@ -8,3 +8,6 @@ glob:TestResults
 glob:_ReSharper.*
 glob:*.vsmdi
 glob:*.tmp
+syntax: glob
+*.nupkg
+NuGet/Adam.JSGenerator/lib
