@@ -8,7 +8,7 @@ namespace Adam.JSGenerator
     /// </summary>
     public class IdentifierExpression : Expression
     {
-        private string _Name;
+        private string _name;
 
         private static void CheckName(string name)
         {
@@ -25,7 +25,7 @@ namespace Adam.JSGenerator
         public IdentifierExpression(string name)
         {
             CheckName(name);
-            this._Name = name;
+            _name = name;
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("builder");
             }
 
-            builder.Append(this._Name);
+            builder.Append(_name);
         }
 
         /// <summary>
@@ -70,12 +70,12 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _Name;
+                return _name;
             }
             set
             {
                 CheckName(value);
-                _Name = value;
+                _name = value;
             }
         }
 

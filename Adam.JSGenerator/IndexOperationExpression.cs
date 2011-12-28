@@ -8,8 +8,8 @@ namespace Adam.JSGenerator
     /// </summary>
     public class IndexOperationExpression : Expression
     {
-        private Expression _OperandLeft;
-        private Expression _OperandRight;
+        private Expression _operandLeft;
+        private Expression _operandRight;
 
         /// <summary>
         /// Initializes a new instance of <see cref="IndexOperationExpression" />.
@@ -18,8 +18,8 @@ namespace Adam.JSGenerator
         /// <param name="operandRight">The operand that specifies the index to retrieve.</param>
         public IndexOperationExpression(Expression operandLeft, Expression operandRight)
         {
-            this._OperandLeft = operandLeft;
-            this._OperandRight = operandRight;
+            _operandLeft = operandLeft;
+            _operandRight = operandRight;
         }
 
         /// <summary>
@@ -34,19 +34,19 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("builder");
             }
 
-            if (this.OperandLeft == null)
+            if (OperandLeft == null)
             {
                 throw new InvalidOperationException();
             }
 
-            if (this.OperandRight == null)
+            if (OperandRight == null)
             {
                 throw new InvalidOperationException();
             }
 
-            _OperandLeft.AppendScript(builder, options);
+            _operandLeft.AppendScript(builder, options);
             builder.Append("[");
-            _OperandRight.AppendScript(builder, options);
+            _operandRight.AppendScript(builder, options);
             builder.Append("]");
         }
 
@@ -57,11 +57,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _OperandLeft;
+                return _operandLeft;
             }
             set
             {
-                _OperandLeft = value;
+                _operandLeft = value;
             }
         }
 
@@ -72,11 +72,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _OperandRight;
+                return _operandRight;
             }
             set
             {
-                _OperandRight = value;
+                _operandRight = value;
             }
         }
 

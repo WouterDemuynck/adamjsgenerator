@@ -8,9 +8,9 @@ namespace Adam.JSGenerator
     /// </summary>
     public class IteratorStatement : Statement
     {
-        private Expression _Variable;
-        private Expression _Collection;
-        private Statement _Statement;
+        private Expression _variable;
+        private Expression _collection;
+        private Statement _statement;
 
         /// <summary>
         /// Initializes a new instance of <see cref="IteratorStatement" />.
@@ -28,9 +28,9 @@ namespace Adam.JSGenerator
         /// <param name="statement">The statement to run on each iteration.</param>
         public IteratorStatement(Expression variable, Expression collection, Statement statement)
         {
-            this.Variable = variable;
-            this.Collection = collection;
-            this.Statement = statement;
+            Variable = variable;
+            Collection = collection;
+            Statement = statement;
         }
 
         /// <summary>
@@ -45,28 +45,28 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("builder");
             }
 
-            if (this._Variable == null)
+            if (_variable == null)
             {
                 throw new InvalidOperationException();
             }
 
-            if (this._Collection == null)
+            if (_collection == null)
             {
                 throw new InvalidOperationException();
             }
 
-            if (this._Statement == null)
+            if (_statement == null)
             {
                 throw new InvalidOperationException();
             }
 
             builder.Append("for(");
-            this._Variable.AppendScript(builder, options);
+            _variable.AppendScript(builder, options);
             builder.Append(" in ");
-            this._Collection.AppendScript(builder, options);
+            _collection.AppendScript(builder, options);
             builder.Append(")");
-            this._Statement.AppendScript(builder, options);
-            this._Statement.AppendRequiredTerminator(builder);
+            _statement.AppendScript(builder, options);
+            _statement.AppendRequiredTerminator(builder);
         }
 
         /// <summary>
@@ -76,11 +76,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Variable;
+                return _variable;
             }
             set
             {
-                this._Variable = value;
+                _variable = value;
             }
         }
 
@@ -91,11 +91,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Collection;
+                return _collection;
             }
             set
             {
-                this._Collection = value;
+                _collection = value;
             }
         }
 
@@ -106,13 +106,12 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Statement;
+                return _statement;
             }
             set
             {
-                this._Statement = value;
+                _statement = value;
             }
         }
-
     }
 }

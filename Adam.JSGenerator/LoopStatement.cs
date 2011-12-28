@@ -8,10 +8,10 @@ namespace Adam.JSGenerator
     /// </summary>
     public class LoopStatement : Statement
     {
-        private Expression _Initialization;
-        private Expression _Condition;
-        private Expression _Iteration;
-        private Statement _Statement;
+        private Expression _initialization;
+        private Expression _condition;
+        private Expression _iteration;
+        private Statement _statement;
 
         /// <summary>
         /// Initializes a new instance of <see cref="LoopStatement" />.
@@ -33,10 +33,10 @@ namespace Adam.JSGenerator
         /// </remarks>
         public LoopStatement(Expression initialization, Expression condition, Expression iteration, Statement statement)
         {
-            this._Initialization = initialization;
-            this._Condition = condition;
-            this._Iteration = iteration;
-            this._Statement = statement;
+            _initialization = initialization;
+            _condition = condition;
+            _iteration = iteration;
+            _statement = statement;
         }
 
         /// <summary>
@@ -51,36 +51,36 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("builder");
             }
 
-            if (this._Statement == null)
+            if (_statement == null)
             {
                 throw new InvalidOperationException();
             }
 
             builder.Append("for(");
 
-            if (this._Initialization != null)
+            if (_initialization != null)
             {
-                this._Initialization.AppendScript(builder, options);
+                _initialization.AppendScript(builder, options);
             }
 
             builder.Append(";");
 
-            if (this._Condition != null)
+            if (_condition != null)
             {
-                this._Condition.AppendScript(builder, options);
+                _condition.AppendScript(builder, options);
             }
 
             builder.Append(";");
 
-            if (this._Iteration != null)
+            if (_iteration != null)
             {
-                this._Iteration.AppendScript(builder, options);
+                _iteration.AppendScript(builder, options);
             }
 
             builder.Append(")");
 
-            this._Statement.AppendScript(builder, options);
-            this._Statement.AppendRequiredTerminator(builder);
+            _statement.AppendScript(builder, options);
+            _statement.AppendRequiredTerminator(builder);
         }
 
         /// <summary>
@@ -90,11 +90,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _Initialization;
+                return _initialization;
             }
             set
             {
-                _Initialization = value;
+                _initialization = value;
             }
         }
 
@@ -105,11 +105,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _Condition;
+                return _condition;
             }
             set
             {
-                _Condition = value;
+                _condition = value;
             }
         }
 
@@ -120,11 +120,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _Iteration;
+                return _iteration;
             }
             set
             {
-                _Iteration = value;
+                _iteration = value;
             }
         }
 
@@ -135,11 +135,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _Statement;
+                return _statement;
             }
             set
             {
-                _Statement = value;
+                _statement = value;
             }
         }
 

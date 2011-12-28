@@ -11,9 +11,9 @@ namespace Adam.JSGenerator
     /// </remarks>
     public class ScriptOptions
     {
-        private char _PreferredQuoteChar = '"';
-        private bool _AlwaysQuoteObjectLiteralKeys;
-        private bool _WrapInScriptBlock;
+        private char _preferredQuoteChar = '"';
+        private bool _alwaysQuoteObjectLiteralKeys;
+        private bool _wrapInScriptBlock;
 
         /// <summary>
         /// Contains the preferred character to use when quoting strings. Allowed characters are single (') quote and double (") quote.
@@ -22,7 +22,7 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._PreferredQuoteChar;
+                return _preferredQuoteChar;
             }
             set
             {
@@ -32,7 +32,7 @@ namespace Adam.JSGenerator
                         "The preferred quote char can only be one of the allowed quote chars.",
                         "value");
                 }
-                this._PreferredQuoteChar = value;
+                _preferredQuoteChar = value;
             }
         }
 
@@ -44,22 +44,28 @@ namespace Adam.JSGenerator
         /// </remarks>
         public bool AlwaysQuoteObjectLiteralKeys
         {
-            get { return _AlwaysQuoteObjectLiteralKeys; }
-            set { _AlwaysQuoteObjectLiteralKeys = value; }
+            get
+            {
+            	return _alwaysQuoteObjectLiteralKeys;
+            }
+            set
+            {
+            	_alwaysQuoteObjectLiteralKeys = value;
+            }
         }
 
         /// <summary>
-        /// Gets or sets a value that, when true, causes the <see cref="Expression.ToString" /> method to wrap the expression in a script block.
+        /// Gets or sets a value that, when true, causes the <see cref="Expression.ToString()" /> method to wrap the expression in a script block.
         /// </summary>
         public bool WrapInScriptBlock
         {
             get
             {
-                return _WrapInScriptBlock;
+                return _wrapInScriptBlock;
             }
             set
             {
-                _WrapInScriptBlock = value;
+                _wrapInScriptBlock = value;
             }
         }
 

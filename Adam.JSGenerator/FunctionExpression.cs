@@ -9,9 +9,9 @@ namespace Adam.JSGenerator
     /// </summary>
     public class FunctionExpression : Expression
     {
-        private IdentifierExpression _Name;
-        private readonly List<IdentifierExpression> _Parameters = new List<IdentifierExpression>();
-        private CompoundStatement _Body;
+        private IdentifierExpression _name;
+        private readonly List<IdentifierExpression> _parameters = new List<IdentifierExpression>();
+        private CompoundStatement _body;
 
         /// <summary>
         /// Initializes a new instance of <see cref="FunctionExpression" />.
@@ -27,11 +27,11 @@ namespace Adam.JSGenerator
         /// <param name="parameters">The parameters that the function expects.</param>
         public FunctionExpression(IdentifierExpression name, params IdentifierExpression[] parameters)
         {
-            this._Name = name;
+            _name = name;
 
             if (parameters != null)
             {
-                this._Parameters.AddRange(parameters);
+                _parameters.AddRange(parameters);
             }
         }
 
@@ -43,12 +43,12 @@ namespace Adam.JSGenerator
         /// <param name="body">The body of the function.</param>
         public FunctionExpression(IdentifierExpression name, IEnumerable<IdentifierExpression> parameters, CompoundStatement body)
         {
-            this._Name = name;
-            this._Body = body;
+            _name = name;
+            _body = body;
 
             if (parameters != null)
             {
-                this._Parameters.AddRange(parameters);
+                _parameters.AddRange(parameters);
             }
         }
 
@@ -59,11 +59,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _Name;
+                return _name;
             }
             set
             {
-                _Name = value;
+                _name = value;
             }
         }
 
@@ -74,7 +74,7 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _Parameters;
+                return _parameters;
             }
         }
 
@@ -85,11 +85,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _Body;
+                return _body;
             }
             set
             {
-                _Body = value;
+                _body = value;
             }
         }
 
@@ -107,17 +107,17 @@ namespace Adam.JSGenerator
 
             builder.Append("function");
 
-            if (this._Name != null)
+            if (_name != null)
             {
                 builder.Append(" ");
-                this._Name.AppendScript(builder, options);
+                _name.AppendScript(builder, options);
             }
 
             builder.Append("(");
 
             bool isFirst = true;
 
-            foreach (IdentifierExpression item in this._Parameters)
+            foreach (IdentifierExpression item in _parameters)
             {
                 if (isFirst)
                 {
@@ -133,7 +133,7 @@ namespace Adam.JSGenerator
 
             builder.Append(")");
 
-            (this._Body ?? new CompoundStatement()).AppendScript(builder, options);
+            (_body ?? new CompoundStatement()).AppendScript(builder, options);
         }
 
         /// <summary>

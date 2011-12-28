@@ -83,7 +83,7 @@ namespace Adam.JSGenerator
         /// <returns>A string containing the JavaScript that it represents.</returns>
         public string ToString(bool includeTerminator)
         {
-            return this.ToString(includeTerminator, new ScriptOptions());
+            return ToString(includeTerminator, new ScriptOptions());
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace Adam.JSGenerator
         /// <filterpriority>2</filterpriority>
         public override string ToString()
         {
-            return this.ToString(true);
+            return ToString(true);
         }
 
         /// <summary>
@@ -113,8 +113,7 @@ namespace Adam.JSGenerator
                 return true;
             }
             
-            return obj.GetType().Equals(this.GetType()) && 
-                string.Equals(this.ToString(), obj.ToString());
+            return obj.GetType().Equals(GetType()) && string.Equals(ToString(), obj.ToString());
         }
 
         /// <summary>
@@ -122,7 +121,7 @@ namespace Adam.JSGenerator
         /// </summary>
         public override int GetHashCode()
         {
-            return this.ToString().GetHashCode();
+            return ToString().GetHashCode();
         }
     }
 }

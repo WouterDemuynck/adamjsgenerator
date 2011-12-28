@@ -8,14 +8,14 @@ namespace Adam.JSGenerator
     /// </summary>
     public class StringExpression : Expression
     {
-        private string _Value;
+        private string _value;
 
         /// <summary>
         /// Initializes a new instance of <see cref="StringExpression" /> with an empty value.
         /// </summary>
         public StringExpression()
         {
-            this._Value = string.Empty;
+            _value = string.Empty;
         }
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Adam.JSGenerator
         /// <param name="value">The string value that this instance must represent.</param>
         public StringExpression(string value)
         {
-            this._Value = value;
+            _value = value;
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("options");
             }
             
-            builder.Append(JS.QuoteString(this._Value, options.PreferredQuoteChar));
+            builder.Append(JS.QuoteString(_value, options.PreferredQuoteChar));
         }
 
         /// <summary>
@@ -54,11 +54,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Value;
+                return _value;
             }
             set
             {
-                this._Value = value;
+                _value = value;
             }
         }
     }

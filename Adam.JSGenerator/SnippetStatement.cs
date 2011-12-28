@@ -8,7 +8,7 @@ namespace Adam.JSGenerator
 	/// </summary>
 	public class SnippetStatement : Statement
 	{
-		private string _Value;
+		private string _value;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="SnippetStatement"/> class.
@@ -16,7 +16,7 @@ namespace Adam.JSGenerator
 		/// <param name="value">The string value that this instance must represent.</param>
 		public SnippetStatement(string value)
 		{
-			this._Value = value;
+			_value = value;
 		}
 
 		/// <summary>
@@ -31,7 +31,7 @@ namespace Adam.JSGenerator
 				throw new ArgumentNullException("builder");
 			}
 
-			builder.Append(this._Value);
+			builder.Append(_value);
 		}
 
 		/// <summary>
@@ -41,11 +41,11 @@ namespace Adam.JSGenerator
 		{
 			get
 			{
-				return this._Value;
+				return _value;
 			}
 			set
 			{
-				this._Value = value;
+				_value = value;
 			}
 		}
 	}

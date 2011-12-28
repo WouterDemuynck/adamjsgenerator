@@ -10,7 +10,7 @@ namespace Adam.JSGenerator
     /// </summary>
     public class ArrayExpression : Expression
     {
-        private readonly List<Expression> _Elements = new List<Expression>();
+        private readonly List<Expression> _elements = new List<Expression>();
 
         /// <summary>
         /// Initializes a new empty instance of the <see cref="ArrayExpression" /> class.
@@ -36,7 +36,7 @@ namespace Adam.JSGenerator
         {
             if (elements != null)
             {
-                this._Elements.AddRange(elements);
+                _elements.AddRange(elements);
             }
         }
 
@@ -56,7 +56,7 @@ namespace Adam.JSGenerator
 
             bool isFirst = true;
 
-            foreach (Expression element in this._Elements.WithConvertedNulls())
+            foreach (Expression element in _elements.WithConvertedNulls())
             {
                 if (isFirst)
                 {
@@ -80,7 +80,7 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _Elements;
+                return _elements;
             }
         }
     }

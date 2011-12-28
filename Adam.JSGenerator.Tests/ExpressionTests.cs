@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Adam.JSGenerator.Tests.Helpers;
@@ -12,7 +12,7 @@ namespace Adam.JSGenerator.Tests
         [TestMethod]
         public void ExpressionProducesLiterals()
         {
-            var l = new List<Expression> { 1, 2, 3.14, "Test", true, null };
+            var l = (IEnumerable<Expression>)new List<Expression> { 1, 2, 3.14, "Test", true, null };
             var s = new Script(l);
 
             Assert.AreEqual("1;2;3.14;\"Test\";true;;", s.ToString());

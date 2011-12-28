@@ -10,8 +10,8 @@ namespace Adam.JSGenerator
     /// </summary>
     public class CallOperationExpression : Expression
     {
-        private Expression _Operand;
-        private readonly List<Expression> _Arguments = new List<Expression>();
+        private Expression _operand;
+        private readonly List<Expression> _arguments = new List<Expression>();
 
         /// <summary>
         /// Creates a new instance of the CallOperationExpression class, 
@@ -21,11 +21,11 @@ namespace Adam.JSGenerator
         /// <param name="arguments">The arguments to pass in the call.</param>
         public CallOperationExpression(Expression operand, IEnumerable<Expression> arguments)
         {            
-            this._Operand = operand;
+            _operand = operand;
 
             if (arguments != null)
             {
-                this._Arguments.AddRange(arguments);
+                _arguments.AddRange(arguments);
             }
         }
 
@@ -53,11 +53,11 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("builder");
             }
 
-            Expression operand = this._Operand;            
+            Expression operand = _operand;            
 
-            if (operand.PrecedenceLevel.RequiresGrouping(this.PrecedenceLevel, Association.LeftToRight))
+            if (operand.PrecedenceLevel.RequiresGrouping(PrecedenceLevel, Association.LeftToRight))
             {
-                operand = JS.Group(this._Operand);
+                operand = JS.Group(_operand);
             }
 
             operand.AppendScript(builder, options);
@@ -66,7 +66,7 @@ namespace Adam.JSGenerator
 
             bool isFirst = true;
 
-            foreach (Expression param in this._Arguments.WithConvertedNulls())
+            foreach (Expression param in _arguments.WithConvertedNulls())
             {
                 if (isFirst)
                 {
@@ -90,11 +90,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _Operand;
+                return _operand;
             }
             set
             {
-                _Operand = value;
+                _operand = value;
             }
         }
 
@@ -105,7 +105,7 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Arguments;
+                return _arguments;
             }
         }
 

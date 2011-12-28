@@ -8,8 +8,8 @@ namespace Adam.JSGenerator
     /// </summary>
     public class WithStatement : Statement
     {
-        private Expression _Expression;
-        private Statement _Statement;
+        private Expression _expression;
+        private Statement _statement;
 
         /// <summary>
         /// Initializes a new instance of <see cref="WithStatement" />.
@@ -25,8 +25,8 @@ namespace Adam.JSGenerator
         /// <param name="statement">The statement to run in the scope.</param>
         public WithStatement(Expression expression, Statement statement)
         {
-            this._Expression = expression;
-            this._Statement = statement;
+            _expression = expression;
+            _statement = statement;
         }
 
         /// <summary>
@@ -41,21 +41,21 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("builder");
             }
 
-            if (this._Expression == null)
+            if (_expression == null)
             {
                 throw new InvalidOperationException();
             }
 
-            if (this._Statement == null)
+            if (_statement == null)
             {
                 throw new InvalidOperationException();
             }
 
             builder.Append("with(");
-            this._Expression.AppendScript(builder, options);
+            _expression.AppendScript(builder, options);
             builder.Append(")");
-            this._Statement.AppendScript(builder, options);
-            this._Statement.AppendRequiredTerminator(builder);
+            _statement.AppendScript(builder, options);
+            _statement.AppendRequiredTerminator(builder);
         }
 
         /// <summary>
@@ -65,11 +65,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Expression;
+                return _expression;
             }
             set
             {
-                this._Expression = value;
+                _expression = value;
             }
         }
 
@@ -80,11 +80,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Statement;
+                return _statement;
             }
             set
             {
-                this._Statement = value;
+                _statement = value;
             }
         }
     }

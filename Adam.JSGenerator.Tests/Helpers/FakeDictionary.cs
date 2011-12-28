@@ -5,11 +5,11 @@ namespace Adam.JSGenerator.Tests.Helpers
 {
     public class FakeDictionary<TK, TV> : IDictionary<TK, TV>
     {
-        private readonly IDictionary<TK, TV> _Internal = new Dictionary<TK, TV>();
+        private readonly IDictionary<TK, TV> _internal = new Dictionary<TK, TV>();
 
         public IEnumerator<KeyValuePair<TK, TV>> GetEnumerator()
         {
-            return _Internal.GetEnumerator();
+            return _internal.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -19,34 +19,34 @@ namespace Adam.JSGenerator.Tests.Helpers
 
         public void Add(KeyValuePair<TK, TV> item)
         {
-            _Internal.Add(item);
+            _internal.Add(item);
         }
 
         public void Clear()
         {
-            _Internal.Clear();
+            _internal.Clear();
         }
 
         public bool Contains(KeyValuePair<TK, TV> item)
         {
-            return _Internal.Contains(item);
+            return _internal.Contains(item);
         }
 
         public void CopyTo(KeyValuePair<TK, TV>[] array, int arrayIndex)
         {
-            _Internal.CopyTo(array, arrayIndex);
+            _internal.CopyTo(array, arrayIndex);
         }
 
         public bool Remove(KeyValuePair<TK, TV> item)
         {
-            return _Internal.Remove(item);
+            return _internal.Remove(item);
         }
 
         public int Count
         {
             get
             {
-                return _Internal.Count;
+                return _internal.Count;
             }
         }
 
@@ -54,39 +54,39 @@ namespace Adam.JSGenerator.Tests.Helpers
         {
             get
             {
-                return _Internal.IsReadOnly;
+                return _internal.IsReadOnly;
             }
         }
 
         public bool ContainsKey(TK key)
         {
-            return _Internal.ContainsKey(key);
+            return _internal.ContainsKey(key);
         }
 
         public void Add(TK key, TV value)
         {
-            _Internal.Add(key, value);
+            _internal.Add(key, value);
         }
 
         public bool Remove(TK key)
         {
-            return _Internal.Remove(key);
+            return _internal.Remove(key);
         }
 
         public bool TryGetValue(TK key, out TV value)
         {
-            return _Internal.TryGetValue(key, out value);
+            return _internal.TryGetValue(key, out value);
         }
 
         public TV this[TK key]
         {
             get
             {
-                return _Internal[key];
+                return _internal[key];
             }
             set
             {
-                _Internal[key] = value;
+                _internal[key] = value;
             }
         }
 
@@ -94,7 +94,7 @@ namespace Adam.JSGenerator.Tests.Helpers
         {
             get
             {
-                return _Internal.Keys;
+                return _internal.Keys;
             }
         }
 
@@ -102,7 +102,7 @@ namespace Adam.JSGenerator.Tests.Helpers
         {
             get
             {
-                return _Internal.Values;
+                return _internal.Values;
             }
         }
     }

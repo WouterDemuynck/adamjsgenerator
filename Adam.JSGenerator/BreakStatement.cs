@@ -8,7 +8,7 @@ namespace Adam.JSGenerator
     /// </summary>
     public class BreakStatement : Statement
     {
-        private IdentifierExpression _Label;
+        private IdentifierExpression _label;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BreakStatement" /> class.
@@ -24,7 +24,7 @@ namespace Adam.JSGenerator
         /// <param name="label">A label that the break statement must refer to.</param>
         public BreakStatement(IdentifierExpression label)
         {
-            this.Label = label;
+            Label = label;
         }
 
         /// <summary>
@@ -37,11 +37,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Label;
+                return _label;
             }
             set
             {
-                this._Label = value;
+                _label = value;
             }
         }
 
@@ -59,10 +59,10 @@ namespace Adam.JSGenerator
 
             builder.Append("break");
 
-            if (this._Label != null)
+            if (_label != null)
             {
                 builder.Append(" ");
-                this._Label.AppendScript(builder, options);
+                _label.AppendScript(builder, options);
             }
         }
 

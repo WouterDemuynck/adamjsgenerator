@@ -9,7 +9,7 @@ namespace Adam.JSGenerator
     /// </summary>
     public class NumberExpression : Expression
     {
-        private double _Value;
+        private double _value;
 
         /// <summary>
         /// Initializes a new instance of <see cref="NumberExpression" /> for the specified Value.
@@ -17,7 +17,7 @@ namespace Adam.JSGenerator
         /// <param name="value">The Value of the literal.</param>
         public NumberExpression(double value)
         {
-            this._Value = value;
+            _value = value;
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("builder");
             }
 
-            builder.Append(this._Value.ToString(CultureInfo.InvariantCulture));
+            builder.Append(_value.ToString(CultureInfo.InvariantCulture));
         }
 
         /// <summary>
@@ -42,11 +42,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Value;
+                return _value;
             }
             set
             {
-                this._Value = value;
+                _value = value;
             }
         }
     }

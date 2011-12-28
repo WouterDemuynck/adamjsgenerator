@@ -8,8 +8,8 @@ namespace Adam.JSGenerator.Demonstration
 {
     public partial class MainForm : Form
     {
-        private readonly List<Demonstration> _Demonstrations = new List<Demonstration>();
-        private Demonstration _CurrentDemonstation;
+        private readonly List<Demonstration> _demonstrations = new List<Demonstration>();
+        private Demonstration _currentDemonstation;
 
         public MainForm()
         {
@@ -30,9 +30,9 @@ namespace Adam.JSGenerator.Demonstration
                                  where baseType.IsAssignableFrom(type) && !type.Equals(baseType)
                                  select (Demonstration)Activator.CreateInstance(type);
 
-            this._Demonstrations.AddRange(demonstrations);
+            _demonstrations.AddRange(demonstrations);
 
-            foreach (var demonstration in this._Demonstrations.OrderBy(demo => demo.Order))
+            foreach (var demonstration in _demonstrations.OrderBy(demo => demo.Order))
             {
                 string description = demonstration.Description;
 
@@ -49,22 +49,22 @@ namespace Adam.JSGenerator.Demonstration
         {
             Demonstration demonstration = (Demonstration)e.Item.Tag;
 
-            this._CurrentDemonstation = null;
-            this.browser.DocumentText = string.Empty;
-            this.outputBox.Text = string.Empty;
+            _currentDemonstation = null;
+            browser.DocumentText = string.Empty;
+            outputBox.Text = string.Empty;
 
             if (e.IsSelected)
             {
-                this._CurrentDemonstation = demonstration;
+                _currentDemonstation = demonstration;
                 browser.DocumentText = demonstration.Explanation;
             }
         }
 
         private void RunButtonClick(object sender, EventArgs e)
         {
-            if (this._CurrentDemonstation != null)
+            if (_currentDemonstation != null)
             {
-                outputBox.Text = this._CurrentDemonstation.Run().ToString();
+                outputBox.Text = _currentDemonstation.Run().ToString();
             }
         }
 

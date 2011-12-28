@@ -49,9 +49,9 @@ namespace Adam.JSGenerator
             { BinaryOperator.MultipleEvaluation, new Precedence { Level = 1, Association = Association.LeftToRight } }
         };
 
-        private Expression _OperandLeft;
-        private Expression _OperandRight;
-        private BinaryOperator _Operator;
+        private Expression _operandLeft;
+        private Expression _operandRight;
+        private BinaryOperator _operator;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BinaryOperationExpression" />.
@@ -68,9 +68,9 @@ namespace Adam.JSGenerator
         /// <param name="op">The binary operator</param>
         public BinaryOperationExpression(Expression operandLeft, Expression operandRight, BinaryOperator op)
         {
-            this._OperandLeft = operandLeft;
-            this._OperandRight = operandRight;
-            this._Operator = op;
+            _operandLeft = operandLeft;
+            _operandRight = operandRight;
+            _operator = op;
         }
 
         /// <summary>
@@ -86,22 +86,22 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("builder");
             }
 
-            Expression operandLeft = this._OperandLeft ?? new NullExpression();
-            Expression operandRight = this._OperandRight ?? new NullExpression();
+            Expression operandLeft = _operandLeft ?? new NullExpression();
+            Expression operandRight = _operandRight ?? new NullExpression();
 
-            if (operandLeft.PrecedenceLevel.RequiresGrouping(this.PrecedenceLevel, Association.LeftToRight))
+            if (operandLeft.PrecedenceLevel.RequiresGrouping(PrecedenceLevel, Association.LeftToRight))
             {
                 operandLeft = JS.Group(operandLeft);
             }
 
-            if (operandRight.PrecedenceLevel.RequiresGrouping(this.PrecedenceLevel, Association.RightToLeft))
+            if (operandRight.PrecedenceLevel.RequiresGrouping(PrecedenceLevel, Association.RightToLeft))
             {
                 operandRight = JS.Group(operandRight);
             }
 
             operandLeft.AppendScript(builder, options);
 
-            switch (_Operator)
+            switch (_operator)
             {
                 case BinaryOperator.Assign:
                     builder.Append("=");
@@ -219,11 +219,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _OperandLeft;
+                return _operandLeft;
             }
             set
             {
-                _OperandLeft = value;
+                _operandLeft = value;
             }
         }
 
@@ -234,11 +234,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _OperandRight;
+                return _operandRight;
             }
             set
             {
-                _OperandRight = value;
+                _operandRight = value;
             }
         }
 
@@ -249,11 +249,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _Operator;
+                return _operator;
             }
             set
             {
-                _Operator = value;
+                _operator = value;
             }
         }
 
@@ -265,7 +265,7 @@ namespace Adam.JSGenerator
             get
             {
                 Precedence precedence;
-                return PrecedenceLevels.TryGetValue(this._Operator, out precedence) ? precedence : Precedence.Quarantine;
+                return PrecedenceLevels.TryGetValue(_operator, out precedence) ? precedence : Precedence.Quarantine;
             }
         }
     }
