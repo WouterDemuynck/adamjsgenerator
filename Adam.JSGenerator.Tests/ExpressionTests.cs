@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Adam.JSGenerator.Tests.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

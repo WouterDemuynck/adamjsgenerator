@@ -11,7 +11,7 @@ using System.Security;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ADAM Software NV")]
 [assembly: AssemblyProduct("Adam.JSGenerator")]
-[assembly: AssemblyCopyright("Copyright © ADAM Software NV 2010")]
+[assembly: AssemblyCopyright("Copyright © ADAM Software NV 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -34,8 +34,8 @@ using System.Security;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.2.*")]
-[assembly: AssemblyFileVersion("1.2.*")]
+[assembly: AssemblyVersion("1.3.*")]
+[assembly: AssemblyFileVersion("1.3.*")]
 
 // We don't do anything specially complicated or dangerous, so this should be fine.
 [assembly: AllowPartiallyTrustedCallers]
