@@ -8,8 +8,8 @@ namespace Adam.JSGenerator
     /// </summary>
     public class UnaryOperationExpression : Expression
     {
-        private Expression _Operand;
-        private UnaryOperator _Operator;
+        private Expression _operand;
+        private UnaryOperator _operator;
 
         /// <summary>
         /// Creates a new instance of the UnaryOperation class.
@@ -18,8 +18,8 @@ namespace Adam.JSGenerator
         /// <param name="op">The operator.</param>
         public UnaryOperationExpression(Expression operand, UnaryOperator op)
         {
-            this._Operand = operand;
-            this._Operator = op;
+            _operand = operand;
+            _operator = op;
         }
 
         /// <summary>
@@ -29,11 +29,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _Operand;
+                return _operand;
             }
             set
             {
-                _Operand = value;
+                _operand = value;
             }
         }
 
@@ -44,11 +44,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _Operator;
+                return _operator;
             }
             set
             {
-                _Operator = value;
+                _operator = value;
             }
         }
 
@@ -67,7 +67,7 @@ namespace Adam.JSGenerator
             bool noLeftSide = false;
             bool noRightSide = false;
 
-            switch (this._Operator)
+            switch (_operator)
             {
                 case UnaryOperator.Number:
                     builder.Append("+");
@@ -115,10 +115,10 @@ namespace Adam.JSGenerator
                     
             }
 
-            Expression operand = this._Operand ?? new NullExpression();
+            Expression operand = _operand ?? new NullExpression();
             operand.AppendScript(builder, options);
 
-            switch (_Operator)
+            switch (_operator)
             {
                 case UnaryOperator.PostIncrement:
                     builder.Append("++");
@@ -152,7 +152,7 @@ namespace Adam.JSGenerator
             {
                 int level = 14;
 
-                switch (this._Operator)
+                switch (_operator)
                 {
                     case UnaryOperator.Group:
                         level = 16;

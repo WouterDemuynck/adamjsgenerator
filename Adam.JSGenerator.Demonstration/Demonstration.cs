@@ -8,7 +8,7 @@ namespace Adam.JSGenerator.Demonstration
         {
             get
             {
-                string name = this.GetType().Name;
+                string name = GetType().Name;
                 string explanation = Explanations.ResourceManager.GetString(name);
 
                 return !string.IsNullOrEmpty(explanation) ? explanation : string.Empty;
@@ -19,7 +19,7 @@ namespace Adam.JSGenerator.Demonstration
         { 
             get
             {
-                DescriptionAttribute attribute = (DescriptionAttribute)this.GetType().GetCustomAttributes(typeof (DescriptionAttribute), false).FirstOrDefault();
+                DescriptionAttribute attribute = (DescriptionAttribute)GetType().GetCustomAttributes(typeof (DescriptionAttribute), false).FirstOrDefault();
                 return attribute != null ? attribute.Text : string.Empty;
             }
         }
@@ -28,7 +28,7 @@ namespace Adam.JSGenerator.Demonstration
         {
             get
             {
-                GroupAttribute attribute = (GroupAttribute) this.GetType().GetCustomAttributes(typeof (GroupAttribute), false).FirstOrDefault();
+                GroupAttribute attribute = (GroupAttribute) GetType().GetCustomAttributes(typeof (GroupAttribute), false).FirstOrDefault();
                 return attribute != null ? attribute.Group : Group.Basics;
             }
         }
@@ -37,7 +37,7 @@ namespace Adam.JSGenerator.Demonstration
         {
             get
             {
-                GroupAttribute attribute = (GroupAttribute)this.GetType().GetCustomAttributes(typeof(GroupAttribute), false).FirstOrDefault();
+                GroupAttribute attribute = (GroupAttribute)GetType().GetCustomAttributes(typeof(GroupAttribute), false).FirstOrDefault();
                 return attribute != null ? attribute.Order : 0;                
             }
         }

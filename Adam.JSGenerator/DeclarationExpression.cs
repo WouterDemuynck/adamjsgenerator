@@ -10,7 +10,7 @@ namespace Adam.JSGenerator
     /// </summary>
     public class DeclarationExpression : Expression
     {
-        private readonly List<Expression> _Expressions = new List<Expression>();
+        private readonly List<Expression> _expressions = new List<Expression>();
 
         /// <summary>
         /// Initializes a new instance of <see cref="DeclarationExpression" />.
@@ -27,7 +27,7 @@ namespace Adam.JSGenerator
         {
             if (expressions != null)
             {
-                this._Expressions.AddRange(expressions);
+                _expressions.AddRange(expressions);
             }
         }
 
@@ -39,7 +39,7 @@ namespace Adam.JSGenerator
         {
             if (expressions != null)
             {
-                this._Expressions.AddRange(expressions);
+                _expressions.AddRange(expressions);
             }
         }
 
@@ -50,7 +50,7 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Expressions;
+                return _expressions;
             }
         }
 
@@ -66,7 +66,7 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("builder");
             }
 
-            if (!this._Expressions.Any())
+            if (!_expressions.Any())
             {
                 throw new InvalidOperationException("Expressions cannot be empty.");
             }
@@ -75,7 +75,7 @@ namespace Adam.JSGenerator
 
             bool first = true;
 
-            foreach (Expression expression in this._Expressions)
+            foreach (Expression expression in _expressions)
             {
                 if (!first)
                 {

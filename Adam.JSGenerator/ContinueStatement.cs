@@ -8,7 +8,7 @@ namespace Adam.JSGenerator
     /// </summary>
     public class ContinueStatement : Statement
     {
-        private IdentifierExpression _Label;
+        private IdentifierExpression _label;
 
         /// <summary>
         /// Initializes a new instanec of <see cref="ContinueStatement" />.
@@ -24,7 +24,7 @@ namespace Adam.JSGenerator
         /// <param name="label">The name of the label to jump to.</param>
         public ContinueStatement(IdentifierExpression label)
         {
-            this.Label = label;
+            Label = label;
         }
 
         /// <summary>
@@ -37,11 +37,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Label;
+                return _label;
             }
             set
             {
-                this._Label = value;
+                _label = value;
             }
         }
 
@@ -59,10 +59,10 @@ namespace Adam.JSGenerator
 
             builder.Append("continue");
 
-            if (this._Label != null)
+            if (_label != null)
             {
                 builder.Append(" ");
-                this._Label.AppendScript(builder, options);
+                _label.AppendScript(builder, options);
             }
         }
 

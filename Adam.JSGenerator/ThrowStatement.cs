@@ -8,7 +8,7 @@ namespace Adam.JSGenerator
     /// </summary>
     public class ThrowStatement : Statement
     {
-        private Expression _Expression;
+        private Expression _expression;
 
         /// <summary>
         /// Initializes a new instance of <see cref="ThrowStatement" />.
@@ -16,7 +16,7 @@ namespace Adam.JSGenerator
         /// <param name="expression">The expression whose value is thrown.</param>
         public ThrowStatement(Expression expression)
         {
-            this.Expression = expression;
+            Expression = expression;
         }
 
         /// <summary>
@@ -31,13 +31,13 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("builder");
             }
 
-            if (this._Expression == null)
+            if (_expression == null)
             {
                 throw new InvalidOperationException();
             }
 
             builder.Append("throw ");
-            this._Expression.AppendScript(builder, options);
+            _expression.AppendScript(builder, options);
         }
 
         /// <summary>
@@ -47,11 +47,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Expression;
+                return _expression;
             }
             set
             {
-                this._Expression = value;
+                _expression = value;
             }
         }
 

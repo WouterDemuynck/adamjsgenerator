@@ -8,8 +8,8 @@ namespace Adam.JSGenerator
     /// </summary>
     public class PropertyOperationExpression : Expression
     {
-        private Expression _OperandLeft;
-        private IdentifierExpression _OperandRight;
+        private Expression _operandLeft;
+        private IdentifierExpression _operandRight;
 
         /// <summary>
         /// Initializes a new instance of <see cref="PropertyOperationExpression" /> for the specified left and right operands.
@@ -18,8 +18,8 @@ namespace Adam.JSGenerator
         /// <param name="operandRight">The right operand of the operation.</param>
         public PropertyOperationExpression(Expression operandLeft, IdentifierExpression operandRight)
         {
-            this._OperandLeft = operandLeft;
-            this._OperandRight = operandRight;
+            _operandLeft = operandLeft;
+            _operandRight = operandRight;
         }
 
         /// <summary>
@@ -34,20 +34,20 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("builder");
             }
 
-            if (this._OperandLeft == null)
+            if (_operandLeft == null)
             {
                 throw new InvalidOperationException();
             }
 
-            if (this._OperandRight == null)
+            if (_operandRight == null)
             {
                 throw new InvalidOperationException();
             }
 
-            Expression operandLeft = this._OperandLeft;
-            Expression operandRight = this._OperandRight;
+            Expression operandLeft = _operandLeft;
+            Expression operandRight = _operandRight;
 
-            if (operandLeft.PrecedenceLevel.RequiresGrouping(this.PrecedenceLevel, Association.LeftToRight))
+            if (operandLeft.PrecedenceLevel.RequiresGrouping(PrecedenceLevel, Association.LeftToRight))
             {
                 operandLeft = JS.Group(operandLeft);
             }
@@ -66,11 +66,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _OperandLeft;
+                return _operandLeft;
             }
             set
             {
-                _OperandLeft = value;
+                _operandLeft = value;
             }
         }
 
@@ -81,11 +81,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _OperandRight;
+                return _operandRight;
             }
             set
             {
-                _OperandRight = value;
+                _operandRight = value;
             }
         }
 

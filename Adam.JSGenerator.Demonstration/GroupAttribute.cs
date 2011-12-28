@@ -9,8 +9,8 @@ namespace Adam.JSGenerator.Demonstration
 
         public GroupAttribute(Group value, int order)
         {
-            this.Group = value;
-            this.Order = order;
+            Group = value;
+            Order = order;
         }
     }
 }

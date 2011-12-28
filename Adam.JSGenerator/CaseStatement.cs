@@ -10,8 +10,8 @@ namespace Adam.JSGenerator
     /// </summary>
     public class CaseStatement
     {
-        private Expression _Value;
-        private readonly List<Statement> _Statements = new List<Statement>();
+        private Expression _value;
+        private readonly List<Statement> _statements = new List<Statement>();
 
         /// <summary>
         /// Initializes a new instance of <see cref="CaseStatement" />.
@@ -24,7 +24,7 @@ namespace Adam.JSGenerator
         {
             if (statements != null)
             {
-                this._Statements.AddRange(statements);
+                _statements.AddRange(statements);
             }
         }
 
@@ -39,7 +39,7 @@ namespace Adam.JSGenerator
         {
             if (statements != null)
             {
-                this._Statements.AddRange(statements);
+                _statements.AddRange(statements);
             }
         }
         /// <summary>
@@ -59,11 +59,11 @@ namespace Adam.JSGenerator
         /// <param name="statements">A sequence of statements that run in this case.</param>
         public CaseStatement(Expression value, IEnumerable<Statement> statements)
         {
-            this._Value = value;
+            _value = value;
 
             if (statements != null)
             {
-                this._Statements.AddRange(statements);
+                _statements.AddRange(statements);
             }
         }
 
@@ -79,10 +79,10 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("builder");
             }
 
-            if (this._Value != null)
+            if (_value != null)
             {
                 builder.Append("case ");
-                this._Value.AppendScript(builder, options);
+                _value.AppendScript(builder, options);
                 builder.Append(":");
             }
             else
@@ -90,9 +90,9 @@ namespace Adam.JSGenerator
                 builder.Append("default:");
             }
 
-            if (this._Statements != null)
+            if (_statements != null)
             {
-                foreach (Statement statement in this._Statements.WithConvertedNulls())
+                foreach (Statement statement in _statements.WithConvertedNulls())
                 {
                     statement.AppendScript(builder, options);
                     statement.AppendRequiredTerminator(builder);
@@ -109,11 +109,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _Value;
+                return _value;
             }
             set
             {
-                _Value = value;
+                _value = value;
             }
         }
 
@@ -124,7 +124,7 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _Statements;
+                return _statements;
             }
         }
 

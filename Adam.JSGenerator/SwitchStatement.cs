@@ -9,8 +9,8 @@ namespace Adam.JSGenerator
     /// </summary>
     public class SwitchStatement : Statement
     {
-        private Expression _Expression;
-        private readonly List<CaseStatement> _Cases = new List<CaseStatement>();
+        private Expression _expression;
+        private readonly List<CaseStatement> _cases = new List<CaseStatement>();
 
         /// <summary>
         /// Initializes a new instance of <see cref="SwitchStatement" /> for the specified expression.
@@ -18,7 +18,7 @@ namespace Adam.JSGenerator
         /// <param name="expression">The expression on which to switch.</param>
         public SwitchStatement(Expression expression)
         {
-            this._Expression = expression;
+            _expression = expression;
         }
 
         /// <summary>
@@ -28,8 +28,8 @@ namespace Adam.JSGenerator
         /// <param name="cases">A sequence of cases.</param>
         public SwitchStatement(Expression expression, IEnumerable<CaseStatement> cases)
         {
-            this._Expression = expression;
-            this._Cases.AddRange(cases);
+            _expression = expression;
+            _cases.AddRange(cases);
         }
 
         /// <summary>
@@ -44,18 +44,18 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("builder");
             }
 
-            if (this._Expression == null)
+            if (_expression == null)
             {
                 throw new InvalidOperationException();
             }
 
             builder.Append("switch(");
-            this._Expression.AppendScript(builder, options);
+            _expression.AppendScript(builder, options);
             builder.Append("){");
 
             bool defaultPassed = false;
 
-            foreach (CaseStatement @case in _Cases)
+            foreach (CaseStatement @case in _cases)
             {
                 if (@case == null)
                 {
@@ -87,11 +87,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _Expression;
+                return _expression;
             }
             set
             {
-                _Expression = value;
+                _expression = value;
             }
         }
 
@@ -102,7 +102,7 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _Cases;
+                return _cases;
             }
         }
 

@@ -9,7 +9,7 @@ namespace Adam.JSGenerator
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
     public class Script : IEnumerable<Statement> // Really, just for initializers.
     {
-        private readonly List<Statement> _Statements = new List<Statement>();
+        private readonly List<Statement> _statements = new List<Statement>();
 
         /// <summary>
         /// Initializes a new instance of <see cref="Script" />.
@@ -24,7 +24,7 @@ namespace Adam.JSGenerator
         /// <param name="statements">A sequence of statements.</param>
         public Script(IEnumerable<Statement> statements)
         {
-            this.Add(statements);
+            Add(statements);
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace Adam.JSGenerator
         /// <param name="statements">An array of statements.</param>
         public Script(params Statement[] statements)
         {
-            this.Add(statements);
+            Add(statements);
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _Statements;
+                return _statements;
             }
         }
 
@@ -53,7 +53,7 @@ namespace Adam.JSGenerator
         /// <param name="statement">The statement to add.</param>
         public void Add(Statement statement)
         {
-            this._Statements.Add(statement);
+            _statements.Add(statement);
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Adam.JSGenerator
         {
             if (statements != null)
             {
-                this._Statements.AddRange(statements);                
+                _statements.AddRange(statements);                
             }
         }
 
@@ -76,7 +76,7 @@ namespace Adam.JSGenerator
         {
             if (statements != null)
             {
-                this._Statements.AddRange(statements);
+                _statements.AddRange(statements);
             }
         }
 
@@ -104,7 +104,7 @@ namespace Adam.JSGenerator
         {
             StringBuilder builder = new StringBuilder();
 
-            foreach (Statement statement in this._Statements.WithConvertedNulls())
+            foreach (Statement statement in _statements.WithConvertedNulls())
             {
                 statement.AppendScript(builder, options);
                 statement.AppendRequiredTerminator(builder);
@@ -122,7 +122,7 @@ namespace Adam.JSGenerator
         /// </remarks>
         public override string ToString()
         {
-            return this.ToString(new ScriptOptions());
+            return ToString(new ScriptOptions());
         }
 
         #region IEnumerable<Statement> Members

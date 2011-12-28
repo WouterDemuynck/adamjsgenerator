@@ -8,7 +8,7 @@ namespace Adam.JSGenerator
     /// </summary>
     public class RegularExpression : Expression
     {
-        private string _Value;
+        private string _value;
 
         /// <summary>
         /// Initializes a new instance of <see cref="RegularExpression" /> for the specified Value.
@@ -16,7 +16,7 @@ namespace Adam.JSGenerator
         /// <param name="value">The regular expression that this instance must represent.</param>
         public RegularExpression(string value)
         {
-            this._Value = value;
+            _value = value;
         }
 
         /// <summary>
@@ -31,12 +31,12 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("builder");
             }
 
-            if (this._Value == null)
+            if (_value == null)
             {
                 throw new InvalidOperationException();
             }
 
-            builder.Append(this._Value);
+            builder.Append(_value);
         }
 
         /// <summary>
@@ -46,11 +46,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Value;
+                return _value;
             }
             set
             {
-                this._Value = value;
+                _value = value;
             }
         }
     }

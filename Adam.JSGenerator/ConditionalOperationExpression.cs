@@ -8,9 +8,9 @@ namespace Adam.JSGenerator
     /// </summary>
     public class ConditionalOperationExpression : Expression
     {
-        private Expression _Condition;
-        private Expression _Then;
-        private Expression _Else;
+        private Expression _condition;
+        private Expression _then;
+        private Expression _else;
 
         /// <summary>
         /// Initializes a new instance of <see cref="ConditionalOperationExpression" />.
@@ -24,9 +24,9 @@ namespace Adam.JSGenerator
         /// </summary>
         public ConditionalOperationExpression(Expression condition, Expression then, Expression @else)
         {
-            this._Condition = condition;
-            this._Then = then;
-            this._Else = @else;
+            _condition = condition;
+            _then = then;
+            _else = @else;
         }
 
         /// <summary>
@@ -34,8 +34,8 @@ namespace Adam.JSGenerator
         /// </summary>
         public Expression Condition
         {
-            get { return _Condition; }
-            set { _Condition = value; }
+            get { return _condition; }
+            set { _condition = value; }
         }
 
         /// <summary>
@@ -43,8 +43,8 @@ namespace Adam.JSGenerator
         /// </summary>
         public Expression Then
         {
-            get { return _Then; }
-            set { _Then = value; }
+            get { return _then; }
+            set { _then = value; }
         }
 
         /// <summary>
@@ -52,8 +52,8 @@ namespace Adam.JSGenerator
         /// </summary>
         public Expression Else
         {
-            get { return _Else; }
-            set { _Else = value; }
+            get { return _else; }
+            set { _else = value; }
         }
 
         /// <summary>
@@ -68,27 +68,27 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("builder");
             }
 
-            if (this.Condition == null)
+            if (Condition == null)
             {
                 throw new InvalidOperationException("The Condition property cannot be null.");
             }
 
-            if (this.Then == null)
+            if (Then == null)
             {
                 throw new InvalidOperationException("The Then property cannot be null.");
             }
 
-            if (this.Else == null)
+            if (Else == null)
             {
                 throw new InvalidOperationException("The Else property cannot be null.");
             }
 
             // TODO: Check if we need to support Precedence.
-            this.Condition.AppendScript(builder, options);
+            Condition.AppendScript(builder, options);
             builder.Append("?");
-            this.Then.AppendScript(builder, options);
+            Then.AppendScript(builder, options);
             builder.Append(":");
-            this.Else.AppendScript(builder, options);
+            Else.AppendScript(builder, options);
         }
 
         /// <summary>

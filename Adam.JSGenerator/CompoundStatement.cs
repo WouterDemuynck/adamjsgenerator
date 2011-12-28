@@ -10,7 +10,7 @@ namespace Adam.JSGenerator
     /// </summary>
     public class CompoundStatement : Statement
     {
-        private readonly List<Statement> _Statements = new List<Statement>();
+        private readonly List<Statement> _statements = new List<Statement>();
 
         /// <summary>
         /// Creates a new empty instance of <see cref="CompoundStatement" />.
@@ -36,7 +36,7 @@ namespace Adam.JSGenerator
         {
             if (statements != null)
             {
-                this._Statements.AddRange(statements);
+                _statements.AddRange(statements);
             }
         }
 
@@ -54,7 +54,7 @@ namespace Adam.JSGenerator
 
             builder.Append("{");
 
-            foreach (Statement statement in this._Statements.WithConvertedNulls())
+            foreach (Statement statement in _statements.WithConvertedNulls())
             {
                 statement.AppendScript(builder, options);
                 statement.AppendRequiredTerminator(builder);
@@ -70,7 +70,7 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Statements;
+                return _statements;
             }
         }
     }

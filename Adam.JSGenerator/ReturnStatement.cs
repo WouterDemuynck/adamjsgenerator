@@ -8,7 +8,7 @@ namespace Adam.JSGenerator
     /// </summary>
     public class ReturnStatement : Statement
     {
-        private Expression _Value;
+        private Expression _value;
 
         /// <summary>
         /// Initializes a new instance of <see cref="ReturnStatement" />
@@ -23,7 +23,7 @@ namespace Adam.JSGenerator
         /// <param name="value">The value to return.</param>
         public ReturnStatement(Expression value)
         {
-            this._Value = value;
+            _value = value;
         }
 
         /// <summary>
@@ -33,11 +33,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _Value;
+                return _value;
             }
             set
             {
-                _Value = value;
+                _value = value;
             }
         }
 
@@ -66,10 +66,10 @@ namespace Adam.JSGenerator
 
             builder.Append("return");
 
-            if (this._Value != null)
+            if (_value != null)
             {
                 builder.Append(" ");
-                this._Value.AppendScript(builder, options);
+                _value.AppendScript(builder, options);
             }
         }
 

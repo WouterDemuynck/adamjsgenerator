@@ -29,8 +29,7 @@
         /// <returns>True if parens are needed, otherwise false.</returns>
         public bool RequiresGrouping(Precedence against, Association expected)
         {
-            return ((this.Level == against.Level) && (this.Association != expected)) ||
-                (this.Level < against.Level);
+            return ((Level == against.Level) && (Association != expected)) || (Level < against.Level);
         }
 
         /// <summary>
@@ -77,7 +76,7 @@
         /// </summary>
         public override int GetHashCode()
         {
-            return this.Level.GetHashCode();
+            return Level.GetHashCode();
         }
 
         /// <summary>

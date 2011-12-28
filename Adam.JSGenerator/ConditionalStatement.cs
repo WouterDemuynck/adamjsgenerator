@@ -8,10 +8,10 @@ namespace Adam.JSGenerator
     /// </summary>
     public class ConditionalStatement : Statement
     {
-        private Expression _Condition;
-        private Statement _ThenStatement;
-        private Statement _ElseStatement;
-        private ConditionalStatement _Parent;
+        private Expression _condition;
+        private Statement _thenStatement;
+        private Statement _elseStatement;
+        private ConditionalStatement _parent;
 
         /// <summary>
         /// Initializes a new instance of <see cref="ConditionalStatement" />
@@ -41,17 +41,17 @@ namespace Adam.JSGenerator
         /// <param name="elseStatement">The statement that is run when the condition evaluates to falsy.</param>
         public ConditionalStatement(ConditionalStatement parent, Expression condition, Statement thenStatement, Statement elseStatement)
         {
-            this._Parent = parent;
-            this._Condition = condition;
-            this._ThenStatement = thenStatement;
-            this._ElseStatement = elseStatement;
+            _parent = parent;
+            _condition = condition;
+            _thenStatement = thenStatement;
+            _elseStatement = elseStatement;
         }
 
         private void InternalAppendScript(StringBuilder builder, ScriptOptions options)
         {
-            if (_Parent != null)
+            if (_parent != null)
             {
-                _Parent.InternalAppendScript(builder, options);
+                _parent.InternalAppendScript(builder, options);
 
                 builder.Append(" else ");
             }
@@ -83,7 +83,7 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("builder");
             }
 
-            this.InternalAppendScript(builder, options);
+            InternalAppendScript(builder, options);
 
             if (ElseStatement != null)
             {
@@ -102,11 +102,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _Condition;
+                return _condition;
             }
             set
             {
-                _Condition = value;
+                _condition = value;
             }
         }
 
@@ -117,11 +117,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _ThenStatement;
+                return _thenStatement;
             }
             set
             {
-                _ThenStatement = value;
+                _thenStatement = value;
             }
         }
 
@@ -132,11 +132,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return _ElseStatement;
+                return _elseStatement;
             }
             set
             {
-                _ElseStatement = value;
+                _elseStatement = value;
             }
         }
 
@@ -147,11 +147,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Parent;
+                return _parent;
             }
             set
             {
-                this._Parent = value;
+                _parent = value;
             }
         }
 

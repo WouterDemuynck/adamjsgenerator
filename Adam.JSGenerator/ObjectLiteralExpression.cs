@@ -10,14 +10,14 @@ namespace Adam.JSGenerator
     /// </summary>
     public class ObjectLiteralExpression : Expression
     {
-        private readonly Dictionary<Expression, Expression> _Properties;
+        private readonly Dictionary<Expression, Expression> _properties;
 
         /// <summary>
         /// Initializes a new instance of <see cref="ObjectLiteralExpression" />.
         /// </summary>
         public ObjectLiteralExpression()
         {
-            this._Properties = new Dictionary<Expression, Expression>();
+            _properties = new Dictionary<Expression, Expression>();
         }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace Adam.JSGenerator
         /// <param name="properties"></param>
         public ObjectLiteralExpression(IDictionary<Expression, Expression> properties)
         {
-            this._Properties = properties != null 
+            _properties = properties != null 
                 ? new Dictionary<Expression, Expression>(properties) 
                 : new Dictionary<Expression, Expression>();
         }
@@ -52,7 +52,7 @@ namespace Adam.JSGenerator
 
             bool isFirst = true;
 
-            foreach (KeyValuePair<Expression, Expression> element in this._Properties)
+            foreach (KeyValuePair<Expression, Expression> element in _properties)
             {
                 if (isFirst)
                 {
@@ -99,7 +99,7 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Properties;
+                return _properties;
             }
         }
 

@@ -11,7 +11,7 @@ namespace Adam.JSGenerator
         private const string FalseValue = "false";
         private const string TrueValue = "true";
 
-        private bool _Value;
+        private bool _value;
 
         /// <summary>
         /// Initializes a new instance of <see cref="BooleanExpression" /> for the specified value.
@@ -19,7 +19,7 @@ namespace Adam.JSGenerator
         /// <param name="value"></param>
         public BooleanExpression(bool value)
         {
-            this._Value = value;
+            _value = value;
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("builder");
             }
 
-            builder.Append(this._Value ? TrueValue : FalseValue);
+            builder.Append(_value ? TrueValue : FalseValue);
         }
 
         /// <summary>
@@ -44,11 +44,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Value;
+                return _value;
             }
             set
             {
-                this._Value = value;
+                _value = value;
             }
         }
     }

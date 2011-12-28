@@ -8,8 +8,8 @@ namespace Adam.JSGenerator
     /// </summary>
     public class DoWhileStatement : Statement
     {
-        private Expression _Condition;
-        private Statement _Statement;
+        private Expression _condition;
+        private Statement _statement;
 
         /// <summary>
         /// Initializes a new instance of <see cref="DoWhileStatement" />.
@@ -26,8 +26,8 @@ namespace Adam.JSGenerator
         /// <param name="statement">The statement to run in the loop.</param>
         public DoWhileStatement(Expression condition, Statement statement)
         {
-            this.Condition = condition;
-            this.Statement = statement;
+            Condition = condition;
+            Statement = statement;
         }
 
         /// <summary>
@@ -37,11 +37,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Condition;
+                return _condition;
             }
             set
             {
-                this._Condition = value;
+                _condition = value;
             }
         }
 
@@ -52,11 +52,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Statement;
+                return _statement;
             }
             set
             {
-                this._Statement = value;
+                _statement = value;
             }
         }
 
@@ -72,21 +72,21 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("builder");
             }
 
-            if (this._Condition == null)
+            if (_condition == null)
             {
                 throw new InvalidOperationException("Condition cannot be null.");
             }
 
-            if (this._Statement == null)
+            if (_statement == null)
             {
                 throw new InvalidOperationException("Statement cannot be null.");
             }
 
             builder.Append("do ");
-            this._Statement.AppendScript(builder, options);
-            this._Statement.AppendRequiredTerminator(builder);
+            _statement.AppendScript(builder, options);
+            _statement.AppendRequiredTerminator(builder);
             builder.Append("while(");
-            this._Condition.AppendScript(builder, options);
+            _condition.AppendScript(builder, options);
             builder.Append(")");
         }
 

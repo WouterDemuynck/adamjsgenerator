@@ -8,10 +8,10 @@ namespace Adam.JSGenerator
     /// </summary>
     public class ExceptionHandlingStatement : Statement
     {
-        private CompoundStatement _TryBlock;
-        private IdentifierExpression _CatchVariable;
-        private CompoundStatement _CatchBlock;
-        private CompoundStatement _FinallyBlock;
+        private CompoundStatement _tryBlock;
+        private IdentifierExpression _catchVariable;
+        private CompoundStatement _catchBlock;
+        private CompoundStatement _finallyBlock;
 
         /// <summary>
         /// Initializes a new instance of <see cref="ExceptionHandlingStatement" />.
@@ -29,10 +29,10 @@ namespace Adam.JSGenerator
         /// <param name="finallyBlock">The finally block of the statement.</param>
         public ExceptionHandlingStatement(CompoundStatement tryBlock, IdentifierExpression catchVariable, CompoundStatement catchBlock, CompoundStatement finallyBlock)
         {
-            this._TryBlock = tryBlock;
-            this._CatchVariable = catchVariable;
-            this._CatchBlock = catchBlock;
-            this._FinallyBlock = finallyBlock;
+            _tryBlock = tryBlock;
+            _catchVariable = catchVariable;
+            _catchBlock = catchBlock;
+            _finallyBlock = finallyBlock;
         }
 
         /// <summary>
@@ -47,31 +47,31 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("builder");
             }
 
-            if (this._TryBlock == null)
+            if (_tryBlock == null)
             {
                 throw new InvalidOperationException();
             }
 
             builder.Append("try");
-            this._TryBlock.AppendScript(builder, options);
+            _tryBlock.AppendScript(builder, options);
 
-            if (this.CatchBlock != null)
+            if (CatchBlock != null)
             {
-                if (this.CatchVariable == null)
+                if (CatchVariable == null)
                 {                    
                     throw new InvalidOperationException();
                 }
 
                 builder.Append("catch(");
-                this.CatchVariable.AppendScript(builder, options);
+                CatchVariable.AppendScript(builder, options);
                 builder.Append(")");
-                this.CatchBlock.AppendScript(builder, options);
+                CatchBlock.AppendScript(builder, options);
             }
 
-            if (this.FinallyBlock != null)
+            if (FinallyBlock != null)
             {
                 builder.Append("finally");
-                this.FinallyBlock.AppendScript(builder, options);
+                FinallyBlock.AppendScript(builder, options);
             }
         }
 
@@ -82,11 +82,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._TryBlock;
+                return _tryBlock;
             }
             set
             {
-                this._TryBlock = value;
+                _tryBlock = value;
             }
         }
 
@@ -97,11 +97,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._CatchVariable;
+                return _catchVariable;
             }
             set
             {
-                this._CatchVariable = value;
+                _catchVariable = value;
             }
         }
 
@@ -112,11 +112,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._CatchBlock;
+                return _catchBlock;
             }
             set
             {
-                this._CatchBlock = value;
+                _catchBlock = value;
             }
         }
 
@@ -127,14 +127,12 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._FinallyBlock;
+                return _finallyBlock;
             }
             set
             {
-                this._FinallyBlock = value;
+                _finallyBlock = value;
             }
         }
-
-
     }
 }

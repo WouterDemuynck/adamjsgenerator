@@ -8,7 +8,7 @@ namespace Adam.JSGenerator.Demonstration
 
         public DescriptionAttribute(string value)
         {
-            this.Text = value;
+            Text = value;
         }
     }
 }

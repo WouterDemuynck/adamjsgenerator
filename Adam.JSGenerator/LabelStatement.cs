@@ -8,8 +8,8 @@ namespace Adam.JSGenerator
     /// </summary>
     public class LabelStatement : Statement
     {
-        private IdentifierExpression _Name;
-        private Statement _Statement;
+        private IdentifierExpression _name;
+        private Statement _statement;
 
         /// <summary>
         /// Initializes a new instance of <see cref="LabelStatement" /> that precedes the specified statement with a label.
@@ -18,8 +18,8 @@ namespace Adam.JSGenerator
         /// <param name="statement">The statement to precede.</param>
         public LabelStatement(IdentifierExpression name, Statement statement)
         {
-            this._Name = name;
-            this._Statement = statement;
+            _name = name;
+            _statement = statement;
         }
 
         /// <summary>
@@ -34,10 +34,10 @@ namespace Adam.JSGenerator
                 throw new ArgumentNullException("builder");
             }
 
-            _Name.AppendScript(builder, options);
+            _name.AppendScript(builder, options);
             builder.Append(":");
-            _Statement.AppendScript(builder, options);
-            _Statement.AppendRequiredTerminator(builder);
+            _statement.AppendScript(builder, options);
+            _statement.AppendRequiredTerminator(builder);
         }
 
         /// <summary>
@@ -47,11 +47,11 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Name;
+                return _name;
             }
             set
             {
-                this._Name = value;
+                _name = value;
             }
         }
 
@@ -62,13 +62,12 @@ namespace Adam.JSGenerator
         {
             get
             {
-                return this._Statement;
+                return _statement;
             }
             set
             {
-                this._Statement = value;
+                _statement = value;
             }
         }
-
     }
 }
