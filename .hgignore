@@ -11,3 +11,4 @@ glob:*.tmp
 syntax: glob
 *.nupkg
 NuGet/Adam.JSGenerator/lib
+*.gpState

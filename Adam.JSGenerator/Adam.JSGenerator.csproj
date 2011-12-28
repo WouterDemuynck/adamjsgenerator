@@ -121,6 +121,7 @@
     <Compile Include="Statement.cs" />
     <Compile Include="StringExpression.cs" />
     <Compile Include="SwitchStatement.cs" />
+    <Compile Include="ThisExpression.cs" />
     <Compile Include="ThrowStatement.cs" />
     <Compile Include="UnaryOperationExpression.cs" />
     <Compile Include="UnaryOperator.cs" />
