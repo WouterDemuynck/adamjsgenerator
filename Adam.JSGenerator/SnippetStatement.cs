@@ -4,17 +4,17 @@ using System.Text;
 namespace Adam.JSGenerator
 {
 	/// <summary>
-	/// Represents an expression whose value is inserted as is.
+	/// Represents a statement whose value is inserted as is.
 	/// </summary>
-	public class SnippetExpression : Expression
+	public class SnippetStatement : Statement
 	{
 		private string _Value;
 
 		/// <summary>
-		/// Initializes a new instance of <see cref="SnippetExpression" /> for the specified Value.
+		/// Initializes a new instance of the <see cref="SnippetStatement"/> class.
 		/// </summary>
 		/// <param name="value">The string value that this instance must represent.</param>
-		public SnippetExpression(string value)
+		public SnippetStatement(string value)
 		{
 			this._Value = value;
 		}

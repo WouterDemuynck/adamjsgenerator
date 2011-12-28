@@ -118,6 +118,7 @@
     <Compile Include="ReturnStatement.cs" />
     <Compile Include="Script.cs" />
     <Compile Include="SnippetExpression.cs" />
+    <Compile Include="SnippetStatement.cs" />
     <Compile Include="Statement.cs" />
     <Compile Include="StringExpression.cs" />
     <Compile Include="SwitchStatement.cs" />

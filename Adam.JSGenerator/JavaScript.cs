@@ -82,9 +82,9 @@ namespace Adam.JSGenerator
 				{
 					string name = property.Name;
 
-					Expression key = IsValidIdentifier(name) ? Id(name) : Expression.FromObject(name);
+					Expression key = IsValidIdentifier(name) ? Id(name) : JSGenerator.Expression.FromObject(name);
 
-					result.Add(key, Expression.FromObject(property.GetValue(value)));
+					result.Add(key, JSGenerator.Expression.FromObject(property.GetValue(value)));
 				}   
 			}
 
@@ -316,7 +316,7 @@ namespace Adam.JSGenerator
 		public static ArrayExpression Array(IEnumerable elements)
 		{
 			return new ArrayExpression(elements.Cast<object>()
-				.Select(Expression.FromObject));
+				.Select(JSGenerator.Expression.FromObject));
 		}
 
 		/// <summary>
@@ -720,17 +720,47 @@ namespace Adam.JSGenerator
 		}
 
 		/// <summary>
-		/// Creates a new instance of <sse cref="SnippetExpression" /> that represents the specified content..
+		/// Creates a new instance of <sse cref="SnippetExpression" /> that represents the specified content.
+		/// </summary>
+		/// <param name="content">The content to be produced by the snippet.</param>
+		/// <returns>a new instance of <sse cref="SnippetExpression" /></returns>
+		/// <remarks>
+		/// The content that this instance contains is added as is, without conversion, encoding or quoting.
+		/// 
+		/// This method is obsolete, please use the equivalent new method <see cref="Expression" /> instead.
+		/// </remarks>		
+		[Obsolete("This method has become obsolete. Please consider using JS.Expression().")]
+		public static SnippetExpression Snippet(string content)
+		{
+			return new SnippetExpression(content);
+		}
+
+		/// <summary>
+		/// Creates a new instance of <sse cref="SnippetExpression" /> that represents the specified content.
 		/// </summary>
 		/// <param name="content">The content to be produced by the snippet.</param>
 		/// <returns>a new instance of <sse cref="SnippetExpression" /></returns>
 		/// <remarks>
 		/// The content that this instance contains is added as is, without conversion, encoding or quoting.
 		/// </remarks>
-		public static SnippetExpression Snippet(string content)
+		public static SnippetExpression Expression(string content)
 		{
 			return new SnippetExpression(content);
 		}
+
+		/// <summary>
+		/// Creates a new instance of <sse cref="SnippetStatement" /> that represents the specified content.
+		/// </summary>
+		/// <param name="content">The content to be produced by the snippet.</param>
+		/// <returns>a new instance of <sse cref="SnippetStatement" /></returns>
+		/// <remarks>
+		/// The content that this instance contains is added as is, without conversion, encoding or quoting.
+		/// </remarks>
+		public static SnippetStatement Statement(string content)
+		{
+			return new SnippetStatement(content);
+		}
+
 
 		/// <summary>
 		/// Creates a new instance of <see cref="SwitchStatement" /> that switches on the provided expression.
