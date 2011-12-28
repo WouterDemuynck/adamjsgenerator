@@ -22,6 +22,5 @@ namespace Adam.JSGenerator
 
             builder.Append("null");
         }
-
     }
 }
