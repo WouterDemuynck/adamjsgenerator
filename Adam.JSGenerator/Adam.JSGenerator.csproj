@@ -71,6 +71,8 @@
     <Compile Include="BreakStatement.cs" />
     <Compile Include="CallOperationExpression.cs" />
     <Compile Include="CaseStatement.cs" />
+    <Compile Include="CommentStatement.cs" />
+    <Compile Include="CommentStyle.cs" />
     <Compile Include="CompoundStatement.cs" />
     <Compile Include="ConditionalOperationExpression.cs" />
     <Compile Include="ConditionalStatement.cs" />
@@ -82,7 +84,7 @@
     <Compile Include="Expression.cs" />
     <Compile Include="FunctionExpression.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="JQuery\Helpers.cs" />
+    <Compile Include="JQuery.cs" />
     <Compile Include="ScriptOptions.cs" />
     <Compile Include="Helpers\BinaryOperationHelpers.cs" />
     <Compile Include="Helpers\CallOperationHelpers.cs" />

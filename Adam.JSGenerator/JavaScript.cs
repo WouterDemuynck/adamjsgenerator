@@ -351,6 +351,21 @@ namespace Adam.JSGenerator
 		}
 
 		/// <summary>
+		/// Includes the specified content as a comment.
+		/// </summary>
+		/// <param name="content">The content.</param>
+		/// <returns>A new instance of <see cref="CommentStatement" />.</returns>
+		/// <remarks>
+		/// By default, the content is inserted as a "multi-line comment" ("/* */") unless it contains either "/*", 
+		/// "*/" or line breaks, in which case it falls back to "single-line comments", by preceding each line in the 
+		/// source with "// ".
+		/// </remarks>
+		public static CommentStatement Comment(string content)
+		{
+			return new CommentStatement(content);
+		}
+
+		/// <summary>
 		/// Creates a new instance of <see cref="ContinueStatement" /> that continues at the specified label.
 		/// </summary>
 		/// <param name="label">The label to continue at.</param>
