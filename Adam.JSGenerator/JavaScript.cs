@@ -510,7 +510,7 @@ namespace Adam.JSGenerator
 		///<returns>A new instance of <see cref="CallOperationExpression" />.</returns>
 		public static CallOperationExpression JQuery(params Expression[] arguments)
 		{
-			return new CallOperationExpression(Id("jQuery"), arguments);
+			return new CallOperationExpression(JSGenerator.JQuery.JQ, arguments);
 		}
 
 		/// <summary>
@@ -523,16 +523,6 @@ namespace Adam.JSGenerator
 		{
 			return new LabelStatement(name, statement);
 		}
-
-		///// <summary>
-		///// Returns a new instance of <see cref="NumberExpression" /> that represents the passed value.
-		///// </summary>
-		///// <param name="value">The value that must be represented by the instance.</param>
-		///// <returns>a new instance of <see cref="NumberExpression" />.</returns>
-		//public static NumberExpression Number(int value)
-		//{
-		//    return new NumberExpression(value);
-		//}
 
 		/// <summary>
 		/// Creates a new instance of <see cref="NumberExpression" /> that represents the passed value.
