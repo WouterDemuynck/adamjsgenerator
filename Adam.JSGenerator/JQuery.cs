@@ -19,18 +19,7 @@ namespace Adam.JSGenerator
 		/// <param name="expression">The set of matched elements to add to.</param>
 		/// <param name="arguments">The arguments to pass to the function.</param>
 		/// <returns>A new instance of <see cref="CallOperationExpression" />.</returns>
-		public static CallOperationExpression Add(Expression expression, params Expression[] arguments)
-		{
-			return new CallOperationExpression(expression.Dot("add"), arguments);
-		}
-
-		/// <summary>
-		/// Add elements to the set of matched elements.
-		/// </summary>
-		/// <param name="expression">The set of matched elements to add to.</param>
-		/// <param name="arguments">The arguments to pass to the function.</param>
-		/// <returns>A new instance of <see cref="CallOperationExpression" />.</returns>
-		public static CallOperationExpression Add(Expression expression, IEnumerable<Expression> arguments)
+		public static CallOperationExpression Add(this Expression expression, params Expression[] arguments)
 		{
 			return new CallOperationExpression(expression.Dot("add"), arguments);
 		}
@@ -300,6 +289,78 @@ namespace Adam.JSGenerator
 		public static CallOperationExpression Attr(this Expression expression, object map)
 		{
 			return new CallOperationExpression(expression.Dot("attr"), Expression.FromObject(map));
+		}
+
+		/// <summary>
+		/// Insert content, specified by the parameter, before each element in the set of matched elements.
+		/// </summary>
+		/// <param name="expression">The set of matched elements to call this function on.</param>
+		/// <param name="content">HTML string, DOM element, or jQuery object to insert before each element in the set of matched elements.</param>
+		/// <returns>A new instance of <see cref="CallOperationExpression" />.</returns>		
+		public static CallOperationExpression Before(this Expression expression, params Expression[] content)
+		{
+			return new CallOperationExpression(expression.Dot("before"), content);
+		}
+
+		/// <summary>
+		/// Attach a handler to an event for the elements.
+		/// </summary>
+		/// <param name="expression">The set of matched elements to call this function on.</param>
+		/// <param name="eventType">A string containing one or more DOM event types, such as "click" or "submit," or custom event names.</param>
+		/// <param name="extras">
+		/// Extra optional parameters, including:
+		/// - A map of data that will be passed to the event handler.
+		/// - A function to execute each time the event is triggered or <c>false</c> to attach a function that prevents the default action from occurring and stops the event from bubbling.
+		/// </param>
+		/// <returns>A new instance of <see cref="CallOperationExpression" />.</returns>		
+		public static CallOperationExpression Bind(this Expression expression, Expression eventType, params Expression[] extras)
+		{
+			var arguments = new[] {eventType}.Concat(extras);
+			return new CallOperationExpression(expression.Dot("bind"), arguments);
+		}
+
+		/// <summary>
+		/// Attach a handler to an event for the elements.
+		/// </summary>
+		/// <param name="expression">The set of matched elements to call this function on.</param>
+		/// <param name="events">A map of one or more DOM event types and functions to execute for them.</param>
+		/// <returns>A new instance of <see cref="CallOperationExpression" />.</returns>		
+		public static CallOperationExpression Bind(this Expression expression, object events)
+		{
+			return new CallOperationExpression(expression.Dot("bind"), Expression.FromObject(events));
+		}
+
+		/// <summary>
+		/// Triggers the blur event on the selected elements.
+		/// </summary>
+		/// <param name="expression">The set of matched elements to call this function on.</param>
+		/// <returns>A new instance of <see cref="CallOperationExpression" />.</returns>		
+		public static CallOperationExpression Blur(this Expression expression)
+		{
+			return new CallOperationExpression(expression.Dot("blur"));
+		}
+
+		/// <summary>
+		/// Bind an event handler to the "blur" JavaScript event, or trigger that event on an element.
+		/// </summary>
+		/// <param name="expression">The set of matched elements to call this function on.</param>
+		/// <param name="handler">A function to execute each time the event is triggered.</param>
+		/// <returns>A new instance of <see cref="CallOperationExpression" />.</returns>		
+		public static CallOperationExpression Blur(this Expression expression, Expression handler)
+		{
+			return new CallOperationExpression(expression.Dot("bind"), handler);
+		}
+
+		/// <summary>
+		/// Bind an event handler to the "blur" JavaScript event, or trigger that event on an element.
+		/// </summary>
+		/// <param name="eventData">A map of data that will be passed to the event handler.</param>
+		/// <param name="expression">The set of matched elements to call this function on.</param>
+		/// <param name="handler">A function to execute each time the event is triggered.</param>
+		/// <returns>A new instance of <see cref="CallOperationExpression" />.</returns>		
+		public static CallOperationExpression Blur(this Expression expression, object eventData, Expression handler)
+		{
+			return new CallOperationExpression(expression.Dot("blur"), Expression.FromObject(eventData), handler);
 		}
 
 		/// <summary>

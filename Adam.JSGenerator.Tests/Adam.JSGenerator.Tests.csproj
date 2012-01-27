@@ -53,6 +53,7 @@
     <Compile Include="BooleanExpressionTests.cs" />
     <Compile Include="BreakStatementTests.cs" />
     <Compile Include="CommentStatementTests.cs" />
+    <Compile Include="JQueryTest.cs" />
     <Compile Include="RegressionTests.cs" />
     <Compile Include="CallOperationExpressionTests.cs" />
     <Compile Include="CollectionHelpersTests.cs" />
