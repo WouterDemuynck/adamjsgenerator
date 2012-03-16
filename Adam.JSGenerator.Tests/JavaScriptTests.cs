@@ -75,8 +75,13 @@ namespace Adam.JSGenerator.Tests
 			Assert.IsFalse(JS.IsValidIdentifier("0foo")); // Identifiers cannot start with a number.
 			Assert.IsFalse(JS.IsValidIdentifier("")); // Identifiers cannot be empty.
 			Assert.IsFalse(JS.IsValidIdentifier("&")); // Identifiers cannot contain all characters.
-			Assert.IsFalse(JS.IsValidIdentifier("break"));
-			Assert.IsFalse(JS.IsValidIdentifier("debugger")); // Identifiers cannot be a reserved word.
+		}
+
+		[TestMethod]
+		public void SomeIdentifiersAreReserved()
+		{
+			Assert.IsTrue(JS.IsReserved("break"));
+			Assert.IsTrue(JS.IsReserved("debugger")); // Identifiers cannot be a reserved word.			
 		}
 
 		[TestMethod]
@@ -109,8 +114,8 @@ namespace Adam.JSGenerator.Tests
 
 			Assert.IsTrue(result.ContainsKey(JS.Id("value")));
 			Assert.AreEqual(JS.Number(1), result[JS.Id("value")]);
-			Assert.IsTrue(result.ContainsKey(JS.String("var")));
-			Assert.AreEqual(JS.String("One"), result[JS.String("var")]);
+			Assert.IsTrue(result.ContainsKey(JS.Id("var")));
+			Assert.AreEqual(JS.String("One"), result[JS.Id("var")]);
 		}
 
 		[TestMethod]

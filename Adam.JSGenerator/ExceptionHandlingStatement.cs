@@ -35,12 +35,13 @@ namespace Adam.JSGenerator
             _finallyBlock = finallyBlock;
         }
 
-        /// <summary>
-        /// Appends the script to represent this object to the StringBuilder.
-        /// </summary>
-        /// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
-        /// <param name="options">The options to use when appending JavaScript</param>
-        internal protected override void AppendScript(StringBuilder builder, ScriptOptions options)
+    	/// <summary>
+    	/// Appends the script to represent this object to the StringBuilder.
+    	/// </summary>
+    	/// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
+    	/// <param name="options">The options to use when appending JavaScript</param>
+    	/// <param name="allowReservedWords"></param>
+    	internal protected override void AppendScript(StringBuilder builder, ScriptOptions options, bool allowReservedWords)
         {
             if (builder == null)
             {
@@ -53,7 +54,7 @@ namespace Adam.JSGenerator
             }
 
             builder.Append("try");
-            _tryBlock.AppendScript(builder, options);
+            _tryBlock.AppendScript(builder, options, allowReservedWords);
 
             if (CatchBlock != null)
             {
@@ -63,15 +64,15 @@ namespace Adam.JSGenerator
                 }
 
                 builder.Append("catch(");
-                CatchVariable.AppendScript(builder, options);
+                CatchVariable.AppendScript(builder, options, allowReservedWords);
                 builder.Append(")");
-                CatchBlock.AppendScript(builder, options);
+                CatchBlock.AppendScript(builder, options, allowReservedWords);
             }
 
             if (FinallyBlock != null)
             {
                 builder.Append("finally");
-                FinallyBlock.AppendScript(builder, options);
+                FinallyBlock.AppendScript(builder, options, allowReservedWords);
             }
         }
 

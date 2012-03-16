@@ -1,4 +1,6 @@
-﻿namespace Adam.JSGenerator.Demonstration.Demonstrations
+﻿using Adam.JSGenerator.JQuery;
+
+namespace Adam.JSGenerator.Demonstration.Demonstrations
 {
     [Description("Other Example 1")]
     [Group(Group.Other, 0)]

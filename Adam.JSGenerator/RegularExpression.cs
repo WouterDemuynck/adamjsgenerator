@@ -19,12 +19,13 @@ namespace Adam.JSGenerator
             _value = value;
         }
 
-        /// <summary>
-        /// Appends the script to represent this object to the StringBuilder.
-        /// </summary>
-        /// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
-        /// <param name="options">The options to use when appending JavaScript</param>
-        protected internal override void AppendScript(StringBuilder builder, ScriptOptions options)
+    	/// <summary>
+    	/// Appends the script to represent this object to the StringBuilder.
+    	/// </summary>
+    	/// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
+    	/// <param name="options">The options to use when appending JavaScript</param>
+    	/// <param name="allowReservedWords"></param>
+    	protected internal override void AppendScript(StringBuilder builder, ScriptOptions options, bool allowReservedWords)
         {
             if (builder == null)
             {

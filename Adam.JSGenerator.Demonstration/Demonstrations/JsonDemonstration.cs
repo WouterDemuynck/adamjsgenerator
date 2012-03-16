@@ -14,7 +14,7 @@ namespace Adam.JSGenerator.Demonstration.Demonstrations
                     select new {item, name = "Item " + item};
 
             var obj = JS.Object(new {menu = i});
-            return obj.ToString(false, ScriptOptions.Json);
+            return obj.ToString(false, ScriptOptions.Json, false);
         }
     }
 }

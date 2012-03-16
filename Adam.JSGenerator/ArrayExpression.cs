@@ -16,7 +16,7 @@ namespace Adam.JSGenerator
         /// Initializes a new empty instance of the <see cref="ArrayExpression" /> class.
         /// </summary>
         public ArrayExpression()
-        {            
+        {
         }
 
         /// <summary>
@@ -40,12 +40,13 @@ namespace Adam.JSGenerator
             }
         }
 
-        /// <summary>
-        /// Appends the script to represent this object to the StringBuilder.
-        /// </summary>
-        /// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
-        /// <param name="options">The options to use when appending JavaScript</param>
-        internal protected override void AppendScript(StringBuilder builder, ScriptOptions options)
+    	/// <summary>
+    	/// Appends the script to represent this object to the StringBuilder.
+    	/// </summary>
+    	/// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
+    	/// <param name="options">The options to use when appending JavaScript</param>
+    	/// <param name="allowReservedWords"></param>
+    	internal protected override void AppendScript(StringBuilder builder, ScriptOptions options, bool allowReservedWords)
         {
             if (builder == null)
             {
@@ -67,7 +68,7 @@ namespace Adam.JSGenerator
                     builder.Append(",");
                 }
 
-                element.AppendScript(builder, options);
+                element.AppendScript(builder, options, allowReservedWords);
             }
 
             builder.Append("]");

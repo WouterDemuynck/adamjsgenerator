@@ -33,12 +33,13 @@ namespace Adam.JSGenerator
             Statement = statement;
         }
 
-        /// <summary>
-        /// Appends the script to represent this object to the StringBuilder.
-        /// </summary>
-        /// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
-        /// <param name="options">The options to use when appending JavaScript</param>
-        internal protected override void AppendScript(StringBuilder builder, ScriptOptions options)
+    	/// <summary>
+    	/// Appends the script to represent this object to the StringBuilder.
+    	/// </summary>
+    	/// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
+    	/// <param name="options">The options to use when appending JavaScript</param>
+    	/// <param name="allowReservedWords"></param>
+    	internal protected override void AppendScript(StringBuilder builder, ScriptOptions options, bool allowReservedWords)
         {
             if (builder == null)
             {
@@ -61,11 +62,11 @@ namespace Adam.JSGenerator
             }
 
             builder.Append("for(");
-            _variable.AppendScript(builder, options);
+            _variable.AppendScript(builder, options, allowReservedWords);
             builder.Append(" in ");
-            _collection.AppendScript(builder, options);
+            _collection.AppendScript(builder, options, allowReservedWords);
             builder.Append(")");
-            _statement.AppendScript(builder, options);
+            _statement.AppendScript(builder, options, allowReservedWords);
             _statement.AppendRequiredTerminator(builder);
         }
 

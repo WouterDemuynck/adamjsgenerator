@@ -16,12 +16,6 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void IdentifierExpressionRefusesReservedWords()
-        {
-            Expect.Throw<ArgumentException>(() => new IdentifierExpression("var"));
-        }
-
-        [TestMethod]
         public void IdentifierExpressionRefusesInvalidIdentifiers()
         {
             var id = new IdentifierExpression("Classname");

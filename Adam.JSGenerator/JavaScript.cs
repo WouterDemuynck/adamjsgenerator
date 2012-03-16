@@ -24,12 +24,10 @@ namespace Adam.JSGenerator
 		/// <summary>
 		/// Contains the list of reserved keywords as defined by Javascript.
 		/// </summary>
-		private static readonly string[] Reserved = ("abstract as boolean break byte case catch char class continue " +
-			"const debugger default delete do double else enum export extends false final finally float for " +
-			"function goto if implements import in instanceof int interface is long namespace native new null " +
-			"package private protected public return short static super switch synchronized this throw throws " +
-			"transient true try typeof use var void volatile while with").Split(' ');
-
+		private static readonly string[] Reserved = ("break case catch continue debugger default delete do else " + 
+			"finally for function if in instanceof return switch this throw try typeof var void while with").Split(' ');
+		private static readonly string[] ReservedForFutureUse = ("class enum extends super const export import").Split(' ');
+		private static readonly string[] StrictlyReserved = ("implements let private public yield interface package protected public static").Split(' ');
 
 		#region Helper Methods
 
@@ -103,8 +101,22 @@ namespace Adam.JSGenerator
 
 			return !string.IsNullOrEmpty(name) &&
 				   (validStartChars.IndexOf(name[0]) != -1) &&
-				   !name.Except(validChars).Any() &&
-				   !Reserved.Any(n => n.Equals(name));
+				   !name.Except(validChars).Any();
+		}
+
+		/// <summary>
+		/// Determines whether the specified name is a reserved word.
+		/// </summary>
+		/// <param name="name">The name.</param>
+		/// <returns>
+		///   <c>true</c> if the specified name is reserved; otherwise, <c>false</c>.
+		/// </returns>
+		public static bool IsReserved(string name)
+		{
+			return 
+				Reserved.Any(n => n.Equals(name)) || 
+				ReservedForFutureUse.Any(n => n.Equals(name)) || 
+				StrictlyReserved.Any(n => n.Equals(name)); // In the future we may be able to introduce a "strict" mode that can be turned off.
 		}
 
 		/// <summary>
@@ -510,7 +522,7 @@ namespace Adam.JSGenerator
 		///<returns>A new instance of <see cref="CallOperationExpression" />.</returns>
 		public static CallOperationExpression JQuery(params Expression[] arguments)
 		{
-			return new CallOperationExpression(JSGenerator.JQuery.JQ, arguments);
+			return new CallOperationExpression(JSGenerator.JQ.JQueryFunction, arguments);
 		}
 
 		/// <summary>
