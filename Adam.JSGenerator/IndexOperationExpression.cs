@@ -22,12 +22,13 @@ namespace Adam.JSGenerator
             _operandRight = operandRight;
         }
 
-        /// <summary>
-        /// Appends the script to represent this object to the StringBuilder.
-        /// </summary>
-        /// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
-        /// <param name="options">The options to use when appending JavaScript</param>
-        internal protected override void AppendScript(StringBuilder builder, ScriptOptions options)
+    	/// <summary>
+    	/// Appends the script to represent this object to the StringBuilder.
+    	/// </summary>
+    	/// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
+    	/// <param name="options">The options to use when appending JavaScript</param>
+    	/// <param name="allowReservedWords"></param>
+    	internal protected override void AppendScript(StringBuilder builder, ScriptOptions options, bool allowReservedWords)
         {
             if (builder == null)
             {
@@ -44,9 +45,9 @@ namespace Adam.JSGenerator
                 throw new InvalidOperationException();
             }
 
-            _operandLeft.AppendScript(builder, options);
+            _operandLeft.AppendScript(builder, options, allowReservedWords);
             builder.Append("[");
-            _operandRight.AppendScript(builder, options);
+            _operandRight.AppendScript(builder, options, allowReservedWords);
             builder.Append("]");
         }
 

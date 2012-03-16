@@ -8,7 +8,7 @@ namespace Adam.JSGenerator
 	/// </summary>
 	public class ThisExpression : Expression
 	{
-		protected internal override void AppendScript(StringBuilder builder, ScriptOptions options)
+		protected internal override void AppendScript(StringBuilder builder, ScriptOptions options, bool allowReservedWords)
 		{
 			if (builder == null)
 			{

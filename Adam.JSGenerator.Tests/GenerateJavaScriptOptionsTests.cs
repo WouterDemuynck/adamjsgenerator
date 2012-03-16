@@ -46,8 +46,8 @@ namespace Adam.JSGenerator.Tests
             var without = new ScriptOptions {AlwaysQuoteObjectLiteralKeys = false, PreferredQuoteChar = '"'};
             var with = new ScriptOptions {AlwaysQuoteObjectLiteralKeys = true, PreferredQuoteChar = '"'};
 
-            Assert.AreEqual("{name:\"Dave\",\"function\":\"Developer\"};", literal.ToString(true, without));
-            Assert.AreEqual("{\"name\":\"Dave\",\"function\":\"Developer\"};", literal.ToString(true, with));
+            Assert.AreEqual("{name:\"Dave\",function:\"Developer\"};", literal.ToString(true, without, false));
+            Assert.AreEqual("{\"name\":\"Dave\",\"function\":\"Developer\"};", literal.ToString(true, with, false));
         }
     }
 }

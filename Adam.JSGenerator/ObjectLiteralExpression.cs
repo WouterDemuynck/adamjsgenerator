@@ -31,12 +31,13 @@ namespace Adam.JSGenerator
                 : new Dictionary<Expression, Expression>();
         }
 
-        /// <summary>
-        /// Appends the script to represent this object to the StringBuilder.
-        /// </summary>
-        /// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
-        /// <param name="options">The options to use when appending JavaScript</param>
-        internal protected override void AppendScript(StringBuilder builder, ScriptOptions options)
+    	/// <summary>
+    	/// Appends the script to represent this object to the StringBuilder.
+    	/// </summary>
+    	/// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
+    	/// <param name="options">The options to use when appending JavaScript</param>
+    	/// <param name="allowReservedWords"></param>
+    	internal protected override void AppendScript(StringBuilder builder, ScriptOptions options, bool allowReservedWords)
         {
             if (builder == null)
             {
@@ -71,21 +72,20 @@ namespace Adam.JSGenerator
 
                     if (identifier != null)
                     {
-                        StringExpression quotedIdentifier = new StringExpression(identifier.Name);
-                        key = quotedIdentifier;
+                    	key = new StringExpression(identifier.Name);
                     }
                 }
 
-                key.AppendScript(builder, options);
+                key.AppendScript(builder, options, true);
                 builder.Append(":");
 
                 if (element.Value != null)
                 {
-                    element.Value.AppendScript(builder, options);
+                    element.Value.AppendScript(builder, options, allowReservedWords);
                 }
                 else
                 {
-                    JS.Null().AppendScript(builder, options);
+                    JS.Null().AppendScript(builder, options, allowReservedWords);
                 }
             }
 

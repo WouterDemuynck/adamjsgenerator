@@ -73,13 +73,14 @@ namespace Adam.JSGenerator
             _operator = op;
         }
 
-        /// <summary>
-        /// Appends the script to represent this object to the StringBuilder.
-        /// </summary>
-        /// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
-        /// <param name="options">The options to use when appending JavaScript</param>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
-        internal protected override void AppendScript(StringBuilder builder, ScriptOptions options)
+    	/// <summary>
+    	/// Appends the script to represent this object to the StringBuilder.
+    	/// </summary>
+    	/// <param name="builder">The StringBuilder to which the Javascript is appended.</param>
+    	/// <param name="options">The options to use when appending JavaScript</param>
+    	/// <param name="allowReservedWords"></param>
+    	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
+        internal protected override void AppendScript(StringBuilder builder, ScriptOptions options, bool allowReservedWords)
         {
             if (builder == null)
             {
@@ -99,7 +100,7 @@ namespace Adam.JSGenerator
                 operandRight = JS.Group(operandRight);
             }
 
-            operandLeft.AppendScript(builder, options);
+            operandLeft.AppendScript(builder, options, allowReservedWords);
 
             switch (_operator)
             {
@@ -209,7 +210,7 @@ namespace Adam.JSGenerator
                     throw new InvalidOperationException("What is this?");
             }
 
-            operandRight.AppendScript(builder, options);
+            operandRight.AppendScript(builder, options, allowReservedWords);
         }
 
         /// <summary>

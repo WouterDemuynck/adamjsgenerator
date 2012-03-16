@@ -82,7 +82,7 @@ namespace Adam.JSGenerator
             if (_value != null)
             {
                 builder.Append("case ");
-                _value.AppendScript(builder, options);
+                _value.AppendScript(builder, options, false);
                 builder.Append(":");
             }
             else
@@ -94,7 +94,7 @@ namespace Adam.JSGenerator
             {
                 foreach (Statement statement in _statements.WithConvertedNulls())
                 {
-                    statement.AppendScript(builder, options);
+                    statement.AppendScript(builder, options, false);
                     statement.AppendRequiredTerminator(builder);
                 }
             }

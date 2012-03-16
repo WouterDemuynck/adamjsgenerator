@@ -11,7 +11,7 @@ namespace Adam.JSGenerator.Tests
         {
             var a = JS.Id("a");
             var b = JS.Id("a");
-            var c = JS.Snippet("a");
+            var c = JS.Expression("a");
 
             Assert.IsTrue(a.Equals(b));
             Assert.IsFalse(a.Equals(c));

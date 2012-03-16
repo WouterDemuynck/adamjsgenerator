@@ -1,7 +1,5 @@
-﻿using Adam.JSGenerator;
+﻿using Adam.JSGenerator.JQuery;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
 
 namespace Adam.JSGenerator.Tests
 {
@@ -12,8 +10,8 @@ namespace Adam.JSGenerator.Tests
 		[TestInitialize]
 		public void Initialize()
 		{
-			_oldJq = JQuery.JQ;
-			JQuery.JQ = "$";
+			_oldJq = JQ.JQueryFunction;
+			JQ.JQueryFunction = "$";
 		}
 
 		[TestMethod]
@@ -51,8 +49,8 @@ namespace Adam.JSGenerator.Tests
 		[TestMethod]
 		public void JQueryHasAjax()
 		{
-			var expression1 = JQuery.Ajax("http://service.com");
-			var expression2 = JQuery.Ajax("http://service.com", new
+			var expression1 = JQ.Ajax("http://service.com");
+			var expression2 = JQ.Ajax("http://service.com", new
 			{
 				accepts = "text/html",
 				cache = false,
@@ -82,7 +80,7 @@ namespace Adam.JSGenerator.Tests
 		[TestMethod]
 		public void JQueryHasAjaxPrefilter()
 		{
-			var expression = JQuery.AjaxPrefilter("json", JS.Function());
+			var expression = JQ.AjaxPrefilter("json", JS.Function());
 
 			Assert.AreEqual(@"$.ajaxPrefilter(""json"",function(){});", expression.ToString());
 		}
@@ -98,7 +96,7 @@ namespace Adam.JSGenerator.Tests
 		[TestMethod]
 		public void JQueryHasAjaxSetup()
 		{
-			var expression = JQuery.AjaxSetup(new {cache = false});
+			var expression = JQ.AjaxSetup(new {cache = false});
 
 			Assert.AreEqual(@"$.ajaxSetup({cache:false});", expression.ToString());
 		}
@@ -146,7 +144,7 @@ namespace Adam.JSGenerator.Tests
 		[TestCleanup]
 		public void CleanUp()
 		{
-			JQuery.JQ = _oldJq;
+			JQ.JQueryFunction = _oldJq;
 		}
 	}
 }

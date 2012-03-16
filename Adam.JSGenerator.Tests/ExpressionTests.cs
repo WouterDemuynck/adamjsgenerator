@@ -81,7 +81,7 @@ namespace Adam.JSGenerator.Tests
                 item => item.Length);
             var expression2 = Expression.FromObject(words);
 
-            Assert.AreEqual("{The:3,brown:5,\"for\":3,jumps:5,over:4,the:3,lazy:4,\"dog.\":4};", expression2.ToString());
+            Assert.AreEqual("{The:3,brown:5,for:3,jumps:5,over:4,the:3,lazy:4,\"dog.\":4};", expression2.ToString());
 
             FakeDictionary<string, bool> fake = new FakeDictionary<string, bool>
             {
@@ -100,7 +100,7 @@ namespace Adam.JSGenerator.Tests
 
             Assert.AreEqual("var pi=3.1415;", expression.ToString());
             Assert.AreEqual("<script type=\"text/javascript\">var pi=3.1415;</script>", 
-                expression.ToString(true, new ScriptOptions { WrapInScriptBlock = true }));            
+                expression.ToString(true, new ScriptOptions { WrapInScriptBlock = true }, false));            
         }
     }
 }
