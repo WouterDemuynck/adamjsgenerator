@@ -194,6 +194,18 @@ namespace Adam.JSGenerator
 					case '\r':
 						builder.Append(@"\r");
 						break;
+
+					case '\u0085': // Next Line
+						builder.Append(CharToUnicode(c));
+						break;
+
+					case '\u2028': // Line Separator
+						builder.Append(CharToUnicode(c));
+						break;
+
+					case '\u2029': // Paragraph Separator
+						builder.Append(CharToUnicode(c));
+						break;
 						
 					default:
 						if (char.IsControl(c))

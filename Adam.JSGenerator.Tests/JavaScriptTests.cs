@@ -55,6 +55,7 @@ namespace Adam.JSGenerator.Tests
 			Assert.AreEqual(@"'\b\t\n\f\r\u0007'", JS.QuoteString("\b\t\n\f\r\a"));
 			Assert.AreEqual(@"'one\\ntwo'", JS.QuoteString(@"one\ntwo"));
 			Assert.AreEqual(@"'\u003chtml\u003e'", JS.QuoteString("<html>"));
+			Assert.AreEqual(@"'Call\u2028me\u2029Ishmael.\u0085'", JS.QuoteString("Call\u2028me\u2029Ishmael.\u0085"));
 		}
 
 		[TestMethod]
