@@ -15,6 +15,7 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+[Ll]ib/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -119,7 +120,8 @@ publish/
 
 # NuGet Packages Directory
 ## TODO: If you have NuGet Package Restore enabled, uncomment the next line
-#packages/*
+packages/*
+*.nupkg
 ## TODO: If the tool you use requires repositories.config, also uncomment the next line
 #!packages/repositories.config
 
