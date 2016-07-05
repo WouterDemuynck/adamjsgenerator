@@ -29,7 +29,9 @@ namespace Adam.JSGenerator.Tests
         public void BinaryOperationExpressionSupportsAdd()
         {
             var b = A.AddWith(B);
+            Assert.AreEqual("a+b;", b.ToString());
 
+            b = A + B;
             Assert.AreEqual("a+b;", b.ToString());
         }
 
@@ -37,7 +39,9 @@ namespace Adam.JSGenerator.Tests
         public void BinaryOperationExpressionSupportsAddAndAssign()
         {
             var b = A.AddWith(B).AndAssign();
+            Assert.AreEqual("a+=b;", b.ToString());
 
+            b = (A + B).AndAssign();
             Assert.AreEqual("a+=b;", b.ToString());
         }
 
@@ -45,7 +49,9 @@ namespace Adam.JSGenerator.Tests
         public void BinaryOperationExpressionSupportsSubtract()
         {
             var b = A.SubtractWith(B);
+            Assert.AreEqual("a-b;", b.ToString());
 
+            b = A - B;
             Assert.AreEqual("a-b;", b.ToString());
         }
 
@@ -53,7 +59,9 @@ namespace Adam.JSGenerator.Tests
         public void BinaryOperationExpressionSupportsSubtractAndAssign()
         {
             var b = A.SubtractWith(B).AndAssign();
+            Assert.AreEqual("a-=b;", b.ToString());
 
+            b = (A - B).AndAssign();
             Assert.AreEqual("a-=b;", b.ToString());
         }
 
@@ -61,7 +69,9 @@ namespace Adam.JSGenerator.Tests
         public void BinaryOperationExpressionSupportsMultiply()
         {
             var b = A.MultiplyBy(B);
+            Assert.AreEqual("a*b;", b.ToString());
 
+            b = A*B;
             Assert.AreEqual("a*b;", b.ToString());
         }
 
@@ -69,7 +79,9 @@ namespace Adam.JSGenerator.Tests
         public void BinaryOperationExpressionSupportsMultiplyAndAssign()
         {
             var b = A.MultiplyBy(B).AndAssign();
+            Assert.AreEqual("a*=b;", b.ToString());
 
+            b = (A*B).AndAssign();
             Assert.AreEqual("a*=b;", b.ToString());
         }
 
@@ -77,7 +89,9 @@ namespace Adam.JSGenerator.Tests
         public void BinaryOperationExpressionSupportsDivide()
         {
             var b = A.DivideBy(B);
+            Assert.AreEqual("a/b;", b.ToString());
 
+            b = A/B;
             Assert.AreEqual("a/b;", b.ToString());
         }
 
@@ -85,7 +99,9 @@ namespace Adam.JSGenerator.Tests
         public void BinaryOperationExpressionSupportsDivideAndAssign()
         {
             var b = A.DivideBy(B).AndAssign();
+            Assert.AreEqual("a/=b;", b.ToString());
 
+            b = (A/B).AndAssign();
             Assert.AreEqual("a/=b;", b.ToString());
         }
 
@@ -93,7 +109,9 @@ namespace Adam.JSGenerator.Tests
         public void BinaryOperationExpressionSupportsRemain()
         {
             var b = A.RemainderBy(B);
+            Assert.AreEqual("a%b;", b.ToString());
 
+            b = A%B;
             Assert.AreEqual("a%b;", b.ToString());
         }
 
@@ -101,7 +119,9 @@ namespace Adam.JSGenerator.Tests
         public void BinaryOperationExpressionSupportsRemainAndAssign()
         {
             var b = A.RemainderBy(B).AndAssign();
+            Assert.AreEqual("a%=b;", b.ToString());
 
+            b = (A%B).AndAssign();
             Assert.AreEqual("a%=b;", b.ToString());
         }
 
@@ -109,7 +129,9 @@ namespace Adam.JSGenerator.Tests
         public void BinaryOperationExpressionSupportsBitwiseAnd()
         {
             var b = A.BitwiseAndWith(B);
+            Assert.AreEqual("a&b;", b.ToString());
 
+            b = A & B;
             Assert.AreEqual("a&b;", b.ToString());
         }
 
@@ -117,7 +139,9 @@ namespace Adam.JSGenerator.Tests
         public void BinaryOperationExpressionSupportsBitwiseAndAndAssign()
         {
             var b = A.BitwiseAndWith(B).AndAssign();
+            Assert.AreEqual("a&=b;", b.ToString());
 
+            b = (A & B).AndAssign();
             Assert.AreEqual("a&=b;", b.ToString());
         }
 
@@ -125,7 +149,9 @@ namespace Adam.JSGenerator.Tests
         public void BinaryOperationExpressionSupportsBitwiseOr()
         {
             var b = A.BitwiseOrWith(B);
+            Assert.AreEqual("a|b;", b.ToString());
 
+            b = A | B;
             Assert.AreEqual("a|b;", b.ToString());
         }
 
@@ -133,7 +159,9 @@ namespace Adam.JSGenerator.Tests
         public void BinaryOperationExpressionSupportsBitwiseOrAndAssign()
         {
             var b = A.BitwiseOrWith(B).AndAssign();
+            Assert.AreEqual("a|=b;", b.ToString());
 
+            b = (A | B).AndAssign();
             Assert.AreEqual("a|=b;", b.ToString());
         }
 
@@ -141,7 +169,9 @@ namespace Adam.JSGenerator.Tests
         public void BinaryOperationExpressionSupportsBitwiseXor()
         {
             var b = A.BitwiseXorWith(B);
+            Assert.AreEqual("a^b;", b.ToString());
 
+            b = A ^ B;
             Assert.AreEqual("a^b;", b.ToString());
         }
 
@@ -149,7 +179,9 @@ namespace Adam.JSGenerator.Tests
         public void BinaryOperationExpressionSupportsBitwiseXorAndAssign()
         {
             var b = A.BitwiseXorWith(B).AndAssign();
+            Assert.AreEqual("a^=b;", b.ToString());
 
+            b = (A ^ B).AndAssign();
             Assert.AreEqual("a^=b;", b.ToString());
         }
 
@@ -221,7 +253,9 @@ namespace Adam.JSGenerator.Tests
         public void BinaryOperationExpressionSupportsGreaterThan()
         {
             var b = A.IsGreaterThan(B);
+            Assert.AreEqual("a>b;", b.ToString());
 
+            b = A > B;
             Assert.AreEqual("a>b;", b.ToString());
         }
 
@@ -229,7 +263,9 @@ namespace Adam.JSGenerator.Tests
         public void BinaryOperationExpressionSupportsGreaterThanOrEqualTo()
         {
             var b = A.IsGreaterThanOrEqualTo(B);
+            Assert.AreEqual("a>=b;", b.ToString());
 
+            b = A >= B;
             Assert.AreEqual("a>=b;", b.ToString());
         }
 
@@ -237,7 +273,9 @@ namespace Adam.JSGenerator.Tests
         public void BinaryOperationExpressionSupportsLessThan()
         {
             var b = A.IsLessThan(B);
+            Assert.AreEqual("a<b;", b.ToString());
 
+            b = A < B;
             Assert.AreEqual("a<b;", b.ToString());
         }
 
@@ -245,7 +283,9 @@ namespace Adam.JSGenerator.Tests
         public void BinaryOperationExpressionSupportsLessThanOrEqualTo()
         {
             var b = A.IsLessThanOrEqualTo(B);
+            Assert.AreEqual("a<=b;", b.ToString());
 
+            b = A <= B;
             Assert.AreEqual("a<=b;", b.ToString());
         }
 

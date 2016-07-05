@@ -194,5 +194,194 @@ namespace Adam.JSGenerator
 
 			return result;
 		}
-	}
+
+        #region Overloaded operators
+
+        #region Binary operation expressions
+
+        /// <summary>
+        /// Creates a new instance of <see cref="BinaryOperationExpression" /> that adds one expression to another.
+        /// </summary>
+        /// <param name="expression">The left side of the addition.</param>
+        /// <param name="operand">The right side of the addition.</param>
+        /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
+        public static BinaryOperationExpression operator +(Expression expression, Expression operand)
+        {
+            return new BinaryOperationExpression(expression, operand, BinaryOperator.Add);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="BinaryOperationExpression" /> that subtracts one expression from another.
+        /// </summary>
+        /// <param name="expression">The left side of the subtraction.</param>
+        /// <param name="operand">The right side of the subtraction.</param>
+        /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
+        public static BinaryOperationExpression operator -(Expression expression, Expression operand)
+        {
+            return new BinaryOperationExpression(expression, operand, BinaryOperator.Subtract);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="BinaryOperationExpression" /> that multiplies one expression by another.
+        /// </summary>
+        /// <param name="expression">The left side of the multiplication.</param>
+        /// <param name="operand">The right side of the multiplication.</param>
+        /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
+        public static BinaryOperationExpression operator *(Expression expression, Expression operand)
+        {
+            return new BinaryOperationExpression(expression, operand, BinaryOperator.Multiply);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="BinaryOperationExpression" /> that divides one expression by another.
+        /// </summary>
+        /// <param name="expression">The left side of the division.</param>
+        /// <param name="operand">The right side of the division.</param>
+        /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
+        public static BinaryOperationExpression operator /(Expression expression, Expression operand)
+        {
+            return new BinaryOperationExpression(expression, operand, BinaryOperator.Divide);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="BinaryOperationExpression" /> that computes the remainder of a division.
+        /// </summary>
+        /// <param name="expression">The left side of the remainder operation.</param>
+        /// <param name="operand">The right side of the remainder operation.</param>
+        /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
+        public static BinaryOperationExpression operator %(Expression expression, Expression operand)
+        {
+            return new BinaryOperationExpression(expression, operand, BinaryOperator.Remain);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs a bitwise and operation.
+        /// </summary>
+        /// <param name="expression">The left side of the bitwise and operation.</param>
+        /// <param name="operand">The right side of the bitwise and operation.</param>
+        /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
+        public static BinaryOperationExpression operator &(Expression expression, Expression operand)
+        {
+            return new BinaryOperationExpression(expression, operand, BinaryOperator.BitwiseAnd);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs a bitwise or operation.
+        /// </summary>
+        /// <param name="expression">The left side of the bitwise or operation.</param>
+        /// <param name="operand">The right side of the bitwise or operation.</param>
+        /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
+        public static BinaryOperationExpression operator |(Expression expression, Expression operand)
+        {
+            return new BinaryOperationExpression(expression, operand, BinaryOperator.BitwiseOr);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs a bitwise exclusive or operation.
+        /// </summary>
+        /// <param name="expression">The left side of the bitwise exclusive or operation.</param>
+        /// <param name="operand">The right side of the bitwise exclusive or operation.</param>
+        /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
+        public static BinaryOperationExpression operator ^(Expression expression, Expression operand)
+        {
+            return new BinaryOperationExpression(expression, operand, BinaryOperator.BitwiseXor);
+        }
+        
+        /// <summary>
+        /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs a greater-than comparison.
+        /// </summary>
+        /// <param name="expression">The left side of the greater-than comparison.</param>
+        /// <param name="operand">The right side of the greater-than comparison.</param>
+        /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
+        public static BinaryOperationExpression operator >(Expression expression, Expression operand)
+        {
+            return new BinaryOperationExpression(expression, operand, BinaryOperator.GreaterThan);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs a greater-than-or-equal comparison.
+        /// </summary>
+        /// <param name="expression">The left side of the comparison.</param>
+        /// <param name="operand">The right side of the comparison.</param>
+        /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
+        public static BinaryOperationExpression operator >=(Expression expression, Expression operand)
+        {
+            return new BinaryOperationExpression(expression, operand, BinaryOperator.GreaterThanOrEqualTo);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs a less-than comparison.
+        /// </summary>
+        /// <param name="expression">The left side of the less-than comparison.</param>
+        /// <param name="operand">The right side of the less-than comparison.</param>
+        /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
+        public static BinaryOperationExpression operator <(Expression expression, Expression operand)
+	    {
+            return new BinaryOperationExpression(expression, operand, BinaryOperator.LessThan);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="BinaryOperationExpression" /> that performs a less-than-or-equal comparison.
+        /// </summary>
+        /// <param name="expression">The left side of the less-than comparison.</param>
+        /// <param name="operand">The right side of the less-than comparison.</param>
+        /// <returns>a new instance of <see cref="BinaryOperationExpression" />.</returns>
+        public static BinaryOperationExpression operator <=(Expression expression, Expression operand)
+	    {
+	        return new BinaryOperationExpression(expression, operand, BinaryOperator.LessThanOrEqualTo);
+	    }
+        
+        #endregion
+
+        #region Unary operation expressions
+
+        /// <summary>
+        /// Creates a new instance of <see cref="UnaryOperationExpression" /> that converts an expression to a number.
+        /// </summary>
+        /// <param name="expression">The expression to convert to a number.</param>
+        /// <returns>a new instance of <see cref="UnaryOperationExpression" /></returns>
+        /// <remarks>
+        /// Even though some sources state that the unary + operator is close to a no-op, the standard ECMA-262 clearly states its
+        /// purpose on p.72: to convert an expression to a number. If the expression cannot be converted, NaN is returned.
+        /// </remarks>
+        public static UnaryOperationExpression operator +(Expression expression)
+        {
+            return new UnaryOperationExpression(expression, UnaryOperator.Number);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="UnaryOperationExpression" /> that negates the specified expression.
+        /// </summary>
+        /// <param name="expression">The expression to negate.</param>
+        /// <returns>a new instance of <see cref="UnaryOperationExpression" /></returns>
+        public static UnaryOperationExpression operator -(Expression expression)
+        {
+            return new UnaryOperationExpression(expression, UnaryOperator.Negative);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="UnaryOperationExpression" /> that performs a bitwise not operation.
+        /// </summary>
+        /// <param name="expression">The expression on which to perform a bitwise not operation.</param>
+        /// <returns>a new instance of <see cref="UnaryOperationExpression" /></returns>
+        public static UnaryOperationExpression operator ~(Expression expression)
+        {
+            return new UnaryOperationExpression(expression, UnaryOperator.BitwiseNot);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="UnaryOperationExpression" /> that performs a logical not operation.
+        /// </summary>
+        /// <param name="expression">The expression on which to perform a logical not operation.</param>
+        /// <returns>a new instance of <see cref="UnaryOperationExpression" /></returns>
+        public static UnaryOperationExpression operator !(Expression expression)
+	    {
+	        return new UnaryOperationExpression(expression, UnaryOperator.LogicalNot);
+	    }
+
+	    #endregion
+
+        #endregion
+
+    }
 }
