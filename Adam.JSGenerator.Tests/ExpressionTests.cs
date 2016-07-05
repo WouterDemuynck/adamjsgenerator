@@ -38,6 +38,7 @@ namespace Adam.JSGenerator.Tests
             Expression i = 5;
             Expression d = 3.14;
             Expression s = "Hello, World!";
+            Expression sn = (string) null;
             Expression arr = new[] {1, 2, 3};
 
             Assert.AreEqual("true;", t.ToString());
@@ -45,6 +46,7 @@ namespace Adam.JSGenerator.Tests
             Assert.AreEqual("5;", i.ToString());
             Assert.AreEqual("3.14;", d.ToString());
             Assert.AreEqual("\"Hello, World!\";", s.ToString());
+            Assert.AreEqual("null;", sn.ToString());
             Assert.AreEqual("[1,2,3];", arr.ToString());
         }
 
@@ -56,6 +58,7 @@ namespace Adam.JSGenerator.Tests
             Expression i = Expression.FromInteger(5);
             Expression d = Expression.FromDouble(3.14);
             Expression s = Expression.FromString("Hello, World!");
+            Expression sn = Expression.FromString(null);
             Expression arr = Expression.FromArray(new[] { 1, 2, 3 });
 
             Assert.AreEqual("true;", t.ToString());
@@ -63,6 +66,7 @@ namespace Adam.JSGenerator.Tests
             Assert.AreEqual("5;", i.ToString());
             Assert.AreEqual("3.14;", d.ToString());
             Assert.AreEqual("\"Hello, World!\";", s.ToString());
+            Assert.AreEqual("null;", sn.ToString());
             Assert.AreEqual("[1,2,3];", arr.ToString());
         }
 
