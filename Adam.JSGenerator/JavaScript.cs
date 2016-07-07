@@ -704,7 +704,7 @@ namespace Adam.JSGenerator
 		/// </remarks>
 		public static ObjectLiteralExpression Object(object value)
 		{
-			return new ObjectLiteralExpression(GetValues(value));
+			return new ObjectLiteralExpression(value);
 		}
 
 		/// <summary>
