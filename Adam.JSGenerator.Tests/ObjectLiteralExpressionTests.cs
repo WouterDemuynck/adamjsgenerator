@@ -16,7 +16,7 @@ namespace Adam.JSGenerator.Tests
         }
 
         [TestMethod]
-        public void ObjectLiteralExpressionProducesObjectLiterals()
+        public void ObjectLiteralExpressionProducesObjectLiteralFromDictionary()
         {
             var expression = new ObjectLiteralExpression(new Dictionary<Expression, Expression>
             {
@@ -24,6 +24,21 @@ namespace Adam.JSGenerator.Tests
                 {JS.Id("b"), JS.String("Wrong!")},
                 {JS.Id("c"), null}
             });
+
+            Assert.AreEqual(3, expression.Properties.Count);
+            Assert.AreEqual("{a:12,b:\"Wrong!\",c:null};", expression.ToString());
+        }
+
+        [TestMethod]
+        public void ObjectLiteralExpressionProducesObjectLiteralFromObject()
+        {
+            var expression = new ObjectLiteralExpression(
+                new
+                {
+                    a = JS.Number(12),
+                    b = JS.String("Wrong!"),
+                    c = (Expression) null
+                });
 
             Assert.AreEqual(3, expression.Properties.Count);
             Assert.AreEqual("{a:12,b:\"Wrong!\",c:null};", expression.ToString());

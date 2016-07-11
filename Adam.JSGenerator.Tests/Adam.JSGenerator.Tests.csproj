@@ -69,7 +69,6 @@
     <Compile Include="ExpressionTests.cs" />
     <Compile Include="FunctionExpressionTests.cs" />
     <Compile Include="GenerateJavaScriptOptionsTests.cs" />
-    <Compile Include="Helpers\FakeDictionary.cs" />
     <Compile Include="IdentifierExpressionTests.cs" />
     <Compile Include="IndexOperationExpressionTests.cs" />
     <Compile Include="IteratorStatementTests.cs" />

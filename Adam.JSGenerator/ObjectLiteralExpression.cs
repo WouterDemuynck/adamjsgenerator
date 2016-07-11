@@ -31,6 +31,17 @@ namespace Adam.JSGenerator
                 : new Dictionary<Expression, Expression>();
         }
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="ObjectLiteralExpression" />.
+        /// </summary>
+        /// <param name="value">The object whose properties will be represented by the object literal.</param>
+        /// <remarks>
+        /// This method calls <see cref="JS.GetValues" /> to retrieve all the properties of the specified object.
+        /// </remarks>
+        public ObjectLiteralExpression(object value) : this(JS.GetValues(value))
+        {
+        }
+
     	/// <summary>
     	/// Appends the script to represent this object to the StringBuilder.
     	/// </summary>

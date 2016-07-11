@@ -103,7 +103,7 @@ namespace Adam.JSGenerator
 		/// <returns>The <see cref="StringExpression" /> object that represents its value.</returns>
 		public static implicit operator Expression(string value)
 		{
-			return value != null ? (Expression)new StringExpression(value) : new NullExpression();
+			return FromString(value);
 		}
 
 		/// <summary>
@@ -113,7 +113,7 @@ namespace Adam.JSGenerator
 		/// <returns>The <see cref="StringExpression" /> object that represents its value.</returns>
 		public static Expression FromString(string value)
 		{
-			return new StringExpression(value);
+			return value != null ? (Expression)new StringExpression(value) : new NullExpression();
 		}
 
 		/// <summary>
